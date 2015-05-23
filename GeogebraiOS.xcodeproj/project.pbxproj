@@ -5999,7 +5999,6 @@
 		85D115151B0C97D4007E3BC6 /* GDimensionI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDimensionI.h; sourceTree = "<group>"; };
 		85D115161B0C97D4007E3BC6 /* GDimensionI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDimensionI.m; sourceTree = "<group>"; };
 		85D115171B0C97D4007E3BC6 /* CommandLineArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandLineArguments.h; sourceTree = "<group>"; };
-		85D115181B0C97D4007E3BC6 /* CommandLineArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandLineArguments.m; sourceTree = "<group>"; };
 		85D1151A1B0C97D4007E3BC6 /* EuclidianControllerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianControllerI.h; sourceTree = "<group>"; };
 		85D1151B1B0C97D4007E3BC6 /* EuclidianControllerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EuclidianControllerI.m; sourceTree = "<group>"; };
 		85D1151C1B0C97D4007E3BC6 /* EuclidianViewI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianViewI.h; sourceTree = "<group>"; };
@@ -14375,7 +14374,6 @@
 			children = (
 				85D115121B0C97D4007E3BC6 /* awt */,
 				85D115171B0C97D4007E3BC6 /* CommandLineArguments.h */,
-				85D115181B0C97D4007E3BC6 /* CommandLineArguments.m */,
 				85D115191B0C97D4007E3BC6 /* euclidian */,
 				85D1151E1B0C97D4007E3BC6 /* factories */,
 				85D115231B0C97D4007E3BC6 /* kernel */,
@@ -24187,6 +24185,7 @@
 				85D1C4901B0C815C007E3BC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85D1C4911B0C815C007E3BC6 /* Build configuration list for PBXNativeTarget "GeogebraiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -24195,6 +24194,7 @@
 				85D1C4931B0C815C007E3BC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

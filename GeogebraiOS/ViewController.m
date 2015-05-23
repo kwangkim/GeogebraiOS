@@ -10,6 +10,10 @@
 #import "AppI.h"
 #import "AlgebraProcessor.h"
 #import "Kernel.h"
+#import "Construction.h"
+#import "GeoPoint.h"
+#import "AlgoMidpoint.h"
+
 
 @interface ViewController ()
 
@@ -21,17 +25,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     AppI* app = [[AppI alloc] init];
-    GeogebraCommonKernelCommandsAlgebraProcessor* ap = [[app getKernel] getAlgebraProcessor];
+    GeogebraCommonKernelKernel* kernel = [app getKernel];
+    GeogebraCommonKernelConstruction* cons = [[GeogebraCommonKernelConstruction alloc] initWithGeogebraCommonKernelKernel:kernel];
+    GeogebraCommonKernelGeosGeoPoint* A = [[GeogebraCommonKernelGeosGeoPoint alloc] initWithGeogebraCommonKernelConstruction:cons withDouble:1 withDouble:1 withDouble:1];
+    GeogebraCommonKernelGeosGeoPoint* B = [[GeogebraCommonKernelGeosGeoPoint alloc] initWithGeogebraCommonKernelConstruction:cons withDouble:3 withDouble:2 withDouble:1];
+    GeogebraCommonKernelAlgosAlgoMidpoint* algo = [[GeogebraCommonKernelAlgosAlgoMidpoint alloc] initWithGeogebraCommonKernelConstruction:cons withGeogebraCommonKernelGeosGeoPoint:A withGeogebraCommonKernelGeosGeoPoint:B];
+    GeogebraCommonKernelGeosGeoPoint* M = [algo getPoint];
+    NSLog(@"Midpoint is (%lf,%lf)", M.getInhomX, M.getInhomY);
     
     
     @try{
-        NSString *s  = @"n1=24";
-        [ap processAlgebraCommandNoExceptionHandlingWithNSString:s withBoolean:false withBoolean:false withBoolean:true withBoolean:false];
-        s  = @"n2=10";
-        [ap processAlgebraCommandNoExceptionHandlingWithNSString:s withBoolean:false withBoolean:false withBoolean:true withBoolean:false];
-        s = @"n=n1+n2";
-        [ap processAlgebraCommandNoExceptionHandlingWithNSString:s withBoolean:false withBoolean:false withBoolean:true withBoolean:false];
-        NSLog(@"success!");
+        
     }
     @catch(NSException *e){
         NSLog(@"%@", e);
