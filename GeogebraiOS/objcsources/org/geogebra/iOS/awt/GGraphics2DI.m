@@ -16,6 +16,8 @@
 #import "J2ObjC_common.h"
 #import "GAlphaCompositeI.h"
 #import "GBasicStrokeI.h"
+#import "GeneralPathClipped.h"
+#import <QuartzCore/QuartzCore.h>
 
 static int counter = 1;
 
@@ -28,6 +30,8 @@ static int counter = 1;
     color = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:0 Alpha:255];
     currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
     currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
+    nativeDashUsed = false;
+    dash_array = nil;
     return self;
 }
 
@@ -58,12 +62,31 @@ static int counter = 1;
     [self addSubview:iv];
 }
 
+-(void)drawWithOrgGeogebraCommonAwtGShape:(id<OrgGeogebraCommonAwtGShape>)s
+{
+    CGContextRestoreGState(context);
+    //UIGraphicsBeginImageContext(self.frame.size);
+    //context = UIGraphicsGetCurrentContext();
+    
+    
+    
+    if([s class] == [OrgGeogebraCommonEuclidianGeneralPathClipped class]){
+        [self doDrawShapeWithShape: (NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)[(OrgGeogebraCommonEuclidianGeneralPathClipped*)s getGeneralPath] withBoolean:true];
+    }else{
+        [self doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)s withBoolean:true];
+    }
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
+    [self addSubview:iv];
+}
+
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation
 {
-    UIGraphicsBeginImageContext(self.frame.size);
-    context = UIGraphicsGetCurrentContext();
+    //UIGraphicsBeginImageContext(self.frame.size);
+    //context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
-    CGContextSetLineWidth(context, 2);
+    //CGContextSetLineWidth(context, 10);
     CGContextSetStrokeColorWithColor(context, [color getCGColor]);
     NSObject<OrgGeogebraGgbjdkJavaAwtGeomPathIterator> *it = [shape getPathIteratorWithOrgGeogebraCommonAwtGAffineTransform:nil];
     IOSDoubleArray* coords = [IOSDoubleArray arrayWithLength:6];
@@ -72,15 +95,31 @@ static int counter = 1;
         switch (cu) {
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_MOVETO:
                 CGContextMoveToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                if(enableDashEmulation)
+                    [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
                 break;
                 
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_LINETO:
-                CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                if(!enableDashEmulation){
+                    CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                }else{
+                    if(nativeDashUsed){
+                        CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                    }else{
+                        //double tmp[] = {5,10,2};
+                        [self drawDashedLineToX:[coords doubleAtIndex:0] toY:[coords doubleAtIndex:1] ];//withPhase:10 withPattern:tmp withCount:3];
+                    }
+                }
+                [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
                 break;
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_CUBICTO:
                 CGContextAddCurveToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3], [coords doubleAtIndex:4], [coords doubleAtIndex:5]);
+                if(enableDashEmulation)
+                    [self setLastCoordsWithX:[coords doubleAtIndex:4] withY:[coords doubleAtIndex:5]];
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_QUADTO:
                 CGContextAddQuadCurveToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3]);
+                if(enableDashEmulation)
+                    [self setLastCoordsWithX:[coords doubleAtIndex:2] withY:[coords doubleAtIndex:3]];
                 break;
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_CLOSE:
                 CGContextClosePath(context);
@@ -91,12 +130,20 @@ static int counter = 1;
         [it next];
     }
     CGContextStrokePath(context);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    //UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    //UIGraphicsEndImageContext();
     
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:iv];
+    //UIImageView* iv = [[UIImageView alloc] initWithImage:image];
+    //[self addSubview:iv];
 
+}
+
+-(void)drawDashedLineToX:(double)tx toY:(double)ty{ //withPhase:(double)phase withPattern:(const double*)pattern withCount:(int)count
+
+    //CGContextSetLineDash(context, phase, pattern, count);
+    //CGContextSetLineJoin(context, kCGLineJoinRound);
+    CGContextAddLineToPoint(context, tx, ty);
+    //CGContextSetLineDash(context, 0, nil, 0);
 }
 
 -(void)drawStringWithNSString:(NSString *)str withInt:(jint)x withInt:(jint)y
@@ -176,12 +223,46 @@ static int counter = 1;
 
 -(void)setStrokeWithOrgGeogebraCommonAwtGBasicStroke:(id<OrgGeogebraCommonAwtGBasicStroke>)s
 {
-    if(!nil_chk(s)){
+    UIGraphicsBeginImageContext(self.frame.size);
+    context = UIGraphicsGetCurrentContext();
+    if(s!=nil){
         CGContextSetLineWidth(context, [(GBasicStrokeI*)s getLineWidth]);
-        CGContextSetLineCap(context, [(GBasicStrokeI*)s cap]);
-        CGContextSetLineJoin(context, [(GBasicStrokeI*)s join]);
-        CGContextSetLineDash(context, ((GBasicStrokeI*)s).getDashPhase, ((GBasicStrokeI*)s).getDashLength, ((GBasicStrokeI*)s).getDashCount);
+        switch([(GBasicStrokeI*)s getEndCap]){
+            case GBasicStrokeI_CAP_BUTT:
+                CGContextSetLineCap(context, kCGLineCapButt);
+                break;
+            case GBasicStrokeI_CAP_ROUND:
+                CGContextSetLineCap(context, kCGLineCapRound);
+                break;
+            case GBasicStrokeI_CAP_SQUARE:
+                CGContextSetLineCap(context, kCGLineCapSquare);
+                break;
+            default:
+                CGContextSetLineCap(context, kCGLineCapRound);
+        }
+        switch ([(GBasicStrokeI*)s getLineJoin]) {
+            case GBasicStrokeI_JOIN_BEVEL:
+                CGContextSetLineJoin(context, kCGLineJoinBevel);
+                break;
+            case GBasicStrokeI_JOIN_MITER:
+                CGContextSetLineJoin(context, kCGLineJoinMiter);
+                CGContextSetMiterLimit(context, [(GBasicStrokeI*)s getMiterLimit]);
+                break;
+            case GBasicStrokeI_JOIN_ROUND:
+                CGContextSetLineJoin(context, kCGLineJoinRound);
+                break;
+            default:
+                CGContextSetLineJoin(context, kCGLineJoinRound);
+                break;
+        }
+        int size = [((GBasicStrokeI*)s) getDashArray]->size_;
+        double* tmp = malloc(size * sizeof(double));
+        for(int i = 0; i < size; i++){
+            tmp[i] = [[((GBasicStrokeI*)s) getDashArray] floatAtIndex:i];
+        }
+        CGContextSetLineDash(context, [((GBasicStrokeI*)s) getDashPhase], tmp, size);
     }
+    CGContextSaveGState(context);
 }
 
 
@@ -239,6 +320,13 @@ static int counter = 1;
     [self addSubview:iv];
 
 }
+
+-(void)setLastCoordsWithX:(double)x withY:(double)y
+{
+    pathLastX = x;
+    pathLastY = y;
+}
+
 
 
 

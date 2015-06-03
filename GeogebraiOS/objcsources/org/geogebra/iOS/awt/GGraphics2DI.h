@@ -21,14 +21,18 @@
     CGContextRef context;
     GFontI* currentFont;
     GColorI* color;
-    float* dash_array;
+    double* dash_array;
     NSObject<OrgGeogebraCommonAwtGPaint> *currentPaint;
     NSObject<OrgGeogebraCommonAwtGAffineTransform> *currentTransform;
     NSObject<OrgGeogebraCommonAwtGAffineTransform> *savedTransform;
     int graphics2Did;
+    double pathLastX, pathLastY;
+    Boolean nativeDashUsed;
 }
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation;
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx;
 -(NSObject<OrgGeogebraCommonAwtGAffineTransform>*)getTransform;
 -(GFontI*)getFont;
+-(void)setLastCoordsWithX:(double)x withY:(double)y;
+-(void)drawDashedLineToX:(double)tx toY:(double)ty;// withPhase:(double)phase withPattern:(const double*)pattern withCount:(int)count;
 @end

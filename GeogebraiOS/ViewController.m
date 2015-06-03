@@ -17,6 +17,8 @@
 #import "MyImageI.h"
 #import "GAlphaCompositeI.h"
 #import "org/geogebra/ggbjdk/java/awt/geom/Polygon.h"
+#import "org/geogebra/ggbjdk/java/awt/geom/Rectangle.h"
+#import "GBasicStrokeI.h"
 
 
 @interface ViewController ()
@@ -29,21 +31,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     GGraphics2DI* test = [[GGraphics2DI alloc] initWithFrame:CGRectMake(0, 0, 800, 1000)];
-    MyImageI* testImage = [[MyImageI alloc] initWithImage:[UIImage imageNamed:@"GeoGebra-Logo.png"] withBoolean:false];
-    [test drawImageWithOrgGeogebraCommonAwtMyImage:testImage withOrgGeogebraCommonAwtGBufferedImageOp:nil withInt:0 withInt:0];
-    [test drawStraightLineWithDouble:0 withDouble:0 withDouble:300 withDouble:600];
-    [test drawStringWithNSString:@"testtest" withInt:100 withInt:200];
-    int xInts[4] = {50, 80, 125, 70};
-    int yInts[4] = {50, 20, 30, 100};
+    //MyImageI* testImage = [[MyImageI alloc] initWithImage:[UIImage imageNamed:@"GeoGebra-Logo.png"] withBoolean:false];
+    //[test drawImageWithOrgGeogebraCommonAwtMyImage:testImage withOrgGeogebraCommonAwtGBufferedImageOp:nil withInt:0 withInt:0];
+    //[test drawStraightLineWithDouble:0 withDouble:0 withDouble:300 withDouble:600];
+    //[test drawStringWithNSString:@"testtest" withInt:100 withInt:200];
+    int xInts[4] = {50, 325, 258, 100};
+    int yInts[4] = {50, 20, 400, 300};
     IOSIntArray* xArray = [IOSIntArray arrayWithInts:xInts count:4];
     IOSIntArray* yArray = [IOSIntArray arrayWithInts:yInts count:4];
     OrgGeogebraGgbjdkJavaAwtGeomPolygon* polygon = [[OrgGeogebraGgbjdkJavaAwtGeomPolygon alloc] initWithIntArray:xArray withIntArray:yArray withInt:4];
-    [test doDrawShapeWithShape:polygon withBoolean:false];
-    [test translateWithDouble:100 withDouble:100];
-    //[test scale__WithDouble:0.5 withDouble:0.5];
-    GAlphaCompositeI* comp = [[GAlphaCompositeI alloc] initWithInt:2 withFloat:0.5];
+    OrgGeogebraGgbjdkJavaAwtGeomRectangle* rect = [[OrgGeogebraGgbjdkJavaAwtGeomRectangle alloc] initWithInt:50 withInt:50 withInt:300 withInt:200];
+    
+    float dashes[4] = {2,4,8,6};
+    GBasicStrokeI* bs = [[GBasicStrokeI alloc] initWithFloat:1 withInt:GBasicStrokeI_CAP_BUTT withInt:GBasicStrokeI_JOIN_ROUND withFloat:5 withFloatArray: [IOSFloatArray arrayWithFloats:dashes count:4] withFloat:4];
+    //polygon = [bs createStrokedShapeWithOrgGeogebraGgbjdkJavaAwtGeomShape:polygon];
+    //[test doDrawShapeWithShape:polygon withBoolean:true];
+    [test setStrokeWithOrgGeogebraCommonAwtGBasicStroke:bs];
+    [test drawWithOrgGeogebraCommonAwtGShape:polygon];
+    //[test translateWithDouble:100 withDouble:100];
+    //[test scale__WithDouble:2 withDouble:2];
+    //GAlphaCompositeI* comp = [[GAlphaCompositeI alloc] initWithInt:2 withFloat:0.5];
     //[test setCompositeWithOrgGeogebraCommonAwtGComposite:comp];
-    [test fillRectWithInt:600 withInt:600 withInt:300 withInt:300];
+    //[test fillRectWithInt:600 withInt:600 withInt:300 withInt:300];
     for (NSString* family in [UIFont familyNames])
     {
         NSLog(@"%@", family);
