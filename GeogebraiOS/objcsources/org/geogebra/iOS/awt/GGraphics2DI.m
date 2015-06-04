@@ -27,12 +27,29 @@ static int counter = 1;
     self = [super initWithFrame:frame];
     graphics2Did = counter++;
     currentFont = [[GFontI alloc] initWithFontName:@"GeogebraSans-Regular" withStyle:1 withSize:32];
-    color = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:0 Alpha:255];
+    strokeColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:0 Alpha:255];
     currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
     currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
+    bs = [[GBasicStrokeI alloc] init];
     nativeDashUsed = false;
     dash_array = nil;
     return self;
+}
+
+-(void)configureStart
+{
+    UIGraphicsBeginImageContext(self.frame.size);
+    context = UIGraphicsGetCurrentContext();
+    [self setStroke];
+    CGContextSetStrokeColorWithColor(context, strokeColor.getCGColor);
+    CGContextSetFillColorWithColor(context, fillColor.getCGColor);
+}
+
+-(void)configureEnd
+{
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self updateImage:NO withImg:img];
 }
 
 -(void)draw3DRectWithInt:(jint)x withInt:(jint)y withInt:(jint)width withInt:(jint)height withBoolean:(jboolean)raised
@@ -48,46 +65,27 @@ static int counter = 1;
 
 -(void)drawStraightLineWithDouble:(jdouble)x1 withDouble:(jdouble)y1 withDouble:(jdouble)x2 withDouble:(jdouble)y2
 {
-    UIGraphicsBeginImageContext(self.frame.size);
-    context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 2);
-    CGContextSetStrokeColorWithColor(context, [color getCGColor]);
+    [self configureStart];
     CGContextMoveToPoint(context, x1, y1);
     CGContextAddLineToPoint(context, x2, y2);
     CGContextStrokePath(context);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:iv];
+    [self configureEnd];
 }
 
 -(void)drawWithOrgGeogebraCommonAwtGShape:(id<OrgGeogebraCommonAwtGShape>)s
 {
-    CGContextRestoreGState(context);
-    //UIGraphicsBeginImageContext(self.frame.size);
-    //context = UIGraphicsGetCurrentContext();
-    
-    
-    
+    [self configureStart];
     if([s class] == [OrgGeogebraCommonEuclidianGeneralPathClipped class]){
         [self doDrawShapeWithShape: (NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)[(OrgGeogebraCommonEuclidianGeneralPathClipped*)s getGeneralPath] withBoolean:true];
     }else{
         [self doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)s withBoolean:true];
     }
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:iv];
+    [self configureEnd];
 }
 
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation
 {
-    //UIGraphicsBeginImageContext(self.frame.size);
-    //context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
-    //CGContextSetLineWidth(context, 10);
-    CGContextSetStrokeColorWithColor(context, [color getCGColor]);
     NSObject<OrgGeogebraGgbjdkJavaAwtGeomPathIterator> *it = [shape getPathIteratorWithOrgGeogebraCommonAwtGAffineTransform:nil];
     IOSDoubleArray* coords = [IOSDoubleArray arrayWithLength:6];
     while(![it isDone]){
@@ -107,7 +105,7 @@ static int counter = 1;
                         CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                     }else{
                         //double tmp[] = {5,10,2};
-                        [self drawDashedLineToX:[coords doubleAtIndex:0] toY:[coords doubleAtIndex:1] ];//withPhase:10 withPattern:tmp withCount:3];
+                        CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);//withPhase:10 withPattern:tmp withCount:3];
                     }
                 }
                 [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
@@ -130,62 +128,38 @@ static int counter = 1;
         [it next];
     }
     CGContextStrokePath(context);
-    //UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    //UIGraphicsEndImageContext();
-    
-    //UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    //[self addSubview:iv];
-
 }
 
--(void)drawDashedLineToX:(double)tx toY:(double)ty{ //withPhase:(double)phase withPattern:(const double*)pattern withCount:(int)count
-
-    //CGContextSetLineDash(context, phase, pattern, count);
-    //CGContextSetLineJoin(context, kCGLineJoinRound);
+-(void)drawDashedLineToX:(double)tx toY:(double)ty{ //withPhase:(double)phase withPattern:(const
     CGContextAddLineToPoint(context, tx, ty);
-    //CGContextSetLineDash(context, 0, nil, 0);
 }
 
 -(void)drawStringWithNSString:(NSString *)str withInt:(jint)x withInt:(jint)y
 {
-    UIGraphicsBeginImageContext(self.frame.size);
-    context = UIGraphicsGetCurrentContext();
-    CGContextSetStrokeColorWithColor(context, [color getCGColor]);
+    [self configureStart];
     CGPoint center = CGPointMake(x, y);
     CGSize stringSize = [str sizeWithFont:[currentFont getUIFont]];
     CGRect stringRect = CGRectMake(center.x-stringSize.width/2, center.y-stringSize.height/2, stringSize.width, stringSize.height);
     [str drawInRect:stringRect withFont:[currentFont getUIFont]];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:iv];
+    [self configureEnd];
 }
 
 -(void)drawStringWithNSString:(NSString *)str withFloat:(jfloat)x withFloat:(jfloat)y
 {
-    UIGraphicsBeginImageContext(self.frame.size);
-    context = UIGraphicsGetCurrentContext();
-    CGContextSetStrokeColorWithColor(context, [color getCGColor]);
+    [self configureStart];
     CGPoint center = CGPointMake(x, y);
     CGSize stringSize = [str sizeWithFont:[currentFont getUIFont]];
     CGRect stringRect = CGRectMake(center.x-stringSize.width/2, center.y-stringSize.height/2, stringSize.width, stringSize.height);
     [str drawInRect:stringRect withFont:[currentFont getUIFont]];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:iv];
+    [self configureEnd];
 }
 
 -(void)drawImageWithOrgGeogebraCommonAwtMyImage:(id<OrgGeogebraCommonAwtMyImage>)img withOrgGeogebraCommonAwtGBufferedImageOp:(id<OrgGeogebraCommonAwtGBufferedImageOp>)op withInt:(jint)x withInt:(jint)y
 {
-    UIGraphicsBeginImageContext(self.frame.size);
+    [self configureStart];
     MyImageI* imgI = (MyImageI*)img;
     [[imgI img] drawAtPoint:CGPointMake(x, y)];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:iv];
+    [self configureEnd];
 }
 
 -(void)translateWithDouble:(jdouble)tx withDouble:(jdouble)ty
@@ -223,11 +197,14 @@ static int counter = 1;
 
 -(void)setStrokeWithOrgGeogebraCommonAwtGBasicStroke:(id<OrgGeogebraCommonAwtGBasicStroke>)s
 {
-    UIGraphicsBeginImageContext(self.frame.size);
-    context = UIGraphicsGetCurrentContext();
-    if(s!=nil){
-        CGContextSetLineWidth(context, [(GBasicStrokeI*)s getLineWidth]);
-        switch([(GBasicStrokeI*)s getEndCap]){
+    bs = (GBasicStrokeI*)s;
+}
+
+-(void)setStroke
+{
+    if(bs!=nil){
+        CGContextSetLineWidth(context, [bs getLineWidth]);
+        switch([bs getEndCap]){
             case GBasicStrokeI_CAP_BUTT:
                 CGContextSetLineCap(context, kCGLineCapButt);
                 break;
@@ -240,13 +217,13 @@ static int counter = 1;
             default:
                 CGContextSetLineCap(context, kCGLineCapRound);
         }
-        switch ([(GBasicStrokeI*)s getLineJoin]) {
+        switch ([bs getLineJoin]) {
             case GBasicStrokeI_JOIN_BEVEL:
                 CGContextSetLineJoin(context, kCGLineJoinBevel);
                 break;
             case GBasicStrokeI_JOIN_MITER:
                 CGContextSetLineJoin(context, kCGLineJoinMiter);
-                CGContextSetMiterLimit(context, [(GBasicStrokeI*)s getMiterLimit]);
+                CGContextSetMiterLimit(context, [bs getMiterLimit]);
                 break;
             case GBasicStrokeI_JOIN_ROUND:
                 CGContextSetLineJoin(context, kCGLineJoinRound);
@@ -255,14 +232,15 @@ static int counter = 1;
                 CGContextSetLineJoin(context, kCGLineJoinRound);
                 break;
         }
-        int size = [((GBasicStrokeI*)s) getDashArray]->size_;
-        double* tmp = malloc(size * sizeof(double));
-        for(int i = 0; i < size; i++){
-            tmp[i] = [[((GBasicStrokeI*)s) getDashArray] floatAtIndex:i];
+        if([bs getDashArray]){
+            int size = [bs getDashArray]->size_;
+            double* tmp = malloc(size * sizeof(double));
+            for(int i = 0; i < size; i++){
+                tmp[i] = [[bs getDashArray] floatAtIndex:i];
+            }
+            CGContextSetLineDash(context, [bs getDashPhase], tmp, size);
         }
-        CGContextSetLineDash(context, [((GBasicStrokeI*)s) getDashPhase], tmp, size);
     }
-    CGContextSaveGState(context);
 }
 
 
@@ -273,7 +251,7 @@ static int counter = 1;
 
 -(OrgGeogebraCommonAwtGColor*)getColor
 {
-    return color;
+    return strokeColor;
 }
 
 -(GFontI*)getFont
@@ -310,14 +288,10 @@ static int counter = 1;
 
 -(void)fillRectWithInt:(jint)i withInt:(jint)j withInt:(jint)k withInt:(jint)l
 {
-    UIGraphicsBeginImageContext(self.frame.size);
-    context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, color.getCGColor);
+    [self configureStart];
+    CGContextSetFillColorWithColor(context, fillColor.getCGColor);
     CGContextFillRect(context, CGRectMake(i, j, k, l));
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:iv];
+    [self configureEnd];
 
 }
 
@@ -327,8 +301,29 @@ static int counter = 1;
     pathLastY = y;
 }
 
-
-
+-(void)updateImage:(Boolean)redraw withImg:(UIImage *)newImg
+{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    context = UIGraphicsGetCurrentContext();
+    if (redraw) {
+        // erase the previous image
+        image = nil;
+        
+        // I need to redraw all the lines
+    } else {
+        // set the draw point
+        [image drawAtPoint:CGPointZero];
+        [newImg drawAtPoint:CGPointZero];
+    }
+    // store the image
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    for(UIView *subview in [self subviews]) {
+        [subview removeFromSuperview];
+    }
+    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
+    [self addSubview:iv];
+}
 
 
 /*

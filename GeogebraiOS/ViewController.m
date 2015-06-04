@@ -31,10 +31,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     GGraphics2DI* test = [[GGraphics2DI alloc] initWithFrame:CGRectMake(0, 0, 800, 1000)];
-    //MyImageI* testImage = [[MyImageI alloc] initWithImage:[UIImage imageNamed:@"GeoGebra-Logo.png"] withBoolean:false];
-    //[test drawImageWithOrgGeogebraCommonAwtMyImage:testImage withOrgGeogebraCommonAwtGBufferedImageOp:nil withInt:0 withInt:0];
-    //[test drawStraightLineWithDouble:0 withDouble:0 withDouble:300 withDouble:600];
-    //[test drawStringWithNSString:@"testtest" withInt:100 withInt:200];
+    
+    MyImageI* testImage = [[MyImageI alloc] initWithImage:[UIImage imageNamed:@"GeoGebra-Logo.png"] withBoolean:false];
+    
+    
+    [test drawStringWithNSString:@"testtest" withInt:100 withInt:200];
     int xInts[4] = {50, 325, 258, 100};
     int yInts[4] = {50, 20, 400, 300};
     IOSIntArray* xArray = [IOSIntArray arrayWithInts:xInts count:4];
@@ -47,22 +48,31 @@
     //polygon = [bs createStrokedShapeWithOrgGeogebraGgbjdkJavaAwtGeomShape:polygon];
     //[test doDrawShapeWithShape:polygon withBoolean:true];
     [test setStrokeWithOrgGeogebraCommonAwtGBasicStroke:bs];
+    [test drawImageWithOrgGeogebraCommonAwtMyImage:testImage withOrgGeogebraCommonAwtGBufferedImageOp:nil withInt:0 withInt:0];
     [test drawWithOrgGeogebraCommonAwtGShape:polygon];
-    //[test translateWithDouble:100 withDouble:100];
-    //[test scale__WithDouble:2 withDouble:2];
+    [test drawWithOrgGeogebraCommonAwtGShape:rect];
+    [test drawStraightLineWithDouble:0 withDouble:0 withDouble:300 withDouble:600];
+    [test translateWithDouble:100 withDouble:100];
+    [self.view addSubview:test];
+    //[test dealloc];
+    GGraphics2DI* test2 = [[GGraphics2DI alloc] initWithFrame:CGRectMake(0, 0, 800, 1000)];
+    //[test2 drawWithOrgGeogebraCommonAwtGShape:rect];
+    [test2 drawStraightLineWithDouble:300 withDouble:0 withDouble:0 withDouble:600];
+    [self.view addSubview:test2];
+    //[test scale__WithDouble:1.2 withDouble:1.2];
     //GAlphaCompositeI* comp = [[GAlphaCompositeI alloc] initWithInt:2 withFloat:0.5];
     //[test setCompositeWithOrgGeogebraCommonAwtGComposite:comp];
-    //[test fillRectWithInt:600 withInt:600 withInt:300 withInt:300];
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
-    [self.view addSubview:test];
+    [test fillRectWithInt:250 withInt:250 withInt:300 withInt:300];
+//    for (NSString* family in [UIFont familyNames])
+//    {
+//        NSLog(@"%@", family);
+//        
+//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+//        {
+//            NSLog(@"  %@", name);
+//        }
+//    }
+    
     
     
     

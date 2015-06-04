@@ -15,16 +15,22 @@
 #import "GAffineTransform.h"
 #import "GPaint.h"
 #import "Shape.h"
+#import "GBasicStrokeI.h"
+
+
 
 @interface GGraphics2DI : UIView <OrgGeogebraCommonAwtGGraphics2D>
 {
     CGContextRef context;
     GFontI* currentFont;
-    GColorI* color;
+    GColorI* strokeColor;
+    GColorI* fillColor;
     double* dash_array;
     NSObject<OrgGeogebraCommonAwtGPaint> *currentPaint;
     NSObject<OrgGeogebraCommonAwtGAffineTransform> *currentTransform;
     NSObject<OrgGeogebraCommonAwtGAffineTransform> *savedTransform;
+    GBasicStrokeI* bs;
+    UIImage* image;
     int graphics2Did;
     double pathLastX, pathLastY;
     Boolean nativeDashUsed;
@@ -35,4 +41,7 @@
 -(GFontI*)getFont;
 -(void)setLastCoordsWithX:(double)x withY:(double)y;
 -(void)drawDashedLineToX:(double)tx toY:(double)ty;// withPhase:(double)phase withPattern:(const double*)pattern withCount:(int)count;
+-(void)updateImage:(Boolean)redraw withImg:(UIImage*)newImg;
+-(void)configureStart;
+-(void)configureEnd;
 @end
