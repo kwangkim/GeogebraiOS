@@ -16,25 +16,27 @@
 #import "GPaint.h"
 #import "Shape.h"
 #import "GBasicStrokeI.h"
-
+#import "View.h"
 
 
 @interface GGraphics2DI : UIView <OrgGeogebraCommonAwtGGraphics2D>
 {
     CGContextRef context;
-    GFontI* currentFont;
-    GColorI* strokeColor;
-    GColorI* fillColor;
     double* dash_array;
-    NSObject<OrgGeogebraCommonAwtGPaint> *currentPaint;
-    NSObject<OrgGeogebraCommonAwtGAffineTransform> *currentTransform;
-    NSObject<OrgGeogebraCommonAwtGAffineTransform> *savedTransform;
-    GBasicStrokeI* bs;
-    UIImage* image;
     int graphics2Did;
     double pathLastX, pathLastY;
     Boolean nativeDashUsed;
 }
+@property(retain) NSObject<OrgGeogebraCommonKernelView>* view;
+@property(retain) NSObject<OrgGeogebraCommonAwtGPaint> *currentPaint;
+@property(retain) NSObject<OrgGeogebraCommonAwtGAffineTransform> *currentTransform;
+@property(retain) NSObject<OrgGeogebraCommonAwtGAffineTransform> *savedTransform;
+@property(retain) GFontI* currentFont;
+@property(retain) GColorI* strokeColor;
+@property(retain) GColorI* fillColor;
+@property(retain) GBasicStrokeI* bs;
+@property(retain) UIImage* image;
+
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation;
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx;
 -(NSObject<OrgGeogebraCommonAwtGAffineTransform>*)getTransform;

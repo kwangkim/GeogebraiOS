@@ -17,6 +17,7 @@
 		858C715A1B1CBD12007F12D8 /* GeogebraSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 858C71581B1CBD12007F12D8 /* GeogebraSans-Regular.ttf */; };
 		858C715C1B1CBF72007F12D8 /* GeogebraSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 858C71591B1CBD12007F12D8 /* GeogebraSerif-Regular.ttf */; };
 		858C715F1B1D5CE8007F12D8 /* GBasicStrokeI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C715E1B1D5CE8007F12D8 /* GBasicStrokeI.m */; };
+		85A5907E1B21F77600EDA785 /* MyEuclidianViewPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5907D1B21F77600EDA785 /* MyEuclidianViewPanel.m */; };
 		85A70BF71B16123000D8F94C /* MatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEEE1B16122300D8F94C /* MatchResult.m */; };
 		85A70BF81B16123000D8F94C /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF01B16122300D8F94C /* RegExp.m */; };
 		85A70BF91B16123000D8F94C /* SplitResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF21B16122300D8F94C /* SplitResult.m */; };
@@ -3667,6 +3668,9 @@
 		858C71591B1CBD12007F12D8 /* GeogebraSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSerif-Regular.ttf"; sourceTree = "<group>"; };
 		858C715D1B1D5CE8007F12D8 /* GBasicStrokeI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBasicStrokeI.h; sourceTree = "<group>"; };
 		858C715E1B1D5CE8007F12D8 /* GBasicStrokeI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBasicStrokeI.m; sourceTree = "<group>"; };
+		85A5907B1B21F3C300EDA785 /* EuclidianPanelIAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianPanelIAbstract.h; sourceTree = "<group>"; };
+		85A5907C1B21F77600EDA785 /* MyEuclidianViewPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEuclidianViewPanel.h; sourceTree = "<group>"; };
+		85A5907D1B21F77600EDA785 /* MyEuclidianViewPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEuclidianViewPanel.m; sourceTree = "<group>"; };
 		85A700001B16122800D8F94C /* CmdSlopeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdSlopeField.m; sourceTree = "<group>"; };
 		85A700011B16122800D8F94C /* CmdTaylorSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdTaylorSeries.h; sourceTree = "<group>"; };
 		85A700021B16122800D8F94C /* CmdTaylorSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdTaylorSeries.m; sourceTree = "<group>"; };
@@ -14365,6 +14369,9 @@
 				85A741121B16325500D8F94C /* EuclidianControllerI.m */,
 				85A741131B16325500D8F94C /* EuclidianViewI.h */,
 				85A741141B16325500D8F94C /* EuclidianViewI.m */,
+				85A5907B1B21F3C300EDA785 /* EuclidianPanelIAbstract.h */,
+				85A5907C1B21F77600EDA785 /* MyEuclidianViewPanel.h */,
+				85A5907D1B21F77600EDA785 /* MyEuclidianViewPanel.m */,
 			);
 			path = euclidian;
 			sourceTree = "<group>";
@@ -21608,6 +21615,7 @@
 				85A70EAD1B16123100D8F94C /* NevilleInterpolator.m in Sources */,
 				85A714261B16123200D8F94C /* CmdZip.m in Sources */,
 				85A711041B16123100D8F94C /* BspTree.m in Sources */,
+				85A5907E1B21F77600EDA785 /* MyEuclidianViewPanel.m in Sources */,
 				85A716A41B16123300D8F94C /* Furniture.m in Sources */,
 				85A70CEE1B16123100D8F94C /* OverlayNodeFactory.m in Sources */,
 				85A719151B16123400D8F94C /* CmdZipf.m in Sources */,

@@ -35,7 +35,7 @@
     MyImageI* testImage = [[MyImageI alloc] initWithImage:[UIImage imageNamed:@"GeoGebra-Logo.png"] withBoolean:false];
     
     
-    [test drawStringWithNSString:@"testtest" withInt:100 withInt:200];
+    
     int xInts[4] = {50, 325, 258, 100};
     int yInts[4] = {50, 20, 400, 300};
     IOSIntArray* xArray = [IOSIntArray arrayWithInts:xInts count:4];
@@ -54,15 +54,16 @@
     [test drawStraightLineWithDouble:0 withDouble:0 withDouble:300 withDouble:600];
     [test translateWithDouble:100 withDouble:100];
     [self.view addSubview:test];
+    [test drawStringWithNSString:@"testtest" withInt:100 withInt:200];
     //[test dealloc];
     GGraphics2DI* test2 = [[GGraphics2DI alloc] initWithFrame:CGRectMake(0, 0, 800, 1000)];
     //[test2 drawWithOrgGeogebraCommonAwtGShape:rect];
-    [test2 drawStraightLineWithDouble:300 withDouble:0 withDouble:0 withDouble:600];
+    //[test2 drawStraightLineWithDouble:300 withDouble:0 withDouble:0 withDouble:600];
     [self.view addSubview:test2];
     //[test scale__WithDouble:1.2 withDouble:1.2];
     //GAlphaCompositeI* comp = [[GAlphaCompositeI alloc] initWithInt:2 withFloat:0.5];
     //[test setCompositeWithOrgGeogebraCommonAwtGComposite:comp];
-    [test fillRectWithInt:250 withInt:250 withInt:300 withInt:300];
+    //[test fillRectWithInt:250 withInt:250 withInt:300 withInt:300];
 //    for (NSString* family in [UIFont familyNames])
 //    {
 //        NSLog(@"%@", family);
@@ -76,23 +77,14 @@
     
     
     
-//    AppI* app = [[AppI alloc] init];
-//    OrgGeogebraCommonKernelKernel* kernel = [app getKernel];
-//    OrgGeogebraCommonKernelConstruction* cons = [[OrgGeogebraCommonKernelConstruction alloc] initWithOrgGeogebraCommonKernelKernel:kernel];
-//    OrgGeogebraCommonKernelGeosGeoPoint* A = [[OrgGeogebraCommonKernelGeosGeoPoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withDouble:1 withDouble:1 withDouble:1];
-//    OrgGeogebraCommonKernelGeosGeoPoint* B = [[OrgGeogebraCommonKernelGeosGeoPoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withDouble:3 withDouble:2 withDouble:1];
-//    OrgGeogebraCommonKernelAlgosAlgoMidpoint* algo = [[OrgGeogebraCommonKernelAlgosAlgoMidpoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withOrgGeogebraCommonKernelGeosGeoPoint:A withOrgGeogebraCommonKernelGeosGeoPoint:B];
-//    OrgGeogebraCommonKernelGeosGeoPoint* M = [algo getPoint];
-//    NSLog(@"Midpoint is (%lf,%lf)", [M getInhomX], [M getInhomY]);
-//    
-//    
-//    @try{
-//        
-//    }
-//    @catch(NSException *e){
-//        NSLog(@"%@", e);
-//    }
-    
+    AppI* app = [[AppI alloc] init];
+    OrgGeogebraCommonKernelKernel* kernel = [app getKernel];
+    OrgGeogebraCommonKernelConstruction* cons = [[OrgGeogebraCommonKernelConstruction alloc] initWithOrgGeogebraCommonKernelKernel:kernel];
+    OrgGeogebraCommonKernelGeosGeoPoint* A = [[OrgGeogebraCommonKernelGeosGeoPoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withDouble:1 withDouble:1 withDouble:1];
+    OrgGeogebraCommonKernelGeosGeoPoint* B = [[OrgGeogebraCommonKernelGeosGeoPoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withDouble:3 withDouble:2 withDouble:1];
+    OrgGeogebraCommonKernelAlgosAlgoMidpoint* algo = [[OrgGeogebraCommonKernelAlgosAlgoMidpoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withOrgGeogebraCommonKernelGeosGeoPoint:A withOrgGeogebraCommonKernelGeosGeoPoint:B];
+    OrgGeogebraCommonKernelGeosGeoPoint* M = [algo getPoint];
+    NSLog(@"Midpoint is (%lf,%lf)", [M getInhomX], [M getInhomY]);
 }
 
 - (void)didReceiveMemoryWarning {

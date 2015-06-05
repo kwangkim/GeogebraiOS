@@ -26,11 +26,11 @@ static int counter = 1;
 {
     self = [super initWithFrame:frame];
     graphics2Did = counter++;
-    currentFont = [[GFontI alloc] initWithFontName:@"GeogebraSans-Regular" withStyle:1 withSize:32];
-    strokeColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:0 Alpha:255];
-    currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
-    currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
-    bs = [[GBasicStrokeI alloc] init];
+    self.currentFont = [[GFontI alloc] initWithFontName:@"GeogebraSans-Regular" withStyle:1 withSize:32];
+    self.strokeColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:0 Alpha:255];
+    self.currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
+    self.currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
+    self.bs = [[GBasicStrokeI alloc] init];
     nativeDashUsed = false;
     dash_array = nil;
     return self;
@@ -41,8 +41,8 @@ static int counter = 1;
     UIGraphicsBeginImageContext(self.frame.size);
     context = UIGraphicsGetCurrentContext();
     [self setStroke];
-    CGContextSetStrokeColorWithColor(context, strokeColor.getCGColor);
-    CGContextSetFillColorWithColor(context, fillColor.getCGColor);
+    CGContextSetStrokeColorWithColor(context, self.strokeColor.getCGColor);
+    CGContextSetFillColorWithColor(context, self.fillColor.getCGColor);
 }
 
 -(void)configureEnd
@@ -138,9 +138,9 @@ static int counter = 1;
 {
     [self configureStart];
     CGPoint center = CGPointMake(x, y);
-    CGSize stringSize = [str sizeWithFont:[currentFont getUIFont]];
+    CGSize stringSize = [str sizeWithFont:[self.currentFont getUIFont]];
     CGRect stringRect = CGRectMake(center.x-stringSize.width/2, center.y-stringSize.height/2, stringSize.width, stringSize.height);
-    [str drawInRect:stringRect withFont:[currentFont getUIFont]];
+    [str drawInRect:stringRect withFont:[self.currentFont getUIFont]];
     [self configureEnd];
 }
 
@@ -148,9 +148,9 @@ static int counter = 1;
 {
     [self configureStart];
     CGPoint center = CGPointMake(x, y);
-    CGSize stringSize = [str sizeWithFont:[currentFont getUIFont]];
+    CGSize stringSize = [str sizeWithFont:[self.currentFont getUIFont]];
     CGRect stringRect = CGRectMake(center.x-stringSize.width/2, center.y-stringSize.height/2, stringSize.width, stringSize.height);
-    [str drawInRect:stringRect withFont:[currentFont getUIFont]];
+    [str drawInRect:stringRect withFont:[self.currentFont getUIFont]];
     [self configureEnd];
 }
 
@@ -165,24 +165,24 @@ static int counter = 1;
 -(void)translateWithDouble:(jdouble)tx withDouble:(jdouble)ty
 {
     self.transform = CGAffineTransformMakeTranslation(tx, ty);
-    [currentTransform translateWithDouble:tx withDouble:ty];
+    [self.currentTransform translateWithDouble:tx withDouble:ty];
 }
 
 -(void)scale__WithDouble:(jdouble)sx withDouble:(jdouble)sy
 {
     self.transform = CGAffineTransformMakeScale(sx, sy);
-    [currentTransform scale__WithDouble:sx withDouble:sy];
+    [self.currentTransform scale__WithDouble:sx withDouble:sy];
 }
 
 -(void)transformWithOrgGeogebraCommonAwtGAffineTransform:(id<OrgGeogebraCommonAwtGAffineTransform>)Tx
 {
     self.transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
-    [currentTransform concatenateWithOrgGeogebraCommonAwtGAffineTransform:Tx];
+    [self.currentTransform concatenateWithOrgGeogebraCommonAwtGAffineTransform:Tx];
 }
 
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx
 {
-    currentTransform = Tx;
+    self.currentTransform = Tx;
 }
 
 -(id<OrgGeogebraCommonAwtGComposite>)getComposite
@@ -197,14 +197,14 @@ static int counter = 1;
 
 -(void)setStrokeWithOrgGeogebraCommonAwtGBasicStroke:(id<OrgGeogebraCommonAwtGBasicStroke>)s
 {
-    bs = (GBasicStrokeI*)s;
+    self.bs = (GBasicStrokeI*)s;
 }
 
 -(void)setStroke
 {
-    if(bs!=nil){
-        CGContextSetLineWidth(context, [bs getLineWidth]);
-        switch([bs getEndCap]){
+    if(self.bs!=nil){
+        CGContextSetLineWidth(context, [self.bs getLineWidth]);
+        switch([self.bs getEndCap]){
             case GBasicStrokeI_CAP_BUTT:
                 CGContextSetLineCap(context, kCGLineCapButt);
                 break;
@@ -217,13 +217,13 @@ static int counter = 1;
             default:
                 CGContextSetLineCap(context, kCGLineCapRound);
         }
-        switch ([bs getLineJoin]) {
+        switch ([self.bs getLineJoin]) {
             case GBasicStrokeI_JOIN_BEVEL:
                 CGContextSetLineJoin(context, kCGLineJoinBevel);
                 break;
             case GBasicStrokeI_JOIN_MITER:
                 CGContextSetLineJoin(context, kCGLineJoinMiter);
-                CGContextSetMiterLimit(context, [bs getMiterLimit]);
+                CGContextSetMiterLimit(context, [self.bs getMiterLimit]);
                 break;
             case GBasicStrokeI_JOIN_ROUND:
                 CGContextSetLineJoin(context, kCGLineJoinRound);
@@ -232,13 +232,13 @@ static int counter = 1;
                 CGContextSetLineJoin(context, kCGLineJoinRound);
                 break;
         }
-        if([bs getDashArray]){
-            int size = [bs getDashArray]->size_;
+        if([self.bs getDashArray]){
+            int size = [self.bs getDashArray]->size_;
             double* tmp = malloc(size * sizeof(double));
             for(int i = 0; i < size; i++){
-                tmp[i] = [[bs getDashArray] floatAtIndex:i];
+                tmp[i] = [[self.bs getDashArray] floatAtIndex:i];
             }
-            CGContextSetLineDash(context, [bs getDashPhase], tmp, size);
+            CGContextSetLineDash(context, [self.bs getDashPhase], tmp, size);
         }
     }
 }
@@ -251,45 +251,45 @@ static int counter = 1;
 
 -(OrgGeogebraCommonAwtGColor*)getColor
 {
-    return strokeColor;
+    return self.strokeColor;
 }
 
 -(GFontI*)getFont
 {
-    return currentFont;
+    return self.currentFont;
 }
 
 -(void)setFontWithOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)font
 {
     if([font class] == [GFontI class]){
-        currentFont = (GFontI*) font;
+        self.currentFont = (GFontI*) font;
     }
 }
 
 -(NSObject<OrgGeogebraCommonAwtGAffineTransform>*)getTransform
 {
     NSObject<OrgGeogebraCommonAwtGAffineTransform>* ret = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc] init];
-    [ret setTransformWithOrgGeogebraCommonAwtGAffineTransform:currentTransform];
+    [ret setTransformWithOrgGeogebraCommonAwtGAffineTransform:self.currentTransform];
     return ret;
 }
 
 -(void)saveTransform
 {
-    savedTransform = [self getTransform];
+    self.savedTransform = [self getTransform];
 }
 
 -(void)restoreTransform
 {
-    if(!nil_chk(savedTransform)){
-        [self setTransformWithGAffineTransform:savedTransform];
-        savedTransform = nil;
+    if(!nil_chk(self.savedTransform)){
+        [self setTransformWithGAffineTransform:self.savedTransform];
+        self.savedTransform = nil;
     }
 }
 
 -(void)fillRectWithInt:(jint)i withInt:(jint)j withInt:(jint)k withInt:(jint)l
 {
     [self configureStart];
-    CGContextSetFillColorWithColor(context, fillColor.getCGColor);
+    CGContextSetFillColorWithColor(context, self.fillColor.getCGColor);
     CGContextFillRect(context, CGRectMake(i, j, k, l));
     [self configureEnd];
 
@@ -307,24 +307,23 @@ static int counter = 1;
     context = UIGraphicsGetCurrentContext();
     if (redraw) {
         // erase the previous image
-        image = nil;
+        self.image = nil;
         
         // I need to redraw all the lines
     } else {
         // set the draw point
-        [image drawAtPoint:CGPointZero];
+        [self.image drawAtPoint:CGPointZero];
         [newImg drawAtPoint:CGPointZero];
     }
     // store the image
-    image = UIGraphicsGetImageFromCurrentImageContext();
+    self.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     for(UIView *subview in [self subviews]) {
         [subview removeFromSuperview];
     }
-    UIImageView* iv = [[UIImageView alloc] initWithImage:image];
+    UIImageView* iv = [[UIImageView alloc] initWithImage:self.image];
     [self addSubview:iv];
 }
-
 
 /*
 // Only override drawRect: if you perform custom drawing.
