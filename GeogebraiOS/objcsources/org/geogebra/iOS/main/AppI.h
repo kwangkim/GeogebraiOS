@@ -9,10 +9,12 @@
 #import "App.h"
 #include "org/geogebra/common/main/App.h"
 #include "LocalizationI.h"
+#import "EuclidianPanelIAbstract.h"
 
 @interface AppI : OrgGeogebraCommonMainApp{
 }
 @property(retain) LocalizationI* loc;
+@property(retain) NSObject<EuclidianPanelIAbstract>* euclidianViewPanel;
 //-(void)initFactories{
     
 //}

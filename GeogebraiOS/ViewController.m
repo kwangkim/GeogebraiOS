@@ -85,6 +85,7 @@
     OrgGeogebraCommonKernelAlgosAlgoMidpoint* algo = [[OrgGeogebraCommonKernelAlgosAlgoMidpoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withOrgGeogebraCommonKernelGeosGeoPoint:A withOrgGeogebraCommonKernelGeosGeoPoint:B];
     OrgGeogebraCommonKernelGeosGeoPoint* M = [algo getPoint];
     NSLog(@"Midpoint is (%lf,%lf)", [M getInhomX], [M getInhomY]);
+    
 }
 
 - (void)didReceiveMemoryWarning {

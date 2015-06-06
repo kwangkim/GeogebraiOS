@@ -22,10 +22,11 @@
 static int counter = 1;
 
 @implementation GGraphics2DI
--(id)initWithFrame:(CGRect)frame
+-(id)initWithContext:(CGContextRef)c
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     graphics2Did = counter++;
+    self.context = c;
     self.currentFont = [[GFontI alloc] initWithFontName:@"GeogebraSans-Regular" withStyle:1 withSize:32];
     self.strokeColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:0 Alpha:255];
     self.currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
@@ -38,18 +39,18 @@ static int counter = 1;
 
 -(void)configureStart
 {
-    UIGraphicsBeginImageContext(self.frame.size);
-    context = UIGraphicsGetCurrentContext();
+    //UIGraphicsBeginImageContext(self.frame.size);
+    //context = UIGraphicsGetCurrentContext();
     [self setStroke];
-    CGContextSetStrokeColorWithColor(context, self.strokeColor.getCGColor);
-    CGContextSetFillColorWithColor(context, self.fillColor.getCGColor);
+    CGContextSetStrokeColorWithColor(self.context, self.strokeColor.getCGColor);
+    CGContextSetFillColorWithColor(self.context, self.fillColor.getCGColor);
 }
 
 -(void)configureEnd
 {
-    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    [self updateImage:NO withImg:img];
+    //UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    //UIGraphicsEndImageContext();
+    //[self updateImage:NO withImg:img];
 }
 
 -(void)draw3DRectWithInt:(jint)x withInt:(jint)y withInt:(jint)width withInt:(jint)height withBoolean:(jboolean)raised
@@ -66,9 +67,9 @@ static int counter = 1;
 -(void)drawStraightLineWithDouble:(jdouble)x1 withDouble:(jdouble)y1 withDouble:(jdouble)x2 withDouble:(jdouble)y2
 {
     [self configureStart];
-    CGContextMoveToPoint(context, x1, y1);
-    CGContextAddLineToPoint(context, x2, y2);
-    CGContextStrokePath(context);
+    CGContextMoveToPoint(self.context, x1, y1);
+    CGContextAddLineToPoint(self.context, x2, y2);
+    CGContextStrokePath(self.context);
     [self configureEnd];
 }
 
@@ -85,53 +86,53 @@ static int counter = 1;
 
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation
 {
-    CGContextBeginPath(context);
+    CGContextBeginPath(self.context);
     NSObject<OrgGeogebraGgbjdkJavaAwtGeomPathIterator> *it = [shape getPathIteratorWithOrgGeogebraCommonAwtGAffineTransform:nil];
     IOSDoubleArray* coords = [IOSDoubleArray arrayWithLength:6];
     while(![it isDone]){
         int cu = [it currentSegmentWithDoubleArray:coords];
         switch (cu) {
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_MOVETO:
-                CGContextMoveToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                CGContextMoveToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                 if(enableDashEmulation)
                     [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
                 break;
                 
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_LINETO:
                 if(!enableDashEmulation){
-                    CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                    CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                 }else{
                     if(nativeDashUsed){
-                        CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                        CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                     }else{
                         //double tmp[] = {5,10,2};
-                        CGContextAddLineToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);//withPhase:10 withPattern:tmp withCount:3];
+                        CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);//withPhase:10 withPattern:tmp withCount:3];
                     }
                 }
                 [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
                 break;
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_CUBICTO:
-                CGContextAddCurveToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3], [coords doubleAtIndex:4], [coords doubleAtIndex:5]);
+                CGContextAddCurveToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3], [coords doubleAtIndex:4], [coords doubleAtIndex:5]);
                 if(enableDashEmulation)
                     [self setLastCoordsWithX:[coords doubleAtIndex:4] withY:[coords doubleAtIndex:5]];
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_QUADTO:
-                CGContextAddQuadCurveToPoint(context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3]);
+                CGContextAddQuadCurveToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3]);
                 if(enableDashEmulation)
                     [self setLastCoordsWithX:[coords doubleAtIndex:2] withY:[coords doubleAtIndex:3]];
                 break;
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_CLOSE:
-                CGContextClosePath(context);
+                CGContextClosePath(self.context);
                 break;
             default:
                 break;
         }
         [it next];
     }
-    CGContextStrokePath(context);
+    CGContextStrokePath(self.context);
 }
 
 -(void)drawDashedLineToX:(double)tx toY:(double)ty{ //withPhase:(double)phase withPattern:(const
-    CGContextAddLineToPoint(context, tx, ty);
+    CGContextAddLineToPoint(self.context, tx, ty);
 }
 
 -(void)drawStringWithNSString:(NSString *)str withInt:(jint)x withInt:(jint)y
@@ -164,19 +165,22 @@ static int counter = 1;
 
 -(void)translateWithDouble:(jdouble)tx withDouble:(jdouble)ty
 {
-    self.transform = CGAffineTransformMakeTranslation(tx, ty);
+    
+    CGContextTranslateCTM(self.context, tx, ty);
     [self.currentTransform translateWithDouble:tx withDouble:ty];
 }
 
 -(void)scale__WithDouble:(jdouble)sx withDouble:(jdouble)sy
 {
-    self.transform = CGAffineTransformMakeScale(sx, sy);
+    CGContextScaleCTM(self.context, sx, sy);
     [self.currentTransform scale__WithDouble:sx withDouble:sy];
 }
 
 -(void)transformWithOrgGeogebraCommonAwtGAffineTransform:(id<OrgGeogebraCommonAwtGAffineTransform>)Tx
 {
-    self.transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
+    
+    CGAffineTransform transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
+    CGContextConcatCTM(self.context, transform);
     [self.currentTransform concatenateWithOrgGeogebraCommonAwtGAffineTransform:Tx];
 }
 
@@ -185,14 +189,14 @@ static int counter = 1;
     self.currentTransform = Tx;
 }
 
--(id<OrgGeogebraCommonAwtGComposite>)getComposite
-{
-    return [[GAlphaCompositeI alloc] initWithInt:3 withFloat:self.alpha];
-}
+//-(id<OrgGeogebraCommonAwtGComposite>)getComposite
+//{
+    //return [[GAlphaCompositeI alloc] initWithInt:3 withFloat:self.alpha];
+//}
 
 -(void)setCompositeWithOrgGeogebraCommonAwtGComposite:(id<OrgGeogebraCommonAwtGComposite>)comp
 {
-    self.alpha = [((GAlphaCompositeI*)comp) getAlpha];
+    CGContextSetAlpha(self.context, [((GAlphaCompositeI*)comp) getAlpha]);
 }
 
 -(void)setStrokeWithOrgGeogebraCommonAwtGBasicStroke:(id<OrgGeogebraCommonAwtGBasicStroke>)s
@@ -203,33 +207,33 @@ static int counter = 1;
 -(void)setStroke
 {
     if(self.bs!=nil){
-        CGContextSetLineWidth(context, [self.bs getLineWidth]);
+        CGContextSetLineWidth(self.context, [self.bs getLineWidth]);
         switch([self.bs getEndCap]){
             case GBasicStrokeI_CAP_BUTT:
-                CGContextSetLineCap(context, kCGLineCapButt);
+                CGContextSetLineCap(self.context, kCGLineCapButt);
                 break;
             case GBasicStrokeI_CAP_ROUND:
-                CGContextSetLineCap(context, kCGLineCapRound);
+                CGContextSetLineCap(self.context, kCGLineCapRound);
                 break;
             case GBasicStrokeI_CAP_SQUARE:
-                CGContextSetLineCap(context, kCGLineCapSquare);
+                CGContextSetLineCap(self.context, kCGLineCapSquare);
                 break;
             default:
-                CGContextSetLineCap(context, kCGLineCapRound);
+                CGContextSetLineCap(self.context, kCGLineCapRound);
         }
         switch ([self.bs getLineJoin]) {
             case GBasicStrokeI_JOIN_BEVEL:
-                CGContextSetLineJoin(context, kCGLineJoinBevel);
+                CGContextSetLineJoin(self.context, kCGLineJoinBevel);
                 break;
             case GBasicStrokeI_JOIN_MITER:
-                CGContextSetLineJoin(context, kCGLineJoinMiter);
-                CGContextSetMiterLimit(context, [self.bs getMiterLimit]);
+                CGContextSetLineJoin(self.context, kCGLineJoinMiter);
+                CGContextSetMiterLimit(self.context, [self.bs getMiterLimit]);
                 break;
             case GBasicStrokeI_JOIN_ROUND:
-                CGContextSetLineJoin(context, kCGLineJoinRound);
+                CGContextSetLineJoin(self.context, kCGLineJoinRound);
                 break;
             default:
-                CGContextSetLineJoin(context, kCGLineJoinRound);
+                CGContextSetLineJoin(self.context, kCGLineJoinRound);
                 break;
         }
         if([self.bs getDashArray]){
@@ -238,7 +242,7 @@ static int counter = 1;
             for(int i = 0; i < size; i++){
                 tmp[i] = [[self.bs getDashArray] floatAtIndex:i];
             }
-            CGContextSetLineDash(context, [self.bs getDashPhase], tmp, size);
+            CGContextSetLineDash(self.context, [self.bs getDashPhase], tmp, size);
         }
     }
 }
@@ -289,8 +293,8 @@ static int counter = 1;
 -(void)fillRectWithInt:(jint)i withInt:(jint)j withInt:(jint)k withInt:(jint)l
 {
     [self configureStart];
-    CGContextSetFillColorWithColor(context, self.fillColor.getCGColor);
-    CGContextFillRect(context, CGRectMake(i, j, k, l));
+    CGContextSetFillColorWithColor(self.context, self.fillColor.getCGColor);
+    CGContextFillRect(self.context, CGRectMake(i, j, k, l));
     [self configureEnd];
 
 }
@@ -301,28 +305,53 @@ static int counter = 1;
     pathLastY = y;
 }
 
--(void)updateImage:(Boolean)redraw withImg:(UIImage *)newImg
+//-(void)updateImage:(Boolean)redraw withImg:(UIImage *)newImg
+//{
+//    //UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+//    self.context = UIGraphicsGetCurrentContext();
+//    if (redraw) {
+//        // erase the previous image
+//        self.image = nil;
+//        
+//        // I need to redraw all the lines
+//    } else {
+//        // set the draw point
+//        [self.image drawAtPoint:CGPointZero];
+//        [newImg drawAtPoint:CGPointZero];
+//    }
+//    // store the image
+//    self.image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    for(UIView *subview in [self subviews]) {
+//        [subview removeFromSuperview];
+//    }
+//    UIImageView* iv = [[UIImageView alloc] initWithImage:self.image];
+//    [self addSubview:iv];
+//}
+
+-(void)drawGraphicsWithG2D:(GGraphics2DI*)gother withInt:(int)x withInt:(int)y
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-    context = UIGraphicsGetCurrentContext();
-    if (redraw) {
-        // erase the previous image
-        self.image = nil;
-        
-        // I need to redraw all the lines
-    } else {
-        // set the draw point
-        [self.image drawAtPoint:CGPointZero];
-        [newImg drawAtPoint:CGPointZero];
+    if(gother){
+        [self configureStart];
+        [gother.image drawAtPoint:CGPointMake(x, y)];
+        [self configureEnd];
     }
-    // store the image
-    self.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    for(UIView *subview in [self subviews]) {
-        [subview removeFromSuperview];
-    }
-    UIImageView* iv = [[UIImageView alloc] initWithImage:self.image];
-    [self addSubview:iv];
+}
+
+-(void)fillWith:(OrgGeogebraCommonAwtGColor *)color
+{
+    self.fillColor = (GColorI*)color;
+    [self fillRectWithInt:0 withInt:0 withInt:self.canvas.size.width withInt:self.canvas.size.height];
+}
+
+-(double)getWidth
+{
+    return self.canvas.size.width;
+}
+
+-(double)getHeight
+{
+    return self.canvas.size.height;
 }
 
 /*

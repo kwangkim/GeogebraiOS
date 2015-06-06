@@ -19,6 +19,10 @@
 #include "EuclidianControllerI.h"
 #include "AwtFactoryI.h"
 #import "CommandDispatcher.h"
+#import "Settings.h"
+#import "GFont.h"
+#import "GFontI.h"
+#import "GuiManagerInterface.h"
 static Boolean isApplet;
 
 @implementation AppI
@@ -32,7 +36,7 @@ static Boolean isApplet;
             OrgGeogebraCommonFactoriesAwtFactory_set_prototype_([[AwtFactoryI alloc]init]);
             [self initKernel];
             settings_ = [companion_ newSettings];
-            //[self initEuclidianViews];
+            [self initEuclidianViews];
             initing_ = true;
       //  }
       //  @catch (NSException *exception) {
@@ -91,6 +95,21 @@ static Boolean isApplet;
 -(OrgGeogebraCommonKernelCommandsCommandDispatcher*)getCommandDispatcherWithOrgGeogebraCommonKernelKernel:(OrgGeogebraCommonKernelKernel *)k
 {
     return [[OrgGeogebraCommonKernelCommandsCommandDispatcher alloc] initWithOrgGeogebraCommonKernelKernel:k];
+}
+
+-(OrgGeogebraCommonEuclidianEuclidianView*) newEuclidianViewWithBooleanArray:(IOSBooleanArray*)showAxes1 withBoolean:(jboolean)showGrid1
+{
+    return [[EuclidianViewI alloc] initWithOrgGeogebraCommonEuclidianEuclidianController:euclidianController_ withBooleanArray:showAxes1 withBoolean:showGrid1  withInt:1 withOrgGeogebraCommonMainSettingsEuclidianSettings:[[self getSettings] getEuclidianWithInt:1] withEVPanel:self.euclidianViewPanel];
+}
+
+-(OrgGeogebraCommonAwtGFont*)getPlainFontCommon
+{
+    return [[GFontI alloc] initWithFontStyle:@"normal"];
+}
+
+-(id<OrgGeogebraCommonMainGuiManagerInterface>)getGuiManager
+{
+    return nil;
 }
 
 //-(jboolean)showViewWithInt:(jint)view{

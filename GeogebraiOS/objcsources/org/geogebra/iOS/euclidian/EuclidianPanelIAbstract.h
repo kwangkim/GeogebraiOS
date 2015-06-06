@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import "EuclidianView.h"
+#import <UIKit/UIKit.h>
 
 @protocol EuclidianPanelIAbstract <NSObject>
 @optional

@@ -10,11 +10,11 @@
 #import "GFont.h"
 
 @interface GFontI : OrgGeogebraCommonAwtGFont
-{
-    NSString *fontStyle, *fontFamily;
-    float fontSize, fontWeight;
-    UIFont* impl;
-}
+@property(retain)NSString *fontstyle, *fontfamily;
+@property float fontsize, fontweight;
+@property(retain) UIFont* impl;
 -(id)initWithFontName:(NSString*)name withStyle:(int)style withSize:(float)size;
 -(UIFont*)getUIFont;
+-(void)setFontStyle:(int)fontStyle;
+-(id)initWithFontStyle:(NSString*)fontStyle;
 @end

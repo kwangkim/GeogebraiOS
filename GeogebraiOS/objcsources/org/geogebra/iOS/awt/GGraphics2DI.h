@@ -19,14 +19,14 @@
 #import "View.h"
 
 
-@interface GGraphics2DI : UIView <OrgGeogebraCommonAwtGGraphics2D>
+@interface GGraphics2DI : NSObject <OrgGeogebraCommonAwtGGraphics2D>
 {
-    CGContextRef context;
     double* dash_array;
     int graphics2Did;
     double pathLastX, pathLastY;
     Boolean nativeDashUsed;
 }
+@property CGContextRef context;
 @property(retain) NSObject<OrgGeogebraCommonKernelView>* view;
 @property(retain) NSObject<OrgGeogebraCommonAwtGPaint> *currentPaint;
 @property(retain) NSObject<OrgGeogebraCommonAwtGAffineTransform> *currentTransform;
@@ -36,14 +36,19 @@
 @property(retain) GColorI* fillColor;
 @property(retain) GBasicStrokeI* bs;
 @property(retain) UIImage* image;
-
+@property CGRect canvas;
+-(id)initWithContext:(CGContextRef)c;
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation;
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx;
 -(NSObject<OrgGeogebraCommonAwtGAffineTransform>*)getTransform;
 -(GFontI*)getFont;
 -(void)setLastCoordsWithX:(double)x withY:(double)y;
 -(void)drawDashedLineToX:(double)tx toY:(double)ty;// withPhase:(double)phase withPattern:(const double*)pattern withCount:(int)count;
--(void)updateImage:(Boolean)redraw withImg:(UIImage*)newImg;
+//-(void)updateImage:(Boolean)redraw withImg:(UIImage*)newImg;
 -(void)configureStart;
 -(void)configureEnd;
+-(void)drawGraphicsWithG2D:(GGraphics2DI*)gother withInt:(int)x withInt:(int)y;
+-(void)fillWith:(OrgGeogebraCommonAwtGColor*)color;
+-(double)getWidth;
+-(double)getHeight;
 @end

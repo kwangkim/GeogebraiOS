@@ -19,4 +19,9 @@
     return self;
 }
 
+-(void)setViewWithOrgGeogebraCommonEuclidianEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView *)view
+{
+    view_ = view;
+}
+
 @end
