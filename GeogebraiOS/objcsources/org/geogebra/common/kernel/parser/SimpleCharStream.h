@@ -13,9 +13,26 @@
 @class JavaIoInputStream;
 @class JavaIoReader;
 
-#define OrgGeogebraCommonKernelParserSimpleCharStream_staticFlag YES
+#define OrgGeogebraCommonKernelParserSimpleCharStream_staticFlag NO
 
-@interface OrgGeogebraCommonKernelParserSimpleCharStream : NSObject
+@interface OrgGeogebraCommonKernelParserSimpleCharStream : NSObject {
+ @public
+  jint bufsize_;
+  jint available_;
+  jint tokenBegin_;
+  jint bufpos_;
+  IOSIntArray *bufline_;
+  IOSIntArray *bufcolumn_;
+  jint column_;
+  jint line_;
+  jboolean prevCharIsCR_;
+  jboolean prevCharIsLF_;
+  JavaIoReader *inputStream_;
+  IOSCharArray *buffer_;
+  jint maxNextCharInd_;
+  jint inBuf_;
+  jint tabSize_;
+}
 
 #pragma mark Public
 
@@ -55,34 +72,32 @@
                              withInt:(jint)startcolumn
                              withInt:(jint)buffersize;
 
-+ (void)adjustBeginLineColumnWithInt:(jint)newLine
+- (void)adjustBeginLineColumnWithInt:(jint)newLine
                              withInt:(jint)newCol;
 
-+ (void)backupWithInt:(jint)amount;
+- (void)backupWithInt:(jint)amount;
 
-+ (jchar)BeginToken;
+- (jchar)BeginToken;
 
-+ (void)Done;
+- (void)Done;
 
-+ (jint)getBeginColumn;
+- (jint)getBeginColumn;
 
-+ (jint)getBeginLine;
+- (jint)getBeginLine;
 
-+ (jint)getColumn;
+- (jint)getColumn;
 
-+ (jint)getEndColumn;
+- (jint)getEndColumn;
 
-+ (jint)getEndLine;
+- (jint)getEndLine;
 
-+ (NSString *)GetImage;
+- (NSString *)GetImage;
 
-+ (jint)getLine;
+- (jint)getLine;
 
-+ (IOSCharArray *)GetSuffixWithInt:(jint)len;
+- (IOSCharArray *)GetSuffixWithInt:(jint)len;
 
-+ (jint)getTabSize;
-
-+ (jchar)readChar;
+- (jchar)readChar;
 
 - (void)ReInitWithJavaIoInputStream:(JavaIoInputStream *)dstream;
 
@@ -120,119 +135,28 @@
                        withInt:(jint)startcolumn
                        withInt:(jint)buffersize;
 
-+ (void)setTabSizeWithInt:(jint)i;
-
 #pragma mark Protected
 
-+ (void)ExpandBuffWithBoolean:(jboolean)wrapAround;
+- (void)ExpandBuffWithBoolean:(jboolean)wrapAround;
 
-+ (void)FillBuff;
+- (void)FillBuff;
 
-+ (void)UpdateLineColumnWithChar:(jchar)c;
+- (jint)getTabSizeWithInt:(jint)i;
 
-#pragma mark Package-Private
+- (void)setTabSizeWithInt:(jint)i;
 
-+ (jboolean)getTrackLineColumn;
-
-+ (void)setTrackLineColumnWithBoolean:(jboolean)tlc;
+- (void)UpdateLineColumnWithChar:(jchar)c;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(OrgGeogebraCommonKernelParserSimpleCharStream)
 
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufline_, IOSIntArray *)
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufcolumn_, IOSIntArray *)
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, inputStream_, JavaIoReader *)
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, buffer_, IOSCharArray *)
+
 J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, staticFlag, jboolean)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufsize_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufsize_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_available_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, available_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, available_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, tokenBegin_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, tokenBegin_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufpos_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufpos_, jint)
-
-FOUNDATION_EXPORT IOSIntArray *OrgGeogebraCommonKernelParserSimpleCharStream_bufline_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufline_, IOSIntArray *)
-J2OBJC_STATIC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufline_, IOSIntArray *)
-
-FOUNDATION_EXPORT IOSIntArray *OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufcolumn_, IOSIntArray *)
-J2OBJC_STATIC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, bufcolumn_, IOSIntArray *)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_column_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, column_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, column_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_line_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, line_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, line_, jint)
-
-FOUNDATION_EXPORT jboolean OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsCR_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, prevCharIsCR_, jboolean)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, prevCharIsCR_, jboolean)
-
-FOUNDATION_EXPORT jboolean OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, prevCharIsLF_, jboolean)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, prevCharIsLF_, jboolean)
-
-FOUNDATION_EXPORT JavaIoReader *OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, inputStream_, JavaIoReader *)
-J2OBJC_STATIC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, inputStream_, JavaIoReader *)
-
-FOUNDATION_EXPORT IOSCharArray *OrgGeogebraCommonKernelParserSimpleCharStream_buffer_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, buffer_, IOSCharArray *)
-J2OBJC_STATIC_FIELD_SETTER(OrgGeogebraCommonKernelParserSimpleCharStream, buffer_, IOSCharArray *)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, maxNextCharInd_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, maxNextCharInd_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, inBuf_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, inBuf_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_tabSize_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, tabSize_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, tabSize_, jint)
-
-FOUNDATION_EXPORT jboolean OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, trackLineColumn_, jboolean)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserSimpleCharStream, trackLineColumn_, jboolean)
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_setTabSizeWithInt_(jint i);
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_getTabSize();
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_ExpandBuffWithBoolean_(jboolean wrapAround);
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_FillBuff();
-
-FOUNDATION_EXPORT jchar OrgGeogebraCommonKernelParserSimpleCharStream_BeginToken();
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_UpdateLineColumnWithChar_(jchar c);
-
-FOUNDATION_EXPORT jchar OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_getColumn();
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_getLine();
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_getEndColumn();
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_getEndLine();
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_getBeginColumn();
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserSimpleCharStream_getBeginLine();
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(jint amount);
 
 FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoReader_withInt_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream *self, JavaIoReader *dstream, jint startline, jint startcolumn, jint buffersize);
 
@@ -269,18 +193,6 @@ FOUNDATION_EXPORT OrgGeogebraCommonKernelParserSimpleCharStream *new_OrgGeogebra
 FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoInputStream_(OrgGeogebraCommonKernelParserSimpleCharStream *self, JavaIoInputStream *dstream);
 
 FOUNDATION_EXPORT OrgGeogebraCommonKernelParserSimpleCharStream *new_OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoInputStream_(JavaIoInputStream *dstream) NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT NSString *OrgGeogebraCommonKernelParserSimpleCharStream_GetImage();
-
-FOUNDATION_EXPORT IOSCharArray *OrgGeogebraCommonKernelParserSimpleCharStream_GetSuffixWithInt_(jint len);
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_Done();
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_adjustBeginLineColumnWithInt_withInt_(jint newLine, jint newCol);
-
-FOUNDATION_EXPORT jboolean OrgGeogebraCommonKernelParserSimpleCharStream_getTrackLineColumn();
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserSimpleCharStream_setTrackLineColumnWithBoolean_(jboolean tlc);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgGeogebraCommonKernelParserSimpleCharStream)
 

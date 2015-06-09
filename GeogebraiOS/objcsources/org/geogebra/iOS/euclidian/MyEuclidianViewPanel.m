@@ -7,18 +7,41 @@
 //
 
 #import "MyEuclidianViewPanel.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 @implementation MyEuclidianViewPanel
 -(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView *)ev
 {
-    [super init];
+    [super initWithFrame:CGRectMake(0, 0, 600, 800)];
     self.ev = ev;
-    self.canvas = self.bounds;
+    self.mySize = self.frame.size;//self.frame.size;
+    //CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    //UIGraphicsBeginImageContext(self.mySize);
+    //UIGraphicsBeginImageContext(self.mySize);
+    //self.cgcontext = UIGraphicsGetCurrentContext();
+    int bitmapByteCount;
+    int bitmapBytesPerRow;
+    
+    bitmapBytesPerRow   = (self.mySize.width * 4);
+    bitmapByteCount     = (bitmapBytesPerRow * self.mySize.height);
+    //self.cgcontext =  CGBitmapContextCreate(NULL, self.mySize.width, self.mySize.height, 8, bitmapByteCount, colorSpace, kCGBitmapByteOrder32Big);
+    CGSize size = CGSizeMake(768, 768);
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    self.cgcontext = CGBitmapContextCreate(NULL,
+                                                 size.width, size.height,
+                                                 8, size.width * 4, colorSpace,
+                                                 kCGImageAlphaPremultipliedFirst);
+    
+    CGColorSpaceRelease(colorSpace);
+    CGContextTranslateCTM(self.cgcontext, 0, 768);
+    CGContextScaleCTM(self.cgcontext, 1, -1);
     return self;
 }
--(CGRect)getCanvas
+-(CGContextRef)getContext
 {
-    return self.canvas;
+    return self.cgcontext;
 }
 -(UIView*)getEuclidianPanel
 {
@@ -27,5 +50,12 @@
 -(OrgGeogebraCommonEuclidianEuclidianView*)getEuclidianView
 {
     return self.ev;
+}
+
+-(UIImage*)getImage
+{
+    CGImageRef image = CGBitmapContextCreateImage(self.cgcontext);
+    UIImage *snapShot = [[UIImage alloc]initWithCGImage:image];
+    return snapShot;
 }
 @end

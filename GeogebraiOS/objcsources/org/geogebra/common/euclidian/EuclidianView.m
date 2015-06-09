@@ -4531,17 +4531,20 @@ jint OrgGeogebraCommonEuclidianEuclidianView_getBoldAxesWithBoolean_withInt_(jbo
 
 jdouble OrgGeogebraCommonEuclidianEuclidianView_estimateNumberHeightWithOrgGeogebraCommonAwtGFont_(OrgGeogebraCommonAwtGFont *fontAxes2) {
   OrgGeogebraCommonEuclidianEuclidianView_initialize();
-  return [((OrgGeogebraCommonUtilStringUtil *) nil_chk(OrgGeogebraCommonUtilStringUtil_get_prototype_())) estimateHeightWithNSString:@"" withOrgGeogebraCommonAwtGFont:fontAxes2];
+    return //[OrgGeogebraCommonUtilStringUtil_get_prototype_() estimateHeightWithNSString:@"" withOrgGeogebraCommonAwtGFont:fontAxes2];
+    [((OrgGeogebraCommonUtilStringUtil *) nil_chk (OrgGeogebraCommonUtilStringUtil_get_prototype_())) estimateHeightWithNSString:@"" withOrgGeogebraCommonAwtGFont:fontAxes2];
 }
 
 jdouble OrgGeogebraCommonEuclidianEuclidianView_estimateNumberWidthWithDouble_withOrgGeogebraCommonAwtGFont_(OrgGeogebraCommonEuclidianEuclidianView *self, jdouble d, OrgGeogebraCommonAwtGFont *fontAxes2) {
   NSString *s = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) formatPiEWithDouble:d withOrgGeogebraCommonUtilNumberFormatAdapter:IOSObjectArray_Get(nil_chk(self->axesNumberFormat_), 0) withOrgGeogebraCommonKernelStringTemplate:OrgGeogebraCommonKernelStringTemplate_get_defaultTemplate_()];
-  return [((OrgGeogebraCommonUtilStringUtil *) nil_chk(OrgGeogebraCommonUtilStringUtil_get_prototype_())) estimateLengthWithNSString:s withOrgGeogebraCommonAwtGFont:fontAxes2];
+    return //[OrgGeogebraCommonUtilStringUtil_get_prototype_() estimateLengthWithNSString:s withOrgGeogebraCommonAwtGFont:fontAxes2];
+    [((OrgGeogebraCommonUtilStringUtil *) nil_chk(OrgGeogebraCommonUtilStringUtil_get_prototype_())) estimateLengthWithNSString:s withOrgGeogebraCommonAwtGFont:fontAxes2];
 }
 
 jdouble OrgGeogebraCommonEuclidianEuclidianView_estimateTextWidthWithNSString_withOrgGeogebraCommonAwtGFont_(NSString *s, OrgGeogebraCommonAwtGFont *fontAxes2) {
   OrgGeogebraCommonEuclidianEuclidianView_initialize();
-  return [((OrgGeogebraCommonUtilStringUtil *) nil_chk(OrgGeogebraCommonUtilStringUtil_get_prototype_())) estimateLengthWithNSString:s withOrgGeogebraCommonAwtGFont:fontAxes2];
+    return //[OrgGeogebraCommonUtilStringUtil_get_prototype_() estimateLengthWithNSString:s withOrgGeogebraCommonAwtGFont:fontAxes2];
+    [((OrgGeogebraCommonUtilStringUtil *) nil_chk(OrgGeogebraCommonUtilStringUtil_get_prototype_())) estimateLengthWithNSString:s withOrgGeogebraCommonAwtGFont:fontAxes2];
 }
 
 id<OrgGeogebraCommonEuclidianEuclidianStyleBar> OrgGeogebraCommonEuclidianEuclidianView_getStyleBar(OrgGeogebraCommonEuclidianEuclidianView *self) {

@@ -18,6 +18,18 @@
 		858C715C1B1CBF72007F12D8 /* GeogebraSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 858C71591B1CBD12007F12D8 /* GeogebraSerif-Regular.ttf */; };
 		858C715F1B1D5CE8007F12D8 /* GBasicStrokeI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C715E1B1D5CE8007F12D8 /* GBasicStrokeI.m */; };
 		85A5907E1B21F77600EDA785 /* MyEuclidianViewPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5907D1B21F77600EDA785 /* MyEuclidianViewPanel.m */; };
+		85A590811B23FD0C00EDA785 /* GFontRenderContextI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590801B23FD0C00EDA785 /* GFontRenderContextI.m */; };
+		85A590851B2402C900EDA785 /* GTextLayoutI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590841B2402C900EDA785 /* GTextLayoutI.m */; };
+		85A590981B2419CD00EDA785 /* ConstructionException.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590911B2419CD00EDA785 /* ConstructionException.m */; };
+		85A590991B2419CD00EDA785 /* iOSXmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590931B2419CD00EDA785 /* iOSXmlParser.m */; };
+		85A5909A1B2419CD00EDA785 /* MyXMLioI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590951B2419CD00EDA785 /* MyXMLioI.m */; };
+		85A5909B1B2419CD00EDA785 /* XmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590971B2419CD00EDA785 /* XmlParser.m */; };
+		85A5909E1B24431800EDA785 /* FontManagerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5909D1B24431800EDA785 /* FontManagerI.m */; };
+		85A590A11B245B1000EDA785 /* GuiManagerInterfaceI.h in Sources */ = {isa = PBXBuildFile; fileRef = 85A590A01B2459CE00EDA785 /* GuiManagerInterfaceI.h */; };
+		85A590A21B245B1000EDA785 /* GuiManagerInterface.h in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A6F1B16123000D8F94C /* GuiManagerInterface.h */; };
+		85A590A51B245C6600EDA785 /* GuiManagerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590A41B245C6600EDA785 /* GuiManagerI.m */; };
+		85A590A91B256BAE00EDA785 /* test.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 85A590A81B2568D700EDA785 /* test.ggb */; };
+		85A590AC1B25B9C300EDA785 /* DrawEquationI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590AB1B25B9C300EDA785 /* DrawEquationI.m */; };
 		85A70BF71B16123000D8F94C /* MatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEEE1B16122300D8F94C /* MatchResult.m */; };
 		85A70BF81B16123000D8F94C /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF01B16122300D8F94C /* RegExp.m */; };
 		85A70BF91B16123000D8F94C /* SplitResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF21B16122300D8F94C /* SplitResult.m */; };
@@ -3417,7 +3429,6 @@
 		85A7193B1B16123400D8F94C /* GeoGebraColorConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A6A1B16123000D8F94C /* GeoGebraColorConstants.m */; };
 		85A7193C1B16123400D8F94C /* GeoGebraPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A6C1B16123000D8F94C /* GeoGebraPreferences.m */; };
 		85A7193D1B16123400D8F94C /* GlobalKeyDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A6E1B16123000D8F94C /* GlobalKeyDispatcher.m */; };
-		85A7193E1B16123400D8F94C /* GuiManagerInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A701B16123000D8F94C /* GuiManagerInterface.m */; };
 		85A7193F1B16123400D8F94C /* GWTKeycodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A721B16123000D8F94C /* GWTKeycodes.m */; };
 		85A719401B16123400D8F94C /* JavaKeyCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A741B16123000D8F94C /* JavaKeyCodes.m */; };
 		85A719411B16123400D8F94C /* KeyCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A761B16123000D8F94C /* KeyCodes.m */; };
@@ -3671,6 +3682,26 @@
 		85A5907B1B21F3C300EDA785 /* EuclidianPanelIAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianPanelIAbstract.h; sourceTree = "<group>"; };
 		85A5907C1B21F77600EDA785 /* MyEuclidianViewPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEuclidianViewPanel.h; sourceTree = "<group>"; };
 		85A5907D1B21F77600EDA785 /* MyEuclidianViewPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEuclidianViewPanel.m; sourceTree = "<group>"; };
+		85A5907F1B23FD0C00EDA785 /* GFontRenderContextI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFontRenderContextI.h; sourceTree = "<group>"; };
+		85A590801B23FD0C00EDA785 /* GFontRenderContextI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFontRenderContextI.m; sourceTree = "<group>"; };
+		85A590831B2402C900EDA785 /* GTextLayoutI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTextLayoutI.h; sourceTree = "<group>"; };
+		85A590841B2402C900EDA785 /* GTextLayoutI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTextLayoutI.m; sourceTree = "<group>"; };
+		85A590901B2419CD00EDA785 /* ConstructionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstructionException.h; sourceTree = "<group>"; };
+		85A590911B2419CD00EDA785 /* ConstructionException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstructionException.m; sourceTree = "<group>"; };
+		85A590921B2419CD00EDA785 /* iOSXmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSXmlParser.h; sourceTree = "<group>"; };
+		85A590931B2419CD00EDA785 /* iOSXmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSXmlParser.m; sourceTree = "<group>"; };
+		85A590941B2419CD00EDA785 /* MyXMLioI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLioI.h; sourceTree = "<group>"; };
+		85A590951B2419CD00EDA785 /* MyXMLioI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLioI.m; sourceTree = "<group>"; };
+		85A590961B2419CD00EDA785 /* XmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlParser.h; sourceTree = "<group>"; };
+		85A590971B2419CD00EDA785 /* XmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlParser.m; sourceTree = "<group>"; };
+		85A5909C1B24431800EDA785 /* FontManagerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManagerI.h; sourceTree = "<group>"; };
+		85A5909D1B24431800EDA785 /* FontManagerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontManagerI.m; sourceTree = "<group>"; };
+		85A590A01B2459CE00EDA785 /* GuiManagerInterfaceI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManagerInterfaceI.h; sourceTree = "<group>"; };
+		85A590A31B245C6600EDA785 /* GuiManagerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManagerI.h; sourceTree = "<group>"; };
+		85A590A41B245C6600EDA785 /* GuiManagerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuiManagerI.m; sourceTree = "<group>"; };
+		85A590A81B2568D700EDA785 /* test.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.ggb; sourceTree = "<group>"; };
+		85A590AA1B25B9C300EDA785 /* DrawEquationI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawEquationI.h; sourceTree = "<group>"; };
+		85A590AB1B25B9C300EDA785 /* DrawEquationI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawEquationI.m; sourceTree = "<group>"; };
 		85A700001B16122800D8F94C /* CmdSlopeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdSlopeField.m; sourceTree = "<group>"; };
 		85A700011B16122800D8F94C /* CmdTaylorSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdTaylorSeries.h; sourceTree = "<group>"; };
 		85A700021B16122800D8F94C /* CmdTaylorSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdTaylorSeries.m; sourceTree = "<group>"; };
@@ -10919,6 +10950,40 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		85A590821B2402A800EDA785 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				85A590831B2402C900EDA785 /* GTextLayoutI.h */,
+				85A590841B2402C900EDA785 /* GTextLayoutI.m */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		85A5908F1B2419CD00EDA785 /* io */ = {
+			isa = PBXGroup;
+			children = (
+				85A590901B2419CD00EDA785 /* ConstructionException.h */,
+				85A590911B2419CD00EDA785 /* ConstructionException.m */,
+				85A590921B2419CD00EDA785 /* iOSXmlParser.h */,
+				85A590931B2419CD00EDA785 /* iOSXmlParser.m */,
+				85A590941B2419CD00EDA785 /* MyXMLioI.h */,
+				85A590951B2419CD00EDA785 /* MyXMLioI.m */,
+				85A590961B2419CD00EDA785 /* XmlParser.h */,
+				85A590971B2419CD00EDA785 /* XmlParser.m */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		85A5909F1B2458CE00EDA785 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				85A590A01B2459CE00EDA785 /* GuiManagerInterfaceI.h */,
+				85A590A31B245C6600EDA785 /* GuiManagerI.h */,
+				85A590A41B245C6600EDA785 /* GuiManagerI.m */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
 		85A700151B16122800D8F94C /* algos */ = {
 			isa = PBXGroup;
 			children = (
@@ -14325,6 +14390,8 @@
 		85A741081B16325500D8F94C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				85A5909F1B2458CE00EDA785 /* gui */,
+				85A5908F1B2419CD00EDA785 /* io */,
 				85A741091B16325500D8F94C /* awt */,
 				85A741101B16325500D8F94C /* euclidian */,
 				85A741151B16325500D8F94C /* factories */,
@@ -14338,6 +14405,7 @@
 		85A741091B16325500D8F94C /* awt */ = {
 			isa = PBXGroup;
 			children = (
+				85A590821B2402A800EDA785 /* font */,
 				858C714E1B1A1492007F12D8 /* GAlphaCompositeI.h */,
 				858C714F1B1A1492007F12D8 /* GAlphaCompositeI.m */,
 				858C71421B189612007F12D8 /* GPathIteratorI.h */,
@@ -14358,6 +14426,8 @@
 				858C71541B1CA751007F12D8 /* GFontI.m */,
 				858C715D1B1D5CE8007F12D8 /* GBasicStrokeI.h */,
 				858C715E1B1D5CE8007F12D8 /* GBasicStrokeI.m */,
+				85A5907F1B23FD0C00EDA785 /* GFontRenderContextI.h */,
+				85A590801B23FD0C00EDA785 /* GFontRenderContextI.m */,
 			);
 			path = awt;
 			sourceTree = "<group>";
@@ -14413,6 +14483,10 @@
 				85A741241B16325500D8F94C /* LocalizationI.m */,
 				858C71451B19A49D007F12D8 /* MyImageI.h */,
 				858C71461B19A49D007F12D8 /* MyImageI.m */,
+				85A5909C1B24431800EDA785 /* FontManagerI.h */,
+				85A5909D1B24431800EDA785 /* FontManagerI.m */,
+				85A590AA1B25B9C300EDA785 /* DrawEquationI.h */,
+				85A590AB1B25B9C300EDA785 /* DrawEquationI.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -20393,6 +20467,7 @@
 		85D1C4621B0C815C007E3BC6 = {
 			isa = PBXGroup;
 			children = (
+				85A590A81B2568D700EDA785 /* test.ggb */,
 				858C71511B1C9DAB007F12D8 /* GeoGebra-Logo.png */,
 				85D1EF7D1B0C82BD007E3BC6 /* Security.framework */,
 				85D1EF7B1B0C82B7007E3BC6 /* libz.1.2.5.dylib */,
@@ -20537,6 +20612,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A590A91B256BAE00EDA785 /* test.ggb in Resources */,
 				858C715C1B1CBF72007F12D8 /* GeogebraSerif-Regular.ttf in Resources */,
 				85D11A961B0CEB06007E3BC6 /* Main.storyboard in Resources */,
 				85D11A971B0CEB06007E3BC6 /* LaunchScreen.xib in Resources */,
@@ -20560,6 +20636,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A590A11B245B1000EDA785 /* GuiManagerInterfaceI.h in Sources */,
+				85A590A21B245B1000EDA785 /* GuiManagerInterface.h in Sources */,
 				85A719681B16123400D8F94C /* AuthenticationModel.m in Sources */,
 				85A716D81B16123300D8F94C /* Rotateable.m in Sources */,
 				85A715BC1B16123200D8F94C /* CmdSimplify.m in Sources */,
@@ -20639,6 +20717,7 @@
 				85A712A61B16123200D8F94C /* GeoAxis3D.m in Sources */,
 				85A70CA01B16123100D8F94C /* SweepLineOverlapAction.m in Sources */,
 				85A719541B16123400D8F94C /* LayoutSettings.m in Sources */,
+				85A590A51B245C6600EDA785 /* GuiManagerI.m in Sources */,
 				85A718501B16123300D8F94C /* AlgoInversePoisson.m in Sources */,
 				85A717A21B16123300D8F94C /* PathAlgo.m in Sources */,
 				85A7170D1B16123300D8F94C /* GeoSegmentND.m in Sources */,
@@ -21589,6 +21668,7 @@
 				85A711AB1B16123100D8F94C /* AlgoAngularBisectorLines3D.m in Sources */,
 				85A718C61B16123400D8F94C /* CmdGamma.m in Sources */,
 				85A741321B16325500D8F94C /* LocalizationI.m in Sources */,
+				85A590AC1B25B9C300EDA785 /* DrawEquationI.m in Sources */,
 				85A7161C1B16123300D8F94C /* CmdRoot.m in Sources */,
 				85A714231B16123200D8F94C /* CmdUnion.m in Sources */,
 				85A716CA1B16123300D8F94C /* GeoTransferFunction.m in Sources */,
@@ -21797,6 +21877,7 @@
 				85A710871B16123100D8F94C /* GTexturePaint.m in Sources */,
 				85A70FFA1B16123100D8F94C /* JDKRandomGenerator.m in Sources */,
 				85A710851B16123100D8F94C /* GRenderingHints.m in Sources */,
+				85A5909A1B2419CD00EDA785 /* MyXMLioI.m in Sources */,
 				85A717431B16123300D8F94C /* EquationEllipseFociPoint.m in Sources */,
 				85A70D941B16123100D8F94C /* SparseMultigraph.m in Sources */,
 				85A715AD1B16123200D8F94C /* AlgoTangentFunctionPoint.m in Sources */,
@@ -22180,11 +22261,13 @@
 				85A712101B16123100D8F94C /* AlgoOrthoVectorLineDirection.m in Sources */,
 				85A711771B16123100D8F94C /* FloatArrayBuffer.m in Sources */,
 				85A718FD1B16123400D8F94C /* CmdSDY.m in Sources */,
+				85A5909B1B2419CD00EDA785 /* XmlParser.m in Sources */,
 				85A7192C1B16123400D8F94C /* UserAwarenessListener.m in Sources */,
 				85A714A51B16123200D8F94C /* AlgoIntervalMax.m in Sources */,
 				85A7159F1B16123200D8F94C /* AlgoPartialFractions.m in Sources */,
 				85A7154E1B16123200D8F94C /* SymbolicParametersBotanaAlgoAre.m in Sources */,
 				85A716251B16123300D8F94C /* CmdSpline.m in Sources */,
+				85A590851B2402C900EDA785 /* GTextLayoutI.m in Sources */,
 				85A710321B16123100D8F94C /* SumOfLogs.m in Sources */,
 				85A70E101B16123100D8F94C /* TransformedPredicate.m in Sources */,
 				85A7179F1B16123300D8F94C /* Token.m in Sources */,
@@ -22588,6 +22671,7 @@
 				85A70DA31B16123100D8F94C /* ArrayStack.m in Sources */,
 				85A718F31B16123400D8F94C /* CmdRootMeanSquare.m in Sources */,
 				85A714371B16123200D8F94C /* AlgoAngularBisectorPoints.m in Sources */,
+				85A590811B23FD0C00EDA785 /* GFontRenderContextI.m in Sources */,
 				85A711C51B16123100D8F94C /* AlgoConicPartCircumcircle3D.m in Sources */,
 				85A713551B16123200D8F94C /* FunctionInspector.m in Sources */,
 				85A70BFD1B16123000D8F94C /* CentroidArea.m in Sources */,
@@ -23228,6 +23312,7 @@
 				85A7186C1B16123300D8F94C /* AlgoOrdinalRank.m in Sources */,
 				85A713CF1B16123200D8F94C /* CmdApplyMatrix.m in Sources */,
 				85A712581B16123100D8F94C /* ExtrusionComputer.m in Sources */,
+				85A590991B2419CD00EDA785 /* iOSXmlParser.m in Sources */,
 				85A718951B16123400D8F94C /* AlgoUsingUniqueAndFrequency.m in Sources */,
 				85A711981B16123100D8F94C /* EuclidianViewFor3DCompanion.m in Sources */,
 				85A711AF1B16123100D8F94C /* AlgoArchimedeanSolidThreePoints.m in Sources */,
@@ -23424,6 +23509,7 @@
 				85A712A81B16123200D8F94C /* GeoConic3D.m in Sources */,
 				85A70C0A1B16123100D8F94C /* IndexedPointInAreaLocator.m in Sources */,
 				85A717CA1B16123300D8F94C /* RelationNumerical.m in Sources */,
+				85A590981B2419CD00EDA785 /* ConstructionException.m in Sources */,
 				85A718701B16123300D8F94C /* AlgoPoisson.m in Sources */,
 				85A711B61B16123100D8F94C /* AlgoCircle3DPointDirection.m in Sources */,
 				85A7164C1B16123300D8F94C /* Heap.m in Sources */,
@@ -23610,6 +23696,7 @@
 				85A70ECC1B16123100D8F94C /* UnivariateVectorialFunction.m in Sources */,
 				85A719B51B16123400D8F94C /* LowerCaseDictionary.m in Sources */,
 				85A7164E1B16123300D8F94C /* MaxHeapImpl.m in Sources */,
+				85A5909E1B24431800EDA785 /* FontManagerI.m in Sources */,
 				85A713681B16123200D8F94C /* CreateObjectModel.m in Sources */,
 				85A70E581B16123100D8F94C /* CaseInsensitiveMap.m in Sources */,
 				85A70D291B16123100D8F94C /* TaggedLinesSimplifier.m in Sources */,
@@ -23860,7 +23947,6 @@
 				85A713CB1B16123200D8F94C /* AlgoUnique.m in Sources */,
 				85A717D91B16123300D8F94C /* CmdParseToFunction.m in Sources */,
 				85A716701B16123300D8F94C /* VHalfEdge4.m in Sources */,
-				85A7193E1B16123400D8F94C /* GuiManagerInterface.m in Sources */,
 				85A70FAD1B16123100D8F94C /* MidpointStepInterpolator.m in Sources */,
 				85A7113E1B16123100D8F94C /* DrawPolyhedron3D.m in Sources */,
 				85A715821B16123200D8F94C /* AlgoKimberlingWeights.m in Sources */,

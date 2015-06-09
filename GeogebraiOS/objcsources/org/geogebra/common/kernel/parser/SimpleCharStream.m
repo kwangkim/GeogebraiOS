@@ -18,79 +18,159 @@
 #include "java/lang/Throwable.h"
 #include "org/geogebra/common/kernel/parser/SimpleCharStream.h"
 
-jint OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_available_;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ = -1;
-IOSIntArray *OrgGeogebraCommonKernelParserSimpleCharStream_bufline_;
-IOSIntArray *OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_column_ = 0;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_line_ = 1;
-jboolean OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsCR_ = NO;
-jboolean OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_ = NO;
-JavaIoReader *OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_;
-IOSCharArray *OrgGeogebraCommonKernelParserSimpleCharStream_buffer_;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ = 0;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_ = 0;
-jint OrgGeogebraCommonKernelParserSimpleCharStream_tabSize_ = 8;
-jboolean OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_ = YES;
-
 @implementation OrgGeogebraCommonKernelParserSimpleCharStream
 
-+ (void)setTabSizeWithInt:(jint)i {
-  OrgGeogebraCommonKernelParserSimpleCharStream_setTabSizeWithInt_(i);
+- (void)setTabSizeWithInt:(jint)i {
+  tabSize_ = i;
 }
 
-+ (jint)getTabSize {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getTabSize();
+- (jint)getTabSizeWithInt:(jint)i {
+  return tabSize_;
 }
 
-+ (void)ExpandBuffWithBoolean:(jboolean)wrapAround {
-  OrgGeogebraCommonKernelParserSimpleCharStream_ExpandBuffWithBoolean_(wrapAround);
+- (void)ExpandBuffWithBoolean:(jboolean)wrapAround {
+  IOSCharArray *newbuffer = [IOSCharArray arrayWithLength:bufsize_ + 2048];
+  IOSIntArray *newbufline = [IOSIntArray arrayWithLength:bufsize_ + 2048];
+  IOSIntArray *newbufcolumn = [IOSIntArray arrayWithLength:bufsize_ + 2048];
+  @try {
+    if (wrapAround) {
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(buffer_, tokenBegin_, newbuffer, 0, bufsize_ - tokenBegin_);
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(buffer_, 0, newbuffer, bufsize_ - tokenBegin_, bufpos_);
+      OrgGeogebraCommonKernelParserSimpleCharStream_set_buffer_(self, newbuffer);
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(bufline_, tokenBegin_, newbufline, 0, bufsize_ - tokenBegin_);
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(bufline_, 0, newbufline, bufsize_ - tokenBegin_, bufpos_);
+      OrgGeogebraCommonKernelParserSimpleCharStream_set_bufline_(self, newbufline);
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(bufcolumn_, tokenBegin_, newbufcolumn, 0, bufsize_ - tokenBegin_);
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(bufcolumn_, 0, newbufcolumn, bufsize_ - tokenBegin_, bufpos_);
+      OrgGeogebraCommonKernelParserSimpleCharStream_set_bufcolumn_(self, newbufcolumn);
+      maxNextCharInd_ = (bufpos_ += (bufsize_ - tokenBegin_));
+    }
+    else {
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(buffer_, tokenBegin_, newbuffer, 0, bufsize_ - tokenBegin_);
+      OrgGeogebraCommonKernelParserSimpleCharStream_set_buffer_(self, newbuffer);
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(bufline_, tokenBegin_, newbufline, 0, bufsize_ - tokenBegin_);
+      OrgGeogebraCommonKernelParserSimpleCharStream_set_bufline_(self, newbufline);
+      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(bufcolumn_, tokenBegin_, newbufcolumn, 0, bufsize_ - tokenBegin_);
+      OrgGeogebraCommonKernelParserSimpleCharStream_set_bufcolumn_(self, newbufcolumn);
+      maxNextCharInd_ = (bufpos_ -= tokenBegin_);
+    }
+  }
+  @catch (JavaLangThrowable *t) {
+    @throw [new_JavaLangError_initWithNSString_([((JavaLangThrowable *) nil_chk(t)) getMessage]) autorelease];
+  }
+  bufsize_ += 2048;
+  available_ = bufsize_;
+  tokenBegin_ = 0;
 }
 
-+ (void)FillBuff {
-  OrgGeogebraCommonKernelParserSimpleCharStream_FillBuff();
+- (void)FillBuff {
+  if (maxNextCharInd_ == available_) {
+    if (available_ == bufsize_) {
+      if (tokenBegin_ > 2048) {
+        bufpos_ = maxNextCharInd_ = 0;
+        available_ = tokenBegin_;
+      }
+      else if (tokenBegin_ < 0) bufpos_ = maxNextCharInd_ = 0;
+      else [self ExpandBuffWithBoolean:NO];
+    }
+    else if (available_ > tokenBegin_) available_ = bufsize_;
+    else if ((tokenBegin_ - available_) < 2048) [self ExpandBuffWithBoolean:YES];
+    else available_ = tokenBegin_;
+  }
+  jint i;
+  @try {
+    if ((i = [((JavaIoReader *) nil_chk(inputStream_)) readWithCharArray:buffer_ withInt:maxNextCharInd_ withInt:available_ - maxNextCharInd_]) == -1) {
+      [inputStream_ close];
+      @throw [new_JavaIoIOException_init() autorelease];
+    }
+    else maxNextCharInd_ += i;
+    return;
+  }
+  @catch (JavaIoIOException *e) {
+    --bufpos_;
+    [self backupWithInt:0];
+    if (tokenBegin_ == -1) tokenBegin_ = bufpos_;
+    @throw e;
+  }
 }
 
-+ (jchar)BeginToken {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_BeginToken();
+- (jchar)BeginToken {
+  tokenBegin_ = -1;
+  jchar c = [self readChar];
+  tokenBegin_ = bufpos_;
+  return c;
 }
 
-+ (void)UpdateLineColumnWithChar:(jchar)c {
-  OrgGeogebraCommonKernelParserSimpleCharStream_UpdateLineColumnWithChar_(c);
+- (void)UpdateLineColumnWithChar:(jchar)c {
+  column_++;
+  if (prevCharIsLF_) {
+    prevCharIsLF_ = NO;
+    line_ += (column_ = 1);
+  }
+  else if (prevCharIsCR_) {
+    prevCharIsCR_ = NO;
+    if (c == 0x000a) {
+      prevCharIsLF_ = YES;
+    }
+    else line_ += (column_ = 1);
+  }
+  switch (c) {
+    case 0x000d:
+    prevCharIsCR_ = YES;
+    break;
+    case 0x000a:
+    prevCharIsLF_ = YES;
+    break;
+    case 0x0009:
+    column_--;
+    column_ += (tabSize_ - (column_ % tabSize_));
+    break;
+    default:
+    break;
+  }
+  *IOSIntArray_GetRef(nil_chk(bufline_), bufpos_) = line_;
+  *IOSIntArray_GetRef(nil_chk(bufcolumn_), bufpos_) = column_;
 }
 
-+ (jchar)readChar {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+- (jchar)readChar {
+  if (inBuf_ > 0) {
+    --inBuf_;
+    if (++bufpos_ == bufsize_) bufpos_ = 0;
+    return IOSCharArray_Get(nil_chk(buffer_), bufpos_);
+  }
+  if (++bufpos_ >= maxNextCharInd_) [self FillBuff];
+  jchar c = IOSCharArray_Get(nil_chk(buffer_), bufpos_);
+  [self UpdateLineColumnWithChar:c];
+  return c;
 }
 
-+ (jint)getColumn {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getColumn();
+- (jint)getColumn {
+  return IOSIntArray_Get(nil_chk(bufcolumn_), bufpos_);
 }
 
-+ (jint)getLine {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getLine();
+- (jint)getLine {
+  return IOSIntArray_Get(nil_chk(bufline_), bufpos_);
 }
 
-+ (jint)getEndColumn {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getEndColumn();
+- (jint)getEndColumn {
+  return IOSIntArray_Get(nil_chk(bufcolumn_), bufpos_);
 }
 
-+ (jint)getEndLine {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getEndLine();
+- (jint)getEndLine {
+  return IOSIntArray_Get(nil_chk(bufline_), bufpos_);
 }
 
-+ (jint)getBeginColumn {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getBeginColumn();
+- (jint)getBeginColumn {
+  return IOSIntArray_Get(nil_chk(bufcolumn_), tokenBegin_);
 }
 
-+ (jint)getBeginLine {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getBeginLine();
+- (jint)getBeginLine {
+  return IOSIntArray_Get(nil_chk(bufline_), tokenBegin_);
 }
 
-+ (void)backupWithInt:(jint)amount {
-  OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(amount);
+- (void)backupWithInt:(jint)amount {
+  inBuf_ += amount;
+  if ((bufpos_ -= amount) < 0) bufpos_ += bufsize_;
 }
 
 - (instancetype)initWithJavaIoReader:(JavaIoReader *)dstream
@@ -117,18 +197,18 @@ jboolean OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_ = YES;
                        withInt:(jint)startline
                        withInt:(jint)startcolumn
                        withInt:(jint)buffersize {
-  JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_, nil, dstream);
-  OrgGeogebraCommonKernelParserSimpleCharStream_line_ = startline;
-  OrgGeogebraCommonKernelParserSimpleCharStream_column_ = startcolumn - 1;
-  if (OrgGeogebraCommonKernelParserSimpleCharStream_buffer_ == nil || buffersize != OrgGeogebraCommonKernelParserSimpleCharStream_buffer_->size_) {
-    OrgGeogebraCommonKernelParserSimpleCharStream_available_ = OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ = buffersize;
-    JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, nil, [IOSCharArray newArrayWithLength:buffersize]);
-    JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, nil, [IOSIntArray newArrayWithLength:buffersize]);
-    JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, nil, [IOSIntArray newArrayWithLength:buffersize]);
+  OrgGeogebraCommonKernelParserSimpleCharStream_set_inputStream_(self, dstream);
+  line_ = startline;
+  column_ = startcolumn - 1;
+  if (buffer_ == nil || buffersize != buffer_->size_) {
+    available_ = bufsize_ = buffersize;
+    OrgGeogebraCommonKernelParserSimpleCharStream_setAndConsume_buffer_(self, [IOSCharArray newArrayWithLength:buffersize]);
+    OrgGeogebraCommonKernelParserSimpleCharStream_setAndConsume_bufline_(self, [IOSIntArray newArrayWithLength:buffersize]);
+    OrgGeogebraCommonKernelParserSimpleCharStream_setAndConsume_bufcolumn_(self, [IOSIntArray newArrayWithLength:buffersize]);
   }
-  OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_ = OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsCR_ = NO;
-  OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ = OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_ = OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ = 0;
-  OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ = -1;
+  prevCharIsLF_ = prevCharIsCR_ = NO;
+  tokenBegin_ = inBuf_ = maxNextCharInd_ = 0;
+  bufpos_ = -1;
 }
 
 - (void)ReInitWithJavaIoReader:(JavaIoReader *)dstream
@@ -221,29 +301,67 @@ jboolean OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_ = YES;
   [self ReInitWithJavaIoInputStream:dstream withInt:startline withInt:startcolumn withInt:4096];
 }
 
-+ (NSString *)GetImage {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_GetImage();
+- (NSString *)GetImage {
+  if (bufpos_ >= tokenBegin_) return [NSString stringWithCharacters:buffer_ offset:tokenBegin_ length:bufpos_ - tokenBegin_ + 1];
+  else return JreStrcat("$$", [NSString stringWithCharacters:buffer_ offset:tokenBegin_ length:bufsize_ - tokenBegin_], [NSString stringWithCharacters:buffer_ offset:0 length:bufpos_ + 1]);
 }
 
-+ (IOSCharArray *)GetSuffixWithInt:(jint)len {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_GetSuffixWithInt_(len);
+- (IOSCharArray *)GetSuffixWithInt:(jint)len {
+  IOSCharArray *ret = [IOSCharArray arrayWithLength:len];
+  if ((bufpos_ + 1) >= len) JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(buffer_, bufpos_ - len + 1, ret, 0, len);
+  else {
+    JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(buffer_, bufsize_ - (len - bufpos_ - 1), ret, 0, len - bufpos_ - 1);
+    JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(buffer_, 0, ret, len - bufpos_ - 1, bufpos_ + 1);
+  }
+  return ret;
 }
 
-+ (void)Done {
-  OrgGeogebraCommonKernelParserSimpleCharStream_Done();
+- (void)Done {
+  OrgGeogebraCommonKernelParserSimpleCharStream_set_buffer_(self, nil);
+  OrgGeogebraCommonKernelParserSimpleCharStream_set_bufline_(self, nil);
+  OrgGeogebraCommonKernelParserSimpleCharStream_set_bufcolumn_(self, nil);
 }
 
-+ (void)adjustBeginLineColumnWithInt:(jint)newLine
+- (void)adjustBeginLineColumnWithInt:(jint)newLine
                              withInt:(jint)newCol {
-  OrgGeogebraCommonKernelParserSimpleCharStream_adjustBeginLineColumnWithInt_withInt_(newLine, newCol);
+  jint start = tokenBegin_;
+  jint len;
+  if (bufpos_ >= tokenBegin_) {
+    len = bufpos_ - tokenBegin_ + inBuf_ + 1;
+  }
+  else {
+    len = bufsize_ - tokenBegin_ + bufpos_ + 1 + inBuf_;
+  }
+  jint i = 0, j = 0, k = 0;
+  jint nextColDiff = 0, columnDiff = 0;
+  while (YES) {
+    jint unseq$1 = start;
+    if (!(i < len && IOSIntArray_Get(nil_chk(bufline_), j = unseq$1 % bufsize_) == IOSIntArray_Get(bufline_, k = ++start % bufsize_))) break;
+    *IOSIntArray_GetRef(nil_chk(bufline_), j) = newLine;
+    nextColDiff = columnDiff + IOSIntArray_Get(nil_chk(bufcolumn_), k) - IOSIntArray_Get(bufcolumn_, j);
+    *IOSIntArray_GetRef(bufcolumn_, j) = newCol + columnDiff;
+    columnDiff = nextColDiff;
+    i++;
+  }
+  if (i < len) {
+    *IOSIntArray_GetRef(nil_chk(bufline_), j) = newLine++;
+    *IOSIntArray_GetRef(nil_chk(bufcolumn_), j) = newCol + columnDiff;
+    while (i++ < len) {
+      jint unseq$2 = start;
+      if (IOSIntArray_Get(bufline_, j = unseq$2 % bufsize_) != IOSIntArray_Get(bufline_, ++start % bufsize_)) *IOSIntArray_GetRef(bufline_, j) = newLine++;
+      else *IOSIntArray_GetRef(bufline_, j) = newLine;
+    }
+  }
+  line_ = IOSIntArray_Get(nil_chk(bufline_), j);
+  column_ = IOSIntArray_Get(nil_chk(bufcolumn_), j);
 }
 
-+ (jboolean)getTrackLineColumn {
-  return OrgGeogebraCommonKernelParserSimpleCharStream_getTrackLineColumn();
-}
-
-+ (void)setTrackLineColumnWithBoolean:(jboolean)tlc {
-  OrgGeogebraCommonKernelParserSimpleCharStream_setTrackLineColumnWithBoolean_(tlc);
+- (void)dealloc {
+  RELEASE_(bufline_);
+  RELEASE_(bufcolumn_);
+  RELEASE_(inputStream_);
+  RELEASE_(buffer_);
+  [super dealloc];
 }
 
 + (IOSObjectArray *)__annotations_getColumn {
@@ -256,20 +374,20 @@ jboolean OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_ = YES;
 
 + (const J2ObjcClassInfo *)__metadata {
   static const J2ObjcMethodInfo methods[] = {
-    { "setTabSizeWithInt:", "setTabSize", "V", 0x9, NULL, NULL },
-    { "getTabSize", NULL, "I", 0x9, NULL, NULL },
-    { "ExpandBuffWithBoolean:", "ExpandBuff", "V", 0xc, NULL, NULL },
-    { "FillBuff", NULL, "V", 0xc, "Ljava.io.IOException;", NULL },
-    { "BeginToken", NULL, "C", 0x9, "Ljava.io.IOException;", NULL },
-    { "UpdateLineColumnWithChar:", "UpdateLineColumn", "V", 0xc, NULL, NULL },
-    { "readChar", NULL, "C", 0x9, "Ljava.io.IOException;", NULL },
-    { "getColumn", NULL, "I", 0x9, NULL, NULL },
-    { "getLine", NULL, "I", 0x9, NULL, NULL },
-    { "getEndColumn", NULL, "I", 0x9, NULL, NULL },
-    { "getEndLine", NULL, "I", 0x9, NULL, NULL },
-    { "getBeginColumn", NULL, "I", 0x9, NULL, NULL },
-    { "getBeginLine", NULL, "I", 0x9, NULL, NULL },
-    { "backupWithInt:", "backup", "V", 0x9, NULL, NULL },
+    { "setTabSizeWithInt:", "setTabSize", "V", 0x4, NULL, NULL },
+    { "getTabSizeWithInt:", "getTabSize", "I", 0x4, NULL, NULL },
+    { "ExpandBuffWithBoolean:", "ExpandBuff", "V", 0x4, NULL, NULL },
+    { "FillBuff", NULL, "V", 0x4, "Ljava.io.IOException;", NULL },
+    { "BeginToken", NULL, "C", 0x1, "Ljava.io.IOException;", NULL },
+    { "UpdateLineColumnWithChar:", "UpdateLineColumn", "V", 0x4, NULL, NULL },
+    { "readChar", NULL, "C", 0x1, "Ljava.io.IOException;", NULL },
+    { "getColumn", NULL, "I", 0x1, NULL, NULL },
+    { "getLine", NULL, "I", 0x1, NULL, NULL },
+    { "getEndColumn", NULL, "I", 0x1, NULL, NULL },
+    { "getEndLine", NULL, "I", 0x1, NULL, NULL },
+    { "getBeginColumn", NULL, "I", 0x1, NULL, NULL },
+    { "getBeginLine", NULL, "I", 0x1, NULL, NULL },
+    { "backupWithInt:", "backup", "V", 0x1, NULL, NULL },
     { "initWithJavaIoReader:withInt:withInt:withInt:", "SimpleCharStream", NULL, 0x1, NULL, NULL },
     { "initWithJavaIoReader:withInt:withInt:", "SimpleCharStream", NULL, 0x1, NULL, NULL },
     { "initWithJavaIoReader:", "SimpleCharStream", NULL, 0x1, NULL, NULL },
@@ -288,215 +406,52 @@ jboolean OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_ = YES;
     { "ReInitWithJavaIoInputStream:", "ReInit", "V", 0x1, NULL, NULL },
     { "ReInitWithJavaIoInputStream:withNSString:withInt:withInt:", "ReInit", "V", 0x1, "Ljava.io.UnsupportedEncodingException;", NULL },
     { "ReInitWithJavaIoInputStream:withInt:withInt:", "ReInit", "V", 0x1, NULL, NULL },
-    { "GetImage", NULL, "Ljava.lang.String;", 0x9, NULL, NULL },
-    { "GetSuffixWithInt:", "GetSuffix", "[C", 0x9, NULL, NULL },
-    { "Done", NULL, "V", 0x9, NULL, NULL },
-    { "adjustBeginLineColumnWithInt:withInt:", "adjustBeginLineColumn", "V", 0x9, NULL, NULL },
-    { "getTrackLineColumn", NULL, "Z", 0x8, NULL, NULL },
-    { "setTrackLineColumnWithBoolean:", "setTrackLineColumn", "V", 0x8, NULL, NULL },
+    { "GetImage", NULL, "Ljava.lang.String;", 0x1, NULL, NULL },
+    { "GetSuffixWithInt:", "GetSuffix", "[C", 0x1, NULL, NULL },
+    { "Done", NULL, "V", 0x1, NULL, NULL },
+    { "adjustBeginLineColumnWithInt:withInt:", "adjustBeginLineColumn", "V", 0x1, NULL, NULL },
   };
   static const J2ObjcFieldInfo fields[] = {
     { "staticFlag_", NULL, 0x19, "Z", NULL, NULL, .constantValue.asBOOL = OrgGeogebraCommonKernelParserSimpleCharStream_staticFlag },
-    { "bufsize_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_, NULL,  },
-    { "available_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_available_, NULL,  },
-    { "tokenBegin_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, NULL,  },
-    { "bufpos_", NULL, 0x9, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_, NULL,  },
-    { "bufline_", NULL, 0xc, "[I", &OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, NULL,  },
-    { "bufcolumn_", NULL, 0xc, "[I", &OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, NULL,  },
-    { "column_", NULL, 0xc, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_column_, NULL,  },
-    { "line_", NULL, 0xc, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_line_, NULL,  },
-    { "prevCharIsCR_", NULL, 0xc, "Z", &OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsCR_, NULL,  },
-    { "prevCharIsLF_", NULL, 0xc, "Z", &OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_, NULL,  },
-    { "inputStream_", NULL, 0xc, "Ljava.io.Reader;", &OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_, NULL,  },
-    { "buffer_", NULL, 0xc, "[C", &OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, NULL,  },
-    { "maxNextCharInd_", NULL, 0xc, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_, NULL,  },
-    { "inBuf_", NULL, 0xc, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_, NULL,  },
-    { "tabSize_", NULL, 0xc, "I", &OrgGeogebraCommonKernelParserSimpleCharStream_tabSize_, NULL,  },
-    { "trackLineColumn_", NULL, 0xc, "Z", &OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_, NULL,  },
+    { "bufsize_", NULL, 0x0, "I", NULL, NULL,  },
+    { "available_", NULL, 0x0, "I", NULL, NULL,  },
+    { "tokenBegin_", NULL, 0x0, "I", NULL, NULL,  },
+    { "bufpos_", NULL, 0x1, "I", NULL, NULL,  },
+    { "bufline_", NULL, 0x4, "[I", NULL, NULL,  },
+    { "bufcolumn_", NULL, 0x4, "[I", NULL, NULL,  },
+    { "column_", NULL, 0x4, "I", NULL, NULL,  },
+    { "line_", NULL, 0x4, "I", NULL, NULL,  },
+    { "prevCharIsCR_", NULL, 0x4, "Z", NULL, NULL,  },
+    { "prevCharIsLF_", NULL, 0x4, "Z", NULL, NULL,  },
+    { "inputStream_", NULL, 0x4, "Ljava.io.Reader;", NULL, NULL,  },
+    { "buffer_", NULL, 0x4, "[C", NULL, NULL,  },
+    { "maxNextCharInd_", NULL, 0x4, "I", NULL, NULL,  },
+    { "inBuf_", NULL, 0x4, "I", NULL, NULL,  },
+    { "tabSize_", NULL, 0x4, "I", NULL, NULL,  },
   };
-  static const J2ObjcClassInfo _OrgGeogebraCommonKernelParserSimpleCharStream = { 2, "SimpleCharStream", "org.geogebra.common.kernel.parser", NULL, 0x1, 38, methods, 17, fields, 0, NULL, 0, NULL, NULL, NULL };
+  static const J2ObjcClassInfo _OrgGeogebraCommonKernelParserSimpleCharStream = { 2, "SimpleCharStream", "org.geogebra.common.kernel.parser", NULL, 0x1, 36, methods, 16, fields, 0, NULL, 0, NULL, NULL, NULL };
   return &_OrgGeogebraCommonKernelParserSimpleCharStream;
 }
 
 @end
 
-void OrgGeogebraCommonKernelParserSimpleCharStream_setTabSizeWithInt_(jint i) {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  OrgGeogebraCommonKernelParserSimpleCharStream_tabSize_ = i;
-}
-
-jint OrgGeogebraCommonKernelParserSimpleCharStream_getTabSize() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return OrgGeogebraCommonKernelParserSimpleCharStream_tabSize_;
-}
-
-void OrgGeogebraCommonKernelParserSimpleCharStream_ExpandBuffWithBoolean_(jboolean wrapAround) {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  IOSCharArray *newbuffer = [IOSCharArray arrayWithLength:OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ + 2048];
-  IOSIntArray *newbufline = [IOSIntArray arrayWithLength:OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ + 2048];
-  IOSIntArray *newbufcolumn = [IOSIntArray arrayWithLength:OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ + 2048];
-  @try {
-    if (wrapAround) {
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, newbuffer, 0, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, 0, newbuffer, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-      JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, nil, newbuffer);
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, newbufline, 0, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, 0, newbufline, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-      JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, nil, newbufline);
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, newbufcolumn, 0, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, 0, newbufcolumn, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-      JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, nil, newbufcolumn);
-      OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ = (OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ += (OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_));
-    }
-    else {
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, newbuffer, 0, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-      JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, nil, newbuffer);
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, newbufline, 0, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-      JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, nil, newbufline);
-      JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_, newbufcolumn, 0, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-      JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, nil, newbufcolumn);
-      OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ = (OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ -= OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-    }
-  }
-  @catch (JavaLangThrowable *t) {
-    @throw [new_JavaLangError_initWithNSString_([((JavaLangThrowable *) nil_chk(t)) getMessage]) autorelease];
-  }
-  OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ += 2048;
-  OrgGeogebraCommonKernelParserSimpleCharStream_available_ = OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_;
-  OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ = 0;
-}
-
-void OrgGeogebraCommonKernelParserSimpleCharStream_FillBuff() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  if (OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ == OrgGeogebraCommonKernelParserSimpleCharStream_available_) {
-    if (OrgGeogebraCommonKernelParserSimpleCharStream_available_ == OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_) {
-      if (OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ > 2048) {
-        OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ = OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ = 0;
-        OrgGeogebraCommonKernelParserSimpleCharStream_available_ = OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_;
-      }
-      else if (OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ < 0) OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ = OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ = 0;
-      else OrgGeogebraCommonKernelParserSimpleCharStream_ExpandBuffWithBoolean_(NO);
-    }
-    else if (OrgGeogebraCommonKernelParserSimpleCharStream_available_ > OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_) OrgGeogebraCommonKernelParserSimpleCharStream_available_ = OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_;
-    else if ((OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ - OrgGeogebraCommonKernelParserSimpleCharStream_available_) < 2048) OrgGeogebraCommonKernelParserSimpleCharStream_ExpandBuffWithBoolean_(YES);
-    else OrgGeogebraCommonKernelParserSimpleCharStream_available_ = OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_;
-  }
-  jint i;
-  @try {
-    if ((i = [((JavaIoReader *) nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_)) readWithCharArray:OrgGeogebraCommonKernelParserSimpleCharStream_buffer_ withInt:OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ withInt:OrgGeogebraCommonKernelParserSimpleCharStream_available_ - OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_]) == -1) {
-      [OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_ close];
-      @throw [new_JavaIoIOException_init() autorelease];
-    }
-    else OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_ += i;
-    return;
-  }
-  @catch (JavaIoIOException *e) {
-    --OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_;
-    OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(0);
-    if (OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ == -1) OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ = OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_;
-    @throw e;
-  }
-}
-
-jchar OrgGeogebraCommonKernelParserSimpleCharStream_BeginToken() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ = -1;
-  jchar c = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
-  OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ = OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_;
-  return c;
-}
-
-void OrgGeogebraCommonKernelParserSimpleCharStream_UpdateLineColumnWithChar_(jchar c) {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  OrgGeogebraCommonKernelParserSimpleCharStream_column_++;
-  if (OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_) {
-    OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_ = NO;
-    OrgGeogebraCommonKernelParserSimpleCharStream_line_ += (OrgGeogebraCommonKernelParserSimpleCharStream_column_ = 1);
-  }
-  else if (OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsCR_) {
-    OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsCR_ = NO;
-    if (c == 0x000a) {
-      OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_ = YES;
-    }
-    else OrgGeogebraCommonKernelParserSimpleCharStream_line_ += (OrgGeogebraCommonKernelParserSimpleCharStream_column_ = 1);
-  }
-  switch (c) {
-    case 0x000d:
-    OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsCR_ = YES;
-    break;
-    case 0x000a:
-    OrgGeogebraCommonKernelParserSimpleCharStream_prevCharIsLF_ = YES;
-    break;
-    case 0x0009:
-    OrgGeogebraCommonKernelParserSimpleCharStream_column_--;
-    OrgGeogebraCommonKernelParserSimpleCharStream_column_ += (OrgGeogebraCommonKernelParserSimpleCharStream_tabSize_ - (OrgGeogebraCommonKernelParserSimpleCharStream_column_ % OrgGeogebraCommonKernelParserSimpleCharStream_tabSize_));
-    break;
-    default:
-    break;
-  }
-  *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_) = OrgGeogebraCommonKernelParserSimpleCharStream_line_;
-  *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_) = OrgGeogebraCommonKernelParserSimpleCharStream_column_;
-}
-
-jchar OrgGeogebraCommonKernelParserSimpleCharStream_readChar() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  if (OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_ > 0) {
-    --OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_;
-    if (++OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ == OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_) OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ = 0;
-    return IOSCharArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-  }
-  if (++OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ >= OrgGeogebraCommonKernelParserSimpleCharStream_maxNextCharInd_) OrgGeogebraCommonKernelParserSimpleCharStream_FillBuff();
-  jchar c = IOSCharArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-  OrgGeogebraCommonKernelParserSimpleCharStream_UpdateLineColumnWithChar_(c);
-  return c;
-}
-
-jint OrgGeogebraCommonKernelParserSimpleCharStream_getColumn() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-}
-
-jint OrgGeogebraCommonKernelParserSimpleCharStream_getLine() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-}
-
-jint OrgGeogebraCommonKernelParserSimpleCharStream_getEndColumn() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-}
-
-jint OrgGeogebraCommonKernelParserSimpleCharStream_getEndLine() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_);
-}
-
-jint OrgGeogebraCommonKernelParserSimpleCharStream_getBeginColumn() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_), OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-}
-
-jint OrgGeogebraCommonKernelParserSimpleCharStream_getBeginLine() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_);
-}
-
-void OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(jint amount) {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_ += amount;
-  if ((OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ -= amount) < 0) OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ += OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_;
-}
-
 void OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoReader_withInt_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream *self, JavaIoReader *dstream, jint startline, jint startcolumn, jint buffersize) {
   NSObject_init(self);
-  if (OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_ != nil) @throw [new_JavaLangError_initWithNSString_(@"\n   ERROR: Second call to the constructor of a static SimpleCharStream.\n       You must either use ReInit() or set the JavaCC option STATIC to false\n       during the generation of this class.") autorelease];
-  JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_inputStream_, nil, dstream);
-  OrgGeogebraCommonKernelParserSimpleCharStream_line_ = startline;
-  OrgGeogebraCommonKernelParserSimpleCharStream_column_ = startcolumn - 1;
-  OrgGeogebraCommonKernelParserSimpleCharStream_available_ = OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ = buffersize;
-  JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, nil, [IOSCharArray newArrayWithLength:buffersize]);
-  JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, nil, [IOSIntArray newArrayWithLength:buffersize]);
-  JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, nil, [IOSIntArray newArrayWithLength:buffersize]);
+  self->bufpos_ = -1;
+  self->column_ = 0;
+  self->line_ = 1;
+  self->prevCharIsCR_ = NO;
+  self->prevCharIsLF_ = NO;
+  self->maxNextCharInd_ = 0;
+  self->inBuf_ = 0;
+  self->tabSize_ = 8;
+  OrgGeogebraCommonKernelParserSimpleCharStream_set_inputStream_(self, dstream);
+  self->line_ = startline;
+  self->column_ = startcolumn - 1;
+  self->available_ = self->bufsize_ = buffersize;
+  OrgGeogebraCommonKernelParserSimpleCharStream_setAndConsume_buffer_(self, [IOSCharArray newArrayWithLength:buffersize]);
+  OrgGeogebraCommonKernelParserSimpleCharStream_setAndConsume_bufline_(self, [IOSIntArray newArrayWithLength:buffersize]);
+  OrgGeogebraCommonKernelParserSimpleCharStream_setAndConsume_bufcolumn_(self, [IOSIntArray newArrayWithLength:buffersize]);
 }
 
 OrgGeogebraCommonKernelParserSimpleCharStream *new_OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoReader_withInt_withInt_withInt_(JavaIoReader *dstream, jint startline, jint startcolumn, jint buffersize) {
@@ -583,74 +538,6 @@ OrgGeogebraCommonKernelParserSimpleCharStream *new_OrgGeogebraCommonKernelParser
   OrgGeogebraCommonKernelParserSimpleCharStream *self = [OrgGeogebraCommonKernelParserSimpleCharStream alloc];
   OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoInputStream_(self, dstream);
   return self;
-}
-
-NSString *OrgGeogebraCommonKernelParserSimpleCharStream_GetImage() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  if (OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ >= OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_) return [NSString stringWithCharacters:OrgGeogebraCommonKernelParserSimpleCharStream_buffer_ offset:OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ length:OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ + 1];
-  else return JreStrcat("$$", [NSString stringWithCharacters:OrgGeogebraCommonKernelParserSimpleCharStream_buffer_ offset:OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ length:OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_], [NSString stringWithCharacters:OrgGeogebraCommonKernelParserSimpleCharStream_buffer_ offset:0 length:OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ + 1]);
-}
-
-IOSCharArray *OrgGeogebraCommonKernelParserSimpleCharStream_GetSuffixWithInt_(jint len) {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  IOSCharArray *ret = [IOSCharArray arrayWithLength:len];
-  if ((OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ + 1) >= len) JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ - len + 1, ret, 0, len);
-  else {
-    JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - (len - OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ - 1), ret, 0, len - OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ - 1);
-    JavaLangSystem_arraycopyWithId_withInt_withId_withInt_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, 0, ret, len - OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ - 1, OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ + 1);
-  }
-  return ret;
-}
-
-void OrgGeogebraCommonKernelParserSimpleCharStream_Done() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_buffer_, nil, nil);
-  JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, nil, nil);
-  JreStrongAssign(&OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, nil, nil);
-}
-
-void OrgGeogebraCommonKernelParserSimpleCharStream_adjustBeginLineColumnWithInt_withInt_(jint newLine, jint newCol) {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  jint start = OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_;
-  jint len;
-  if (OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ >= OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_) {
-    len = OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ + OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_ + 1;
-  }
-  else {
-    len = OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_ - OrgGeogebraCommonKernelParserSimpleCharStream_tokenBegin_ + OrgGeogebraCommonKernelParserSimpleCharStream_bufpos_ + 1 + OrgGeogebraCommonKernelParserSimpleCharStream_inBuf_;
-  }
-  jint i = 0, j = 0, k = 0;
-  jint nextColDiff = 0, columnDiff = 0;
-  while (YES) {
-    jint unseq$1 = start;
-    if (!(i < len && IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), j = unseq$1 % OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_) == IOSIntArray_Get(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, k = ++start % OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_))) break;
-    *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), j) = newLine;
-    nextColDiff = columnDiff + IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_), k) - IOSIntArray_Get(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, j);
-    *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_, j) = newCol + columnDiff;
-    columnDiff = nextColDiff;
-    i++;
-  }
-  if (i < len) {
-    *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), j) = newLine++;
-    *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_), j) = newCol + columnDiff;
-    while (i++ < len) {
-      jint unseq$2 = start;
-      if (IOSIntArray_Get(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, j = unseq$2 % OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_) != IOSIntArray_Get(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, ++start % OrgGeogebraCommonKernelParserSimpleCharStream_bufsize_)) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, j) = newLine++;
-      else *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_, j) = newLine;
-    }
-  }
-  OrgGeogebraCommonKernelParserSimpleCharStream_line_ = IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufline_), j);
-  OrgGeogebraCommonKernelParserSimpleCharStream_column_ = IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserSimpleCharStream_bufcolumn_), j);
-}
-
-jboolean OrgGeogebraCommonKernelParserSimpleCharStream_getTrackLineColumn() {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  return OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_;
-}
-
-void OrgGeogebraCommonKernelParserSimpleCharStream_setTrackLineColumnWithBoolean_(jboolean tlc) {
-  OrgGeogebraCommonKernelParserSimpleCharStream_initialize();
-  OrgGeogebraCommonKernelParserSimpleCharStream_trackLineColumn_ = tlc;
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(OrgGeogebraCommonKernelParserSimpleCharStream)

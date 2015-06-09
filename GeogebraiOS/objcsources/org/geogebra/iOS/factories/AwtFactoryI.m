@@ -33,6 +33,7 @@
 #import "Area.h"
 #import "GQuadCurve2D.h"
 #import "QuadCurve2D.h"
+#import "GTextLayoutI.h"
 
 @implementation AwtFactoryI
 -(id)init
@@ -175,6 +176,11 @@
 -(id<OrgGeogebraCommonAwtGGeneralPath>)newGeneralPathWithInt:(jint)rule
 {
     return [[OrgGeogebraGgbjdkJavaAwtGeomGeneralPath alloc] initWithInt:rule];
+}
+
+-(id<OrgGeogebraCommonAwtFontGTextLayout>)newTextLayoutWithNSString:(NSString *)string withOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)fontLine withOrgGeogebraCommonAwtGFontRenderContext:(OrgGeogebraCommonAwtGFontRenderContext *)frc
+{
+    return [[GTextLayoutI alloc] initWithString:string withGFont:fontLine withFRC: (GFontRenderContextI*)frc];
 }
 
 

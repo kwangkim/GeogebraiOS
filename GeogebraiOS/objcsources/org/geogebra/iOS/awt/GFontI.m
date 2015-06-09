@@ -94,6 +94,12 @@ void setFontStyle(int style);
 {
     return self.impl;
 }
+
+-(int)getSize
+{
+    return (int)self.fontsize;
+}
+
 -(void)setFontStyle:(int)fontStyle
 {
     switch (fontStyle) {

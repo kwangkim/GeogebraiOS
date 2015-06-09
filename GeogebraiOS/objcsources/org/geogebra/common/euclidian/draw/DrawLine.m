@@ -189,7 +189,7 @@ __attribute__((unused)) static OrgGeogebraCommonEuclidianDrawDrawLine_PreviewTyp
 }
 
 - (void)drawWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2 {
-  if (isVisible_) {
+    if (isVisible_) {
     if ([((OrgGeogebraCommonKernelGeosGeoElement *) nil_chk(geo_)) doHighlighting]) {
       [((id<OrgGeogebraCommonAwtGGraphics2D>) nil_chk(g2)) setPaintWithOrgGeogebraCommonAwtGPaint:[geo_ getSelColor]];
       [g2 setStrokeWithOrgGeogebraCommonAwtGBasicStroke:selStroke_];

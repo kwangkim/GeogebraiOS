@@ -25,6 +25,7 @@
     int graphics2Did;
     double pathLastX, pathLastY;
     Boolean nativeDashUsed;
+    int devicePixelRatio;
 }
 @property CGContextRef context;
 @property(retain) NSObject<OrgGeogebraCommonKernelView>* view;
@@ -32,8 +33,8 @@
 @property(retain) NSObject<OrgGeogebraCommonAwtGAffineTransform> *currentTransform;
 @property(retain) NSObject<OrgGeogebraCommonAwtGAffineTransform> *savedTransform;
 @property(retain) GFontI* currentFont;
-@property(retain) GColorI* strokeColor;
-@property(retain) GColorI* fillColor;
+@property(retain) OrgGeogebraCommonAwtGColor* strokeColor;
+@property(retain) OrgGeogebraCommonAwtGColor* fillColor;
 @property(retain) GBasicStrokeI* bs;
 @property(retain) UIImage* image;
 @property CGRect canvas;
@@ -51,4 +52,6 @@
 -(void)fillWith:(OrgGeogebraCommonAwtGColor*)color;
 -(double)getWidth;
 -(double)getHeight;
+//-(void)setColorWithColor:(OrgGeogebraCommonAwtGColor*)color;
+-(void)setCoordinateSpaceSizeWithInt:(int)width withInt:(int)height;
 @end

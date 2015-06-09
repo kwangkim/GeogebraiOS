@@ -17,4 +17,14 @@
     return self;
 }
 
+-(void)setImageFileNameOnlyWithNSString:(NSString *)fn
+{
+    ;
+}
+
+-(void)setImageFileNameWithNSString:(NSString *)fileName
+{
+    ;
+}
+
 @end

@@ -13,6 +13,8 @@
 
 @interface MyEuclidianViewPanel : UIView <EuclidianPanelIAbstract>
 @property(retain) OrgGeogebraCommonEuclidianEuclidianView* ev;
-@property CGRect canvas;
+@property CGContextRef cgcontext;
+@property CGSize mySize;
 -(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView*)ev;
+-(UIImage*)getImage;
 @end

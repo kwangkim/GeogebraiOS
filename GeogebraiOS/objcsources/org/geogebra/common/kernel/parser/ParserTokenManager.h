@@ -16,7 +16,18 @@
 @class OrgGeogebraCommonKernelParserSimpleCharStream;
 @class OrgGeogebraCommonKernelParserToken;
 
-@interface OrgGeogebraCommonKernelParserParserTokenManager : NSObject < OrgGeogebraCommonKernelParserParserConstants >
+@interface OrgGeogebraCommonKernelParserParserTokenManager : NSObject < OrgGeogebraCommonKernelParserParserConstants > {
+ @public
+  JavaIoPrintStream *debugStream_;
+  OrgGeogebraCommonKernelParserSimpleCharStream *input_stream_;
+  jchar curChar_;
+  jint curLexState_;
+  jint defaultLexState_;
+  jint jjnewStateCnt_;
+  jint jjround_;
+  jint jjmatchedPos_;
+  jint jjmatchedKind_;
+}
 
 #pragma mark Public
 
@@ -25,28 +36,27 @@
 - (instancetype)initWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream
                                                               withInt:(jint)lexState;
 
-+ (OrgGeogebraCommonKernelParserToken *)getNextToken;
+- (OrgGeogebraCommonKernelParserToken *)getNextToken;
 
-+ (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream;
+- (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream;
 
-+ (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream
+- (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream
                                                         withInt:(jint)lexState;
 
-+ (void)setDebugStreamWithJavaIoPrintStream:(JavaIoPrintStream *)ds;
+- (void)setDebugStreamWithJavaIoPrintStream:(JavaIoPrintStream *)ds;
 
-+ (void)SwitchToWithInt:(jint)lexState;
+- (void)SwitchToWithInt:(jint)lexState;
 
 #pragma mark Protected
 
-+ (OrgGeogebraCommonKernelParserToken *)jjFillToken;
+- (OrgGeogebraCommonKernelParserToken *)jjFillToken;
 
 @end
 
 J2OBJC_STATIC_INIT(OrgGeogebraCommonKernelParserParserTokenManager)
 
-FOUNDATION_EXPORT JavaIoPrintStream *OrgGeogebraCommonKernelParserParserTokenManager_debugStream_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, debugStream_, JavaIoPrintStream *)
-J2OBJC_STATIC_FIELD_SETTER(OrgGeogebraCommonKernelParserParserTokenManager, debugStream_, JavaIoPrintStream *)
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserParserTokenManager, debugStream_, JavaIoPrintStream *)
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserParserTokenManager, input_stream_, OrgGeogebraCommonKernelParserSimpleCharStream *)
 
 FOUNDATION_EXPORT IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec0_;
 J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjbitVec0_, IOSLongArray *)
@@ -225,30 +235,6 @@ J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjne
 FOUNDATION_EXPORT IOSObjectArray *OrgGeogebraCommonKernelParserParserTokenManager_jjstrLiteralImages_;
 J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjstrLiteralImages_, IOSObjectArray *)
 
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserParserTokenManager_curLexState_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, curLexState_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, curLexState_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserParserTokenManager_defaultLexState_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, defaultLexState_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, defaultLexState_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjnewStateCnt_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjnewStateCnt_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserParserTokenManager_jjround_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjround_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjround_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjmatchedPos_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjmatchedPos_, jint)
-
-FOUNDATION_EXPORT jint OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjmatchedKind_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjmatchedKind_, jint)
-
 FOUNDATION_EXPORT IOSObjectArray *OrgGeogebraCommonKernelParserParserTokenManager_lexStateNames_;
 J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, lexStateNames_, IOSObjectArray *)
 
@@ -258,20 +244,6 @@ J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjto
 FOUNDATION_EXPORT IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjtoSkip_;
 J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjtoSkip_, IOSLongArray *)
 
-FOUNDATION_EXPORT OrgGeogebraCommonKernelParserSimpleCharStream *OrgGeogebraCommonKernelParserParserTokenManager_input_stream_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, input_stream_, OrgGeogebraCommonKernelParserSimpleCharStream *)
-J2OBJC_STATIC_FIELD_SETTER(OrgGeogebraCommonKernelParserParserTokenManager, input_stream_, OrgGeogebraCommonKernelParserSimpleCharStream *)
-
-FOUNDATION_EXPORT jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, curChar_, jchar)
-J2OBJC_STATIC_FIELD_REF_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, curChar_, jchar)
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParserTokenManager_setDebugStreamWithJavaIoPrintStream_(JavaIoPrintStream *ds);
-
-FOUNDATION_EXPORT OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParserTokenManager_jjFillToken();
-
-FOUNDATION_EXPORT OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParserTokenManager_getNextToken();
-
 FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(OrgGeogebraCommonKernelParserParserTokenManager *self, OrgGeogebraCommonKernelParserSimpleCharStream *stream);
 
 FOUNDATION_EXPORT OrgGeogebraCommonKernelParserParserTokenManager *new_OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(OrgGeogebraCommonKernelParserSimpleCharStream *stream) NS_RETURNS_RETAINED;
@@ -279,12 +251,6 @@ FOUNDATION_EXPORT OrgGeogebraCommonKernelParserParserTokenManager *new_OrgGeogeb
 FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, OrgGeogebraCommonKernelParserSimpleCharStream *stream, jint lexState);
 
 FOUNDATION_EXPORT OrgGeogebraCommonKernelParserParserTokenManager *new_OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream *stream, jint lexState) NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_(OrgGeogebraCommonKernelParserSimpleCharStream *stream);
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream *stream, jint lexState);
-
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParserTokenManager_SwitchToWithInt_(jint lexState);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgGeogebraCommonKernelParserParserTokenManager)
 

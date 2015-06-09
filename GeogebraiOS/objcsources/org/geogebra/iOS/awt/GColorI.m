@@ -42,6 +42,12 @@
     return self;
 }
 
+-(id)initWithGColorI:(GColorI*)other
+{
+    return [self initWithIntRed:other.getRed Green:other.getGreen Blue:other.getBlue Alpha:other.getAlpha];
+}
+
+
 -(void)getRGBColorComponentsWithFloatArray:(IOSFloatArray*)rgb
 {
     [rgb replaceFloatAtIndex:0 withFloat: (float)components[0]];

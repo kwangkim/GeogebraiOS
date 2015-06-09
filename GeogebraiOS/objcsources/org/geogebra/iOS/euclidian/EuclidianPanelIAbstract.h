@@ -14,6 +14,6 @@
 @protocol EuclidianPanelIAbstract <NSObject>
 @optional
 -(UIView*)getEuclidianPanel;
--(CGRect)getCanvas;
+-(CGContextRef)getContext;
 -(OrgGeogebraCommonEuclidianEuclidianView*) getEuclidianView;
 @end

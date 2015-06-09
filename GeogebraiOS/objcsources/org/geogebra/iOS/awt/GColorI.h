@@ -19,6 +19,7 @@
 -(id)initWithIntRed:(int)r Green:(int)g Blue:(int)b Alpha:(int)a;
 -(id)initWithFloatRed:(float)r Green:(float)g Blue:(float)b;
 -(id)initWithIntRed:(int)r Green:(int)g Blue:(int)b;
+-(id)initWithGColorI:(GColorI*)other;
 -(GColorI*)darker;
 -(GColorI*)brighter;
 -(CGColorRef)getCGColor;

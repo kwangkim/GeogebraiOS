@@ -16,46 +16,50 @@
 #include "org/geogebra/common/kernel/parser/Token.h"
 #include "org/geogebra/common/kernel/parser/TokenMgrError.h"
 
-@interface OrgGeogebraCommonKernelParserParserTokenManager ()
+@interface OrgGeogebraCommonKernelParserParserTokenManager () {
+ @public
+  IOSIntArray *jjrounds_;
+  IOSIntArray *jjstateSet_;
+}
 
-+ (jint)jjStopStringLiteralDfa_0WithInt:(jint)pos
+- (jint)jjStopStringLiteralDfa_0WithInt:(jint)pos
                                withLong:(jlong)active0
                                withLong:(jlong)active1;
 
-+ (jint)jjStartNfa_0WithInt:(jint)pos
+- (jint)jjStartNfa_0WithInt:(jint)pos
                    withLong:(jlong)active0
                    withLong:(jlong)active1;
 
-+ (jint)jjStopAtPosWithInt:(jint)pos
+- (jint)jjStopAtPosWithInt:(jint)pos
                    withInt:(jint)kind;
 
-+ (jint)jjMoveStringLiteralDfa0_0;
+- (jint)jjMoveStringLiteralDfa0_0;
 
-+ (jint)jjMoveStringLiteralDfa1_0WithLong:(jlong)active0;
+- (jint)jjMoveStringLiteralDfa1_0WithLong:(jlong)active0;
 
-+ (jint)jjMoveStringLiteralDfa2_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa2_0WithLong:(jlong)old0
                                  withLong:(jlong)active0;
 
-+ (jint)jjMoveStringLiteralDfa3_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa3_0WithLong:(jlong)old0
                                  withLong:(jlong)active0;
 
-+ (jint)jjMoveStringLiteralDfa4_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa4_0WithLong:(jlong)old0
                                  withLong:(jlong)active0;
 
-+ (jint)jjMoveStringLiteralDfa5_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa5_0WithLong:(jlong)old0
                                  withLong:(jlong)active0;
 
-+ (jint)jjMoveStringLiteralDfa6_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa6_0WithLong:(jlong)old0
                                  withLong:(jlong)active0;
 
-+ (jint)jjMoveStringLiteralDfa7_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa7_0WithLong:(jlong)old0
                                  withLong:(jlong)active0;
 
-+ (jint)jjStartNfaWithStates_0WithInt:(jint)pos
+- (jint)jjStartNfaWithStates_0WithInt:(jint)pos
                               withInt:(jint)kind
                               withInt:(jint)state;
 
-+ (jint)jjMoveNfa_0WithInt:(jint)startState
+- (jint)jjMoveNfa_0WithInt:(jint)startState
                    withInt:(jint)curPos;
 
 + (jboolean)jjCanMove_0WithInt:(jint)hiByte
@@ -214,52 +218,49 @@
                        withLong:(jlong)l1
                        withLong:(jlong)l2;
 
-+ (void)jjCheckNAddWithInt:(jint)state;
+- (void)ReInitRounds;
 
-+ (void)jjAddStatesWithInt:(jint)start
+- (void)jjCheckNAddWithInt:(jint)state;
+
+- (void)jjAddStatesWithInt:(jint)start
                    withInt:(jint)end;
 
-+ (void)jjCheckNAddTwoStatesWithInt:(jint)state1
+- (void)jjCheckNAddTwoStatesWithInt:(jint)state1
                             withInt:(jint)state2;
 
-+ (void)jjCheckNAddStatesWithInt:(jint)start
+- (void)jjCheckNAddStatesWithInt:(jint)start
                          withInt:(jint)end;
-
-+ (void)ReInitRounds;
 
 @end
 
-static IOSIntArray *OrgGeogebraCommonKernelParserParserTokenManager_jjrounds_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjrounds_, IOSIntArray *)
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjrounds_, IOSIntArray *)
+J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjstateSet_, IOSIntArray *)
 
-static IOSIntArray *OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_;
-J2OBJC_STATIC_FIELD_GETTER(OrgGeogebraCommonKernelParserParserTokenManager, jjstateSet_, IOSIntArray *)
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jlong active0, jlong active1);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(jint pos, jlong active0, jlong active1);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jlong active0, jlong active1);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(jint pos, jlong active0, jlong active1);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jint kind);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(jint pos, jint kind);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0(OrgGeogebraCommonKernelParserParserTokenManager *self);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0();
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong active0);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(jlong active0);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(jlong old0, jlong active0);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(jlong old0, jlong active0);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(jlong old0, jlong active0);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(jlong old0, jlong active0);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(jlong old0, jlong active0);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(jlong old0, jlong active0);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jint kind, jint state);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(jint pos, jint kind, jint state);
-
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(jint startState, jint curPos);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint startState, jint curPos);
 
 __attribute__((unused)) static jboolean OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_0WithInt_withInt_withInt_withLong_withLong_(jint hiByte, jint i1, jint i2, jlong l1, jlong l2);
 
@@ -313,19 +314,18 @@ __attribute__((unused)) static jboolean OrgGeogebraCommonKernelParserParserToken
 
 __attribute__((unused)) static jboolean OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(jint hiByte, jint i1, jint i2, jlong l1, jlong l2);
 
-__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(jint state);
+__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds(OrgGeogebraCommonKernelParserParserTokenManager *self);
 
-__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(jint start, jint end);
+__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint state);
 
-__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(jint state1, jint state2);
+__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint start, jint end);
 
-__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(jint start, jint end);
+__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint state1, jint state2);
 
-__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds();
+__attribute__((unused)) static void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint start, jint end);
 
 J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParserTokenManager)
 
-JavaIoPrintStream *OrgGeogebraCommonKernelParserParserTokenManager_debugStream_;
 IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec0_;
 IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec1_;
 IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec2_;
@@ -385,88 +385,80 @@ IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec56_;
 IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec57_;
 IOSIntArray *OrgGeogebraCommonKernelParserParserTokenManager_jjnextStates_;
 IOSObjectArray *OrgGeogebraCommonKernelParserParserTokenManager_jjstrLiteralImages_;
-jint OrgGeogebraCommonKernelParserParserTokenManager_curLexState_ = 0;
-jint OrgGeogebraCommonKernelParserParserTokenManager_defaultLexState_ = 0;
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_;
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjround_;
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_;
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_;
 IOSObjectArray *OrgGeogebraCommonKernelParserParserTokenManager_lexStateNames_;
 IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjtoToken_;
 IOSLongArray *OrgGeogebraCommonKernelParserParserTokenManager_jjtoSkip_;
-OrgGeogebraCommonKernelParserSimpleCharStream *OrgGeogebraCommonKernelParserParserTokenManager_input_stream_;
-jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
 
 @implementation OrgGeogebraCommonKernelParserParserTokenManager
 
-+ (void)setDebugStreamWithJavaIoPrintStream:(JavaIoPrintStream *)ds {
-  OrgGeogebraCommonKernelParserParserTokenManager_setDebugStreamWithJavaIoPrintStream_(ds);
+- (void)setDebugStreamWithJavaIoPrintStream:(JavaIoPrintStream *)ds {
+  OrgGeogebraCommonKernelParserParserTokenManager_set_debugStream_(self, ds);
 }
 
-+ (jint)jjStopStringLiteralDfa_0WithInt:(jint)pos
+- (jint)jjStopStringLiteralDfa_0WithInt:(jint)pos
                                withLong:(jlong)active0
                                withLong:(jlong)active1 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(pos, active0, active1);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, pos, active0, active1);
 }
 
-+ (jint)jjStartNfa_0WithInt:(jint)pos
+- (jint)jjStartNfa_0WithInt:(jint)pos
                    withLong:(jlong)active0
                    withLong:(jlong)active1 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(pos, active0, active1);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, pos, active0, active1);
 }
 
-+ (jint)jjStopAtPosWithInt:(jint)pos
+- (jint)jjStopAtPosWithInt:(jint)pos
                    withInt:(jint)kind {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(pos, kind);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, pos, kind);
 }
 
-+ (jint)jjMoveStringLiteralDfa0_0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0();
+- (jint)jjMoveStringLiteralDfa0_0 {
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0(self);
 }
 
-+ (jint)jjMoveStringLiteralDfa1_0WithLong:(jlong)active0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(active0);
+- (jint)jjMoveStringLiteralDfa1_0WithLong:(jlong)active0 {
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(self, active0);
 }
 
-+ (jint)jjMoveStringLiteralDfa2_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa2_0WithLong:(jlong)old0
                                  withLong:(jlong)active0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(old0, active0);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(self, old0, active0);
 }
 
-+ (jint)jjMoveStringLiteralDfa3_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa3_0WithLong:(jlong)old0
                                  withLong:(jlong)active0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(old0, active0);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(self, old0, active0);
 }
 
-+ (jint)jjMoveStringLiteralDfa4_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa4_0WithLong:(jlong)old0
                                  withLong:(jlong)active0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(old0, active0);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(self, old0, active0);
 }
 
-+ (jint)jjMoveStringLiteralDfa5_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa5_0WithLong:(jlong)old0
                                  withLong:(jlong)active0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(old0, active0);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(self, old0, active0);
 }
 
-+ (jint)jjMoveStringLiteralDfa6_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa6_0WithLong:(jlong)old0
                                  withLong:(jlong)active0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(old0, active0);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(self, old0, active0);
 }
 
-+ (jint)jjMoveStringLiteralDfa7_0WithLong:(jlong)old0
+- (jint)jjMoveStringLiteralDfa7_0WithLong:(jlong)old0
                                  withLong:(jlong)active0 {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(old0, active0);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(self, old0, active0);
 }
 
-+ (jint)jjStartNfaWithStates_0WithInt:(jint)pos
+- (jint)jjStartNfaWithStates_0WithInt:(jint)pos
                               withInt:(jint)kind
                               withInt:(jint)state {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(pos, kind, state);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, pos, kind, state);
 }
 
-+ (jint)jjMoveNfa_0WithInt:(jint)startState
+- (jint)jjMoveNfa_0WithInt:(jint)startState
                    withInt:(jint)curPos {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(startState, curPos);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(self, startState, curPos);
 }
 
 + (jboolean)jjCanMove_0WithInt:(jint)hiByte
@@ -677,33 +669,6 @@ jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
   return OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2);
 }
 
-+ (OrgGeogebraCommonKernelParserToken *)jjFillToken {
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjFillToken();
-}
-
-+ (OrgGeogebraCommonKernelParserToken *)getNextToken {
-  return OrgGeogebraCommonKernelParserParserTokenManager_getNextToken();
-}
-
-+ (void)jjCheckNAddWithInt:(jint)state {
-  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(state);
-}
-
-+ (void)jjAddStatesWithInt:(jint)start
-                   withInt:(jint)end {
-  OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(start, end);
-}
-
-+ (void)jjCheckNAddTwoStatesWithInt:(jint)state1
-                            withInt:(jint)state2 {
-  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(state1, state2);
-}
-
-+ (void)jjCheckNAddStatesWithInt:(jint)start
-                         withInt:(jint)end {
-  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(start, end);
-}
-
 - (instancetype)initWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream {
   OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(self, stream);
   return self;
@@ -715,26 +680,138 @@ jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
   return self;
 }
 
-+ (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream {
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_(stream);
+- (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream {
+  jjmatchedPos_ = jjnewStateCnt_ = 0;
+  curLexState_ = defaultLexState_;
+  OrgGeogebraCommonKernelParserParserTokenManager_set_input_stream_(self, stream);
+  OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds(self);
 }
 
-+ (void)ReInitRounds {
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds();
+- (void)ReInitRounds {
+  OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds(self);
 }
 
-+ (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream
+- (void)ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:(OrgGeogebraCommonKernelParserSimpleCharStream *)stream
                                                         withInt:(jint)lexState {
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_withInt_(stream, lexState);
+  [self ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:stream];
+  [self SwitchToWithInt:lexState];
 }
 
-+ (void)SwitchToWithInt:(jint)lexState {
-  OrgGeogebraCommonKernelParserParserTokenManager_SwitchToWithInt_(lexState);
+- (void)SwitchToWithInt:(jint)lexState {
+  if (lexState >= 1 || lexState < 0) @throw [new_OrgGeogebraCommonKernelParserTokenMgrError_initWithNSString_withInt_(JreStrcat("$I$", @"Error: Ignoring invalid lexical state : ", lexState, @". State unchanged."), OrgGeogebraCommonKernelParserTokenMgrError_INVALID_LEXICAL_STATE) autorelease];
+  else curLexState_ = lexState;
+}
+
+- (OrgGeogebraCommonKernelParserToken *)jjFillToken {
+  OrgGeogebraCommonKernelParserToken *t;
+  NSString *curTokenImage;
+  jint beginLine;
+  jint endLine;
+  jint beginColumn;
+  jint endColumn;
+  NSString *im = IOSObjectArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjstrLiteralImages_), jjmatchedKind_);
+  curTokenImage = (im == nil) ? [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(input_stream_)) GetImage] : im;
+  beginLine = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(input_stream_)) getBeginLine];
+  beginColumn = [input_stream_ getBeginColumn];
+  endLine = [input_stream_ getEndLine];
+  endColumn = [input_stream_ getEndColumn];
+  t = OrgGeogebraCommonKernelParserToken_newTokenWithInt_withNSString_(jjmatchedKind_, curTokenImage);
+  ((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->beginLine_ = beginLine;
+  t->endLine_ = endLine;
+  t->beginColumn_ = beginColumn;
+  t->endColumn_ = endColumn;
+  return t;
+}
+
+- (OrgGeogebraCommonKernelParserToken *)getNextToken {
+  OrgGeogebraCommonKernelParserToken *matchedToken;
+  jint curPos = 0;
+  for (; ; ) {
+    {
+      @try {
+        curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(input_stream_)) BeginToken];
+      }
+      @catch (JavaIoIOException *e) {
+        jjmatchedKind_ = 0;
+        matchedToken = [self jjFillToken];
+        return matchedToken;
+      }
+      @try {
+        [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(input_stream_)) backupWithInt:0];
+        while (curChar_ <= 32 && ((jlong) 0x100002600LL & (LShift64(1LL, curChar_))) != 0LL) curChar_ = [input_stream_ BeginToken];
+      }
+      @catch (JavaIoIOException *e1) {
+        goto continue_EOFLoop;
+      }
+      jjmatchedKind_ = (jint) 0x7fffffff;
+      jjmatchedPos_ = 0;
+      curPos = OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0(self);
+      if (jjmatchedKind_ != (jint) 0x7fffffff) {
+        if (jjmatchedPos_ + 1 < curPos) [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(input_stream_)) backupWithInt:curPos - jjmatchedPos_ - 1];
+        if ((IOSLongArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjtoToken_), RShift32(jjmatchedKind_, 6)) & (LShift64(1LL, (jjmatchedKind_ & 077)))) != 0LL) {
+          matchedToken = [self jjFillToken];
+          return matchedToken;
+        }
+        else {
+          goto continue_EOFLoop;
+        }
+      }
+      jint error_line = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(input_stream_)) getEndLine];
+      jint error_column = [input_stream_ getEndColumn];
+      NSString *error_after = nil;
+      jboolean EOFSeen = NO;
+      @try {
+        [input_stream_ readChar];
+        [input_stream_ backupWithInt:1];
+      }
+      @catch (JavaIoIOException *e1) {
+        EOFSeen = YES;
+        error_after = curPos <= 1 ? @"" : [input_stream_ GetImage];
+        if (curChar_ == 0x000a || curChar_ == 0x000d) {
+          error_line++;
+          error_column = 0;
+        }
+        else error_column++;
+      }
+      if (!EOFSeen) {
+        [input_stream_ backupWithInt:1];
+        error_after = curPos <= 1 ? @"" : [input_stream_ GetImage];
+      }
+      @throw [new_OrgGeogebraCommonKernelParserTokenMgrError_initWithBoolean_withInt_withInt_withInt_withNSString_withChar_withInt_(EOFSeen, curLexState_, error_line, error_column, error_after, curChar_, OrgGeogebraCommonKernelParserTokenMgrError_LEXICAL_ERROR) autorelease];
+    }
+    continue_EOFLoop: ;
+  }
+}
+
+- (void)jjCheckNAddWithInt:(jint)state {
+  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, state);
+}
+
+- (void)jjAddStatesWithInt:(jint)start
+                   withInt:(jint)end {
+  OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, start, end);
+}
+
+- (void)jjCheckNAddTwoStatesWithInt:(jint)state1
+                            withInt:(jint)state2 {
+  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, state1, state2);
+}
+
+- (void)jjCheckNAddStatesWithInt:(jint)start
+                         withInt:(jint)end {
+  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, start, end);
+}
+
+- (void)dealloc {
+  RELEASE_(debugStream_);
+  RELEASE_(input_stream_);
+  RELEASE_(jjrounds_);
+  RELEASE_(jjstateSet_);
+  [super dealloc];
 }
 
 + (void)initialize {
   if (self == [OrgGeogebraCommonKernelParserParserTokenManager class]) {
-    JreStrongAssign(&OrgGeogebraCommonKernelParserParserTokenManager_debugStream_, nil, JavaLangSystem_get_out_());
     JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec0_, nil, [IOSLongArray newArrayWithLongs:(jlong[]){ (jlong) 0x0LL, (jlong) 0x100000LL, (jlong) 0x0LL, (jlong) 0x0LL } count:4]);
     JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec1_, nil, [IOSLongArray newArrayWithLongs:(jlong[]){ (jlong) 0x10000000000LL, (jlong) 0x0LL, (jlong) 0x0LL, (jlong) 0x0LL } count:4]);
     JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec2_, nil, [IOSLongArray newArrayWithLongs:(jlong[]){ (jlong) 0x8000000000LL, (jlong) 0x0LL, (jlong) 0x0LL, (jlong) 0x0LL } count:4]);
@@ -797,28 +874,26 @@ jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
     JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_lexStateNames_, nil, [IOSObjectArray newArrayWithObjects:(id[]){ @"DEFAULT" } count:1 type:NSString_class_()]);
     JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_jjtoToken_, nil, [IOSLongArray newArrayWithLongs:(jlong[]){ (jlong) 0xf37ffff7ffffffe1LL, (jlong) 0xfdfLL } count:2]);
     JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_jjtoSkip_, nil, [IOSLongArray newArrayWithLongs:(jlong[]){ (jlong) 0x1eLL, (jlong) 0x0LL } count:2]);
-    JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_jjrounds_, nil, [IOSIntArray newArrayWithLength:181]);
-    JreStrongAssignAndConsume(&OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, nil, [IOSIntArray newArrayWithLength:2 * 181]);
     J2OBJC_SET_INITIALIZED(OrgGeogebraCommonKernelParserParserTokenManager)
   }
 }
 
 + (const J2ObjcClassInfo *)__metadata {
   static const J2ObjcMethodInfo methods[] = {
-    { "setDebugStreamWithJavaIoPrintStream:", "setDebugStream", "V", 0x9, NULL, NULL },
-    { "jjStopStringLiteralDfa_0WithInt:withLong:withLong:", "jjStopStringLiteralDfa_0", "I", 0x1a, NULL, NULL },
-    { "jjStartNfa_0WithInt:withLong:withLong:", "jjStartNfa_0", "I", 0x1a, NULL, NULL },
-    { "jjStopAtPosWithInt:withInt:", "jjStopAtPos", "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa0_0", NULL, "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa1_0WithLong:", "jjMoveStringLiteralDfa1_0", "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa2_0WithLong:withLong:", "jjMoveStringLiteralDfa2_0", "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa3_0WithLong:withLong:", "jjMoveStringLiteralDfa3_0", "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa4_0WithLong:withLong:", "jjMoveStringLiteralDfa4_0", "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa5_0WithLong:withLong:", "jjMoveStringLiteralDfa5_0", "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa6_0WithLong:withLong:", "jjMoveStringLiteralDfa6_0", "I", 0xa, NULL, NULL },
-    { "jjMoveStringLiteralDfa7_0WithLong:withLong:", "jjMoveStringLiteralDfa7_0", "I", 0xa, NULL, NULL },
-    { "jjStartNfaWithStates_0WithInt:withInt:withInt:", "jjStartNfaWithStates_0", "I", 0xa, NULL, NULL },
-    { "jjMoveNfa_0WithInt:withInt:", "jjMoveNfa_0", "I", 0xa, NULL, NULL },
+    { "setDebugStreamWithJavaIoPrintStream:", "setDebugStream", "V", 0x1, NULL, NULL },
+    { "jjStopStringLiteralDfa_0WithInt:withLong:withLong:", "jjStopStringLiteralDfa_0", "I", 0x12, NULL, NULL },
+    { "jjStartNfa_0WithInt:withLong:withLong:", "jjStartNfa_0", "I", 0x12, NULL, NULL },
+    { "jjStopAtPosWithInt:withInt:", "jjStopAtPos", "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa0_0", NULL, "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa1_0WithLong:", "jjMoveStringLiteralDfa1_0", "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa2_0WithLong:withLong:", "jjMoveStringLiteralDfa2_0", "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa3_0WithLong:withLong:", "jjMoveStringLiteralDfa3_0", "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa4_0WithLong:withLong:", "jjMoveStringLiteralDfa4_0", "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa5_0WithLong:withLong:", "jjMoveStringLiteralDfa5_0", "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa6_0WithLong:withLong:", "jjMoveStringLiteralDfa6_0", "I", 0x2, NULL, NULL },
+    { "jjMoveStringLiteralDfa7_0WithLong:withLong:", "jjMoveStringLiteralDfa7_0", "I", 0x2, NULL, NULL },
+    { "jjStartNfaWithStates_0WithInt:withInt:withInt:", "jjStartNfaWithStates_0", "I", 0x2, NULL, NULL },
+    { "jjMoveNfa_0WithInt:withInt:", "jjMoveNfa_0", "I", 0x2, NULL, NULL },
     { "jjCanMove_0WithInt:withInt:withInt:withLong:withLong:", "jjCanMove_0", "Z", 0x1a, NULL, NULL },
     { "jjCanMove_1WithInt:withInt:withInt:withLong:withLong:", "jjCanMove_1", "Z", 0x1a, NULL, NULL },
     { "jjCanMove_2WithInt:withInt:withInt:withLong:withLong:", "jjCanMove_2", "Z", 0x1a, NULL, NULL },
@@ -845,21 +920,21 @@ jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
     { "jjCanMove_23WithInt:withInt:withInt:withLong:withLong:", "jjCanMove_23", "Z", 0x1a, NULL, NULL },
     { "jjCanMove_24WithInt:withInt:withInt:withLong:withLong:", "jjCanMove_24", "Z", 0x1a, NULL, NULL },
     { "jjCanMove_25WithInt:withInt:withInt:withLong:withLong:", "jjCanMove_25", "Z", 0x1a, NULL, NULL },
-    { "jjFillToken", NULL, "Lorg.geogebra.common.kernel.parser.Token;", 0xc, NULL, NULL },
-    { "getNextToken", NULL, "Lorg.geogebra.common.kernel.parser.Token;", 0x9, NULL, NULL },
-    { "jjCheckNAddWithInt:", "jjCheckNAdd", "V", 0xa, NULL, NULL },
-    { "jjAddStatesWithInt:withInt:", "jjAddStates", "V", 0xa, NULL, NULL },
-    { "jjCheckNAddTwoStatesWithInt:withInt:", "jjCheckNAddTwoStates", "V", 0xa, NULL, NULL },
-    { "jjCheckNAddStatesWithInt:withInt:", "jjCheckNAddStates", "V", 0xa, NULL, NULL },
     { "initWithOrgGeogebraCommonKernelParserSimpleCharStream:", "ParserTokenManager", NULL, 0x1, NULL, NULL },
     { "initWithOrgGeogebraCommonKernelParserSimpleCharStream:withInt:", "ParserTokenManager", NULL, 0x1, NULL, NULL },
-    { "ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:", "ReInit", "V", 0x9, NULL, NULL },
-    { "ReInitRounds", NULL, "V", 0xa, NULL, NULL },
-    { "ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:withInt:", "ReInit", "V", 0x9, NULL, NULL },
-    { "SwitchToWithInt:", "SwitchTo", "V", 0x9, NULL, NULL },
+    { "ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:", "ReInit", "V", 0x1, NULL, NULL },
+    { "ReInitRounds", NULL, "V", 0x2, NULL, NULL },
+    { "ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:withInt:", "ReInit", "V", 0x1, NULL, NULL },
+    { "SwitchToWithInt:", "SwitchTo", "V", 0x1, NULL, NULL },
+    { "jjFillToken", NULL, "Lorg.geogebra.common.kernel.parser.Token;", 0x4, NULL, NULL },
+    { "getNextToken", NULL, "Lorg.geogebra.common.kernel.parser.Token;", 0x1, NULL, NULL },
+    { "jjCheckNAddWithInt:", "jjCheckNAdd", "V", 0x2, NULL, NULL },
+    { "jjAddStatesWithInt:withInt:", "jjAddStates", "V", 0x2, NULL, NULL },
+    { "jjCheckNAddTwoStatesWithInt:withInt:", "jjCheckNAddTwoStates", "V", 0x2, NULL, NULL },
+    { "jjCheckNAddStatesWithInt:withInt:", "jjCheckNAddStates", "V", 0x2, NULL, NULL },
   };
   static const J2ObjcFieldInfo fields[] = {
-    { "debugStream_", NULL, 0x9, "Ljava.io.PrintStream;", &OrgGeogebraCommonKernelParserParserTokenManager_debugStream_, NULL,  },
+    { "debugStream_", NULL, 0x1, "Ljava.io.PrintStream;", NULL, NULL,  },
     { "jjbitVec0_", NULL, 0x18, "[J", &OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec0_, NULL,  },
     { "jjbitVec1_", NULL, 0x18, "[J", &OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec1_, NULL,  },
     { "jjbitVec2_", NULL, 0x18, "[J", &OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec2_, NULL,  },
@@ -919,19 +994,19 @@ jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
     { "jjbitVec57_", NULL, 0x18, "[J", &OrgGeogebraCommonKernelParserParserTokenManager_jjbitVec57_, NULL,  },
     { "jjnextStates_", NULL, 0x18, "[I", &OrgGeogebraCommonKernelParserParserTokenManager_jjnextStates_, NULL,  },
     { "jjstrLiteralImages_", NULL, 0x19, "[Ljava.lang.String;", &OrgGeogebraCommonKernelParserParserTokenManager_jjstrLiteralImages_, NULL,  },
-    { "curLexState_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserParserTokenManager_curLexState_, NULL,  },
-    { "defaultLexState_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserParserTokenManager_defaultLexState_, NULL,  },
-    { "jjnewStateCnt_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_, NULL,  },
-    { "jjround_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserParserTokenManager_jjround_, NULL,  },
-    { "jjmatchedPos_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_, NULL,  },
-    { "jjmatchedKind_", NULL, 0x8, "I", &OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_, NULL,  },
     { "lexStateNames_", NULL, 0x19, "[Ljava.lang.String;", &OrgGeogebraCommonKernelParserParserTokenManager_lexStateNames_, NULL,  },
     { "jjtoToken_", NULL, 0x18, "[J", &OrgGeogebraCommonKernelParserParserTokenManager_jjtoToken_, NULL,  },
     { "jjtoSkip_", NULL, 0x18, "[J", &OrgGeogebraCommonKernelParserParserTokenManager_jjtoSkip_, NULL,  },
-    { "input_stream_", NULL, 0xc, "Lorg.geogebra.common.kernel.parser.SimpleCharStream;", &OrgGeogebraCommonKernelParserParserTokenManager_input_stream_, NULL,  },
-    { "jjrounds_", NULL, 0x1a, "[I", &OrgGeogebraCommonKernelParserParserTokenManager_jjrounds_, NULL,  },
-    { "jjstateSet_", NULL, 0x1a, "[I", &OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, NULL,  },
-    { "curChar_", NULL, 0xc, "C", &OrgGeogebraCommonKernelParserParserTokenManager_curChar_, NULL,  },
+    { "input_stream_", NULL, 0x4, "Lorg.geogebra.common.kernel.parser.SimpleCharStream;", NULL, NULL,  },
+    { "jjrounds_", NULL, 0x12, "[I", NULL, NULL,  },
+    { "jjstateSet_", NULL, 0x12, "[I", NULL, NULL,  },
+    { "curChar_", NULL, 0x4, "C", NULL, NULL,  },
+    { "curLexState_", NULL, 0x0, "I", NULL, NULL,  },
+    { "defaultLexState_", NULL, 0x0, "I", NULL, NULL,  },
+    { "jjnewStateCnt_", NULL, 0x0, "I", NULL, NULL,  },
+    { "jjround_", NULL, 0x0, "I", NULL, NULL,  },
+    { "jjmatchedPos_", NULL, 0x0, "I", NULL, NULL,  },
+    { "jjmatchedKind_", NULL, 0x0, "I", NULL, NULL,  },
   };
   static const J2ObjcClassInfo _OrgGeogebraCommonKernelParserParserTokenManager = { 2, "ParserTokenManager", "org.geogebra.common.kernel.parser", NULL, 0x1, 52, methods, 73, fields, 0, NULL, 0, NULL, NULL, NULL };
   return &_OrgGeogebraCommonKernelParserParserTokenManager;
@@ -939,13 +1014,7 @@ jchar OrgGeogebraCommonKernelParserParserTokenManager_curChar_;
 
 @end
 
-void OrgGeogebraCommonKernelParserParserTokenManager_setDebugStreamWithJavaIoPrintStream_(JavaIoPrintStream *ds) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  JreStrongAssign(&OrgGeogebraCommonKernelParserParserTokenManager_debugStream_, nil, ds);
-}
-
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(jint pos, jlong active0, jlong active1) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jlong active0, jlong active1) {
   switch (pos) {
     case 0:
     if ((active0 & (jlong) 0x1000000000000LL) != 0LL) return 96;
@@ -958,7 +1027,7 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0Wit
     if ((active0 & (jlong) 0x100000000LL) != 0LL) return 15;
     if ((active0 & (jlong) 0x4000000000000LL) != 0LL) return 112;
     if ((active0 & (jlong) 0x8000040000000000LL) != 0LL) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 57;
+      self->jjmatchedKind_ = 57;
       return 182;
     }
     if ((active0 & (jlong) 0x2000000000000LL) != 0LL) return 104;
@@ -966,44 +1035,44 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0Wit
     return -1;
     case 1:
     if ((active0 & (jlong) 0x8000040000000000LL) != 0LL) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 57;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = 1;
+      self->jjmatchedKind_ = 57;
+      self->jjmatchedPos_ = 1;
       return 183;
     }
     return -1;
     case 2:
     if ((active0 & (jlong) 0x40000000000LL) != 0LL) return 183;
     if ((active0 & -0x7fffffffffffffffLL - 1) != 0LL) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 57;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = 2;
+      self->jjmatchedKind_ = 57;
+      self->jjmatchedPos_ = 2;
       return 183;
     }
     return -1;
     case 3:
     if ((active0 & -0x7fffffffffffffffLL - 1) != 0LL) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 57;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = 3;
+      self->jjmatchedKind_ = 57;
+      self->jjmatchedPos_ = 3;
       return 183;
     }
     return -1;
     case 4:
     if ((active0 & -0x7fffffffffffffffLL - 1) != 0LL) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 57;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = 4;
+      self->jjmatchedKind_ = 57;
+      self->jjmatchedPos_ = 4;
       return 183;
     }
     return -1;
     case 5:
     if ((active0 & -0x7fffffffffffffffLL - 1) != 0LL) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 57;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = 5;
+      self->jjmatchedKind_ = 57;
+      self->jjmatchedPos_ = 5;
       return 183;
     }
     return -1;
     case 6:
     if ((active0 & -0x7fffffffffffffffLL - 1) != 0LL) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 66;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = 6;
+      self->jjmatchedKind_ = 66;
+      self->jjmatchedPos_ = 6;
       return -1;
     }
     return -1;
@@ -1012,823 +1081,629 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0Wit
   }
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(jint pos, jlong active0, jlong active1) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(pos, active0, active1), pos + 1);
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jlong active0, jlong active1) {
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(self, OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, pos, active0, active1), pos + 1);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(jint pos, jint kind) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = kind;
-  OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = pos;
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jint kind) {
+  self->jjmatchedKind_ = kind;
+  self->jjmatchedPos_ = pos;
   return pos + 1;
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0() {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0(OrgGeogebraCommonKernelParserParserTokenManager *self) {
+  switch (self->curChar_) {
     case 33:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 32, 15);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 32, 15);
     case 39:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 43);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 43);
     case 40:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 75);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 75);
     case 41:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 71);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 71);
     case 43:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 25);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 25);
     case 58:
-    OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 70;
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_((jlong) 0x40LL);
+    self->jjmatchedKind_ = 70;
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(self, (jlong) 0x40LL);
     case 60:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 18, 129);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 18, 129);
     case 62:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 19, 19);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 19, 19);
     case 92:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 17);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 17);
     case 93:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 72);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 72);
     case 114:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_((jlong) 0x8000040000000000LL);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(self, (jlong) 0x8000040000000000LL);
     case 120:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 48, 96);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 48, 96);
     case 121:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 49, 104);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 49, 104);
     case 122:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 50, 112);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 50, 112);
     case 123:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 73);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 73);
     case 124:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 7, 3);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 7, 3);
     case 125:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 74);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 74);
     case 172:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 8);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 8);
     case 943:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 39, 181);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 39, 181);
     case 8315:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 27, 45);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 27, 45);
     case 8495:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(0, 38, 62);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 0, 38, 62);
     case 8712:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 14);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 14);
     case 8730:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 65);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 65);
     case 8741:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 22);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 22);
     case 8834:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 16);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 16);
     case 8838:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 15);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 15);
     case 8855:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 30);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 30);
     case 8869:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(0, 23);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 0, 23);
     default:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(1, 0);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(self, 1, 0);
   }
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(jlong active0) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa1_0WithLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong active0) {
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(0, active0, 0LL);
+    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, 0, active0, 0LL);
     return 1;
   }
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+  switch (self->curChar_) {
     case 58:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(active0, (jlong) 0x40LL);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(self, active0, (jlong) 0x40LL);
     case 97:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(active0, (jlong) 0x8000040000000000LL);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(self, active0, (jlong) 0x8000040000000000LL);
     default:
     break;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(0, active0, 0LL);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 0, active0, 0LL);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(jlong old0, jlong active0) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(0, old0, 0LL);
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa2_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0) {
+  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 0, old0, 0LL);
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(1, active0, 0LL);
+    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, 1, active0, 0LL);
     return 2;
   }
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+  switch (self->curChar_) {
     case 61:
-    if ((active0 & (jlong) 0x40LL) != 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(2, 6);
+    if ((active0 & (jlong) 0x40LL) != 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 2, 6);
     break;
     case 100:
-    if ((active0 & (jlong) 0x40000000000LL) != 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(2, 42, 183);
+    if ((active0 & (jlong) 0x40000000000LL) != 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(self, 2, 42, 183);
     break;
     case 110:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(active0, -0x7fffffffffffffffLL - 1);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(self, active0, -0x7fffffffffffffffLL - 1);
     default:
     break;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(1, active0, 0LL);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 1, active0, 0LL);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(jlong old0, jlong active0) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(1, old0, 0LL);
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa3_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0) {
+  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 1, old0, 0LL);
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(2, active0, 0LL);
+    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, 2, active0, 0LL);
     return 3;
   }
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+  switch (self->curChar_) {
     case 100:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(active0, -0x7fffffffffffffffLL - 1);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(self, active0, -0x7fffffffffffffffLL - 1);
     default:
     break;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(2, active0, 0LL);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 2, active0, 0LL);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(jlong old0, jlong active0) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(2, old0, 0LL);
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa4_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0) {
+  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 2, old0, 0LL);
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(3, active0, 0LL);
+    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, 3, active0, 0LL);
     return 4;
   }
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+  switch (self->curChar_) {
     case 111:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(active0, -0x7fffffffffffffffLL - 1);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(self, active0, -0x7fffffffffffffffLL - 1);
     default:
     break;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(3, active0, 0LL);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 3, active0, 0LL);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(jlong old0, jlong active0) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(3, old0, 0LL);
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa5_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0) {
+  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 3, old0, 0LL);
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(4, active0, 0LL);
+    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, 4, active0, 0LL);
     return 5;
   }
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+  switch (self->curChar_) {
     case 109:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(active0, -0x7fffffffffffffffLL - 1);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(self, active0, -0x7fffffffffffffffLL - 1);
     default:
     break;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(4, active0, 0LL);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 4, active0, 0LL);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(jlong old0, jlong active0) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(4, old0, 0LL);
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa6_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0) {
+  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 4, old0, 0LL);
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(5, active0, 0LL);
+    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, 5, active0, 0LL);
     return 6;
   }
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+  switch (self->curChar_) {
     case 40:
-    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(active0, -0x7fffffffffffffffLL - 1);
+    return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(self, active0, -0x7fffffffffffffffLL - 1);
     default:
     break;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(5, active0, 0LL);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 5, active0, 0LL);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(jlong old0, jlong active0) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(5, old0, 0LL);
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa7_0WithLong_withLong_(OrgGeogebraCommonKernelParserParserTokenManager *self, jlong old0, jlong active0) {
+  if (((active0 &= old0)) == 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 5, old0, 0LL);
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(6, active0, 0LL);
+    OrgGeogebraCommonKernelParserParserTokenManager_jjStopStringLiteralDfa_0WithInt_withLong_withLong_(self, 6, active0, 0LL);
     return 7;
   }
-  switch (OrgGeogebraCommonKernelParserParserTokenManager_curChar_) {
+  switch (self->curChar_) {
     case 41:
-    if ((active0 & -0x7fffffffffffffffLL - 1) != 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(7, 63);
+    if ((active0 & -0x7fffffffffffffffLL - 1) != 0LL) return OrgGeogebraCommonKernelParserParserTokenManager_jjStopAtPosWithInt_withInt_(self, 7, 63);
     break;
     default:
     break;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(6, active0, 0LL);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfa_0WithInt_withLong_withLong_(self, 6, active0, 0LL);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(jint pos, jint kind, jint state) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = kind;
-  OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = pos;
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjStartNfaWithStates_0WithInt_withInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint pos, jint kind, jint state) {
+  self->jjmatchedKind_ = kind;
+  self->jjmatchedPos_ = pos;
   @try {
-    OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+    self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
   }
   @catch (JavaIoIOException *e) {
     return pos + 1;
   }
-  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(state, pos + 1);
+  return OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(self, state, pos + 1);
 }
 
-jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(jint startState, jint curPos) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
+jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint startState, jint curPos) {
   jint startsAt = 0;
-  OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_ = 181;
+  self->jjnewStateCnt_ = 181;
   jint i = 1;
-  *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_), 0) = startState;
+  *IOSIntArray_GetRef(nil_chk(self->jjstateSet_), 0) = startState;
   jint kind = (jint) 0x7fffffff;
   for (; ; ) {
-    if (++OrgGeogebraCommonKernelParserParserTokenManager_jjround_ == (jint) 0x7fffffff) OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds();
-    if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ < 64) {
-      jlong l = LShift64(1LL, OrgGeogebraCommonKernelParserParserTokenManager_curChar_);
+    if (++self->jjround_ == (jint) 0x7fffffff) OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds(self);
+    if (self->curChar_ < 64) {
+      jlong l = LShift64(1LL, self->curChar_);
       do {
-        switch (IOSIntArray_Get(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, --i)) {
+        switch (IOSIntArray_Get(self->jjstateSet_, --i)) {
           case 183:
           if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          else if (self->curChar_ == 40) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(15, 17);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(154);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(150, 151);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(150);
-          }
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 15, 17);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 154);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 150, 151);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 150);
           if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
             if (kind > 56) kind = 56;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-          }
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           break;
           case 129:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61) {
+          if (self->curChar_ == 61) {
             if (kind > 20) kind = 20;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 62) {
+          else if (self->curChar_ == 62) {
             if (kind > 13) kind = 13;
           }
           break;
           case 181:
           if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          else if (self->curChar_ == 40) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
           break;
           case 112:
           if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          else if (self->curChar_ == 40) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 40) {
             if (kind > 62) kind = 62;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(15, 17);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(154);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(150, 151);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(150);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 15, 17);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 154);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 150, 151);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 150);
           if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
             if (kind > 56) kind = 56;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-          }
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           break;
           case 1:
           if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
             if (kind > 51) kind = 51;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(18, 26);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 18, 26);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
+          else if (self->curChar_ == 36) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(27, 35);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 27, 35);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 46) {
+          else if (self->curChar_ == 46) {
             if (kind > 46) kind = 46;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(36, 43);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 36, 43);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 60) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(44, 45);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 34) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(117, 118);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 59) {
+          else if (self->curChar_ == 60) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 44, 45);
+          else if (self->curChar_ == 34) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 117, 118);
+          else if (self->curChar_ == 59) {
             if (kind > 64) kind = 64;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 44) {
+          else if (self->curChar_ == 44) {
             if (kind > 47) kind = 47;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 47) {
+          else if (self->curChar_ == 47) {
             if (kind > 31) kind = 31;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 42) {
+          else if (self->curChar_ == 42) {
             if (kind > 29) kind = 29;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 45) {
+          else if (self->curChar_ == 45) {
             if (kind > 26) kind = 26;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 37) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 23;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61) {
+          else if (self->curChar_ == 37) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 23;
+          else if (self->curChar_ == 61) {
             if (kind > 24) kind = 24;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 62) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 19;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 33) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 15;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 38) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 6;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 58) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 0;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 63) {
+          else if (self->curChar_ == 62) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 19;
+          else if (self->curChar_ == 33) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 15;
+          else if (self->curChar_ == 38) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 6;
+          else if (self->curChar_ == 58) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 0;
+          else if (self->curChar_ == 63) {
             if (kind > 33) kind = 33;
           }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(46, 48);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 42) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 27;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 12;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 45) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 9;
+          if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 46, 48);
+          else if (self->curChar_ == 42) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 27;
+          else if (self->curChar_ == 61) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 12;
+          else if (self->curChar_ == 45) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 9;
           break;
           case 182:
           if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          else if (self->curChar_ == 40) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(15, 17);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(154);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(150, 151);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(150);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 15, 17);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 154);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 150, 151);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 150);
           if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
             if (kind > 56) kind = 56;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-          }
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           break;
           case 104:
           if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          else if (self->curChar_ == 40) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 40) {
             if (kind > 61) kind = 61;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(15, 17);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(154);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(150, 151);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(150);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 15, 17);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 154);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 150, 151);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 150);
           if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
             if (kind > 56) kind = 56;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-          }
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           break;
           case 96:
           if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          else if (self->curChar_ == 40) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40) {
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 40) {
             if (kind > 60) kind = 60;
           }
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(15, 17);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(154);
-          }
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(150, 151);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(150);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 15, 17);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 154);
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 150, 151);
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 150);
           if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
             if (kind > 56) kind = 56;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-          }
+          else if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           break;
           case 0:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61 && kind > 5) kind = 5;
+          if (self->curChar_ == 61 && kind > 5) kind = 5;
           break;
           case 6:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 38 && kind > 10) kind = 10;
+          if (self->curChar_ == 38 && kind > 10) kind = 10;
           break;
           case 7:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 38) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 6;
+          if (self->curChar_ == 38) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 6;
           break;
           case 9:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 62 && kind > 11) kind = 11;
+          if (self->curChar_ == 62 && kind > 11) kind = 11;
           break;
           case 10:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 45) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 9;
+          if (self->curChar_ == 45) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 9;
           break;
           case 12:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61 && kind > 12) kind = 12;
+          if (self->curChar_ == 61 && kind > 12) kind = 12;
           break;
           case 13:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 12;
+          if (self->curChar_ == 61) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 12;
           break;
           case 15:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61 && kind > 13) kind = 13;
+          if (self->curChar_ == 61 && kind > 13) kind = 13;
           break;
           case 16:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 33) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 15;
+          if (self->curChar_ == 33) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 15;
           break;
           case 19:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61 && kind > 21) kind = 21;
+          if (self->curChar_ == 61 && kind > 21) kind = 21;
           break;
           case 20:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 62) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 19;
+          if (self->curChar_ == 62) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 19;
           break;
           case 22:
           case 23:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61 && kind > 24) kind = 24;
+          if (self->curChar_ == 61 && kind > 24) kind = 24;
           break;
           case 24:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 37) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 23;
+          if (self->curChar_ == 37) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 23;
           break;
           case 25:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 45 && kind > 26) kind = 26;
+          if (self->curChar_ == 45 && kind > 26) kind = 26;
           break;
           case 27:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 42 && kind > 28) kind = 28;
+          if (self->curChar_ == 42 && kind > 28) kind = 28;
           break;
           case 28:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 42) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 27;
+          if (self->curChar_ == 42) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 27;
           break;
           case 29:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 42 && kind > 29) kind = 29;
+          if (self->curChar_ == 42 && kind > 29) kind = 29;
           break;
           case 30:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 47 && kind > 31) kind = 31;
+          if (self->curChar_ == 47 && kind > 31) kind = 31;
           break;
           case 31:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 63 && kind > 33) kind = 33;
+          if (self->curChar_ == 63 && kind > 33) kind = 33;
           break;
           case 90:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 44 && kind > 47) kind = 47;
+          if (self->curChar_ == 44 && kind > 47) kind = 47;
           break;
           case 98:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40 && kind > 60) kind = 60;
+          if (self->curChar_ == 40 && kind > 60) kind = 60;
           break;
           case 106:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40 && kind > 61) kind = 61;
+          if (self->curChar_ == 40 && kind > 61) kind = 61;
           break;
           case 114:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40 && kind > 62) kind = 62;
+          if (self->curChar_ == 40 && kind > 62) kind = 62;
           break;
           case 115:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 59 && kind > 64) kind = 64;
+          if (self->curChar_ == 59 && kind > 64) kind = 64;
           break;
           case 116:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 34) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(117, 118);
-          }
+          if (self->curChar_ == 34) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 117, 118);
           break;
           case 117:
-          if (((jlong) 0xfffffffbffffffffLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(117, 118);
-          }
+          if (((jlong) 0xfffffffbffffffffLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 117, 118);
           break;
           case 118:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 34 && kind > 68) kind = 68;
+          if (self->curChar_ == 34 && kind > 68) kind = 68;
           break;
           case 128:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 60) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(44, 45);
-          }
+          if (self->curChar_ == 60) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 44, 45);
           break;
           case 130:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 61 && kind > 20) kind = 20;
+          if (self->curChar_ == 61 && kind > 20) kind = 20;
           break;
           case 131:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ != 46) break;
+          if (self->curChar_ != 46) break;
           if (kind > 46) kind = 46;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(36, 43);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 36, 43);
           break;
           case 132:
           if (((jlong) 0x3ff000000000000LL & l) == 0LL) break;
           if (kind > 51) kind = 51;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(132, 133);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 132, 133);
           break;
           case 133:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ != 46) break;
+          if (self->curChar_ != 46) break;
           if (kind > 51) kind = 51;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(132, 133);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 132, 133);
           break;
           case 134:
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(49, 51);
-          }
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 49, 51);
           break;
           case 135:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 46) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(49, 51);
-          }
+          if (self->curChar_ == 46) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 49, 51);
           break;
           case 137:
-          if (((jlong) 0x280000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(138);
-          }
+          if (((jlong) 0x280000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 138);
           break;
           case 138:
           if (((jlong) 0x3ff000000000000LL & l) == 0LL) break;
           if (kind > 52) kind = 52;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(138);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 138);
           break;
           case 139:
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(52, 54);
-          }
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 52, 54);
           break;
           case 140:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 46) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(52, 54);
-          }
+          if (self->curChar_ == 46) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 52, 54);
           break;
           case 141:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 37 && kind > 53) kind = 53;
+          if (self->curChar_ == 37 && kind > 53) kind = 53;
           break;
           case 142:
           if (((jlong) 0x3ff000000000000LL & l) == 0LL) break;
           if (kind > 51) kind = 51;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(18, 26);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 18, 26);
           break;
           case 143:
           if (((jlong) 0x3ff000000000000LL & l) == 0LL) break;
           if (kind > 54) kind = 54;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(143);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 143);
           break;
           case 144:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(46, 48);
-          }
+          if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 46, 48);
           break;
           case 146:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-          }
+          if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           break;
           case 147:
           if (((jlong) 0x3ff000000000000LL & l) == 0LL) break;
           if (kind > 56) kind = 56;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(147);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 147);
           break;
           case 149:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(150);
-          }
+          if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 150);
           break;
           case 150:
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(150, 151);
-          }
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 150, 151);
           break;
           case 151:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40 && kind > 66) kind = 66;
+          if (self->curChar_ == 40 && kind > 66) kind = 66;
           break;
           case 153:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 36) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(154);
-          }
+          if (self->curChar_ == 36) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 154);
           break;
           case 154:
-          if (((jlong) 0x3ff000000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(15, 17);
-          }
+          if (((jlong) 0x3ff000000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 15, 17);
           break;
           case 157:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 40 && kind > 67) kind = 67;
+          if (self->curChar_ == 40 && kind > 67) kind = 67;
           break;
           case 159:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ != 36) break;
+          if (self->curChar_ != 36) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(27, 35);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 27, 35);
           break;
           case 161:
           if (((jlong) 0xfffffffbffffffffLL & l) == 0LL) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           break;
           case 162:
           if (((jlong) 0x3ff009000000000LL & l) == 0LL) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           break;
           case 164:
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(55, 56);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 55, 56);
           break;
           case 167:
-          if (((jlong) 0xfffffffbffffffffLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          if (((jlong) 0xfffffffbffffffffLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           break;
           case 168:
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           break;
           case 170:
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(57, 58);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 57, 58);
           break;
           case 173:
-          if (((jlong) 0xfffffffbffffffffLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
+          if (((jlong) 0xfffffffbffffffffLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
           break;
           case 174:
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
           break;
           case 176:
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(59, 60);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 59, 60);
           break;
           case 178:
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
           break;
           case 179:
-          if (((jlong) 0x3ff009000000000LL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (((jlong) 0x3ff009000000000LL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           break;
           case 180:
           if (((jlong) 0x3ff009000000000LL & l) == 0LL) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           break;
           default:
           break;
@@ -1836,715 +1711,505 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_
       }
       while (i != startsAt);
     }
-    else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ < 128) {
-      jlong l = LShift64(1LL, (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ & 077));
+    else if (self->curChar_ < 128) {
+      jlong l = LShift64(1LL, (self->curChar_ & 077));
       do {
-        switch (IOSIntArray_Get(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, --i)) {
+        switch (IOSIntArray_Get(self->jjstateSet_, --i)) {
           case 183:
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(61, 62);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 61, 62);
+          else if (self->curChar_ == 91) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(63, 64);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(65, 66);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(67, 69);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(70, 72);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 63, 64);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 65, 66);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 67, 69);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 70, 72);
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(73, 75);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 73, 75);
           break;
           case 181:
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(61, 62);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 61, 62);
+          else if (self->curChar_ == 91) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(63, 64);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(65, 66);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 63, 64);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 65, 66);
           break;
           case 112:
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(61, 62);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 61, 62);
+          else if (self->curChar_ == 91) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(63, 64);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 63, 64);
+          else if (self->curChar_ == 91) {
             if (kind > 62) kind = 62;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(65, 66);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(67, 69);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(70, 72);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(73, 75);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 99) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 111;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 122) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 112;
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 122) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(76, 78);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 65, 66);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 67, 69);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 70, 72);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 73, 75);
+          if (self->curChar_ == 99) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 111;
+          else if (self->curChar_ == 122) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 112;
+          if (self->curChar_ == 122) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 76, 78);
           break;
           case 1:
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(27, 35);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 27, 35);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 94) {
+          else if (self->curChar_ == 94) {
             if (kind > 28) kind = 28;
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 124) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 3;
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(79, 87);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(88, 89);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 122) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 112;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 121) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 104;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 120) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 96;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 70) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 88;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 102) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 84;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 84) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 79;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 116) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 76;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 73) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 72;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 101) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 59;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 80) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(46);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 112) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(46);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 78) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 42;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 85) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 39;
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 122) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(76, 78);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 121) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(90, 92);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 120) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(93, 95);
-          }
+          else if (self->curChar_ == 124) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 3;
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 79, 87);
+          if (self->curChar_ == 105) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 88, 89);
+          else if (self->curChar_ == 122) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 112;
+          else if (self->curChar_ == 121) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 104;
+          else if (self->curChar_ == 120) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 96;
+          else if (self->curChar_ == 70) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 88;
+          else if (self->curChar_ == 102) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 84;
+          else if (self->curChar_ == 84) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 79;
+          else if (self->curChar_ == 116) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 76;
+          else if (self->curChar_ == 73) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 72;
+          else if (self->curChar_ == 101) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 59;
+          else if (self->curChar_ == 80) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 46);
+          else if (self->curChar_ == 112) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 46);
+          else if (self->curChar_ == 78) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 42;
+          else if (self->curChar_ == 85) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 39;
+          if (self->curChar_ == 122) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 76, 78);
+          else if (self->curChar_ == 121) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 90, 92);
+          else if (self->curChar_ == 120) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 93, 95);
           break;
           case 182:
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(61, 62);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 61, 62);
+          else if (self->curChar_ == 91) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(63, 64);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(65, 66);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(67, 69);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(70, 72);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(73, 75);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 63, 64);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 65, 66);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 67, 69);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 70, 72);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 73, 75);
           break;
           case 104:
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(61, 62);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 61, 62);
+          else if (self->curChar_ == 91) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(63, 64);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 63, 64);
+          else if (self->curChar_ == 91) {
             if (kind > 61) kind = 61;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(65, 66);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(67, 69);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(70, 72);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(73, 75);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 99) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 103;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 121) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 104;
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 121) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(90, 92);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 65, 66);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 67, 69);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 70, 72);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 73, 75);
+          if (self->curChar_ == 99) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 103;
+          else if (self->curChar_ == 121) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 104;
+          if (self->curChar_ == 121) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 90, 92);
           break;
           case 96:
           if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(61, 62);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 61, 62);
+          else if (self->curChar_ == 91) {
             if (kind > 66) kind = 66;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(63, 64);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91) {
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 63, 64);
+          else if (self->curChar_ == 91) {
             if (kind > 60) kind = 60;
           }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(65, 66);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(67, 69);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(70, 72);
-          }
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(73, 75);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 99) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 95;
-          else if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 120) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 96;
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 120) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(93, 95);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          else if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 65, 66);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 67, 69);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 70, 72);
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 73, 75);
+          if (self->curChar_ == 99) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 95;
+          else if (self->curChar_ == 120) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 96;
+          if (self->curChar_ == 120) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 93, 95);
           break;
           case 3:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 124 && kind > 9) kind = 9;
+          if (self->curChar_ == 124 && kind > 9) kind = 9;
           break;
           case 4:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 124) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 3;
+          if (self->curChar_ == 124) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 3;
           break;
           case 26:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 94 && kind > 28) kind = 28;
+          if (self->curChar_ == 94 && kind > 28) kind = 28;
           break;
           case 32:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 100 && kind > 33) kind = 33;
+          if (self->curChar_ == 100 && kind > 33) kind = 33;
           break;
           case 33:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 101) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 32;
+          if (self->curChar_ == 101) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 32;
           break;
           case 34:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 110) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 33;
+          if (self->curChar_ == 110) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 33;
           break;
           case 35:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 34;
+          if (self->curChar_ == 105) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 34;
           break;
           case 36:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 102) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 35;
+          if (self->curChar_ == 102) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 35;
           break;
           case 37:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 101) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 36;
+          if (self->curChar_ == 101) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 36;
           break;
           case 38:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 100) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 37;
+          if (self->curChar_ == 100) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 37;
           break;
           case 39:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 110) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 38;
+          if (self->curChar_ == 110) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 38;
           break;
           case 40:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 85) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 39;
+          if (self->curChar_ == 85) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 39;
           break;
           case 41:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 78 && kind > 33) kind = 33;
+          if (self->curChar_ == 78 && kind > 33) kind = 33;
           break;
           case 42:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 97) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 41;
+          if (self->curChar_ == 97) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 41;
           break;
           case 43:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 78) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 42;
+          if (self->curChar_ == 78) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 42;
           break;
           case 46:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105 && kind > 36) kind = 36;
+          if (self->curChar_ == 105 && kind > 36) kind = 36;
           break;
           case 47:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 112) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(46);
-          }
+          if (self->curChar_ == 112) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 46);
           break;
           case 48:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 80) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(46);
-          }
+          if (self->curChar_ == 80) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 46);
           break;
           case 50:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 97 && kind > 37) kind = 37;
+          if (self->curChar_ == 97 && kind > 37) kind = 37;
           break;
           case 51:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 109) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 50;
+          if (self->curChar_ == 109) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 50;
           break;
           case 52:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 109) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 51;
+          if (self->curChar_ == 109) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 51;
           break;
           case 53:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 97) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 52;
+          if (self->curChar_ == 97) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 52;
           break;
           case 54:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 103) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 53;
+          if (self->curChar_ == 103) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 53;
           break;
           case 55:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 54;
+          if (self->curChar_ == 95) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 54;
           break;
           case 56:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 114) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 55;
+          if (self->curChar_ == 114) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 55;
           break;
           case 57:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 101) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 56;
+          if (self->curChar_ == 101) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 56;
           break;
           case 58:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 108) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 57;
+          if (self->curChar_ == 108) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 57;
           break;
           case 59:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 117) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 58;
+          if (self->curChar_ == 117) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 58;
           break;
           case 60:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 101) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 59;
+          if (self->curChar_ == 101) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 59;
           break;
           case 62:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 61;
+          if (self->curChar_ == 95) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 61;
           break;
           case 66:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 121 && kind > 41) kind = 41;
+          if (self->curChar_ == 121 && kind > 41) kind = 41;
           break;
           case 67:
           case 122:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 116) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(66);
-          }
+          if (self->curChar_ == 116) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 66);
           break;
           case 68:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 67;
+          if (self->curChar_ == 105) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 67;
           break;
           case 69:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 110) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 68;
+          if (self->curChar_ == 110) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 68;
           break;
           case 70:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 69;
+          if (self->curChar_ == 105) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 69;
           break;
           case 71:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 102) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 70;
+          if (self->curChar_ == 102) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 70;
           break;
           case 72:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 110) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 71;
+          if (self->curChar_ == 110) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 71;
           break;
           case 73:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 73) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 72;
+          if (self->curChar_ == 73) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 72;
           break;
           case 74:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 101 && kind > 44) kind = 44;
+          if (self->curChar_ == 101 && kind > 44) kind = 44;
           break;
           case 75:
           case 78:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 117) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(74);
-          }
+          if (self->curChar_ == 117) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 74);
           break;
           case 76:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 114) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 75;
+          if (self->curChar_ == 114) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 75;
           break;
           case 77:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 116) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 76;
+          if (self->curChar_ == 116) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 76;
           break;
           case 79:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 114) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 78;
+          if (self->curChar_ == 114) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 78;
           break;
           case 80:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 84) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 79;
+          if (self->curChar_ == 84) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 79;
           break;
           case 81:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 101 && kind > 45) kind = 45;
+          if (self->curChar_ == 101 && kind > 45) kind = 45;
           break;
           case 82:
           case 86:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 115) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(81);
-          }
+          if (self->curChar_ == 115) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 81);
           break;
           case 83:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 108) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 82;
+          if (self->curChar_ == 108) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 82;
           break;
           case 84:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 97) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 83;
+          if (self->curChar_ == 97) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 83;
           break;
           case 85:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 102) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 84;
+          if (self->curChar_ == 102) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 84;
           break;
           case 87:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 108) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 86;
+          if (self->curChar_ == 108) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 86;
           break;
           case 88:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 97) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 87;
+          if (self->curChar_ == 97) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 87;
           break;
           case 89:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 70) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 88;
+          if (self->curChar_ == 70) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 88;
           break;
           case 91:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 120) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(93, 95);
-          }
+          if (self->curChar_ == 120) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 93, 95);
           break;
           case 92:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 100) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(93, 95);
-          }
+          if (self->curChar_ == 100) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 93, 95);
           break;
           case 93:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 114) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 92;
+          if (self->curChar_ == 114) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 92;
           break;
           case 94:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 111) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 93;
+          if (self->curChar_ == 111) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 93;
           break;
           case 95:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 111) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 94;
+          if (self->curChar_ == 111) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 94;
           break;
           case 97:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 120) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 96;
+          if (self->curChar_ == 120) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 96;
           break;
           case 98:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91 && kind > 60) kind = 60;
+          if (self->curChar_ == 91 && kind > 60) kind = 60;
           break;
           case 99:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 121) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(90, 92);
-          }
+          if (self->curChar_ == 121) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 90, 92);
           break;
           case 100:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 100) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(90, 92);
-          }
+          if (self->curChar_ == 100) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 90, 92);
           break;
           case 101:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 114) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 100;
+          if (self->curChar_ == 114) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 100;
           break;
           case 102:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 111) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 101;
+          if (self->curChar_ == 111) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 101;
           break;
           case 103:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 111) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 102;
+          if (self->curChar_ == 111) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 102;
           break;
           case 105:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 121) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 104;
+          if (self->curChar_ == 121) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 104;
           break;
           case 106:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91 && kind > 61) kind = 61;
+          if (self->curChar_ == 91 && kind > 61) kind = 61;
           break;
           case 107:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 122) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(76, 78);
-          }
+          if (self->curChar_ == 122) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 76, 78);
           break;
           case 108:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 100) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(76, 78);
-          }
+          if (self->curChar_ == 100) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 76, 78);
           break;
           case 109:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 114) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 108;
+          if (self->curChar_ == 114) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 108;
           break;
           case 110:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 111) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 109;
+          if (self->curChar_ == 111) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 109;
           break;
           case 111:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 111) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 110;
+          if (self->curChar_ == 111) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 110;
           break;
           case 113:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 122) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 112;
+          if (self->curChar_ == 122) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 112;
           break;
           case 114:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91 && kind > 62) kind = 62;
+          if (self->curChar_ == 91 && kind > 62) kind = 62;
           break;
           case 117:
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(96, 97);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 96, 97);
           break;
           case 119:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(88, 89);
-          }
+          if (self->curChar_ == 105) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 88, 89);
           break;
           case 120:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 102 && kind > 41) kind = 41;
+          if (self->curChar_ == 102 && kind > 41) kind = 41;
           break;
           case 121:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 110) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 120;
+          if (self->curChar_ == 110) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 120;
           break;
           case 123:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 122;
+          if (self->curChar_ == 105) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 122;
           break;
           case 124:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 110) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 123;
+          if (self->curChar_ == 110) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 123;
           break;
           case 125:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 105) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 124;
+          if (self->curChar_ == 105) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 124;
           break;
           case 126:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 102) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 125;
+          if (self->curChar_ == 102) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 125;
           break;
           case 127:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 110) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 126;
+          if (self->curChar_ == 110) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 126;
           break;
           case 136:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 69) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(98, 99);
-          }
+          if (self->curChar_ == 69) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 98, 99);
           break;
           case 145:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(73, 75);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 73, 75);
           break;
           case 148:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(70, 72);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 70, 72);
           break;
           case 151:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91 && kind > 66) kind = 66;
+          if (self->curChar_ == 91 && kind > 66) kind = 66;
           break;
           case 152:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(67, 69);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 67, 69);
           break;
           case 157:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 91 && kind > 67) kind = 67;
+          if (self->curChar_ == 91 && kind > 67) kind = 67;
           break;
           case 158:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(79, 87);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 79, 87);
           break;
           case 159:
           if (((jlong) 0x7fffffe07fffffeLL & l) == 0LL) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(27, 35);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 27, 35);
           break;
           case 160:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(65, 66);
-          }
+          if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 65, 66);
           break;
           case 161:
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           break;
           case 162:
           if (((jlong) 0x7fffffe07fffffeLL & l) == 0LL) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           break;
           case 163:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 123) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(164);
-          }
+          if (self->curChar_ == 123) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 164);
           break;
           case 164:
-          if (((jlong) 0xdfffffffffffffffLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(164, 165);
-          }
+          if (((jlong) 0xdfffffffffffffffLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 164, 165);
           break;
           case 165:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ != 125) break;
+          if (self->curChar_ != 125) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           break;
           case 166:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(63, 64);
-          }
+          if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 63, 64);
           break;
           case 167:
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           break;
           case 168:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           break;
           case 169:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 123) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(170);
-          }
+          if (self->curChar_ == 123) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 170);
           break;
           case 170:
-          if (((jlong) 0xdfffffffffffffffLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(170, 171);
-          }
+          if (((jlong) 0xdfffffffffffffffLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 170, 171);
           break;
           case 171:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 125) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          if (self->curChar_ == 125) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           break;
           case 172:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 95) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(61, 62);
-          }
+          if (self->curChar_ == 95) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 61, 62);
           break;
           case 173:
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
           break;
           case 174:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
           break;
           case 175:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 123) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(176);
-          }
+          if (self->curChar_ == 123) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 176);
           break;
           case 176:
-          if (((jlong) 0xdfffffffffffffffLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(176, 177);
-          }
+          if (((jlong) 0xdfffffffffffffffLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 176, 177);
           break;
           case 177:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 125) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
+          if (self->curChar_ == 125) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
           break;
           case 178:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
           break;
           case 179:
-          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (((jlong) 0x7fffffe07fffffeLL & l) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           break;
           case 180:
           if (((jlong) 0x7fffffe07fffffeLL & l) == 0LL) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           break;
           default:
           break;
@@ -2553,83 +2218,47 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_
       while (i != startsAt);
     }
     else {
-      jint hiByte = (RShift32(OrgGeogebraCommonKernelParserParserTokenManager_curChar_, 8));
+      jint hiByte = (jint) (RShift32(self->curChar_, 8));
       jint i1 = RShift32(hiByte, 6);
       jlong l1 = LShift64(1LL, (hiByte & 077));
-      jint i2 = RShift32((OrgGeogebraCommonKernelParserParserTokenManager_curChar_ & (jint) 0xff), 6);
-      jlong l2 = LShift64(1LL, (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ & 077));
+      jint i2 = RShift32((self->curChar_ & (jint) 0xff), 6);
+      jlong l2 = LShift64(1LL, (self->curChar_ & 077));
       do {
-        switch (IOSIntArray_Get(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, --i)) {
+        switch (IOSIntArray_Get(self->jjstateSet_, --i)) {
           case 183:
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(156);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(156, 157);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 156);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 156, 157);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
           break;
           case 181:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(156);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(156, 157);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 156);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 156, 157);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
           break;
           case 112:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(156);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(156, 157);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 156);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 156, 157);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
           break;
           case 1:
@@ -2672,19 +2301,15 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_12WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 33) kind = 33;
           }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(45);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 45);
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 34) kind = 34;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(45);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 45);
           }
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_15WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 36) kind = 36;
           }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_17WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 62;
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_17WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 62;
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_18WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 40) kind = 40;
           }
@@ -2699,81 +2324,45 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_
           }
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_23WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 46) kind = 46;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(36, 43);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 36, 43);
           }
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 51) kind = 51;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(18, 26);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 18, 26);
           }
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(27, 35);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 27, 35);
           }
           break;
           case 182:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(156);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(156, 157);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 156);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 156, 157);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
           break;
           case 104:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(156);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(156, 157);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 156);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 156, 157);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
           break;
           case 96:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(156);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(156, 157);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 156);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 156, 157);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
             if (kind > 57) kind = 57;
-            {
-              OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-            }
+            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           }
           break;
           case 2:
@@ -2816,16 +2405,12 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_12WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2) && kind > 33) kind = 33;
           break;
           case 44:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(45);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 45);
           break;
           case 45:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 34) kind = 34;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(45);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 45);
           break;
           case 49:
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_15WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2) && kind > 36) kind = 36;
@@ -2834,7 +2419,7 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_16WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2) && kind > 37) kind = 37;
           break;
           case 63:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_17WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_, OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = 62;
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_17WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) *IOSIntArray_GetRef(self->jjstateSet_, self->jjnewStateCnt_++) = 62;
           break;
           case 64:
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_18WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2) && kind > 40) kind = 40;
@@ -2849,177 +2434,122 @@ jint OrgGeogebraCommonKernelParserParserTokenManager_jjMoveNfa_0WithInt_withInt_
           if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_21WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2) && kind > 64) kind = 64;
           break;
           case 117:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(96, 97);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 96, 97);
           break;
           case 131:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_23WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 46) kind = 46;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(36, 43);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 36, 43);
           break;
           case 132:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 51) kind = 51;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(132, 133);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 132, 133);
           break;
           case 133:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_23WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 51) kind = 51;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(132, 133);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 132, 133);
           break;
           case 134:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(49, 51);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 49, 51);
           break;
           case 135:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_23WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(49, 51);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_23WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 49, 51);
           break;
           case 137:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_8WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(138);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_8WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 138);
           break;
           case 138:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 52) kind = 52;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(138);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 138);
           break;
           case 139:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(52, 54);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 52, 54);
           break;
           case 140:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_23WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(52, 54);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_23WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 52, 54);
           break;
           case 142:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 51) kind = 51;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(18, 26);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 18, 26);
           break;
           case 143:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_24WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 54) kind = 54;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(143);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 143);
           break;
           case 155:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(156);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_13WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 156);
           break;
           case 156:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(156, 157);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_14WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 156, 157);
           break;
           case 159:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(27, 35);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 27, 35);
           break;
           case 161:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           break;
           case 162:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(162);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, 162);
           break;
           case 164:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(55, 56);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 55, 56);
           break;
           case 167:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           break;
           case 168:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(168, 151);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(self, 168, 151);
           break;
           case 170:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(57, 58);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 57, 58);
           break;
           case 173:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
           break;
           case 174:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(12, 14);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 12, 14);
           break;
           case 176:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(59, 60);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_22WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(self, 59, 60);
           break;
           case 178:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(7, 11);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 7, 11);
           break;
           case 179:
-          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(3, 6);
-          }
+          if (OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 3, 6);
           break;
           case 180:
           if (!OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_withInt_withInt_withLong_withLong_(hiByte, i1, i2, l1, l2)) break;
           if (kind > 57) kind = 57;
-          {
-            OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(0, 2);
-          }
+          OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(self, 0, 2);
           break;
           default:
-          if (i1 == 0 || l1 == 0 || i2 == 0 || l2 == 0) break;
-          else break;
+          break;
         }
       }
       while (i != startsAt);
     }
     if (kind != (jint) 0x7fffffff) {
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = kind;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = curPos;
+      self->jjmatchedKind_ = kind;
+      self->jjmatchedPos_ = curPos;
       kind = (jint) 0x7fffffff;
     }
     ++curPos;
-    jint unseq$1 = OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_;
-    if ((i = unseq$1) == (startsAt = 181 - (OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_ = startsAt))) return curPos;
+    jint unseq$1 = self->jjnewStateCnt_;
+    if ((i = unseq$1) == (startsAt = 181 - (self->jjnewStateCnt_ = startsAt))) return curPos;
     @try {
-      OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
+      self->curChar_ = [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(self->input_stream_)) readChar];
     }
     @catch (JavaIoIOException *e) {
       return curPos;
@@ -3345,124 +2875,14 @@ jboolean OrgGeogebraCommonKernelParserParserTokenManager_jjCanMove_25WithInt_wit
   }
 }
 
-OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParserTokenManager_jjFillToken() {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  OrgGeogebraCommonKernelParserToken *t;
-  NSString *curTokenImage;
-  jint beginLine;
-  jint endLine;
-  jint beginColumn;
-  jint endColumn;
-  NSString *im = IOSObjectArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjstrLiteralImages_), OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_);
-  curTokenImage = (im == nil) ? OrgGeogebraCommonKernelParserSimpleCharStream_GetImage() : im;
-  beginLine = OrgGeogebraCommonKernelParserSimpleCharStream_getBeginLine();
-  beginColumn = OrgGeogebraCommonKernelParserSimpleCharStream_getBeginColumn();
-  endLine = OrgGeogebraCommonKernelParserSimpleCharStream_getEndLine();
-  endColumn = OrgGeogebraCommonKernelParserSimpleCharStream_getEndColumn();
-  t = OrgGeogebraCommonKernelParserToken_newTokenWithInt_withNSString_(OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_, curTokenImage);
-  ((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->beginLine_ = beginLine;
-  t->endLine_ = endLine;
-  t->beginColumn_ = beginColumn;
-  t->endColumn_ = endColumn;
-  return t;
-}
-
-OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParserTokenManager_getNextToken() {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  OrgGeogebraCommonKernelParserToken *matchedToken;
-  jint curPos = 0;
-  for (; ; ) {
-    {
-      @try {
-        OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_BeginToken();
-      }
-      @catch (JavaIoIOException *e) {
-        OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = 0;
-        OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = -1;
-        matchedToken = OrgGeogebraCommonKernelParserParserTokenManager_jjFillToken();
-        return matchedToken;
-      }
-      @try {
-        OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(0);
-        while (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ <= 32 && ((jlong) 0x100002600LL & (LShift64(1LL, OrgGeogebraCommonKernelParserParserTokenManager_curChar_))) != 0LL) OrgGeogebraCommonKernelParserParserTokenManager_curChar_ = OrgGeogebraCommonKernelParserSimpleCharStream_BeginToken();
-      }
-      @catch (JavaIoIOException *e1) {
-        goto continue_EOFLoop;
-      }
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ = (jint) 0x7fffffff;
-      OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = 0;
-      curPos = OrgGeogebraCommonKernelParserParserTokenManager_jjMoveStringLiteralDfa0_0();
-      if (OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ != (jint) 0x7fffffff) {
-        if (OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ + 1 < curPos) OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(curPos - OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ - 1);
-        if ((IOSLongArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjtoToken_), RShift32(OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_, 6)) & (LShift64(1LL, (OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedKind_ & 077)))) != 0LL) {
-          matchedToken = OrgGeogebraCommonKernelParserParserTokenManager_jjFillToken();
-          return matchedToken;
-        }
-        else {
-          goto continue_EOFLoop;
-        }
-      }
-      jint error_line = OrgGeogebraCommonKernelParserSimpleCharStream_getEndLine();
-      jint error_column = OrgGeogebraCommonKernelParserSimpleCharStream_getEndColumn();
-      NSString *error_after = nil;
-      jboolean EOFSeen = NO;
-      @try {
-        OrgGeogebraCommonKernelParserSimpleCharStream_readChar();
-        OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(1);
-      }
-      @catch (JavaIoIOException *e1) {
-        EOFSeen = YES;
-        error_after = curPos <= 1 ? @"" : OrgGeogebraCommonKernelParserSimpleCharStream_GetImage();
-        if (OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 0x000a || OrgGeogebraCommonKernelParserParserTokenManager_curChar_ == 0x000d) {
-          error_line++;
-          error_column = 0;
-        }
-        else error_column++;
-      }
-      if (!EOFSeen) {
-        OrgGeogebraCommonKernelParserSimpleCharStream_backupWithInt_(1);
-        error_after = curPos <= 1 ? @"" : OrgGeogebraCommonKernelParserSimpleCharStream_GetImage();
-      }
-      @throw [new_OrgGeogebraCommonKernelParserTokenMgrError_initWithBoolean_withInt_withInt_withInt_withNSString_withChar_withInt_(EOFSeen, OrgGeogebraCommonKernelParserParserTokenManager_curLexState_, error_line, error_column, error_after, OrgGeogebraCommonKernelParserParserTokenManager_curChar_, OrgGeogebraCommonKernelParserTokenMgrError_LEXICAL_ERROR) autorelease];
-    }
-    continue_EOFLoop: ;
-  }
-}
-
-void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(jint state) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjrounds_), state) != OrgGeogebraCommonKernelParserParserTokenManager_jjround_) {
-    *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_), OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = state;
-    *IOSIntArray_GetRef(OrgGeogebraCommonKernelParserParserTokenManager_jjrounds_, state) = OrgGeogebraCommonKernelParserParserTokenManager_jjround_;
-  }
-}
-
-void OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(jint start, jint end) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  do {
-    *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjstateSet_), OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_++) = IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjnextStates_), start);
-  }
-  while (start++ != end);
-}
-
-void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(jint state1, jint state2) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(state1);
-  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(state2);
-}
-
-void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(jint start, jint end) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  do {
-    OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjnextStates_), start));
-  }
-  while (start++ != end);
-}
-
 void OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(OrgGeogebraCommonKernelParserParserTokenManager *self, OrgGeogebraCommonKernelParserSimpleCharStream *stream) {
   NSObject_init(self);
-  if (OrgGeogebraCommonKernelParserParserTokenManager_input_stream_ != nil) @throw [new_OrgGeogebraCommonKernelParserTokenMgrError_initWithNSString_withInt_(@"ERROR: Second call to constructor of static lexer. You must use ReInit() to initialize the static variables.", OrgGeogebraCommonKernelParserTokenMgrError_STATIC_LEXER_ERROR) autorelease];
-  JreStrongAssign(&OrgGeogebraCommonKernelParserParserTokenManager_input_stream_, nil, stream);
+  OrgGeogebraCommonKernelParserParserTokenManager_set_debugStream_(self, JavaLangSystem_get_out_());
+  OrgGeogebraCommonKernelParserParserTokenManager_setAndConsume_jjrounds_(self, [IOSIntArray newArrayWithLength:181]);
+  OrgGeogebraCommonKernelParserParserTokenManager_setAndConsume_jjstateSet_(self, [IOSIntArray newArrayWithLength:362]);
+  self->curLexState_ = 0;
+  self->defaultLexState_ = 0;
+  OrgGeogebraCommonKernelParserParserTokenManager_set_input_stream_(self, stream);
 }
 
 OrgGeogebraCommonKernelParserParserTokenManager *new_OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(OrgGeogebraCommonKernelParserSimpleCharStream *stream) {
@@ -3472,9 +2892,8 @@ OrgGeogebraCommonKernelParserParserTokenManager *new_OrgGeogebraCommonKernelPars
 }
 
 void OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, OrgGeogebraCommonKernelParserSimpleCharStream *stream, jint lexState) {
-  NSObject_init(self);
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_(stream);
-  OrgGeogebraCommonKernelParserParserTokenManager_SwitchToWithInt_(lexState);
+  OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(self, stream);
+  [self SwitchToWithInt:lexState];
 }
 
 OrgGeogebraCommonKernelParserParserTokenManager *new_OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream *stream, jint lexState) {
@@ -3483,31 +2902,36 @@ OrgGeogebraCommonKernelParserParserTokenManager *new_OrgGeogebraCommonKernelPars
   return self;
 }
 
-void OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_(OrgGeogebraCommonKernelParserSimpleCharStream *stream) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  OrgGeogebraCommonKernelParserParserTokenManager_jjmatchedPos_ = OrgGeogebraCommonKernelParserParserTokenManager_jjnewStateCnt_ = 0;
-  OrgGeogebraCommonKernelParserParserTokenManager_curLexState_ = OrgGeogebraCommonKernelParserParserTokenManager_defaultLexState_;
-  JreStrongAssign(&OrgGeogebraCommonKernelParserParserTokenManager_input_stream_, nil, stream);
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds();
-}
-
-void OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds() {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
+void OrgGeogebraCommonKernelParserParserTokenManager_ReInitRounds(OrgGeogebraCommonKernelParserParserTokenManager *self) {
   jint i;
-  OrgGeogebraCommonKernelParserParserTokenManager_jjround_ = (jint) 0x80000001;
-  for (i = 181; i-- > 0; ) *IOSIntArray_GetRef(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjrounds_), i) = -0x7fffffff - 1;
+  self->jjround_ = (jint) 0x80000001;
+  for (i = 181; i-- > 0; ) *IOSIntArray_GetRef(nil_chk(self->jjrounds_), i) = -0x7fffffff - 1;
 }
 
-void OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_withInt_(OrgGeogebraCommonKernelParserSimpleCharStream *stream, jint lexState) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_(stream);
-  OrgGeogebraCommonKernelParserParserTokenManager_SwitchToWithInt_(lexState);
+void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint state) {
+  if (IOSIntArray_Get(nil_chk(self->jjrounds_), state) != self->jjround_) {
+    *IOSIntArray_GetRef(nil_chk(self->jjstateSet_), self->jjnewStateCnt_++) = state;
+    *IOSIntArray_GetRef(self->jjrounds_, state) = self->jjround_;
+  }
 }
 
-void OrgGeogebraCommonKernelParserParserTokenManager_SwitchToWithInt_(jint lexState) {
-  OrgGeogebraCommonKernelParserParserTokenManager_initialize();
-  if (lexState >= 1 || lexState < 0) @throw [new_OrgGeogebraCommonKernelParserTokenMgrError_initWithNSString_withInt_(JreStrcat("$I$", @"Error: Ignoring invalid lexical state : ", lexState, @". State unchanged."), OrgGeogebraCommonKernelParserTokenMgrError_INVALID_LEXICAL_STATE) autorelease];
-  else OrgGeogebraCommonKernelParserParserTokenManager_curLexState_ = lexState;
+void OrgGeogebraCommonKernelParserParserTokenManager_jjAddStatesWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint start, jint end) {
+  do {
+    *IOSIntArray_GetRef(nil_chk(self->jjstateSet_), self->jjnewStateCnt_++) = IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjnextStates_), start);
+  }
+  while (start++ != end);
+}
+
+void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddTwoStatesWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint state1, jint state2) {
+  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, state1);
+  OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, state2);
+}
+
+void OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddStatesWithInt_withInt_(OrgGeogebraCommonKernelParserParserTokenManager *self, jint start, jint end) {
+  do {
+    OrgGeogebraCommonKernelParserParserTokenManager_jjCheckNAddWithInt_(self, IOSIntArray_Get(nil_chk(OrgGeogebraCommonKernelParserParserTokenManager_jjnextStates_), start));
+  }
+  while (start++ != end);
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(OrgGeogebraCommonKernelParserParserTokenManager)

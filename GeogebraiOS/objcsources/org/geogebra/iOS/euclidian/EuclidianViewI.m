@@ -17,19 +17,21 @@
 #import "GGraphics2DI.h"
 #import "GDimensionI.h"
 #import "GDimension.h"
+#import "EuclidianViewCompanion.h"
+#import "MyEuclidianViewPanel.h"
 
 @implementation EuclidianViewI
-@synthesize g2p, EVPanel,bgroundColor, app;
+@synthesize g2p = _g2p, EVPanel,bgroundColor, app;
 -(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(IOSBooleanArray*)showAxes  withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings withEVPanel:(NSObject<EuclidianPanelIAbstract>*) evPanel
 {
     self = [super initWithOrgGeogebraCommonEuclidianEuclidianController:ec withInt:viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:settings];
     self.bgroundColor = OrgGeogebraCommonAwtGColor_WHITE_;
     self.app = (AppI*)[super getApplication];
-    self.EVPanel = evPanel;
-    CGRect rect = [evPanel getCanvas];
+    self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self];//= evPanel;
+    CGContextRef context = [self.EVPanel getContext];
     evNo_ = viewNo;
-    self.g2p = [[GGraphics2DI alloc] initWithFrame:rect];
-    [g2p setView:self];
+    _g2p = [[GGraphics2DI alloc] initWithContext:context];
+    [_g2p setView:self];
     
     [self updateFonts];
     [self initViewWithBoolean:true];
@@ -54,7 +56,6 @@
         [self settingsChangedWithOrgGeogebraCommonMainSettingsAbstractSettings:es];
         [es addListenerWithOrgGeogebraCommonMainSettingsSettingListener:self];
     }
-    [self drawAxesWithOrgGeogebraCommonAwtGGraphics2D:self.g2p];
     return self;
 }
 
@@ -96,6 +97,30 @@
 }
 
 -(void)repaint
+{
+    [companion_ paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];
+}
+
+- (id<OrgGeogebraCommonEuclidianEuclidianStyleBar>)newEuclidianStyleBar {
+    return nil;
+}
+
+-(OrgGeogebraCommonAwtGColor *)getBackgroundCommon
+{
+    return OrgGeogebraCommonAwtGColor_WHITE_;
+}
+
+-(void)setAntialiasingWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2
+{
+    ;
+}
+
+-(void)drawActionObjectsWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g
+{
+    ;
+}
+
+-(void)updateSizeKeepDrawables
 {
     ;
 }

@@ -9,7 +9,6 @@
 #include "IOSPrimitiveArray.h"
 #include "J2ObjC_source.h"
 #include "java/io/InputStream.h"
-#include "java/io/PrintStream.h"
 #include "java/io/Reader.h"
 #include "java/io/StringReader.h"
 #include "java/io/UnsupportedEncodingException.h"
@@ -17,7 +16,6 @@
 #include "java/lang/Error.h"
 #include "java/lang/Math.h"
 #include "java/lang/RuntimeException.h"
-#include "java/lang/System.h"
 #include "java/util/ArrayList.h"
 #include "java/util/Iterator.h"
 #include "java/util/List.h"
@@ -80,8 +78,7 @@
   jboolean ExternalCASParsing_;
   jboolean GiacParsing_;
   JavaUtilArrayList *undecided_;
-  jboolean jj_initialized_once_;
-  jint jj_ntk_;
+  jint jj_ntk__;
   OrgGeogebraCommonKernelParserToken *jj_scanpos_, *jj_lastpos_;
   jint jj_la_;
   jboolean jj_lookingAhead_;
@@ -467,7 +464,7 @@
 
 - (jboolean)jj_scan_tokenWithInt:(jint)kind;
 
-- (jint)jj_ntk_f;
+- (jint)jj_ntk;
 
 - (void)jj_add_error_tokenWithInt:(jint)kind
                           withInt:(jint)pos;
@@ -956,7 +953,7 @@ __attribute__((unused)) static jboolean OrgGeogebraCommonKernelParserParser_jj_s
 
 __attribute__((unused)) static OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParser_getTokenWithInt_(OrgGeogebraCommonKernelParserParser *self, jint index);
 
-__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParser_jj_ntk_f(OrgGeogebraCommonKernelParserParser *self);
+__attribute__((unused)) static jint OrgGeogebraCommonKernelParserParser_jj_ntk(OrgGeogebraCommonKernelParserParser *self);
 
 __attribute__((unused)) static void OrgGeogebraCommonKernelParserParser_jj_add_error_tokenWithInt_withInt_(OrgGeogebraCommonKernelParserParser *self, jint kind, jint pos);
 
@@ -1086,24 +1083,20 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
   OrgGeogebraCommonKernelParserToken *l = [new_OrgGeogebraCommonKernelParserToken_init() autorelease];
   JavaUtilVector *labels = [new_JavaUtilVector_init() autorelease];
   ve = OrgGeogebraCommonKernelParserParser_buildCASExpressionWithOrgGeogebraCommonKernelGeosGeoCasCell_(self, nil);
-  switch ((jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : jj_ntk_) {
+  switch ((jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
+    break;
     case 0:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(jj_la1_), 7) = jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   {
-    if (![@"" isEqual:nil]) return ve;
+    return ve;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -1117,24 +1110,20 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
   OrgGeogebraCommonKernelArithmeticExpressionNode *lhs, *rhs;
   OrgGeogebraCommonKernelParserToken *start, *sign = nil, *end;
   ve = OrgGeogebraCommonKernelParserParser_buildCASExpressionWithOrgGeogebraCommonKernelGeosGeoCasCell_(self, nil);
-  switch ((jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : jj_ntk_) {
+  switch ((jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
+    break;
     case 0:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(jj_la1_), 9) = jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   {
-    if (![@"" isEqual:nil]) return ve;
+    return ve;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -2030,12 +2019,12 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
   @catch (JavaIoUnsupportedEncodingException *e) {
     @throw [new_JavaLangRuntimeException_initWithJavaLangThrowable_(e) autorelease];
   }
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_(jj_input_stream_);
+  [((OrgGeogebraCommonKernelParserParserTokenManager *) nil_chk(token_source_)) ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:jj_input_stream_];
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_(self, new_OrgGeogebraCommonKernelParserToken_init());
-  jj_ntk_ = -1;
+  jj_ntk__ = -1;
   jj_gen_ = 0;
   for (jint i = 0; i < 67; i++) *IOSIntArray_GetRef(nil_chk(jj_la1_), i) = -1;
-  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(jj_2_rtns_))->size_; i++) IOSObjectArray_SetAndConsume(jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self));
+  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(jj_2_rtns_))->size_; i++) IOSObjectArray_SetAndConsume(jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_init());
 }
 
 - (instancetype)initWithJavaIoReader:(JavaIoReader *)stream {
@@ -2045,12 +2034,12 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
 
 - (void)ReInitWithJavaIoReader:(JavaIoReader *)stream {
   [((OrgGeogebraCommonKernelParserSimpleCharStream *) nil_chk(jj_input_stream_)) ReInitWithJavaIoReader:stream withInt:1 withInt:1];
-  OrgGeogebraCommonKernelParserParserTokenManager_ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream_(jj_input_stream_);
+  [((OrgGeogebraCommonKernelParserParserTokenManager *) nil_chk(token_source_)) ReInitWithOrgGeogebraCommonKernelParserSimpleCharStream:jj_input_stream_];
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_(self, new_OrgGeogebraCommonKernelParserToken_init());
-  jj_ntk_ = -1;
+  jj_ntk__ = -1;
   jj_gen_ = 0;
   for (jint i = 0; i < 67; i++) *IOSIntArray_GetRef(nil_chk(jj_la1_), i) = -1;
-  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(jj_2_rtns_))->size_; i++) IOSObjectArray_SetAndConsume(jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self));
+  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(jj_2_rtns_))->size_; i++) IOSObjectArray_SetAndConsume(jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_init());
 }
 
 - (instancetype)initWithOrgGeogebraCommonKernelParserParserTokenManager:(OrgGeogebraCommonKernelParserParserTokenManager *)tm {
@@ -2061,10 +2050,10 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
 - (void)ReInitWithOrgGeogebraCommonKernelParserParserTokenManager:(OrgGeogebraCommonKernelParserParserTokenManager *)tm {
   OrgGeogebraCommonKernelParserParser_set_token_source_(self, tm);
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_(self, new_OrgGeogebraCommonKernelParserToken_init());
-  jj_ntk_ = -1;
+  jj_ntk__ = -1;
   jj_gen_ = 0;
   for (jint i = 0; i < 67; i++) *IOSIntArray_GetRef(nil_chk(jj_la1_), i) = -1;
-  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(jj_2_rtns_))->size_; i++) IOSObjectArray_SetAndConsume(jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self));
+  for (jint i = 0; i < ((IOSObjectArray *) nil_chk(jj_2_rtns_))->size_; i++) IOSObjectArray_SetAndConsume(jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_init());
 }
 
 - (OrgGeogebraCommonKernelParserToken *)jj_consume_tokenWithInt:(jint)kind {
@@ -2077,8 +2066,8 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
 
 - (OrgGeogebraCommonKernelParserToken *)getNextToken {
   if (((OrgGeogebraCommonKernelParserToken *) nil_chk(token_))->next_ != nil) OrgGeogebraCommonKernelParserParser_set_token_(self, token_->next_);
-  else OrgGeogebraCommonKernelParserParser_set_token_(self, OrgGeogebraCommonKernelParserToken_set_next_(token_, OrgGeogebraCommonKernelParserParserTokenManager_getNextToken()));
-  jj_ntk_ = -1;
+  else OrgGeogebraCommonKernelParserParser_set_token_(self, OrgGeogebraCommonKernelParserToken_set_next_(token_, [((OrgGeogebraCommonKernelParserParserTokenManager *) nil_chk(token_source_)) getNextToken]));
+  jj_ntk__ = -1;
   jj_gen_++;
   return token_;
 }
@@ -2087,8 +2076,8 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
   return OrgGeogebraCommonKernelParserParser_getTokenWithInt_(self, index);
 }
 
-- (jint)jj_ntk_f {
-  return OrgGeogebraCommonKernelParserParser_jj_ntk_f(self);
+- (jint)jj_ntk {
+  return OrgGeogebraCommonKernelParserParser_jj_ntk(self);
 }
 
 - (void)jj_add_error_tokenWithInt:(jint)kind
@@ -2431,7 +2420,7 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
     { "jj_scan_tokenWithInt:", "jj_scan_token", "Z", 0x2, NULL, NULL },
     { "getNextToken", NULL, "Lorg.geogebra.common.kernel.parser.Token;", 0x11, NULL, NULL },
     { "getTokenWithInt:", "getToken", "Lorg.geogebra.common.kernel.parser.Token;", 0x11, NULL, NULL },
-    { "jj_ntk_f", NULL, "I", 0x2, NULL, NULL },
+    { "jj_ntk", NULL, "I", 0x2, NULL, NULL },
     { "jj_add_error_tokenWithInt:withInt:", "jj_add_error_token", "V", 0x2, NULL, NULL },
     { "generateParseException", NULL, "Lorg.geogebra.common.kernel.parser.ParseException;", 0x1, NULL, NULL },
     { "enable_tracing", NULL, "V", 0x11, NULL, NULL },
@@ -2447,12 +2436,11 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
     { "ExternalCASParsing_", NULL, 0x2, "Z", NULL, NULL,  },
     { "GiacParsing_", NULL, 0x2, "Z", NULL, NULL,  },
     { "undecided_", NULL, 0x2, "Ljava.util.ArrayList;", NULL, "Ljava/util/ArrayList<Lorg/geogebra/common/kernel/arithmetic/ExpressionNode;>;",  },
-    { "jj_initialized_once_", NULL, 0x2, "Z", NULL, NULL,  },
     { "token_source_", NULL, 0x1, "Lorg.geogebra.common.kernel.parser.ParserTokenManager;", NULL, NULL,  },
     { "jj_input_stream_", NULL, 0x0, "Lorg.geogebra.common.kernel.parser.SimpleCharStream;", NULL, NULL,  },
     { "token_", NULL, 0x1, "Lorg.geogebra.common.kernel.parser.Token;", NULL, NULL,  },
     { "jj_nt_", NULL, 0x1, "Lorg.geogebra.common.kernel.parser.Token;", NULL, NULL,  },
-    { "jj_ntk_", NULL, 0x2, "I", NULL, NULL,  },
+    { "jj_ntk__", "jj_ntk", 0x2, "I", NULL, NULL,  },
     { "jj_scanpos_", NULL, 0x2, "Lorg.geogebra.common.kernel.parser.Token;", NULL, NULL,  },
     { "jj_lastpos_", NULL, 0x2, "Lorg.geogebra.common.kernel.parser.Token;", NULL, NULL,  },
     { "jj_la_", NULL, 0x2, "I", NULL, NULL,  },
@@ -2474,7 +2462,7 @@ J2OBJC_INITIALIZED_DEFN(OrgGeogebraCommonKernelParserParser)
     { "jj_endpos_", NULL, 0x2, "I", NULL, NULL,  },
   };
   static const char *inner_classes[] = {"Lorg.geogebra.common.kernel.parser.Parser$LookaheadSuccess;", "Lorg.geogebra.common.kernel.parser.Parser$JJCalls;"};
-  static const J2ObjcClassInfo _OrgGeogebraCommonKernelParserParser = { 2, "Parser", "org.geogebra.common.kernel.parser", NULL, 0x1, 255, methods, 32, fields, 0, NULL, 2, inner_classes, NULL, NULL };
+  static const J2ObjcClassInfo _OrgGeogebraCommonKernelParserParser = { 2, "Parser", "org.geogebra.common.kernel.parser", NULL, 0x1, 255, methods, 31, fields, 0, NULL, 2, inner_classes, NULL, NULL };
   return &_OrgGeogebraCommonKernelParserParser;
 }
 
@@ -2534,17 +2522,13 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   }
   else if (OrgGeogebraCommonKernelParserParser_jj_2_3WithInt_(self, 2147483647)) {
     l = OrgGeogebraCommonKernelParserParser_label(self);
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case 70:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 0) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2554,17 +2538,13 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   }
   else if (OrgGeogebraCommonKernelParserParser_jj_2_4WithInt_(self, 2147483647)) {
     l = OrgGeogebraCommonKernelParserParser_label(self);
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case 70:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 1) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2603,17 +2583,13 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   }
   else if (OrgGeogebraCommonKernelParserParser_jj_2_7WithInt_(self, 2147483647)) {
     labels = OrgGeogebraCommonKernelParserParser_labellist(self);
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_EQUAL:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 2) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2634,17 +2610,13 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
+    break;
     case 0:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 3) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2655,7 +2627,7 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
     [ve addLabelWithNSString:((OrgGeogebraCommonKernelParserToken *) nil_chk(l))->image_];
   }
   {
-    if (![@"" isEqual:nil]) return ve;
+    return ve;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -2673,22 +2645,16 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   }
   else if (OrgGeogebraCommonKernelParserParser_jj_2_12WithInt_(self, 2147483647)) {
     l = OrgGeogebraCommonKernelParserParser_label(self);
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case 70:
-      {
-        assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
-        break;
-      }
+      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT:
-      {
-        assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
-        break;
-      }
+      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT:
-      {
-        assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT);
-        break;
-      }
+      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 4) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2698,22 +2664,16 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   }
   else if (OrgGeogebraCommonKernelParserParser_jj_2_13WithInt_(self, 2147483647)) {
     l = OrgGeogebraCommonKernelParserParser_casVar(self);
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case 70:
-      {
-        assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
-        break;
-      }
+      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 70);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT:
-      {
-        assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
-        break;
-      }
+      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT:
-      {
-        assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT);
-        break;
-      }
+      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 5) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2731,17 +2691,13 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
+    break;
     case 0:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 6) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2755,7 +2711,7 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
       [cmd addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:startCell];
       [cmd addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:endCell];
       {
-        if (![@"" isEqual:nil]) return cmd;
+        return cmd;
       }
     }
     [((OrgGeogebraCommonKernelArithmeticValidExpression *) nil_chk(ve)) addLabelWithNSString:l->image_];
@@ -2764,7 +2720,7 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
     }
   }
   {
-    if (![@"" isEqual:nil]) return ve;
+    return ve;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -2775,92 +2731,72 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   OrgGeogebraCommonKernelParserToken *l = [new_OrgGeogebraCommonKernelParserToken_init() autorelease];
   JavaUtilVector *labels = [new_JavaUtilVector_init() autorelease];
   ve = OrgGeogebraCommonKernelParserParser_buildCASExpressionWithOrgGeogebraCommonKernelGeosGeoCasCell_(self, nil);
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POLAR_SEPARATOR);
+    break;
     case 0:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 0);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 8) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   {
-    if (![@"" isEqual:nil]) return ve;
+    return ve;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
 
 OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParser_label(OrgGeogebraCommonKernelParserParser *self) {
   OrgGeogebraCommonKernelParserToken *t;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_VARZ:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARZ);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARZ);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_LABEL:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LABEL);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LABEL);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 10) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   {
-    if (![@"" isEqual:nil]) return t;
+    return t;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
 
 OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParser_casVar(OrgGeogebraCommonKernelParserParser *self) {
   OrgGeogebraCommonKernelParserToken *t;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_VARX:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARX);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARX);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VARY:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARY);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARY);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VARZ:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARZ);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARZ);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_LABEL:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LABEL);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LABEL);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL:
-    {
-      t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL);
-      break;
-    }
+    t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 11) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   {
-    if (![@"" isEqual:nil]) return t;
+    return t;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -2873,7 +2809,7 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   t = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL);
   cmdName = [((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->image_ substring:0 endIndex:((jint) [((NSString *) nil_chk(t->image_)) length]) - 1];
   c = [new_OrgGeogebraCommonKernelArithmeticCommand_initWithOrgGeogebraCommonKernelKernel_withNSString_withBoolean_withBoolean_(self->kernel_, cmdName, YES, !self->ExternalCASParsing_) autorelease];
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR:
     case OrgGeogebraCommonKernelParserParserConstants_NOT:
     case OrgGeogebraCommonKernelParserParserConstants_PLUS:
@@ -2907,22 +2843,18 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
     case OrgGeogebraCommonKernelParserParserConstants_TEXT:
     case 73:
     case 75:
-    {
-      en = OrgGeogebraCommonKernelParserParser_cmdexpression(self);
-      [c addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:en];
-      break;
-    }
+    en = OrgGeogebraCommonKernelParserParser_cmdexpression(self);
+    [c addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:en];
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 12) = self->jj_gen_;
     ;
   }
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 13) = self->jj_gen_;
       goto break_label_1;
@@ -2932,17 +2864,13 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
     [c addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:en];
   }
   break_label_1: ;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case 71:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+    break;
     case 72:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 14) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -2951,11 +2879,11 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
   if (self->GiacParsing_) {
     OrgGeogebraCommonKernelArithmeticExpressionNode *res = OrgGeogebraCommonKernelParserCashandlersCommandDispatcherGiac_processCommandWithNSString_withOrgGeogebraCommonKernelArithmeticGetItem_withOrgGeogebraCommonKernelKernel_(cmdName, c, self->kernel_);
     if (res != nil) {
-      if (![@"" isEqual:nil]) return res;
+      return res;
     }
   }
   {
-    if (![@"" isEqual:nil]) return c;
+    return c;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -2963,20 +2891,18 @@ OrgGeogebraCommonKernelArithmeticValidExpression *OrgGeogebraCommonKernelParserP
 JavaUtilVector *OrgGeogebraCommonKernelParserParser_labellist(OrgGeogebraCommonKernelParserParser *self) {
   OrgGeogebraCommonKernelParserToken *t;
   JavaUtilVector *labels;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case 73:
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 73);
+    t = OrgGeogebraCommonKernelParserParser_label(self);
+    labels = [new_JavaUtilVector_init() autorelease];
+    [labels addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->image_];
     {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 73);
-      t = OrgGeogebraCommonKernelParserParser_label(self);
-      labels = [new_JavaUtilVector_init() autorelease];
-      [labels addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->image_];
       while (YES) {
-        switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+        switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
           case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-          {
-            ;
-            break;
-          }
+          ;
+          break;
           default:
           *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 15) = self->jj_gen_;
           goto break_label_2;
@@ -2986,23 +2912,21 @@ JavaUtilVector *OrgGeogebraCommonKernelParserParser_labellist(OrgGeogebraCommonK
         [labels addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->image_];
       }
       break_label_2: ;
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 74);
-      break;
     }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 74);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VARZ:
     case OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL:
     case OrgGeogebraCommonKernelParserParserConstants_LABEL:
+    t = OrgGeogebraCommonKernelParserParser_label(self);
+    labels = [new_JavaUtilVector_init() autorelease];
+    [labels addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->image_];
     {
-      t = OrgGeogebraCommonKernelParserParser_label(self);
-      labels = [new_JavaUtilVector_init() autorelease];
-      [labels addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->image_];
       while (YES) {
-        switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+        switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
           case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-          {
-            ;
-            break;
-          }
+          ;
+          break;
           default:
           *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 16) = self->jj_gen_;
           goto break_label_3;
@@ -3012,15 +2936,15 @@ JavaUtilVector *OrgGeogebraCommonKernelParserParser_labellist(OrgGeogebraCommonK
         [labels addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(t))->image_];
       }
       break_label_3: ;
-      break;
     }
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 17) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   {
-    if (![@"" isEqual:nil]) return labels;
+    return labels;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3031,7 +2955,7 @@ OrgGeogebraCommonKernelArithmeticEquation *OrgGeogebraCommonKernelParserParser_e
   OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL);
   rhs = OrgGeogebraCommonKernelParserParser_expressionnode(self);
   {
-    if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, lhs, rhs) autorelease];
+    return [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, lhs, rhs) autorelease];
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3045,7 +2969,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
     }
   }
   {
-    if (![@"" isEqual:nil]) return rhs;
+    return rhs;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3054,7 +2978,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelArithmeticExpressionNode *en;
   en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
   {
-    if (![@"" isEqual:nil]) return en;
+    return en;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3072,7 +2996,7 @@ OrgGeogebraCommonKernelArithmeticFunction *OrgGeogebraCommonKernelParserParser_f
   }
   [((OrgGeogebraCommonKernelArithmeticFunction *) nil_chk(f)) setLabelWithNSString:[rhs getLabel]];
   {
-    if (![@"" isEqual:nil]) return f;
+    return f;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3090,7 +3014,7 @@ OrgGeogebraCommonKernelArithmeticFunctionNVar *OrgGeogebraCommonKernelParserPars
   }
   [((OrgGeogebraCommonKernelArithmeticFunctionNVar *) nil_chk(f)) setLabelWithNSString:[rhs getLabel]];
   {
-    if (![@"" isEqual:nil]) return f;
+    return f;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3102,40 +3026,30 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelParserToken *varName = nil;
   JavaUtilArrayList *localVars;
   OrgGeogebraCommonKernelParserToken *var;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL:
-    {
-      funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL);
-      break;
-    }
+    funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_Z_FUNC:
-    {
-      funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_Z_FUNC);
-      break;
-    }
+    funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_Z_FUNC);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 18) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_VARX:
-    {
-      varName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARX);
-      break;
-    }
+    varName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARX);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VARY:
-    {
-      varName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARY);
-      break;
-    }
+    varName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARY);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VARZ:
     case OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL:
     case OrgGeogebraCommonKernelParserParserConstants_LABEL:
-    {
-      varName = OrgGeogebraCommonKernelParserParser_label(self);
-      break;
-    }
+    varName = OrgGeogebraCommonKernelParserParser_label(self);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 19) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -3145,12 +3059,10 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   [localVars addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(varName))->image_];
   [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) registerFunctionVariableWithNSString:varName->image_];
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 20) = self->jj_gen_;
       goto break_label_4;
@@ -3162,30 +3074,24 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   }
   break_label_4: ;
   OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_EQUAL:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 21) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
     @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   rhs = OrgGeogebraCommonKernelParserParser_expressionnode(self);
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_COMMA);
-      condition = OrgGeogebraCommonKernelParserParser_expressionnode(self);
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_COMMA);
+    condition = OrgGeogebraCommonKernelParserParser_expressionnode(self);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 22) = self->jj_gen_;
     ;
@@ -3197,7 +3103,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   if ([[((OrgGeogebraCommonKernelArithmeticExpressionNode *) nil_chk(rhs)) getLeft] isKindOfClass:[OrgGeogebraCommonKernelArithmeticCommand class]] && ![rhs containsFreeFunctionVariableWithNSString:nil]) {
     [rhs setLabelWithNSString:funLabel];
     {
-      if (![@"" isEqual:nil]) return rhs;
+      return rhs;
     }
   }
   jint n = [localVars size];
@@ -3205,7 +3111,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   if (op != nil) {
     if (n == 1) {
       {
-        if (![@"" isEqual:nil]) return [((OrgGeogebraCommonKernelArithmeticEquation *) [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [((OrgGeogebraCommonKernelArithmeticExpressionNode *) nil_chk([((OrgGeogebraCommonKernelArithmeticFunctionVariable *) [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, [localVars getWithInt:0]) autorelease]) wrap])) applyWithOrgGeogebraCommonPluginOperationEnum:op], rhs) autorelease]) wrap];
+        return [((OrgGeogebraCommonKernelArithmeticEquation *) [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [((OrgGeogebraCommonKernelArithmeticExpressionNode *) nil_chk([((OrgGeogebraCommonKernelArithmeticFunctionVariable *) [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, [localVars getWithInt:0]) autorelease]) wrap])) applyWithOrgGeogebraCommonPluginOperationEnum:op], rhs) autorelease]) wrap];
       }
     }
     OrgGeogebraCommonKernelArithmeticMyList *vars = [new_OrgGeogebraCommonKernelArithmeticMyList_initWithOrgGeogebraCommonKernelKernel_withInt_(self->kernel_, n) autorelease];
@@ -3214,7 +3120,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
       [vars addListElementWithOrgGeogebraCommonKernelArithmeticExpressionValue:funVar];
     }
     {
-      if (![@"" isEqual:nil]) return [((OrgGeogebraCommonKernelArithmeticEquation *) [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [vars wrap], rhs) autorelease]) wrap];
+      return [((OrgGeogebraCommonKernelArithmeticEquation *) [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [vars wrap], rhs) autorelease]) wrap];
     }
   }
   IOSObjectArray *funVar = [IOSObjectArray arrayWithLength:n type:OrgGeogebraCommonKernelArithmeticFunctionVariable_class_()];
@@ -3240,7 +3146,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   }
   [rhs setLabelWithNSString:funLabel];
   {
-    if (![@"" isEqual:nil]) return rhs;
+    return rhs;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3252,17 +3158,13 @@ OrgGeogebraCommonKernelArithmeticFunctionNVar *OrgGeogebraCommonKernelParserPars
   OrgGeogebraCommonKernelParserToken *assign = nil;
   JavaUtilArrayList *localVars;
   OrgGeogebraCommonKernelParserToken *var;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL:
-    {
-      funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL);
-      break;
-    }
+    funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_Z_FUNC:
-    {
-      funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_Z_FUNC);
-      break;
-    }
+    funName = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_Z_FUNC);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 23) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -3272,12 +3174,10 @@ OrgGeogebraCommonKernelArithmeticFunctionNVar *OrgGeogebraCommonKernelParserPars
   localVars = [new_JavaUtilArrayList_init() autorelease];
   [localVars addWithId:((OrgGeogebraCommonKernelParserToken *) nil_chk(varName))->image_];
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 24) = self->jj_gen_;
       goto break_label_5;
@@ -3288,17 +3188,13 @@ OrgGeogebraCommonKernelArithmeticFunctionNVar *OrgGeogebraCommonKernelParserPars
   }
   break_label_5: ;
   OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT:
-    {
-      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
-      break;
-    }
+    assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_ASSIGNMENT);
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT:
-    {
-      assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT);
-      break;
-    }
+    assign = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT);
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 25) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -3323,7 +3219,7 @@ OrgGeogebraCommonKernelArithmeticFunctionNVar *OrgGeogebraCommonKernelParserPars
         [cell setAssignmentTypeWithOrgGeogebraCommonKernelArithmeticAssignmentTypeEnum:((OrgGeogebraCommonKernelParserToken *) nil_chk(assign))->kind_ == OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT ? OrgGeogebraCommonKernelArithmeticAssignmentTypeEnum_get_DELAYED() : OrgGeogebraCommonKernelArithmeticAssignmentTypeEnum_get_DEFAULT()];
       }
       {
-        if (![@"" isEqual:nil]) return fun;
+        return fun;
       }
       default:
       funn = [new_OrgGeogebraCommonKernelArithmeticFunctionNVar_initWithOrgGeogebraCommonKernelArithmeticExpressionNode_withOrgGeogebraCommonKernelArithmeticFunctionVariableArray_(rhs, funVar) autorelease];
@@ -3332,7 +3228,7 @@ OrgGeogebraCommonKernelArithmeticFunctionNVar *OrgGeogebraCommonKernelParserPars
         [cell setAssignmentTypeWithOrgGeogebraCommonKernelArithmeticAssignmentTypeEnum:((OrgGeogebraCommonKernelParserToken *) nil_chk(assign))->kind_ == OrgGeogebraCommonKernelParserParserConstants_DELAYED_ASSIGNMENT ? OrgGeogebraCommonKernelArithmeticAssignmentTypeEnum_get_DELAYED() : OrgGeogebraCommonKernelArithmeticAssignmentTypeEnum_get_DEFAULT()];
       }
       {
-        if (![@"" isEqual:nil]) return funn;
+        return funn;
       }
     }
   }
@@ -3344,12 +3240,10 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_ORterm(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_IMPLICATION:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 26) = self->jj_gen_;
       goto break_label_6;
@@ -3364,7 +3258,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   else en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ret) autorelease];
   if (self->ExternalCASParsing_) [((OrgGeogebraCommonKernelArithmeticExpressionNode *) nil_chk(en)) simplifyLeafs];
   {
-    if (![@"" isEqual:nil]) return en;
+    return en;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3372,20 +3266,18 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
 OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserParser_expressionOrEquation(OrgGeogebraCommonKernelParserParser *self) {
   OrgGeogebraCommonKernelArithmeticExpressionNode *en, *rhs;
   en = OrgGeogebraCommonKernelParserParser_expressionnode(self);
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_EQUAL:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL);
-      rhs = OrgGeogebraCommonKernelParserParser_expressionnode(self);
-      en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, rhs) autorelease]) autorelease];
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL);
+    rhs = OrgGeogebraCommonKernelParserParser_expressionnode(self);
+    en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, rhs) autorelease]) autorelease];
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 27) = self->jj_gen_;
     ;
   }
   {
-    if (![@"" isEqual:nil]) return en;
+    return en;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3395,12 +3287,10 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_COMPAREterm(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_AND:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 28) = self->jj_gen_;
       goto break_label_7;
@@ -3411,7 +3301,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_7: ;
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3421,12 +3311,10 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_ANDterm(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_OR:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 29) = self->jj_gen_;
       goto break_label_8;
@@ -3437,7 +3325,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_8: ;
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3448,7 +3336,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   JavaUtilVector *andList = nil;
   left = OrgGeogebraCommonKernelParserParser_listopnode(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_EQUAL_BOOLEAN:
       case OrgGeogebraCommonKernelParserParserConstants_NOT_EQUAL:
       case OrgGeogebraCommonKernelParserParserConstants_IS_SUBSET_OF:
@@ -3459,86 +3347,64 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
       case OrgGeogebraCommonKernelParserParserConstants_GREATER_EQUAL:
       case OrgGeogebraCommonKernelParserParserConstants_PARALLEL:
       case OrgGeogebraCommonKernelParserParserConstants_PERPENDICULAR:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 30) = self->jj_gen_;
       goto break_label_9;
     }
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_EQUAL_BOOLEAN:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL_BOOLEAN);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        if (self->ExternalCASParsing_) result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, right) autorelease]) autorelease];
-        else result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_EQUAL_BOOLEAN(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EQUAL_BOOLEAN);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      if (self->ExternalCASParsing_) result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticEquation_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, right) autorelease]) autorelease];
+      else result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_EQUAL_BOOLEAN(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_NOT_EQUAL:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_NOT_EQUAL);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_NOT_EQUAL(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_NOT_EQUAL);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_NOT_EQUAL(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_IS_SUBSET_OF:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_IS_SUBSET_OF);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_IS_SUBSET_OF(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_IS_SUBSET_OF);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_IS_SUBSET_OF(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_IS_SUBSET_OF_STRICT:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_IS_SUBSET_OF_STRICT);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_IS_SUBSET_OF_STRICT(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_IS_SUBSET_OF_STRICT);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_IS_SUBSET_OF_STRICT(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_LESS:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LESS);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_LESS(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LESS);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_LESS(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_GREATER:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_GREATER);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_GREATER(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_GREATER);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_GREATER(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_LESS_EQUAL:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LESS_EQUAL);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_LESS_EQUAL(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LESS_EQUAL);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_LESS_EQUAL(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_GREATER_EQUAL:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_GREATER_EQUAL);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_GREATER_EQUAL(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_GREATER_EQUAL);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_GREATER_EQUAL(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_PARALLEL:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PARALLEL);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_PARALLEL(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PARALLEL);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_PARALLEL(), right) autorelease];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_PERPENDICULAR:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PERPENDICULAR);
-        right = OrgGeogebraCommonKernelParserParser_listopnode(self);
-        result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_PERPENDICULAR(), right) autorelease];
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PERPENDICULAR);
+      right = OrgGeogebraCommonKernelParserParser_listopnode(self);
+      result = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, left, OrgGeogebraCommonPluginOperationEnum_get_PERPENDICULAR(), right) autorelease];
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 31) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -3556,7 +3422,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     }
   }
   {
-    if (![@"" isEqual:nil]) return left;
+    return left;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3566,28 +3432,22 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_multterm(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_PLUS:
       case OrgGeogebraCommonKernelParserParserConstants_MINUS:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 32) = self->jj_gen_;
       goto break_label_10;
     }
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_PLUS:
-      {
-        x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PLUS);
-        break;
-      }
+      x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PLUS);
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_MINUS:
-      {
-        x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MINUS);
-        break;
-      }
+      x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MINUS);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 33) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -3599,7 +3459,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_10: ;
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3609,12 +3469,10 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_plusminusnode(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_SET_DIFFERENCE:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 34) = self->jj_gen_;
       goto break_label_11;
@@ -3625,7 +3483,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_11: ;
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3634,20 +3492,18 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   id<OrgGeogebraCommonKernelArithmeticExpressionValue> ret, f;
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_setdifferencenode(self);
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_IS_ELEMENT_OF:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_IS_ELEMENT_OF);
-      f = OrgGeogebraCommonKernelParserParser_setdifferencenode(self);
-      ret = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ret, OrgGeogebraCommonPluginOperationEnum_get_IS_ELEMENT_OF(), f) autorelease];
-      break;
-    }
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_IS_ELEMENT_OF);
+    f = OrgGeogebraCommonKernelParserParser_setdifferencenode(self);
+    ret = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ret, OrgGeogebraCommonPluginOperationEnum_get_IS_ELEMENT_OF(), f) autorelease];
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 35) = self->jj_gen_;
     ;
   }
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3663,35 +3519,29 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     else {
       goto break_label_12;
     }
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_MULTIPLY:
       case OrgGeogebraCommonKernelParserParserConstants_VECTORPRODUCT:
-      {
-        switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-          case OrgGeogebraCommonKernelParserParserConstants_MULTIPLY:
-          {
-            x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MULTIPLY);
-            break;
-          }
-          case OrgGeogebraCommonKernelParserParserConstants_VECTORPRODUCT:
-          {
-            x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VECTORPRODUCT);
-            break;
-          }
-          default:
-          *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 36) = self->jj_gen_;
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-          @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
-        }
-        f = OrgGeogebraCommonKernelParserParser_divterm(self);
-        if (((OrgGeogebraCommonKernelParserToken *) nil_chk(x))->kind_ == OrgGeogebraCommonKernelParserParserConstants_MULTIPLY) {
-          ret = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ret, OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), f) autorelease];
-        }
-        else {
-          ret = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ret, OrgGeogebraCommonPluginOperationEnum_get_VECTORPRODUCT(), f) autorelease];
-        }
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+        case OrgGeogebraCommonKernelParserParserConstants_MULTIPLY:
+        x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MULTIPLY);
         break;
+        case OrgGeogebraCommonKernelParserParserConstants_VECTORPRODUCT:
+        x = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VECTORPRODUCT);
+        break;
+        default:
+        *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 36) = self->jj_gen_;
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+        @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
       }
+      f = OrgGeogebraCommonKernelParserParser_divterm(self);
+      if (((OrgGeogebraCommonKernelParserToken *) nil_chk(x))->kind_ == OrgGeogebraCommonKernelParserParserConstants_MULTIPLY) {
+        ret = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ret, OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), f) autorelease];
+      }
+      else {
+        ret = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ret, OrgGeogebraCommonPluginOperationEnum_get_VECTORPRODUCT(), f) autorelease];
+      }
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 37) = self->jj_gen_;
       if (((OrgGeogebraCommonKernelParserToken *) nil_chk(OrgGeogebraCommonKernelParserParser_getTokenWithInt_(self, 1)))->kind_ != OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR) {
@@ -3712,7 +3562,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_12: ;
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3722,12 +3572,10 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_enunary(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_DIVIDE:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 38) = self->jj_gen_;
       goto break_label_13;
@@ -3738,7 +3586,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_13: ;
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3748,12 +3596,10 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelParserToken *x;
   ret = OrgGeogebraCommonKernelParserParser_enpower(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_DIVIDE:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 39) = self->jj_gen_;
       goto break_label_14;
@@ -3764,7 +3610,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_14: ;
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3772,25 +3618,21 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
 id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelParserParser_enunary(OrgGeogebraCommonKernelParserParser *self) {
   id<OrgGeogebraCommonKernelArithmeticExpressionValue> e;
   OrgGeogebraCommonKernelParserToken *c;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_MINUS:
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MINUS);
+    e = OrgGeogebraCommonKernelParserParser_enpower(self);
     {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MINUS);
-      e = OrgGeogebraCommonKernelParserParser_enpower(self);
-      {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, -1.0) autorelease], OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), e) autorelease];
-      }
-      break;
+      return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, -1.0) autorelease], OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), e) autorelease];
     }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_PLUS:
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PLUS);
+    e = OrgGeogebraCommonKernelParserParser_enpower(self);
     {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PLUS);
-      e = OrgGeogebraCommonKernelParserParser_enpower(self);
-      {
-        if (![@"" isEqual:nil]) return e;
-      }
-      break;
+      return e;
     }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR:
     case OrgGeogebraCommonKernelParserParserConstants_NOT:
     case OrgGeogebraCommonKernelParserParserConstants_FACTORIAL:
@@ -3822,13 +3664,11 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     case OrgGeogebraCommonKernelParserParserConstants_TEXT:
     case 73:
     case 75:
+    e = OrgGeogebraCommonKernelParserParser_enpower(self);
     {
-      e = OrgGeogebraCommonKernelParserParser_enpower(self);
-      {
-        if (![@"" isEqual:nil]) return e;
-      }
-      break;
+      return e;
     }
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 40) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -3843,64 +3683,52 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   JavaUtilArrayList *exponentList = nil;
   ret = OrgGeogebraCommonKernelParserParser_enfactorial(self);
   while (YES) {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_POWER:
       case OrgGeogebraCommonKernelParserParserConstants_POWERN:
-      {
-        ;
-        break;
-      }
+      ;
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 41) = self->jj_gen_;
       goto break_label_15;
     }
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case OrgGeogebraCommonKernelParserParserConstants_POWERN:
-      {
-        c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POWERN);
-        f = [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
-        if (exponentList == nil) exponentList = [new_JavaUtilArrayList_init() autorelease];
-        [((JavaUtilArrayList *) nil_chk(exponentList)) addWithId:f];
-        break;
-      }
+      c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POWERN);
+      f = [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
+      if (exponentList == nil) exponentList = [new_JavaUtilArrayList_init() autorelease];
+      [((JavaUtilArrayList *) nil_chk(exponentList)) addWithId:f];
+      break;
       case OrgGeogebraCommonKernelParserParserConstants_POWER:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POWER);
-        switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-          case OrgGeogebraCommonKernelParserParserConstants_PLUS:
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_POWER);
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+        case OrgGeogebraCommonKernelParserParserConstants_PLUS:
+        case OrgGeogebraCommonKernelParserParserConstants_MINUS:
+        switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
           case OrgGeogebraCommonKernelParserParserConstants_MINUS:
-          {
-            switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-              case OrgGeogebraCommonKernelParserParserConstants_MINUS:
-              {
-                c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MINUS);
-                break;
-              }
-              case OrgGeogebraCommonKernelParserParserConstants_PLUS:
-              {
-                c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PLUS);
-                break;
-              }
-              default:
-              *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 42) = self->jj_gen_;
-              OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-              @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
-            }
-            break;
-          }
+          c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_MINUS);
+          break;
+          case OrgGeogebraCommonKernelParserParserConstants_PLUS:
+          c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PLUS);
+          break;
           default:
-          *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 43) = self->jj_gen_;
-          ;
+          *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 42) = self->jj_gen_;
+          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+          @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
         }
-        f = OrgGeogebraCommonKernelParserParser_enfactorial(self);
-        if (c != nil && c->kind_ == OrgGeogebraCommonKernelParserParserConstants_MINUS) {
-          f = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, -1.0) autorelease], OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), f) autorelease];
-          c = nil;
-        }
-        if (exponentList == nil) exponentList = [new_JavaUtilArrayList_init() autorelease];
-        [((JavaUtilArrayList *) nil_chk(exponentList)) addWithId:f];
         break;
+        default:
+        *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 43) = self->jj_gen_;
+        ;
       }
+      f = OrgGeogebraCommonKernelParserParser_enfactorial(self);
+      if (c != nil && c->kind_ == OrgGeogebraCommonKernelParserParserConstants_MINUS) {
+        f = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, -1.0) autorelease], OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), f) autorelease];
+        c = nil;
+      }
+      if (exponentList == nil) exponentList = [new_JavaUtilArrayList_init() autorelease];
+      [((JavaUtilArrayList *) nil_chk(exponentList)) addWithId:f];
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 44) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -3909,7 +3737,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   break_label_15: ;
   if (exponentList == nil) {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   jint size = [((JavaUtilArrayList *) nil_chk(exponentList)) size];
   id<OrgGeogebraCommonKernelArithmeticExpressionValue> tempEV = [exponentList getWithInt:size - 1];
@@ -3919,7 +3747,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   }
   ret = OrgGeogebraCommonKernelParserParser_makePowerWithOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self, ret, tempEV);
   {
-    if (![@"" isEqual:nil]) return ret;
+    return ret;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -3938,27 +3766,25 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     ;
   }
   {
-    if (![@"" isEqual:nil]) return en;
+    return en;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
 
 id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelParserParser_ensqrt(OrgGeogebraCommonKernelParserParser *self) {
   id<OrgGeogebraCommonKernelArithmeticExpressionValue> en;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_SQRT_SHORT:
-    {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SQRT_SHORT);
-      en = OrgGeogebraCommonKernelParserParser_NOTterm(self);
-      if ([((id<OrgGeogebraCommonKernelArithmeticExpressionValue>) nil_chk(en)) isExpressionNode] && [((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) getOperation] == OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY_OR_FUNCTION() && ![((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) hasBrackets]) {
-        en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) getLeft], OrgGeogebraCommonPluginOperationEnum_get_SQRT_SHORT(), nil) autorelease], OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), [((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) getRight]) autorelease];
-      }
-      else en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_SQRT_SHORT(), nil) autorelease];
-      {
-        if (![@"" isEqual:nil]) return en;
-      }
-      break;
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SQRT_SHORT);
+    en = OrgGeogebraCommonKernelParserParser_NOTterm(self);
+    if ([((id<OrgGeogebraCommonKernelArithmeticExpressionValue>) nil_chk(en)) isExpressionNode] && [((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) getOperation] == OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY_OR_FUNCTION() && ![((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) hasBrackets]) {
+      en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) getLeft], OrgGeogebraCommonPluginOperationEnum_get_SQRT_SHORT(), nil) autorelease], OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY(), [((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(en, [OrgGeogebraCommonKernelArithmeticExpressionNode class])) getRight]) autorelease];
     }
+    else en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_SQRT_SHORT(), nil) autorelease];
+    {
+      return en;
+    }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR:
     case OrgGeogebraCommonKernelParserParserConstants_NOT:
     case OrgGeogebraCommonKernelParserParserConstants_FACTORIAL:
@@ -3989,16 +3815,14 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     case OrgGeogebraCommonKernelParserParserConstants_TEXT:
     case 73:
     case 75:
+    en = OrgGeogebraCommonKernelParserParser_NOTterm(self);
     {
-      en = OrgGeogebraCommonKernelParserParser_NOTterm(self);
-      {
-        if (![@"" isEqual:nil]) return en;
-      }
-      {
-        if (![@"" isEqual:nil]) return en;
-      }
-      break;
+      return en;
     }
+    {
+      return en;
+    }
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 45) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4009,32 +3833,26 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
 
 id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelParserParser_NOTterm(OrgGeogebraCommonKernelParserParser *self) {
   id<OrgGeogebraCommonKernelArithmeticExpressionValue> en;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_NOT:
     case OrgGeogebraCommonKernelParserParserConstants_FACTORIAL:
-    {
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-        case OrgGeogebraCommonKernelParserParserConstants_NOT:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_NOT);
-          break;
-        }
-        case OrgGeogebraCommonKernelParserParserConstants_FACTORIAL:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FACTORIAL);
-          break;
-        }
-        default:
-        *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 46) = self->jj_gen_;
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-        @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
-      }
-      en = OrgGeogebraCommonKernelParserParser_enelement(self);
-      {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_NOT(), nil) autorelease];
-      }
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+      case OrgGeogebraCommonKernelParserParserConstants_NOT:
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_NOT);
       break;
+      case OrgGeogebraCommonKernelParserParserConstants_FACTORIAL:
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FACTORIAL);
+      break;
+      default:
+      *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 46) = self->jj_gen_;
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+      @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
     }
+    en = OrgGeogebraCommonKernelParserParser_enelement(self);
+    {
+      return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_NOT(), nil) autorelease];
+    }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR:
     case OrgGeogebraCommonKernelParserParserConstants_UNDEFINED:
     case OrgGeogebraCommonKernelParserParserConstants_PI:
@@ -4063,13 +3881,11 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     case OrgGeogebraCommonKernelParserParserConstants_TEXT:
     case 73:
     case 75:
+    en = OrgGeogebraCommonKernelParserParser_enelement(self);
     {
-      en = OrgGeogebraCommonKernelParserParser_enelement(self);
-      {
-        if (![@"" isEqual:nil]) return en;
-      }
-      break;
+      return en;
     }
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 47) = self->jj_gen_;
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4082,23 +3898,19 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   id<OrgGeogebraCommonKernelArithmeticExpressionValue> ev;
   jdouble num;
   OrgGeogebraCommonKernelParserToken *c;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_TRUE:
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_TRUE);
     {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_TRUE);
-      {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyBoolean_initWithOrgGeogebraCommonKernelKernel_withBoolean_(self->kernel_, YES) autorelease];
-      }
-      break;
+      return [new_OrgGeogebraCommonKernelArithmeticMyBoolean_initWithOrgGeogebraCommonKernelKernel_withBoolean_(self->kernel_, YES) autorelease];
     }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_FALSE:
+    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FALSE);
     {
-      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FALSE);
-      {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyBoolean_initWithOrgGeogebraCommonKernelKernel_withBoolean_(self->kernel_, NO) autorelease];
-      }
-      break;
+      return [new_OrgGeogebraCommonKernelArithmeticMyBoolean_initWithOrgGeogebraCommonKernelKernel_withBoolean_(self->kernel_, NO) autorelease];
     }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_UNDEFINED:
     case OrgGeogebraCommonKernelParserParserConstants_PI:
     case OrgGeogebraCommonKernelParserParserConstants_EULER_GAMMA:
@@ -4110,37 +3922,35 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     case OrgGeogebraCommonKernelParserParserConstants_FLOAT:
     case OrgGeogebraCommonKernelParserParserConstants_EFLOAT:
     case OrgGeogebraCommonKernelParserParserConstants_PERCENTAGE:
+    ev = OrgGeogebraCommonKernelParserParser_myDouble(self);
     {
-      ev = OrgGeogebraCommonKernelParserParser_myDouble(self);
-      {
-        if (![@"" isEqual:nil]) return ev;
-      }
-      break;
+      return ev;
     }
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 48) = self->jj_gen_;
     if (OrgGeogebraCommonKernelParserParser_jj_2_18WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_numberFunction(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_19WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_command(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_20WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_numVecVariable(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_21WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_list(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_22WithInt_(self, 2147483647)) {
@@ -4152,7 +3962,7 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
         [((OrgGeogebraCommonKernelArithmeticExpressionNode *) nil_chk(((OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(ev, [OrgGeogebraCommonKernelArithmeticExpressionNode class])))) setBracketsWithBoolean:YES];
       }
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_23WithInt_(self, 2147483647)) {
@@ -4160,48 +3970,49 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
       ev = OrgGeogebraCommonKernelParserParser_expressionnode(self);
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR);
       {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ev, OrgGeogebraCommonPluginOperationEnum_get_ABS(), nil) autorelease];
+        return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, ev, OrgGeogebraCommonPluginOperationEnum_get_ABS(), nil) autorelease];
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_24WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_cartesianvector(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_25WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_cartesianvector3D(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_26WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_polarvector(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else if (OrgGeogebraCommonKernelParserParser_jj_2_27WithInt_(self, 2147483647)) {
       ev = OrgGeogebraCommonKernelParserParser_sphericalvector(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else {
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-        case OrgGeogebraCommonKernelParserParserConstants_TEXT:
-        {
+      {
+        NSString *text;
+        switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+          case OrgGeogebraCommonKernelParserParserConstants_TEXT:
           c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_TEXT);
-          NSString *text = [((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_ substring:1 endIndex:((jint) [((NSString *) nil_chk(c->image_)) length]) - 1];
+          text = [((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_ substring:1 endIndex:((jint) [((NSString *) nil_chk(c->image_)) length]) - 1];
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyStringBuffer_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, text) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticMyStringBuffer_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, text) autorelease];
           }
           break;
+          default:
+          *IOSIntArray_GetRef(self->jj_la1_, 49) = self->jj_gen_;
+          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+          @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
         }
-        default:
-        *IOSIntArray_GetRef(self->jj_la1_, 49) = self->jj_gen_;
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-        @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
       }
     }
   }
@@ -4215,24 +4026,22 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 73);
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 74);
     {
-      if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyList_initWithOrgGeogebraCommonKernelKernel_(self->kernel_) autorelease];
+      return [new_OrgGeogebraCommonKernelArithmeticMyList_initWithOrgGeogebraCommonKernelKernel_(self->kernel_) autorelease];
     }
   }
   else {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case 73:
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 73);
+      ev = OrgGeogebraCommonKernelParserParser_cmdexpression(self);
+      myList = [new_OrgGeogebraCommonKernelArithmeticMyList_initWithOrgGeogebraCommonKernelKernel_(self->kernel_) autorelease];
+      [myList addListElementWithOrgGeogebraCommonKernelArithmeticExpressionValue:ev];
       {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 73);
-        ev = OrgGeogebraCommonKernelParserParser_cmdexpression(self);
-        myList = [new_OrgGeogebraCommonKernelArithmeticMyList_initWithOrgGeogebraCommonKernelKernel_(self->kernel_) autorelease];
-        [myList addListElementWithOrgGeogebraCommonKernelArithmeticExpressionValue:ev];
         while (YES) {
-          switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+          switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
             case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-            {
-              ;
-              break;
-            }
+            ;
+            break;
             default:
             *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 50) = self->jj_gen_;
             goto break_label_16;
@@ -4242,12 +4051,12 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
           [myList addListElementWithOrgGeogebraCommonKernelArithmeticExpressionValue:ev];
         }
         break_label_16: ;
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 74);
-        {
-          if (![@"" isEqual:nil]) return myList;
-        }
-        break;
       }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 74);
+      {
+        return myList;
+      }
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 51) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4261,74 +4070,65 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelGeosGeoElement *geo;
   OrgGeogebraCommonKernelParserToken *c;
   id<OrgGeogebraCommonKernelArithmeticExpressionValue> ev;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
     case OrgGeogebraCommonKernelParserParserConstants_VARX:
-    {
-      c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARX);
-      if (self->GeoGebraCASParsing_) {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
-      }
-      else {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
-      }
-      break;
+    c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARX);
+    if (self->GeoGebraCASParsing_) {
+      return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
     }
+    else {
+      return [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
+    }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VARY:
-    {
-      c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARY);
-      if (self->GeoGebraCASParsing_) {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
-      }
-      else {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
-      }
-      break;
+    c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARY);
+    if (self->GeoGebraCASParsing_) {
+      return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
     }
+    else {
+      return [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
+    }
+    break;
     case OrgGeogebraCommonKernelParserParserConstants_VARZ:
-    {
-      c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARZ);
-      if (self->GeoGebraCASParsing_ || [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) lookupLabelWithNSString:@"z"] != nil) {
-        {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
-        }
+    c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VARZ);
+    if (self->GeoGebraCASParsing_ || [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) lookupLabelWithNSString:@"z"] != nil) {
+      {
+        return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
       }
-      else {
-        {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
-        }
-      }
-      break;
     }
+    else {
+      {
+        return [new_OrgGeogebraCommonKernelArithmeticFunctionVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
+      }
+    }
+    break;
     default:
     *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 53) = self->jj_gen_;
     if (OrgGeogebraCommonKernelParserParser_jj_2_29WithInt_(self, 3)) {
       ev = OrgGeogebraCommonKernelParserParser_spreadsheetRange(self);
       {
-        if (![@"" isEqual:nil]) return ev;
+        return ev;
       }
     }
     else {
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-        case OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL:
-        case OrgGeogebraCommonKernelParserParserConstants_LABEL:
-        {
-          switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+      {
+        jboolean lookforEulerImaginary;
+        switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+          case OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL:
+          case OrgGeogebraCommonKernelParserParserConstants_LABEL:
+          switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
             case OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL:
-            {
-              c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL);
-              break;
-            }
+            c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_SPREADSHEET_LABEL);
+            break;
             case OrgGeogebraCommonKernelParserParserConstants_LABEL:
-            {
-              c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LABEL);
-              break;
-            }
+            c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_LABEL);
+            break;
             default:
             *IOSIntArray_GetRef(self->jj_la1_, 52) = self->jj_gen_;
             OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
             @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
           }
-          jboolean lookforEulerImaginary = NO;
+          lookforEulerImaginary = NO;
           if (self->GeoGebraCASParsing_) {
             lookforEulerImaginary = NO;
           }
@@ -4341,24 +4141,24 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
           if (lookforEulerImaginary) {
             if ([((NSString *) nil_chk(((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_)) isEqual:@"e"] && [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) lookupLabelWithNSString:c->image_] == nil) {
               {
-                if (![@"" isEqual:nil]) return OrgGeogebraCommonKernelArithmeticMySpecialDouble_getEulerConstantWithOrgGeogebraCommonKernelKernel_(self->kernel_);
+                return OrgGeogebraCommonKernelArithmeticMySpecialDouble_getEulerConstantWithOrgGeogebraCommonKernelKernel_(self->kernel_);
               }
             }
             else if ([c->image_ isEqual:@"i"] && [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) lookupLabelWithNSString:c->image_] == nil) {
               {
-                if (![@"" isEqual:nil]) return [self->kernel_ getImaginaryUnit];
+                return [self->kernel_ getImaginaryUnit];
               }
             }
           }
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
           }
           break;
+          default:
+          *IOSIntArray_GetRef(self->jj_la1_, 54) = self->jj_gen_;
+          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+          @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
         }
-        default:
-        *IOSIntArray_GetRef(self->jj_la1_, 54) = self->jj_gen_;
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-        @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
       }
     }
   }
@@ -4376,7 +4176,7 @@ OrgGeogebraCommonKernelArithmeticCommand *OrgGeogebraCommonKernelParserParser_sp
   [cmd addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:startCell];
   [cmd addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:endCell];
   {
-    if (![@"" isEqual:nil]) return cmd;
+    return cmd;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4385,41 +4185,34 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
   OrgGeogebraCommonKernelParserToken *c;
   OrgGeogebraCommonKernelArithmeticMyDouble *d;
   jdouble val;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-    case OrgGeogebraCommonKernelParserParserConstants_FLOAT:
-    case OrgGeogebraCommonKernelParserParserConstants_EFLOAT:
-    case OrgGeogebraCommonKernelParserParserConstants_PERCENTAGE:
-    {
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+  {
+    OrgGeogebraCommonKernelGeosGeoVec2D *z;
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+      case OrgGeogebraCommonKernelParserParserConstants_FLOAT:
+      case OrgGeogebraCommonKernelParserParserConstants_EFLOAT:
+      case OrgGeogebraCommonKernelParserParserConstants_PERCENTAGE:
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
         case OrgGeogebraCommonKernelParserParserConstants_FLOAT:
         case OrgGeogebraCommonKernelParserParserConstants_EFLOAT:
-        {
-          switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-            case OrgGeogebraCommonKernelParserParserConstants_FLOAT:
-            {
-              c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FLOAT);
-              break;
-            }
-            case OrgGeogebraCommonKernelParserParserConstants_EFLOAT:
-            {
-              c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EFLOAT);
-              break;
-            }
-            default:
-            *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 55) = self->jj_gen_;
-            OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-            @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
-          }
-          OrgGeogebraCommonKernelParserToken_set_image_(nil_chk(c), [((NSString *) nil_chk(c->image_)) replaceFirst:@"e" withReplacement:@"E"]);
-          val = OrgGeogebraCommonKernelArithmeticMyDouble_parseDoubleWithOrgGeogebraCommonMainLocalization_withNSString_(self->loc_, c->image_);
+        switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+          case OrgGeogebraCommonKernelParserParserConstants_FLOAT:
+          c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FLOAT);
           break;
+          case OrgGeogebraCommonKernelParserParserConstants_EFLOAT:
+          c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EFLOAT);
+          break;
+          default:
+          *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 55) = self->jj_gen_;
+          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+          @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
         }
+        OrgGeogebraCommonKernelParserToken_set_image_(nil_chk(c), [((NSString *) nil_chk(c->image_)) replaceFirst:@"e" withReplacement:@"E"]);
+        val = OrgGeogebraCommonKernelArithmeticMyDouble_parseDoubleWithOrgGeogebraCommonMainLocalization_withNSString_(self->loc_, c->image_);
+        break;
         case OrgGeogebraCommonKernelParserParserConstants_PERCENTAGE:
-        {
-          c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PERCENTAGE);
-          val = OrgGeogebraCommonKernelArithmeticMyDouble_parsePercentageWithOrgGeogebraCommonMainLocalization_withNSString_(self->loc_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_);
-          break;
-        }
+        c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PERCENTAGE);
+        val = OrgGeogebraCommonKernelArithmeticMyDouble_parsePercentageWithOrgGeogebraCommonMainLocalization_withNSString_(self->loc_, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_);
+        break;
         default:
         *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 56) = self->jj_gen_;
         OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4427,90 +4220,74 @@ id<OrgGeogebraCommonKernelArithmeticExpressionValue> OrgGeogebraCommonKernelPars
       }
       if (self->ExternalCASParsing_ || self->GeoGebraCASParsing_) {
         {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, val, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, val, ((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_) autorelease];
         }
       }
       else {
         {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, val) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, val) autorelease];
         }
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_DEGREE:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_DEGREE:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_DEGREE);
       d = [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, JavaLangMath_PI / 180.0, @"\u00b0") autorelease];
       [d setAngle];
       {
-        if (![@"" isEqual:nil]) return d;
+        return d;
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_RAD:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_RAD:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_RAD);
       d = [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, 1.0, @"rad") autorelease];
       [d setAngle];
       {
-        if (![@"" isEqual:nil]) return d;
+        return d;
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_PI:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_PI:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_PI);
       {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, JavaLangMath_PI, OrgGeogebraCommonUtilUnicode_get_PI_STRING_()) autorelease];
+        return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, JavaLangMath_PI, OrgGeogebraCommonUtilUnicode_get_PI_STRING_()) autorelease];
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_EULER_GAMMA:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_EULER_GAMMA:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_EULER_GAMMA);
       {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, 0.57721566490153286, OrgGeogebraCommonUtilUnicode_get_EULER_GAMMA_STRING_()) autorelease];
+        return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, 0.57721566490153286, OrgGeogebraCommonUtilUnicode_get_EULER_GAMMA_STRING_()) autorelease];
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_E:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_E:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_E);
       {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, JavaLangMath_E, OrgGeogebraCommonUtilUnicode_get_EULER_STRING_()) autorelease];
+        return [new_OrgGeogebraCommonKernelArithmeticMySpecialDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_withNSString_(self->kernel_, JavaLangMath_E, OrgGeogebraCommonUtilUnicode_get_EULER_STRING_()) autorelease];
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_IMAGINARY:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_IMAGINARY:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_IMAGINARY);
-      OrgGeogebraCommonKernelGeosGeoVec2D *z = [new_OrgGeogebraCommonKernelGeosGeoVec2D_initWithOrgGeogebraCommonKernelKernel_withDouble_withDouble_(self->kernel_, 0, 1) autorelease];
+      z = [new_OrgGeogebraCommonKernelGeosGeoVec2D_initWithOrgGeogebraCommonKernelKernel_withDouble_withDouble_(self->kernel_, 0, 1) autorelease];
       [z setModeWithInt:OrgGeogebraCommonKernelKernel_COORD_COMPLEX];
       {
-        if (![@"" isEqual:nil]) return z;
+        return z;
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_INFINITY:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_INFINITY:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_INFINITY);
       {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, JavaLangDouble_POSITIVE_INFINITY) autorelease];
+        return [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, JavaLangDouble_POSITIVE_INFINITY) autorelease];
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_UNDEFINED:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_UNDEFINED:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_UNDEFINED);
       {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, JavaLangDouble_NaN) autorelease];
+        return [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, JavaLangDouble_NaN) autorelease];
       }
       break;
+      default:
+      *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 57) = self->jj_gen_;
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+      @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
     }
-    default:
-    *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 57) = self->jj_gen_;
-    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-    @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4522,22 +4299,32 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelParserToken *c, *flabel, *fvar1, *fvar2;
   NSString *conslabel;
   OrgGeogebraCommonKernelArithmeticMySpecialDouble *myconst;
-  switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-    case OrgGeogebraCommonKernelParserParserConstants_X_FUNC:
-    {
+  {
+    jint pos;
+    OrgGeogebraCommonKernelArithmeticExpressionNode *ret;
+    OrgGeogebraCommonKernelConstruction *cons;
+    OrgGeogebraCommonKernelGeosGeoNumeric *randNum;
+    NSString *funcName;
+    jboolean forceCommand;
+    OrgGeogebraCommonKernelGeosGeoElement *geo;
+    OrgGeogebraCommonKernelGeosGeoElement *cell;
+    jint order;
+    jint index;
+    NSString *label;
+    OrgGeogebraCommonKernelArithmeticVariable *geoVar;
+    id<OrgGeogebraCommonKernelArithmeticExpressionValue> geoExp;
+    jint argNumber;
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+      case OrgGeogebraCommonKernelParserParserConstants_X_FUNC:
       c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_X_FUNC);
       en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
         case 71:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+        break;
         case 72:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
+        break;
         default:
         *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 58) = self->jj_gen_;
         OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4545,31 +4332,25 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
       }
       if (self->GeoGebraCASParsing_) {
         {
-          if (![@"" isEqual:nil]) return OrgGeogebraCommonKernelArithmeticCommand_xyzCASWithOrgGeogebraCommonKernelArithmeticExpressionNode_withInt_withBoolean_withJavaUtilArrayList_(en, 0, !self->ExternalCASParsing_, self->undecided_);
+          return OrgGeogebraCommonKernelArithmeticCommand_xyzCASWithOrgGeogebraCommonKernelArithmeticExpressionNode_withInt_withBoolean_withJavaUtilArrayList_(en, 0, !self->ExternalCASParsing_, self->undecided_);
         }
       }
       else {
         {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_XCOORD(), nil) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_XCOORD(), nil) autorelease];
         }
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_Y_FUNC:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_Y_FUNC:
       c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_Y_FUNC);
       en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
         case 71:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+        break;
         case 72:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
+        break;
         default:
         *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 59) = self->jj_gen_;
         OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4577,31 +4358,25 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
       }
       if (self->GeoGebraCASParsing_) {
         {
-          if (![@"" isEqual:nil]) return OrgGeogebraCommonKernelArithmeticCommand_xyzCASWithOrgGeogebraCommonKernelArithmeticExpressionNode_withInt_withBoolean_withJavaUtilArrayList_(en, 1, !self->ExternalCASParsing_, self->undecided_);
+          return OrgGeogebraCommonKernelArithmeticCommand_xyzCASWithOrgGeogebraCommonKernelArithmeticExpressionNode_withInt_withBoolean_withJavaUtilArrayList_(en, 1, !self->ExternalCASParsing_, self->undecided_);
         }
       }
       else {
         {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_YCOORD(), nil) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_YCOORD(), nil) autorelease];
         }
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_Z_FUNC:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_Z_FUNC:
       c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_Z_FUNC);
       en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
         case 71:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+        break;
         case 72:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
+        break;
         default:
         *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 60) = self->jj_gen_;
         OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4609,120 +4384,106 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
       }
       if (self->GeoGebraCASParsing_) {
         {
-          if (![@"" isEqual:nil]) return OrgGeogebraCommonKernelArithmeticCommand_xyzCASWithOrgGeogebraCommonKernelArithmeticExpressionNode_withInt_withBoolean_withJavaUtilArrayList_(en, 2, !self->ExternalCASParsing_, self->undecided_);
+          return OrgGeogebraCommonKernelArithmeticCommand_xyzCASWithOrgGeogebraCommonKernelArithmeticExpressionNode_withInt_withBoolean_withJavaUtilArrayList_(en, 2, !self->ExternalCASParsing_, self->undecided_);
         }
       }
       else {
         OrgGeogebraCommonKernelGeosGeoElement *userFun = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) lookupLabelWithNSString:@"z"];
         if ([OrgGeogebraCommonKernelArithmeticEvaluatable_class_() isInstance:userFun]) {
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, userFun, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), en) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, userFun, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), en) autorelease];
           }
         }
         else {
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_ZCOORD(), nil) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, en, OrgGeogebraCommonPluginOperationEnum_get_ZCOORD(), nil) autorelease];
           }
         }
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_FUNCTION_POWER_LABEL:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_FUNCTION_POWER_LABEL:
       c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FUNCTION_POWER_LABEL);
       en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
         case 71:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+        break;
         case 72:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
+        break;
         default:
         *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 61) = self->jj_gen_;
         OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
         @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
       }
-      jint pos = ((jint) [((NSString *) nil_chk(((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_)) length]) - 2;
+      pos = ((jint) [((NSString *) nil_chk(((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_)) length]) - 2;
       while (pos >= 0 && (OrgGeogebraCommonUtilUnicode_isSuperscriptDigitWithChar_([c->image_ charAtWithInt:pos]) || OrgGeogebraCommonUtilUnicode_Superscript_Minus == [c->image_ charAtWithInt:pos])) {
         pos--;
       }
-      OrgGeogebraCommonKernelArithmeticExpressionNode *ret = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) handleTrigPowerWithNSString:c->image_ withOrgGeogebraCommonKernelArithmeticExpressionNode:en withNSString:[c->image_ substring:0 endIndex:pos + 1]];
+      ret = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) handleTrigPowerWithNSString:c->image_ withOrgGeogebraCommonKernelArithmeticExpressionNode:en withNSString:[c->image_ substring:0 endIndex:pos + 1]];
       if ([((OrgGeogebraCommonKernelArithmeticExpressionNode *) nil_chk(ret)) getOperation] == OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY_OR_FUNCTION()) [((JavaUtilArrayList *) nil_chk(self->undecided_)) addWithId:ret];
       {
-        if (![@"" isEqual:nil]) return ret;
+        return ret;
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_RANDOM_FUNC:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_RANDOM_FUNC:
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_RANDOM_FUNC);
-      OrgGeogebraCommonKernelConstruction *cons = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction];
-      OrgGeogebraCommonKernelGeosGeoNumeric *randNum = [new_OrgGeogebraCommonKernelGeosGeoNumeric_initWithOrgGeogebraCommonKernelConstruction_(cons) autorelease];
+      cons = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction];
+      randNum = [new_OrgGeogebraCommonKernelGeosGeoNumeric_initWithOrgGeogebraCommonKernelConstruction_(cons) autorelease];
       [((OrgGeogebraCommonKernelConstruction *) nil_chk(cons)) addRandomGeoWithOrgGeogebraCommonKernelGeosGeoElement:randNum];
       [randNum setValueWithDouble:[((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getRandomNumber]];
       {
-        if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, randNum, OrgGeogebraCommonPluginOperationEnum_get_RANDOM(), nil) autorelease];
+        return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, randNum, OrgGeogebraCommonPluginOperationEnum_get_RANDOM(), nil) autorelease];
       }
       break;
-    }
-    case OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL:
-    {
+      case OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL:
       c = OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_FUNCTION_LABEL);
       en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
       myList = [new_OrgGeogebraCommonKernelArithmeticMyList_initWithOrgGeogebraCommonKernelKernel_withBoolean_(self->kernel_, YES) autorelease];
       [myList addListElementWithOrgGeogebraCommonKernelArithmeticExpressionValue:en];
-      while (YES) {
-        switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
-          case OrgGeogebraCommonKernelParserParserConstants_COMMA:
-          {
+      {
+        while (YES) {
+          switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
+            case OrgGeogebraCommonKernelParserParserConstants_COMMA:
             ;
             break;
+            default:
+            *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 62) = self->jj_gen_;
+            goto break_label_17;
           }
-          default:
-          *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 62) = self->jj_gen_;
-          goto break_label_17;
+          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_COMMA);
+          en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
+          [myList addListElementWithOrgGeogebraCommonKernelArithmeticExpressionValue:en];
         }
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_COMMA);
-        en = OrgGeogebraCommonKernelParserParser_expressionOrEquation(self);
-        [myList addListElementWithOrgGeogebraCommonKernelArithmeticExpressionValue:en];
+        break_label_17: ;
       }
-      break_label_17: ;
-      switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+      switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
         case 71:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+        break;
         case 72:
-        {
-          OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
-          break;
-        }
+        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 72);
+        break;
         default:
         *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 63) = self->jj_gen_;
         OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
         @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
       }
-      NSString *funcName = [((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_ substring:0 endIndex:((jint) [((NSString *) nil_chk(c->image_)) length]) - 1];
+      funcName = [((OrgGeogebraCommonKernelParserToken *) nil_chk(c))->image_ substring:0 endIndex:((jint) [((NSString *) nil_chk(c->image_)) length]) - 1];
       if (self->GiacParsing_) {
         en = OrgGeogebraCommonKernelParserCashandlersCommandDispatcherGiac_processCommandWithNSString_withOrgGeogebraCommonKernelArithmeticGetItem_withOrgGeogebraCommonKernelKernel_(funcName, myList, self->kernel_);
         if (en != nil) {
           {
-            if (![@"" isEqual:nil]) return en;
+            return en;
           }
         }
       }
-      jboolean forceCommand = [c->image_ charAtWithInt:((jint) [c->image_ length]) - 1] == '[';
-      OrgGeogebraCommonKernelGeosGeoElement *geo = nil;
-      OrgGeogebraCommonKernelGeosGeoElement *cell = nil;
-      jint order = 0;
-      jint index = ((jint) [((NSString *) nil_chk(funcName)) length]) - 1;
-      NSString *label = funcName;
+      forceCommand = ([c->image_ charAtWithInt:((jint) [c->image_ length]) - 1] == '[');
+      geo = nil;
+      cell = nil;
+      order = 0;
+      index = ((jint) [((NSString *) nil_chk(funcName)) length]) - 1;
+      label = funcName;
       if (!forceCommand) {
         geo = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) lookupLabelWithNSString:funcName];
         cell = [self->kernel_ lookupCasCellLabelWithNSString:funcName];
@@ -4734,7 +4495,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
             }
             jdouble indexVal = OrgGeogebraCommonKernelArithmeticMyDouble_parseDoubleWithOrgGeogebraCommonMainLocalization_withNSString_(self->loc_, logIndex);
             {
-              if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, indexVal) autorelease], OrgGeogebraCommonPluginOperationEnum_get_LOGB(), [myList getListElementWithInt:0]) autorelease];
+              return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, indexVal) autorelease], OrgGeogebraCommonPluginOperationEnum_get_LOGB(), [myList getListElementWithInt:0]) autorelease];
             }
           }
           while (index >= 0 && [c->image_ charAtWithInt:index] == '\'') {
@@ -4756,54 +4517,54 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
           OrgGeogebraCommonKernelArithmeticExpressionNode *expr = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, funcName) autorelease], OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY_OR_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
           [((JavaUtilArrayList *) nil_chk(self->undecided_)) addWithId:expr];
           {
-            if (![@"" isEqual:nil]) return expr;
+            return expr;
           }
         }
       }
       if (forceCommand || (geo == nil && cell == nil)) {
         OrgGeogebraCommonPluginOperationEnum *op = [((OrgGeogebraCommonKernelParserCashandlersParserFunctions *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getParserFunctions])) getWithNSString:funcName withInt:[myList size]];
         if (op != nil) {
-          if (![@"" isEqual:nil]) return OrgGeogebraCommonKernelParserParser_buildOpNodeWithOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticMyList_(self, op, myList);
+          return OrgGeogebraCommonKernelParserParser_buildOpNodeWithOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticMyList_(self, op, myList);
         }
         OrgGeogebraCommonKernelArithmeticCommand *cmd = [new_OrgGeogebraCommonKernelArithmeticCommand_initWithOrgGeogebraCommonKernelKernel_withNSString_withBoolean_withBoolean_(self->kernel_, funcName, YES, !self->ExternalCASParsing_) autorelease];
         for (jint i = 0; i < [myList size]; i++) {
           [cmd addArgumentWithOrgGeogebraCommonKernelArithmeticExpressionNode:(OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast([myList getListElementWithInt:i], [OrgGeogebraCommonKernelArithmeticExpressionNode class])];
         }
         {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, cmd) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, cmd) autorelease];
         }
       }
       if (cell != nil && order > 0) {
         OrgGeogebraCommonKernelArithmeticExpressionNode *derivative = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, cell, OrgGeogebraCommonPluginOperationEnum_get_DERIVATIVE(), [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, order) autorelease]) autorelease];
         {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, derivative, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, derivative, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
         }
       }
       if (cell != nil && (geo == nil || [geo isGeoLine] || [geo isGeoConic])) {
         if (((IOSObjectArray *) nil_chk([((OrgGeogebraCommonKernelGeosGeoCasCell *) check_class_cast(cell, [OrgGeogebraCommonKernelGeosGeoCasCell class])) getFunctionVariables]))->size_ < 2) {
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, cell, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, cell, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
           }
         }
         else {
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, cell, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION_NVAR(), myList) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, cell, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION_NVAR(), myList) autorelease];
           }
         }
       }
-      OrgGeogebraCommonKernelArithmeticVariable *geoVar = [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, label) autorelease];
-      id<OrgGeogebraCommonKernelArithmeticExpressionValue> geoExp = [geoVar resolveAsExpressionValue];
-      jint argNumber = [myList size];
+      geoVar = [new_OrgGeogebraCommonKernelArithmeticVariable_initWithOrgGeogebraCommonKernelKernel_withNSString_(self->kernel_, label) autorelease];
+      geoExp = [geoVar resolveAsExpressionValue];
+      argNumber = [myList size];
       if (order > 0) {
         OrgGeogebraCommonKernelArithmeticExpressionNode *derivative = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_DERIVATIVE(), [new_OrgGeogebraCommonKernelArithmeticMyDouble_initWithOrgGeogebraCommonKernelKernel_withDouble_(self->kernel_, order) autorelease]) autorelease];
         if ([((OrgGeogebraCommonKernelGeosGeoElement *) nil_chk(geo)) isGeoFunction]) {
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, derivative, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, derivative, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
           }
         }
         else if ([geo isGeoCurveCartesian]) {
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, derivative, OrgGeogebraCommonPluginOperationEnum_get_VEC_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, derivative, OrgGeogebraCommonPluginOperationEnum_get_VEC_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
           }
         }
         else {
@@ -4815,15 +4576,15 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
       }
       else {
         if ([OrgGeogebraCommonKernelArithmeticEvaluatable_class_() isInstance:geo]) {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
         }
         else if ([geo isKindOfClass:[OrgGeogebraCommonKernelGeosGeoFunctionNVar class]]) {
           {
-            if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION_NVAR(), myList) autorelease];
+            return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_FUNCTION_NVAR(), myList) autorelease];
           }
         }
         else if ([((OrgGeogebraCommonKernelGeosGeoElement *) nil_chk(geo)) isGeoCurveCartesian]) {
-          if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_VEC_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
+          return [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_VEC_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
         }
         else if ([geo isGeoList]) {
           IOSObjectArray *str = [IOSObjectArray arrayWithObjects:(id[]){ @"FunctionExpected", funcName } count:2 type:NSString_class_()];
@@ -4834,15 +4595,15 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
         OrgGeogebraCommonKernelArithmeticExpressionNode *expr = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonPluginOperationEnum_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, geoExp, OrgGeogebraCommonPluginOperationEnum_get_MULTIPLY_OR_FUNCTION(), [myList getListElementWithInt:0]) autorelease];
         [((JavaUtilArrayList *) nil_chk(self->undecided_)) addWithId:expr];
         {
-          if (![@"" isEqual:nil]) return expr;
+          return expr;
         }
       }
       break;
+      default:
+      *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 64) = self->jj_gen_;
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
+      @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
     }
-    default:
-    *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 64) = self->jj_gen_;
-    OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
-    @throw [new_OrgGeogebraCommonKernelParserParseException_init() autorelease];
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4857,16 +4618,14 @@ id<OrgGeogebraCommonKernelArithmeticVectorValue> OrgGeogebraCommonKernelParserPa
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
   }
   else {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case 75:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 75);
-        x = OrgGeogebraCommonKernelParserParser_expression(self);
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR);
-        y = OrgGeogebraCommonKernelParserParser_expression(self);
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 75);
+      x = OrgGeogebraCommonKernelParserParser_expression(self);
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR);
+      y = OrgGeogebraCommonKernelParserParser_expression(self);
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 65) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4874,7 +4633,7 @@ id<OrgGeogebraCommonKernelArithmeticVectorValue> OrgGeogebraCommonKernelParserPa
     }
   }
   {
-    if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmeticMyVecNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, x, y) autorelease];
+    return [new_OrgGeogebraCommonKernelArithmeticMyVecNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, x, y) autorelease];
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4891,18 +4650,16 @@ id<OrgGeogebraCommonKernelArithmetic3DVector3DValue> OrgGeogebraCommonKernelPars
     OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
   }
   else {
-    switch ((self->jj_ntk_ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk_f(self) : self->jj_ntk_) {
+    switch ((self->jj_ntk__ == -1) ? OrgGeogebraCommonKernelParserParser_jj_ntk(self) : self->jj_ntk__) {
       case 75:
-      {
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 75);
-        x = OrgGeogebraCommonKernelParserParser_expression(self);
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR);
-        y = OrgGeogebraCommonKernelParserParser_expression(self);
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR);
-        z = OrgGeogebraCommonKernelParserParser_expression(self);
-        OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
-        break;
-      }
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 75);
+      x = OrgGeogebraCommonKernelParserParser_expression(self);
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR);
+      y = OrgGeogebraCommonKernelParserParser_expression(self);
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, OrgGeogebraCommonKernelParserParserConstants_VERTICAL_BAR);
+      z = OrgGeogebraCommonKernelParserParser_expression(self);
+      OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, 71);
+      break;
       default:
       *IOSIntArray_GetRef(nil_chk(self->jj_la1_), 66) = self->jj_gen_;
       OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(self, -1);
@@ -4910,7 +4667,7 @@ id<OrgGeogebraCommonKernelArithmetic3DVector3DValue> OrgGeogebraCommonKernelPars
     }
   }
   {
-    if (![@"" isEqual:nil]) return [new_OrgGeogebraCommonKernelArithmetic3DMyVec3DNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, x, y, z) autorelease];
+    return [new_OrgGeogebraCommonKernelArithmetic3DMyVec3DNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, x, y, z) autorelease];
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4926,7 +4683,7 @@ id<OrgGeogebraCommonKernelArithmeticVectorValue> OrgGeogebraCommonKernelParserPa
   v = [new_OrgGeogebraCommonKernelArithmeticMyVecNode_initWithOrgGeogebraCommonKernelKernel_(self->kernel_) autorelease];
   [v setPolarCoordsWithOrgGeogebraCommonKernelArithmeticExpressionValue:r withOrgGeogebraCommonKernelArithmeticExpressionValue:phi];
   {
-    if (![@"" isEqual:nil]) return v;
+    return v;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4944,7 +4701,7 @@ id<OrgGeogebraCommonKernelArithmetic3DVector3DValue> OrgGeogebraCommonKernelPars
   v = [new_OrgGeogebraCommonKernelArithmetic3DMyVec3DNode_initWithOrgGeogebraCommonKernelKernel_(self->kernel_) autorelease];
   [v setSphericalPolarCoordsWithOrgGeogebraCommonKernelArithmeticExpressionValue:r withOrgGeogebraCommonKernelArithmeticExpressionValue:theta withOrgGeogebraCommonKernelArithmeticExpressionValue:phi];
   {
-    if (![@"" isEqual:nil]) return v;
+    return v;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4960,7 +4717,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelArithmeticExpressionNode *en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmeticMyVecNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, x, y) autorelease]) autorelease];
   [en setLabelWithNSString:[((OrgGeogebraCommonKernelParserToken *) nil_chk(l))->image_ substring:0 endIndex:((jint) [((NSString *) nil_chk(l->image_)) length]) - 1]];
   {
-    if (![@"" isEqual:nil]) return en;
+    return en;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4978,7 +4735,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelArithmeticExpressionNode *en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, [new_OrgGeogebraCommonKernelArithmetic3DMyVec3DNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, x, y, z) autorelease]) autorelease];
   [en setLabelWithNSString:[((OrgGeogebraCommonKernelParserToken *) nil_chk(l))->image_ substring:0 endIndex:((jint) [((NSString *) nil_chk(l->image_)) length]) - 1]];
   {
-    if (![@"" isEqual:nil]) return en;
+    return en;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -4996,7 +4753,7 @@ OrgGeogebraCommonKernelArithmeticExpressionNode *OrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelArithmeticExpressionNode *en = [new_OrgGeogebraCommonKernelArithmeticExpressionNode_initWithOrgGeogebraCommonKernelKernel_withOrgGeogebraCommonKernelArithmeticExpressionValue_(self->kernel_, v) autorelease];
   [en setLabelWithNSString:[((OrgGeogebraCommonKernelParserToken *) nil_chk(l))->image_ substring:0 endIndex:((jint) [((NSString *) nil_chk(l->image_)) length]) - 1]];
   {
-    if (![@"" isEqual:nil]) return en;
+    return en;
   }
   @throw [new_JavaLangError_initWithNSString_(@"Missing return statement in function") autorelease];
 }
@@ -6771,7 +6528,6 @@ void OrgGeogebraCommonKernelParserParser_initWithJavaIoInputStream_withNSString_
   self->ExternalCASParsing_ = NO;
   self->GiacParsing_ = NO;
   OrgGeogebraCommonKernelParserParser_setAndConsume_undecided_(self, new_JavaUtilArrayList_init());
-  self->jj_initialized_once_ = NO;
   self->jj_lookingAhead_ = NO;
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_la1_(self, [IOSIntArray newArrayWithLength:67]);
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_2_rtns_(self, [IOSObjectArray newArrayWithLength:31 type:OrgGeogebraCommonKernelParserParser_JJCalls_class_()]);
@@ -6781,13 +6537,6 @@ void OrgGeogebraCommonKernelParserParser_initWithJavaIoInputStream_withNSString_
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_expentries_(self, new_JavaUtilArrayList_init());
   self->jj_kind_ = -1;
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_lasttokens_(self, [IOSIntArray newArrayWithLength:100]);
-  if (self->jj_initialized_once_) {
-    [((JavaIoPrintStream *) nil_chk(JavaLangSystem_get_out_())) printlnWithNSString:@"ERROR: Second call to constructor of static parser.  "];
-    [JavaLangSystem_get_out_() printlnWithNSString:@"       You must either use ReInit() or set the JavaCC option STATIC to false"];
-    [JavaLangSystem_get_out_() printlnWithNSString:@"       during parser generation."];
-    @throw [new_JavaLangError_init() autorelease];
-  }
-  self->jj_initialized_once_ = YES;
   @try {
     OrgGeogebraCommonKernelParserParser_setAndConsume_jj_input_stream_(self, new_OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoInputStream_withNSString_withInt_withInt_(stream, encoding, 1, 1));
   }
@@ -6796,10 +6545,10 @@ void OrgGeogebraCommonKernelParserParser_initWithJavaIoInputStream_withNSString_
   }
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_source_(self, new_OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(self->jj_input_stream_));
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_(self, new_OrgGeogebraCommonKernelParserToken_init());
-  self->jj_ntk_ = -1;
+  self->jj_ntk__ = -1;
   self->jj_gen_ = 0;
   for (jint i = 0; i < 67; i++) *IOSIntArray_GetRef(self->jj_la1_, i) = -1;
-  for (jint i = 0; i < self->jj_2_rtns_->size_; i++) IOSObjectArray_SetAndConsume(self->jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self));
+  for (jint i = 0; i < self->jj_2_rtns_->size_; i++) IOSObjectArray_SetAndConsume(self->jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_init());
 }
 
 OrgGeogebraCommonKernelParserParser *new_OrgGeogebraCommonKernelParserParser_initWithJavaIoInputStream_withNSString_(JavaIoInputStream *stream, NSString *encoding) {
@@ -6814,7 +6563,6 @@ void OrgGeogebraCommonKernelParserParser_initWithJavaIoReader_(OrgGeogebraCommon
   self->ExternalCASParsing_ = NO;
   self->GiacParsing_ = NO;
   OrgGeogebraCommonKernelParserParser_setAndConsume_undecided_(self, new_JavaUtilArrayList_init());
-  self->jj_initialized_once_ = NO;
   self->jj_lookingAhead_ = NO;
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_la1_(self, [IOSIntArray newArrayWithLength:67]);
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_2_rtns_(self, [IOSObjectArray newArrayWithLength:31 type:OrgGeogebraCommonKernelParserParser_JJCalls_class_()]);
@@ -6824,20 +6572,13 @@ void OrgGeogebraCommonKernelParserParser_initWithJavaIoReader_(OrgGeogebraCommon
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_expentries_(self, new_JavaUtilArrayList_init());
   self->jj_kind_ = -1;
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_lasttokens_(self, [IOSIntArray newArrayWithLength:100]);
-  if (self->jj_initialized_once_) {
-    [((JavaIoPrintStream *) nil_chk(JavaLangSystem_get_out_())) printlnWithNSString:@"ERROR: Second call to constructor of   parser. "];
-    [JavaLangSystem_get_out_() printlnWithNSString:@"       You must either use ReInit() or set the JavaCC option STATIC to false"];
-    [JavaLangSystem_get_out_() printlnWithNSString:@"       during parser generation."];
-    @throw [new_JavaLangError_init() autorelease];
-  }
-  self->jj_initialized_once_ = YES;
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_input_stream_(self, new_OrgGeogebraCommonKernelParserSimpleCharStream_initWithJavaIoReader_withInt_withInt_(stream, 1, 1));
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_source_(self, new_OrgGeogebraCommonKernelParserParserTokenManager_initWithOrgGeogebraCommonKernelParserSimpleCharStream_(self->jj_input_stream_));
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_(self, new_OrgGeogebraCommonKernelParserToken_init());
-  self->jj_ntk_ = -1;
+  self->jj_ntk__ = -1;
   self->jj_gen_ = 0;
   for (jint i = 0; i < 67; i++) *IOSIntArray_GetRef(self->jj_la1_, i) = -1;
-  for (jint i = 0; i < self->jj_2_rtns_->size_; i++) IOSObjectArray_SetAndConsume(self->jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self));
+  for (jint i = 0; i < self->jj_2_rtns_->size_; i++) IOSObjectArray_SetAndConsume(self->jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_init());
 }
 
 OrgGeogebraCommonKernelParserParser *new_OrgGeogebraCommonKernelParserParser_initWithJavaIoReader_(JavaIoReader *stream) {
@@ -6852,7 +6593,6 @@ void OrgGeogebraCommonKernelParserParser_initWithOrgGeogebraCommonKernelParserPa
   self->ExternalCASParsing_ = NO;
   self->GiacParsing_ = NO;
   OrgGeogebraCommonKernelParserParser_setAndConsume_undecided_(self, new_JavaUtilArrayList_init());
-  self->jj_initialized_once_ = NO;
   self->jj_lookingAhead_ = NO;
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_la1_(self, [IOSIntArray newArrayWithLength:67]);
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_2_rtns_(self, [IOSObjectArray newArrayWithLength:31 type:OrgGeogebraCommonKernelParserParser_JJCalls_class_()]);
@@ -6862,19 +6602,12 @@ void OrgGeogebraCommonKernelParserParser_initWithOrgGeogebraCommonKernelParserPa
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_expentries_(self, new_JavaUtilArrayList_init());
   self->jj_kind_ = -1;
   OrgGeogebraCommonKernelParserParser_setAndConsume_jj_lasttokens_(self, [IOSIntArray newArrayWithLength:100]);
-  if (self->jj_initialized_once_) {
-    [((JavaIoPrintStream *) nil_chk(JavaLangSystem_get_out_())) printlnWithNSString:@"ERROR: Second call to constructor of static parser. "];
-    [JavaLangSystem_get_out_() printlnWithNSString:@"       You must either use ReInit() or set the JavaCC option STATIC to false"];
-    [JavaLangSystem_get_out_() printlnWithNSString:@"       during parser generation."];
-    @throw [new_JavaLangError_init() autorelease];
-  }
-  self->jj_initialized_once_ = YES;
   OrgGeogebraCommonKernelParserParser_set_token_source_(self, tm);
   OrgGeogebraCommonKernelParserParser_setAndConsume_token_(self, new_OrgGeogebraCommonKernelParserToken_init());
-  self->jj_ntk_ = -1;
+  self->jj_ntk__ = -1;
   self->jj_gen_ = 0;
   for (jint i = 0; i < 67; i++) *IOSIntArray_GetRef(self->jj_la1_, i) = -1;
-  for (jint i = 0; i < self->jj_2_rtns_->size_; i++) IOSObjectArray_SetAndConsume(self->jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self));
+  for (jint i = 0; i < self->jj_2_rtns_->size_; i++) IOSObjectArray_SetAndConsume(self->jj_2_rtns_, i, new_OrgGeogebraCommonKernelParserParser_JJCalls_init());
 }
 
 OrgGeogebraCommonKernelParserParser *new_OrgGeogebraCommonKernelParserParser_initWithOrgGeogebraCommonKernelParserParserTokenManager_(OrgGeogebraCommonKernelParserParserTokenManager *tm) {
@@ -6886,8 +6619,8 @@ OrgGeogebraCommonKernelParserParser *new_OrgGeogebraCommonKernelParserParser_ini
 OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParser_jj_consume_tokenWithInt_(OrgGeogebraCommonKernelParserParser *self, jint kind) {
   OrgGeogebraCommonKernelParserToken *oldToken;
   if ((oldToken = self->token_)->next_ != nil) OrgGeogebraCommonKernelParserParser_set_token_(self, ((OrgGeogebraCommonKernelParserToken *) nil_chk(self->token_))->next_);
-  else OrgGeogebraCommonKernelParserParser_set_token_(self, OrgGeogebraCommonKernelParserToken_set_next_(nil_chk(self->token_), OrgGeogebraCommonKernelParserParserTokenManager_getNextToken()));
-  self->jj_ntk_ = -1;
+  else OrgGeogebraCommonKernelParserParser_set_token_(self, OrgGeogebraCommonKernelParserToken_set_next_(nil_chk(self->token_), [((OrgGeogebraCommonKernelParserParserTokenManager *) nil_chk(self->token_source_)) getNextToken]));
+  self->jj_ntk__ = -1;
   if (((OrgGeogebraCommonKernelParserToken *) nil_chk(self->token_))->kind_ == kind) {
     self->jj_gen_++;
     if (++self->jj_gc_ > 100) {
@@ -6911,7 +6644,7 @@ jboolean OrgGeogebraCommonKernelParserParser_jj_scan_tokenWithInt_(OrgGeogebraCo
   if (self->jj_scanpos_ == self->jj_lastpos_) {
     self->jj_la_--;
     if (((OrgGeogebraCommonKernelParserToken *) nil_chk(self->jj_scanpos_))->next_ == nil) {
-      OrgGeogebraCommonKernelParserParser_set_jj_lastpos_(self, OrgGeogebraCommonKernelParserParser_set_jj_scanpos_(self, OrgGeogebraCommonKernelParserToken_set_next_(self->jj_scanpos_, OrgGeogebraCommonKernelParserParserTokenManager_getNextToken())));
+      OrgGeogebraCommonKernelParserParser_set_jj_lastpos_(self, OrgGeogebraCommonKernelParserParser_set_jj_scanpos_(self, OrgGeogebraCommonKernelParserToken_set_next_(self->jj_scanpos_, [((OrgGeogebraCommonKernelParserParserTokenManager *) nil_chk(self->token_source_)) getNextToken])));
     }
     else {
       OrgGeogebraCommonKernelParserParser_set_jj_lastpos_(self, OrgGeogebraCommonKernelParserParser_set_jj_scanpos_(self, self->jj_scanpos_->next_));
@@ -6938,14 +6671,14 @@ OrgGeogebraCommonKernelParserToken *OrgGeogebraCommonKernelParserParser_getToken
   OrgGeogebraCommonKernelParserToken *t = self->jj_lookingAhead_ ? self->jj_scanpos_ : self->token_;
   for (jint i = 0; i < index; i++) {
     if (t->next_ != nil) t = t->next_;
-    else t = OrgGeogebraCommonKernelParserToken_set_next_(t, OrgGeogebraCommonKernelParserParserTokenManager_getNextToken());
+    else t = OrgGeogebraCommonKernelParserToken_set_next_(t, [((OrgGeogebraCommonKernelParserParserTokenManager *) nil_chk(self->token_source_)) getNextToken]);
   }
   return t;
 }
 
-jint OrgGeogebraCommonKernelParserParser_jj_ntk_f(OrgGeogebraCommonKernelParserParser *self) {
-  if ((OrgGeogebraCommonKernelParserParser_set_jj_nt_(self, ((OrgGeogebraCommonKernelParserToken *) nil_chk(self->token_))->next_)) == nil) return (self->jj_ntk_ = (OrgGeogebraCommonKernelParserToken_set_next_(self->token_, OrgGeogebraCommonKernelParserParserTokenManager_getNextToken()))->kind_);
-  else return (self->jj_ntk_ = ((OrgGeogebraCommonKernelParserToken *) nil_chk(self->jj_nt_))->kind_);
+jint OrgGeogebraCommonKernelParserParser_jj_ntk(OrgGeogebraCommonKernelParserParser *self) {
+  if ((OrgGeogebraCommonKernelParserParser_set_jj_nt_(self, ((OrgGeogebraCommonKernelParserToken *) nil_chk(self->token_))->next_)) == nil) return (self->jj_ntk__ = (OrgGeogebraCommonKernelParserToken_set_next_(self->token_, [((OrgGeogebraCommonKernelParserParserTokenManager *) nil_chk(self->token_source_)) getNextToken]))->kind_);
+  else return (self->jj_ntk__ = ((OrgGeogebraCommonKernelParserToken *) nil_chk(self->jj_nt_))->kind_);
 }
 
 void OrgGeogebraCommonKernelParserParser_jj_add_error_tokenWithInt_withInt_(OrgGeogebraCommonKernelParserParser *self, jint kind, jint pos) {
@@ -7097,7 +6830,7 @@ void OrgGeogebraCommonKernelParserParser_jj_saveWithInt_withInt_(OrgGeogebraComm
   OrgGeogebraCommonKernelParserParser_JJCalls *p = IOSObjectArray_Get(nil_chk(self->jj_2_rtns_), index);
   while (((OrgGeogebraCommonKernelParserParser_JJCalls *) nil_chk(p))->gen_ > self->jj_gen_) {
     if (p->next_ == nil) {
-      p = OrgGeogebraCommonKernelParserParser_JJCalls_setAndConsume_next_(p, new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self));
+      p = OrgGeogebraCommonKernelParserParser_JJCalls_setAndConsume_next_(p, new_OrgGeogebraCommonKernelParserParser_JJCalls_init());
       break;
     }
     p = p->next_;
@@ -7140,8 +6873,8 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(OrgGeogebraCommonKernelParserParser_LookaheadSu
 
 @implementation OrgGeogebraCommonKernelParserParser_JJCalls
 
-- (instancetype)initWithOrgGeogebraCommonKernelParserParser:(OrgGeogebraCommonKernelParserParser *)outer$ {
-  OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self, outer$);
+- (instancetype)init {
+  OrgGeogebraCommonKernelParserParser_JJCalls_init(self);
   return self;
 }
 
@@ -7153,7 +6886,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(OrgGeogebraCommonKernelParserParser_LookaheadSu
 
 + (const J2ObjcClassInfo *)__metadata {
   static const J2ObjcMethodInfo methods[] = {
-    { "initWithOrgGeogebraCommonKernelParserParser:", "init", NULL, 0x0, NULL, NULL },
+    { "init", NULL, NULL, 0x0, NULL, NULL },
   };
   static const J2ObjcFieldInfo fields[] = {
     { "gen_", NULL, 0x0, "I", NULL, NULL,  },
@@ -7161,19 +6894,19 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(OrgGeogebraCommonKernelParserParser_LookaheadSu
     { "arg_", NULL, 0x0, "I", NULL, NULL,  },
     { "next_", NULL, 0x0, "Lorg.geogebra.common.kernel.parser.Parser$JJCalls;", NULL, NULL,  },
   };
-  static const J2ObjcClassInfo _OrgGeogebraCommonKernelParserParser_JJCalls = { 2, "JJCalls", "org.geogebra.common.kernel.parser", "Parser", 0x10, 1, methods, 4, fields, 0, NULL, 0, NULL, NULL, NULL };
+  static const J2ObjcClassInfo _OrgGeogebraCommonKernelParserParser_JJCalls = { 2, "JJCalls", "org.geogebra.common.kernel.parser", "Parser", 0x18, 1, methods, 4, fields, 0, NULL, 0, NULL, NULL, NULL };
   return &_OrgGeogebraCommonKernelParserParser_JJCalls;
 }
 
 @end
 
-void OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(OrgGeogebraCommonKernelParserParser_JJCalls *self, OrgGeogebraCommonKernelParserParser *outer$) {
+void OrgGeogebraCommonKernelParserParser_JJCalls_init(OrgGeogebraCommonKernelParserParser_JJCalls *self) {
   NSObject_init(self);
 }
 
-OrgGeogebraCommonKernelParserParser_JJCalls *new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(OrgGeogebraCommonKernelParserParser *outer$) {
+OrgGeogebraCommonKernelParserParser_JJCalls *new_OrgGeogebraCommonKernelParserParser_JJCalls_init() {
   OrgGeogebraCommonKernelParserParser_JJCalls *self = [OrgGeogebraCommonKernelParserParser_JJCalls alloc];
-  OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(self, outer$);
+  OrgGeogebraCommonKernelParserParser_JJCalls_init(self);
   return self;
 }
 

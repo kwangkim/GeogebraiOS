@@ -221,7 +221,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgGeogebraCommonKernelParserParser)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithOrgGeogebraCommonKernelParserParser:(OrgGeogebraCommonKernelParserParser *)outer$;
+- (instancetype)init;
 
 @end
 
@@ -230,9 +230,9 @@ J2OBJC_EMPTY_STATIC_INIT(OrgGeogebraCommonKernelParserParser_JJCalls)
 J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserParser_JJCalls, first_, OrgGeogebraCommonKernelParserToken *)
 J2OBJC_FIELD_SETTER(OrgGeogebraCommonKernelParserParser_JJCalls, next_, OrgGeogebraCommonKernelParserParser_JJCalls *)
 
-FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(OrgGeogebraCommonKernelParserParser_JJCalls *self, OrgGeogebraCommonKernelParserParser *outer$);
+FOUNDATION_EXPORT void OrgGeogebraCommonKernelParserParser_JJCalls_init(OrgGeogebraCommonKernelParserParser_JJCalls *self);
 
-FOUNDATION_EXPORT OrgGeogebraCommonKernelParserParser_JJCalls *new_OrgGeogebraCommonKernelParserParser_JJCalls_initWithOrgGeogebraCommonKernelParserParser_(OrgGeogebraCommonKernelParserParser *outer$) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT OrgGeogebraCommonKernelParserParser_JJCalls *new_OrgGeogebraCommonKernelParserParser_JJCalls_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgGeogebraCommonKernelParserParser_JJCalls)
 
