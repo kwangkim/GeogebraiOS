@@ -25,6 +25,7 @@
 #import "GeneralPathClipped.h"
 #import "GeneralPath.h"
 #import <CoreText/CoreText.h>
+#import "AwtFactory.h"
 
 static int counter = 1;
 
@@ -36,6 +37,7 @@ static int counter = 1;
 @synthesize bs = _bs;
 @synthesize currentFont = _currentFont;
 @synthesize currentTransform = _currentTransform;
+@synthesize clipShape = _clipShape;
 
 -(id)initWithContext:(CGContextRef)c
 {
@@ -47,7 +49,8 @@ static int counter = 1;
     _currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
     _currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
     _bs = [[GBasicStrokeI alloc] init];
-    CGContextSetTextMatrix(_context, CGAffineTransformMake(1, 0, 0, -1, 0, 768));
+    CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
+    CGContextSetTextMatrix(_context, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
     nativeDashUsed = false;
     dash_array = nil;
     devicePixelRatio = 1;
@@ -58,6 +61,7 @@ static int counter = 1;
 {
     //UIGraphicsBeginImageContext(self.frame.size);
     //context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(_context);
     [self setStroke];
     // _strokeColor = [[GColorI alloc] initWithIntRed:255 Green:0 Blue:0 Alpha:255];
     //_fillColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:255 Alpha:255];
@@ -68,6 +72,7 @@ static int counter = 1;
 
 -(void)configureEnd
 {
+    CGContextRestoreGState(_context);
     //UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     //UIGraphicsEndImageContext();
     //[self updateImage:NO withImg:img];
@@ -116,7 +121,7 @@ static int counter = 1;
         switch (cu) {
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_MOVETO:
                 CGContextMoveToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
-                NSLog(@"moveto: (%lf,%lf)", [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                //NSLog(@"moveto: (%lf,%lf)", [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                 if(enableDashEmulation)
                     [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
                 break;
@@ -129,21 +134,20 @@ static int counter = 1;
                         CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                         
                     }else{
-                        //double tmp[] = {5,10,2};
-                        CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);//withPhase:10 withPattern:tmp withCount:3];
+                        CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);//withPhase:
                     }
                 }
                 [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
                 break;
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_CUBICTO:
                 CGContextAddCurveToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3], [coords doubleAtIndex:4], [coords doubleAtIndex:5]);
-                NSLog(@"cubic to: (%lf,%lf) cp1(%lf, %lf) cp2(%lf, %lf)", [coords doubleAtIndex:4], [coords doubleAtIndex:5], [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3]);
+                //NSLog(@"cubic to: (%lf,%lf) cp1(%lf, %lf) cp2(%lf, %lf)", [coords doubleAtIndex:4], [coords doubleAtIndex:5], [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3]);
                 if(enableDashEmulation)
                     [self setLastCoordsWithX:[coords doubleAtIndex:4] withY:[coords doubleAtIndex:5]];
                 break;
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_QUADTO:
                 CGContextAddQuadCurveToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1], [coords doubleAtIndex:2], [coords doubleAtIndex:3]);
-                NSLog(@"quad to: (%lf,%lf) cp(%lf, %lf)", [coords doubleAtIndex:2], [coords doubleAtIndex:3], [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
+                //NSLog(@"quad to: (%lf,%lf) cp(%lf, %lf)", [coords doubleAtIndex:2], [coords doubleAtIndex:3], [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                 if(enableDashEmulation)
                     [self setLastCoordsWithX:[coords doubleAtIndex:2] withY:[coords doubleAtIndex:3]];
                 break;
@@ -173,7 +177,7 @@ static int counter = 1;
     NSString *string = str;
     
     // blue
-    //CGColorRef color = [UIColor blueColor].CGColor;
+    CGColorRef color = [UIColor blackColor].CGColor;
     
     // single underline
     NSNumber *underline = [NSNumber numberWithInt:kCTNaturalTextAlignment];
@@ -187,8 +191,7 @@ static int counter = 1;
     // make the attributed string
     NSAttributedString *stringToDraw = [[NSAttributedString alloc] initWithString:string
                                                                        attributes:attributesDict];
-    CTLineRef line = CTLineCreateWithAttributedString(
-                                                      (CFAttributedStringRef)stringToDraw);
+    CTLineRef line = CTLineCreateWithAttributedString((CFAttributedStringRef)stringToDraw);
     CGContextSetTextPosition(_context, x, y);
     CTLineDraw(line, _context);
     
@@ -196,31 +199,12 @@ static int counter = 1;
     CFRelease(line);
     CFRelease(sysUIFont);
     [stringToDraw release];
-    
-    
-    
-    
-    //CGPoint center = CGPointMake(x, y);
-    //UIFont  *font = [UIFont boldSystemFontOfSize:15.0];
-    //CGContextSetFont(self.context, )
-    //NSString *show = [[NSString alloc]initWithFormat:@"%@",str];
-    //CGContextSelectFont(self.context, "Helvetica", 15.0, kCGEncodingMacRoman);
-    //CGSize stringSize = [str sizeWithFont:[self.currentFont getUIFont]];
-    //CGRect stringRect = CGRectMake(center.x-stringSize.width/2, center.y-stringSize.height/2, stringSize.width, stringSize.height);
-    //[str drawAtPoint:center withFont:font];
-    //[str drawInRect:stringRect withFont:[self.currentFont getUIFont]];
-    //CGContextShowTextAtPoint(self.context, x, y, [show UTF8String], strlen([show UTF8String]));
     [self configureEnd];
 }
 
 -(void)drawStringWithNSString:(NSString *)str withFloat:(jfloat)x withFloat:(jfloat)y
 {
-    [self configureStart];
-    CGPoint center = CGPointMake(x, y);
-    CGSize stringSize = [str sizeWithFont:[self.currentFont getUIFont]];
-    CGRect stringRect = CGRectMake(center.x-stringSize.width/2, center.y-stringSize.height/2, stringSize.width, stringSize.height);
-    [str drawInRect:stringRect withFont:[self.currentFont getUIFont]];
-    [self configureEnd];
+    [self drawStringWithNSString:str withInt:(int)x withInt:(int)y];
 }
 
 -(void)drawImageWithOrgGeogebraCommonAwtMyImage:(id<OrgGeogebraCommonAwtMyImage>)img withOrgGeogebraCommonAwtGBufferedImageOp:(id<OrgGeogebraCommonAwtGBufferedImageOp>)op withInt:(jint)x withInt:(jint)y
@@ -432,7 +416,7 @@ static int counter = 1;
     //if([paint class] == [OrgGeogebraCommonAwtGColor class]){
     if([paint isKindOfClass:[OrgGeogebraCommonAwtGColor class]]){
         OrgGeogebraCommonAwtGColor* tmp = (OrgGeogebraCommonAwtGColor*)paint;
-        NSLog(@"paint color:(%d %d %d)", [tmp getRed], [tmp getGreen], [tmp getBlue]);
+        //NSLog(@"paint color:(%d %d %d)", [tmp getRed], [tmp getGreen], [tmp getBlue]);
         [self setColorWithOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor*)paint];
     }
 }
@@ -466,7 +450,7 @@ static int counter = 1;
     }
     [self configureStart];
     CGContextBeginPath(self.context);
-    NSLog(@"fill color:(%d %d %d)", [_fillColor getRed], [_fillColor getGreen], [_fillColor getBlue]);
+    //NSLog(@"fill color:(%d %d %d)", [_fillColor getRed], [_fillColor getGreen], [_fillColor getBlue]);
     NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>* shape;
     if([s isKindOfClass:[OrgGeogebraCommonEuclidianGeneralPathClipped class]]){
         shape = (NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)[(OrgGeogebraCommonEuclidianGeneralPathClipped*)s getGeneralPath];
@@ -488,11 +472,41 @@ static int counter = 1;
         //CGContextDrawPath(self.context, kCGPathFillStroke);
         CGContextFillPath(self.context);
     }
+    [self configureEnd];
 }
 
 -(id<OrgGeogebraCommonAwtGShape>)getClip
 {
     return nil;
+}
+
+-(void)drawWithValueStrokePureWithOrgGeogebraCommonAwtGShape:(id<OrgGeogebraCommonAwtGShape>)shape
+{
+    [self drawWithOrgGeogebraCommonAwtGShape:shape];
+}
+
+-(void)fillWithValueStrokePureWithOrgGeogebraCommonAwtGShape:(id<OrgGeogebraCommonAwtGShape>)shape
+{
+    [self fillWithOrgGeogebraCommonAwtGShape:shape];
+}
+
+-(void)setClipWithInt:(jint)x withInt:(jint)y withInt:(jint)width withInt:(jint)height
+{
+    double* dash_array_save = dash_array;
+    dash_array = nil;
+    NSObject<OrgGeogebraCommonAwtGShape>* sh = (NSObject<OrgGeogebraCommonAwtGShape>*)[OrgGeogebraCommonFactoriesAwtFactory_prototype_ newRectangleWithInt:x withInt:y withInt:width withInt:height];
+    [self setClipWithOrgGeogebraCommonAwtGShape:sh];
+    dash_array = dash_array_save;
+}
+
+-(void)setClipWithOrgGeogebraCommonAwtGShape:(id<OrgGeogebraCommonAwtGShape>)shape
+{
+    if(shape == nil) return;
+    _clipShape = (NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape;
+    CGContextSaveGState(_context);
+    [self doDrawShapeWithShape:_clipShape withBoolean:false];
+    CGContextClip(_context);
+    CGContextRestoreGState(_context);
 }
 
 

@@ -105,7 +105,7 @@
 
 -(id<OrgGeogebraCommonAwtGRectangle>)newRectangleWithInt:(jint)x withInt:(jint)y withInt:(jint)w withInt:(jint)h
 {
-    return [[OrgGeogebraGgbjdkJavaAwtGeomRectangle alloc] initWithInt:x withInt:YES withInt:w withInt:h];
+    return [[OrgGeogebraGgbjdkJavaAwtGeomRectangle alloc] initWithInt:x withInt:y withInt:w withInt:h];
 }
 
 -(OrgGeogebraCommonAwtGPoint2D*)newPoint2D

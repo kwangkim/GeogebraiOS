@@ -17,6 +17,7 @@
 #import "Shape.h"
 #import "GBasicStrokeI.h"
 #import "View.h"
+#import "Shape.h"
 
 
 @interface GGraphics2DI : NSObject <OrgGeogebraCommonAwtGGraphics2D>
@@ -38,6 +39,7 @@
 @property(retain) GBasicStrokeI* bs;
 @property(retain) UIImage* image;
 @property CGRect canvas;
+@property NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>* clipShape;
 -(id)initWithContext:(CGContextRef)c;
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation;
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx;

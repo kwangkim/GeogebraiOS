@@ -25,7 +25,8 @@
     bitmapBytesPerRow   = (self.mySize.width * 4);
     bitmapByteCount     = (bitmapBytesPerRow * self.mySize.height);
     //self.cgcontext =  CGBitmapContextCreate(NULL, self.mySize.width, self.mySize.height, 8, bitmapByteCount, colorSpace, kCGBitmapByteOrder32Big);
-    CGSize size = CGSizeMake(768, 768);
+    CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
+    CGSize size = CGSizeMake(sizeRect.size.width, sizeRect.size.height);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
@@ -35,7 +36,7 @@
                                                  kCGImageAlphaPremultipliedFirst);
     
     CGColorSpaceRelease(colorSpace);
-    CGContextTranslateCTM(self.cgcontext, 0, 768);
+    CGContextTranslateCTM(self.cgcontext, 0, sizeRect.size.height);
     CGContextScaleCTM(self.cgcontext, 1, -1);
     return self;
 }
