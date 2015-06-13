@@ -264,7 +264,7 @@ static int counter = 1;
 -(void)setStroke
 {
     if(self.bs!=nil){
-        CGContextSetLineWidth(self.context, [self.bs getLineWidth]);
+        CGContextSetLineWidth(self.context, [self.bs getLineWidth] * devicePixelRatio);
         switch([self.bs getEndCap]){
             case GBasicStrokeI_CAP_BUTT:
                 CGContextSetLineCap(self.context, kCGLineCapButt);
