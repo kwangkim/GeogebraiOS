@@ -22,12 +22,12 @@
 
 @interface GGraphics2DI : NSObject <OrgGeogebraCommonAwtGGraphics2D>
 {
-    double* dash_array;
     int graphics2Did;
     double pathLastX, pathLastY;
     Boolean nativeDashUsed;
     int devicePixelRatio;
 }
+@property IOSFloatArray* dash_array;
 @property CGContextRef context;
 @property(retain) NSObject<OrgGeogebraCommonKernelView>* view;
 @property(retain) NSObject<OrgGeogebraCommonAwtGPaint> *currentPaint;

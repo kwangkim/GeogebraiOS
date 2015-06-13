@@ -38,6 +38,7 @@ static int counter = 1;
 @synthesize currentFont = _currentFont;
 @synthesize currentTransform = _currentTransform;
 @synthesize clipShape = _clipShape;
+@synthesize dash_array = _dash_array;
 
 -(id)initWithContext:(CGContextRef)c
 {
@@ -52,8 +53,9 @@ static int counter = 1;
     CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
     CGContextSetTextMatrix(_context, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
     nativeDashUsed = false;
-    dash_array = nil;
-    devicePixelRatio = 1;
+    _dash_array = nil;
+    devicePixelRatio = [[UIScreen mainScreen] scale];
+    NSLog(@"devicePicexlRation = %d",devicePixelRatio);
     return self;
 }
 
@@ -67,6 +69,7 @@ static int counter = 1;
     //_fillColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:255 Alpha:255];
     CGContextSetStrokeColorWithColor(self.context, ((GColorI*)_strokeColor).getCGColor);
     CGContextSetFillColorWithColor(self.context, ((GColorI*)_fillColor).getCGColor);
+    
     //CGContextSetStrokeColorWithColor(self.context, CGColor)
 }
 
@@ -94,6 +97,8 @@ static int counter = 1;
     [self configureStart];
     CGContextMoveToPoint(self.context, x1, y1);
     CGContextAddLineToPoint(self.context, x2, y2);
+    //NSLog(@"fill color:(%d %d %d)", [_fillColor getRed], [_fillColor getGreen], [_fillColor getBlue]);
+    //NSLog(@"stroke color:(%d %d %d)", [_strokeColor getRed], [_strokeColor getGreen], [_strokeColor getBlue]);
     CGContextStrokePath(self.context);
     [self configureEnd];
 }
@@ -102,7 +107,7 @@ static int counter = 1;
 {
     [self configureStart];
     CGContextBeginPath(self.context);
-    if([s class] == [OrgGeogebraCommonEuclidianGeneralPathClipped class]){
+    if([s isKindOfClass:[OrgGeogebraCommonEuclidianGeneralPathClipped class]]){
         [self doDrawShapeWithShape: (NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)[(OrgGeogebraCommonEuclidianGeneralPathClipped*)s getGeneralPath] withBoolean:true];
     }else{
         [self doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)s withBoolean:true];
@@ -127,14 +132,14 @@ static int counter = 1;
                 break;
                 
             case OrgGeogebraGgbjdkJavaAwtGeomPathIterator_SEG_LINETO:
-                if(!enableDashEmulation){
+                if(_dash_array == nil || !enableDashEmulation){
                     CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                 }else{
                     if(nativeDashUsed){
                         CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                         
                     }else{
-                        CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);//withPhase:
+                        CGContextAddLineToPoint(self.context, [coords doubleAtIndex:0], [coords doubleAtIndex:1]);
                     }
                 }
                 [self setLastCoordsWithX:[coords doubleAtIndex:0] withY:[coords doubleAtIndex:1]];
@@ -177,7 +182,7 @@ static int counter = 1;
     NSString *string = str;
     
     // blue
-    CGColorRef color = [UIColor blackColor].CGColor;
+    //CGColorRef color = [UIColor blackColor].CGColor;
     
     // single underline
     NSNumber *underline = [NSNumber numberWithInt:kCTNaturalTextAlignment];
@@ -290,7 +295,7 @@ static int counter = 1;
         }
         if([self.bs getDashArray]){
             int size = [self.bs getDashArray]->size_;
-            double* tmp = malloc(size * sizeof(double));
+            CGFloat* tmp = malloc(size * sizeof(CGFloat));
             for(int i = 0; i < size; i++){
                 tmp[i] = [[self.bs getDashArray] floatAtIndex:i];
             }
@@ -393,7 +398,7 @@ static int counter = 1;
 -(void)fillWith:(OrgGeogebraCommonAwtGColor *)color
 {
     self.fillColor = (GColorI*)color;
-    [self fillRectWithInt:0 withInt:0 withInt:self.canvas.size.width withInt:self.canvas.size.height];
+    [self fillRectWithInt:0 withInt:0 withInt:CGBitmapContextGetWidth(self.context) withInt:CGBitmapContextGetHeight(self.context)];
 }
 
 -(double)getWidth
@@ -415,8 +420,6 @@ static int counter = 1;
 {
     //if([paint class] == [OrgGeogebraCommonAwtGColor class]){
     if([paint isKindOfClass:[OrgGeogebraCommonAwtGColor class]]){
-        OrgGeogebraCommonAwtGColor* tmp = (OrgGeogebraCommonAwtGColor*)paint;
-        //NSLog(@"paint color:(%d %d %d)", [tmp getRed], [tmp getGreen], [tmp getBlue]);
         [self setColorWithOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor*)paint];
     }
 }
@@ -492,11 +495,11 @@ static int counter = 1;
 
 -(void)setClipWithInt:(jint)x withInt:(jint)y withInt:(jint)width withInt:(jint)height
 {
-    double* dash_array_save = dash_array;
-    dash_array = nil;
+    IOSFloatArray* dash_array_save = _dash_array;
+    _dash_array = nil;
     NSObject<OrgGeogebraCommonAwtGShape>* sh = (NSObject<OrgGeogebraCommonAwtGShape>*)[OrgGeogebraCommonFactoriesAwtFactory_prototype_ newRectangleWithInt:x withInt:y withInt:width withInt:height];
     [self setClipWithOrgGeogebraCommonAwtGShape:sh];
-    dash_array = dash_array_save;
+    _dash_array = dash_array_save;
 }
 
 -(void)setClipWithOrgGeogebraCommonAwtGShape:(id<OrgGeogebraCommonAwtGShape>)shape

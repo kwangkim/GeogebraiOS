@@ -12,7 +12,7 @@
 @implementation MyEuclidianViewPanel
 -(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView *)ev
 {
-    [super initWithFrame:CGRectMake(0, 0, 600, 800)];
+    [super init];
     self.ev = ev;
     self.mySize = self.frame.size;//self.frame.size;
     //CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
