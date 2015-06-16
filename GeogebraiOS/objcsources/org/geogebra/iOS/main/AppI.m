@@ -36,6 +36,7 @@ static Boolean isApplet;
 @synthesize currentFile = _currentFile;
 @synthesize fontManager = _fontManager;
 @synthesize drawEquation = _drawEquation;
+@synthesize imageManager = _imageManager;
 -(id)init
 {
     self = [super init];
@@ -49,6 +50,7 @@ static Boolean isApplet;
             settings_ = [companion_ newSettings];
             [self initEuclidianViews];
             initing_ = true;
+    _imageManager = [[ImageManagerI alloc] init];
       //  }
       //  @catch (NSException *exception) {
       //      NSLog(@"%@",exception);
@@ -319,6 +321,38 @@ static Boolean isApplet;
 -(OrgGeogebraCommonPluginScriptManager *)getScriptManager
 {
     return nil;
+}
+
+-(jboolean)freeMemoryIsCritical
+{
+    return false;
+}
+
+-(jlong)freeMemory
+{
+    return 0;
+}
+
+-(void)addExternalImageWithFileName:(NSString*)fileNamge withImage:(MyImageI*)image
+{
+    [_imageManager addExternalImageWithName:fileNamge withImage:image];
+}
+
+-(id<OrgGeogebraCommonAwtMyImage>)getExternalImageAdapterWithNSString:(NSString *)filename withInt:(jint)width withInt:(jint)height
+{
+    UIImage* originalImg = [[_imageManager getExternalImageWithName:filename] img];
+    //UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, 0.0f);
+    //draw
+    //[originalImg drawInRect:CGRectMake(0.0f, 0.0f, width, height)];
+    //capture resultant image
+    //UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    //UIGraphicsEndImageContext();
+    return [[MyImageI alloc] initWithImage:originalImg withBoolean:[[filename lowercaseString] hasSuffix:@".svg"]];
+}
+
+-(ImageManagerI*)getImageManager
+{
+    return _imageManager;
 }
 
 

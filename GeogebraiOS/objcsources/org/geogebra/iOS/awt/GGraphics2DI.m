@@ -45,6 +45,7 @@ static int counter = 1;
     self = [super init];
     graphics2Did = counter++;
     _context = c;
+    alpha = 1;
     _currentFont = [[GFontI alloc] initWithFontName:@"GeogebraSans-Regular" withStyle:1 withSize:32];
     _strokeColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:0 Alpha:255];
     _currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
@@ -95,11 +96,11 @@ static int counter = 1;
 -(void)drawStraightLineWithDouble:(jdouble)x1 withDouble:(jdouble)y1 withDouble:(jdouble)x2 withDouble:(jdouble)y2
 {
     [self configureStart];
-    CGContextMoveToPoint(self.context, x1, y1);
-    CGContextAddLineToPoint(self.context, x2, y2);
+    CGContextMoveToPoint(_context, x1, y1);
+    CGContextAddLineToPoint(_context, x2, y2);
     //NSLog(@"fill color:(%d %d %d)", [_fillColor getRed], [_fillColor getGreen], [_fillColor getBlue]);
     //NSLog(@"stroke color:(%d %d %d)", [_strokeColor getRed], [_strokeColor getGreen], [_strokeColor getBlue]);
-    CGContextStrokePath(self.context);
+    CGContextStrokePath(_context);
     [self configureEnd];
 }
 
@@ -216,9 +217,24 @@ static int counter = 1;
 {
     [self configureStart];
     MyImageI* imgI = (MyImageI*)img;
-    [[imgI img] drawAtPoint:CGPointMake(x, y)];
+    CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img].CGImage);
+    //[[imgI img] drawAtPoint:CGPointMake(x, y)];
     [self configureEnd];
 }
+
+-(void)drawImageWithOrgGeogebraCommonAwtMyImage:(id<OrgGeogebraCommonAwtMyImage>)img withInt:(jint)x withInt:(jint)y
+{
+    [self configureStart];
+    MyImageI* imgI = (MyImageI*)img;
+    struct CGImage* ig = [imgI img].CGImage;
+    //CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
+    //CGContextConcatCTM(_context, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
+    CGRect r = CGRectMake(x, y, [imgI getWidth], [imgI getHeight]);
+    CGContextDrawImage(_context, r, ig);
+    //[[imgI img] drawAtPoint:CGPointMake(x, y)];
+    [self configureEnd];
+}
+
 
 -(void)translateWithDouble:(jdouble)tx withDouble:(jdouble)ty
 {
@@ -246,14 +262,16 @@ static int counter = 1;
     self.currentTransform = Tx;
 }
 
-//-(id<OrgGeogebraCommonAwtGComposite>)getComposite
-//{
-    //return [[GAlphaCompositeI alloc] initWithInt:3 withFloat:self.alpha];
-//}
+-(id<OrgGeogebraCommonAwtGComposite>)getComposite
+{
+    return [[GAlphaCompositeI alloc] initWithInt:3 withFloat:alpha];
+}
 
 -(void)setCompositeWithOrgGeogebraCommonAwtGComposite:(id<OrgGeogebraCommonAwtGComposite>)comp
 {
-    CGContextSetAlpha(self.context, [((GAlphaCompositeI*)comp) getAlpha]);
+    alpha = [((GAlphaCompositeI*)comp) getAlpha];
+    NSLog(@"alpha = %lf",alpha);
+    CGContextSetAlpha(self.context, alpha);
 }
 
 -(void)setStrokeWithOrgGeogebraCommonAwtGBasicStroke:(id<OrgGeogebraCommonAwtGBasicStroke>)s
@@ -264,7 +282,7 @@ static int counter = 1;
 -(void)setStroke
 {
     if(self.bs!=nil){
-        CGContextSetLineWidth(self.context, [self.bs getLineWidth] * devicePixelRatio);
+        CGContextSetLineWidth(self.context, [self.bs getLineWidth]);
         switch([self.bs getEndCap]){
             case GBasicStrokeI_CAP_BUTT:
                 CGContextSetLineCap(self.context, kCGLineCapButt);
@@ -512,14 +530,15 @@ static int counter = 1;
     CGContextRestoreGState(_context);
 }
 
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(id)setInterpolationHintWithBoolean:(jboolean)needsInterpolationRenderingHint
+{
+    
+    return nil;
 }
-*/
+
+-(void)resetInterpolationHintWithId:(id)oldInterpolationHint
+{
+    ;
+}
 
 @end

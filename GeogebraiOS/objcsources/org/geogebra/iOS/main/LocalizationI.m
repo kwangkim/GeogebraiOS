@@ -19,4 +19,9 @@
 {
     return @"en";
 }
+
+-(NSString *)getCommandWithNSString:(NSString *)key
+{
+    return @"";
+}
 @end

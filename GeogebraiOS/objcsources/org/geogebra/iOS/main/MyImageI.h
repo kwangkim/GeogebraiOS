@@ -11,7 +11,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 
-@interface MyImageI : NSObject<OrgGeogebraCommonAwtMyImage>
+@interface MyImageI : NSObject<OrgGeogebraCommonAwtMyImage, NSCopying>
 {
     float width, height;
     Boolean isSVG;

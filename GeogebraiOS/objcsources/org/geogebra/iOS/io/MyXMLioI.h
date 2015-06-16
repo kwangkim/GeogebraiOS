@@ -8,6 +8,7 @@
 
 #include "J2ObjC_header.h"
 #include "org/geogebra/common/io/MyXMLio.h"
+#include <UIKit/UIKit.h>
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -50,6 +51,8 @@ FOUNDATION_EXPORT MyXMLioI *new_MyXMLioI_initWithOrgGeogebraCommonKernelKernel_w
 FOUNDATION_EXPORT IOSByteArray *MyXMLioI_loadIntoMemoryWithJavaIoInputStream_(JavaIoInputStream *is);
 
 FOUNDATION_EXPORT void MyXMLioI_copyStreamWithJavaIoInputStream_withJavaIoOutputStream_(JavaIoInputStream *inArg, JavaIoOutputStream *outArg);
+
+FOUNDATION_EXPORT NSString* MyXMLioI_loadIntoString_(JavaIoInputStream *is);
 
 J2OBJC_TYPE_LITERAL_HEADER(MyXMLioI)
 

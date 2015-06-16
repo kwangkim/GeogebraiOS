@@ -19,6 +19,8 @@
 #import "java/io/BufferedReader.h"
 #import "FontManagerI.h"
 #import "DrawEquationI.h"
+#import "MyImageI.h"
+#import "ImageManagerI.h"
 @interface AppI : OrgGeogebraCommonMainApp{
 }
 @property(retain) LocalizationI* loc;
@@ -29,6 +31,7 @@
 @property(retain) NSObject<GuiManagerInterfaceI>* guiManager;
 @property(retain) FontManagerI* fontManager;
 @property(retain) DrawEquationI* drawEquation;
+@property(retain) ImageManagerI* imageManager;
 -(void)loadGgbFileWithNSDictionary:(NSMutableDictionary*)archiveContent;
 -(void)loadFileWithNSDictionary:(NSMutableDictionary*)archiveContent;
 -(MyXMLioI*)getXMLio;
@@ -42,6 +45,7 @@
 -(BOOL)loadExistingFileWithFile:(JavaIoFile*)file withBool:(BOOL)isMacroFile;
 -(BOOL)loadXMLWithFile:(JavaIoFile*)file withBool:(BOOL)isMacroFile;
 -(BOOL)loadXMLWithInputStream:(JavaIoInputStream*)is withBool:(BOOL)isMacroFile;
+-(void)addExternalImageWithFileName:(NSString*)fileNamge withImage:(MyImageI*)image;
 //-(void)initFactories{
     
 //}

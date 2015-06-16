@@ -26,6 +26,7 @@
     double pathLastX, pathLastY;
     Boolean nativeDashUsed;
     int devicePixelRatio;
+    CGFloat alpha;
 }
 @property IOSFloatArray* dash_array;
 @property CGContextRef context;

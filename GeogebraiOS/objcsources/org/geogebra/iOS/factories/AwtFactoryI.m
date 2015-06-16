@@ -34,6 +34,8 @@
 #import "GQuadCurve2D.h"
 #import "QuadCurve2D.h"
 #import "GTextLayoutI.h"
+#import "GAlphaCompositeI.h"
+#import "MyImageI.h"
 
 @implementation AwtFactoryI
 -(id)init
@@ -181,6 +183,16 @@
 -(id<OrgGeogebraCommonAwtFontGTextLayout>)newTextLayoutWithNSString:(NSString *)string withOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)fontLine withOrgGeogebraCommonAwtGFontRenderContext:(OrgGeogebraCommonAwtGFontRenderContext *)frc
 {
     return [[GTextLayoutI alloc] initWithString:string withGFont:fontLine withFRC: (GFontRenderContextI*)frc];
+}
+
+-(id<OrgGeogebraCommonAwtGAlphaComposite>)newAlphaCompositeWithInt:(jint)srcOver withFloat:(jfloat)alpha
+{
+    return [[GAlphaCompositeI alloc] initWithInt:srcOver withFloat:alpha];
+}
+
+-(id<OrgGeogebraCommonAwtMyImage>)newMyImageWithInt:(jint)pixelWidth withInt:(jint)pixelHeight withInt:(jint)typeIntArgb
+{
+    return nil;
 }
 
 

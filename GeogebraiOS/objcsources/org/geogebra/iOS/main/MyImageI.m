@@ -32,4 +32,10 @@
     return isSVG;
 }
 
+-(id)copyWithZone:(NSZone *)zone
+{
+    MyImageI* newImg = [[MyImageI alloc] initWithImage:img withBoolean:isSVG];
+    return newImg;
+}
+
 @end

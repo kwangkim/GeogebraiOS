@@ -24,6 +24,7 @@
 #import "EuclidianViewI.h"
 #import "StringUtil.h"
 #import "GGraphics2DI.h"
+#import "MyXMLioI.h"
 
 
 @interface ViewController ()
@@ -43,13 +44,14 @@
     OrgGeogebraCommonKernelAlgosAlgoMidpoint* algo = [[OrgGeogebraCommonKernelAlgosAlgoMidpoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withOrgGeogebraCommonKernelGeosGeoPoint:A withOrgGeogebraCommonKernelGeosGeoPoint:B];
     OrgGeogebraCommonKernelGeosGeoPoint* M = [algo getPoint];
     NSLog(@"Midpoint is (%lf,%lf)", [M getInhomX], [M getInhomY]);
-    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/test3.ggb"];
+    //JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/testFiles/Polygons.ggb"];
+    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/test3.ggb"];
     NSLog(@"%d",[testFile exists]);
     [app loadFileWithFile:testFile withBool:NO];
     //GGraphics2DI* g2p = [(EuclidianViewI*)[app getEuclidianView1] g2p];
     //[g2p drawStraightLineWithDouble:100 withDouble:100 withDouble:400 withDouble:400];
     UIImage* img = [(MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel] getImage];
-    UIImageView * v = [[UIImageView alloc] initWithImage:img];
+    UIImageView *v = [[UIImageView alloc] initWithImage:img];
     [self.view addSubview:v];
     
 }
