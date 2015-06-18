@@ -23,18 +23,30 @@ void setFontStyle(int style);
 @synthesize impl = _impl;
 -(id)initWithFontName:(NSString*)name withStyle:(int)style withSize:(float)size
 {
-    if([name isEqualToString:@"Serif"]){
-        _fontfamily = @"geogebra-serif, serif";
-        _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Regular"), size, nil);
-    }else if([name isEqualToString:@"SansSerif"]){
-        _fontfamily = @"geogebra-sans-serif, sans-serif";
-        _impl = CTFontCreateWithName(CFSTR("GeogebraSerif-Regular"), size, nil);
-    }else{
-        _fontfamily = name;
-        _impl = CTFontCreateWithName((CFStringRef)name, size, nil);
-    }
     [self setFontStyle:style];
     _fontsize = size;
+    if([name isEqualToString:@"Serif"]){
+        _fontfamily = @"geogebra-serif, serif";
+        if([_fontstyle isEqualToString:BOLD_STR]){
+            _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Bold"), _fontsize, nil);
+        }else if([_fontstyle isEqualToString:ITALIC_STR]){
+            _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Italic"), _fontsize, nil);
+        }else{
+            _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Regular"), _fontsize, nil);
+        }
+    }else if([name isEqualToString:@"SansSerif"]){
+        _fontfamily = @"geogebra-sans-serif, sans-serif";
+        if([_fontstyle isEqualToString:BOLD_STR]){
+            _impl = CTFontCreateWithName(CFSTR("GeogebraSerif-Bold"), _fontsize, nil);
+        }else if([_fontstyle isEqualToString:ITALIC_STR]){
+            _impl = CTFontCreateWithName(CFSTR("GeogebraSerif-Italic"), _fontsize, nil);
+        }else{
+            _impl = CTFontCreateWithName(CFSTR("GeogebraSerif-Regular"), _fontsize, nil);
+        }
+    }else{
+        _fontfamily = name;
+        _impl = CTFontCreateWithName((CFStringRef)name, _fontsize, nil);
+    }
     return self;
 }
 
@@ -42,9 +54,9 @@ void setFontStyle(int style);
 {
     _fontstyle = fontStyle;
     _fontfamily =  @"geogebra-serif, serif";
-    if([fontStyle isEqualToString:BOLD_STR]){
+    if([_fontstyle isEqualToString:BOLD_STR]){
         _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Bold"), _fontsize, nil);
-    }else if([fontStyle isEqualToString:ITALIC_STR]){
+    }else if([_fontstyle isEqualToString:ITALIC_STR]){
          _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Italic"), _fontsize, nil);
     }else{
         _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Regular"), _fontsize, nil);
@@ -108,7 +120,7 @@ void setFontStyle(int style);
 {
     switch (fontStyle) {
         case BOLD:
-            _fontstyle = NORMAL_STR;
+            _fontstyle = BOLD_STR;
             break;
         case ITALIC:
             _fontstyle = ITALIC_STR;

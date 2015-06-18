@@ -18,11 +18,7 @@
 
 -(OrgGeogebraCommonAwtGFont*)getFontCanDisplayWithNSString:(NSString *)testString withBoolean:(jboolean)serif withInt:(jint)fontStyle withInt:(jint)fontSize1
 {
-    GFontI* ret = [[GFontI alloc]initWithFontStyle:@"normal"];
-    [ret setFontStyle:fontStyle];
-    [ret setFontsize:fontSize1];
-    [ret setFontfamily:serif ? @"geogebra-serif, serif"
-                      : @"geogebra-sans-serif, sans-serif"];
+    GFontI* ret = [[GFontI alloc] initWithFontName:serif?@"SansSerif":@"Serif" withStyle:fontStyle withSize:fontSize1];
     return ret;
 }
 
