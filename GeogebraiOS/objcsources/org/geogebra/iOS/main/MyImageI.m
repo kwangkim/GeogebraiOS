@@ -8,15 +8,17 @@
 
 #import "MyImageI.h"
 #import <UIKit/UIKit.h>
+#import "GGraphics2DI.h"
+#import "GBufferedImageI.h"
 
 @implementation MyImageI
-@synthesize img;
--(id)initWithImage:(UIImage *)i withBoolean:(Boolean)s
+@synthesize img = _img;
+-(id)initWithImage:(CGImageRef)i withBoolean:(Boolean)s
 {
-    img = i;
+    _img = i;
     isSVG = s;
-    width = img.size.width;
-    height = img.size.height;
+    width = CGImageGetWidth(_img);
+    height = CGImageGetHeight(_img);
     return self;
 }
 -(int)getWidth
@@ -34,8 +36,13 @@
 
 -(id)copyWithZone:(NSZone *)zone
 {
-    MyImageI* newImg = [[MyImageI alloc] initWithImage:img withBoolean:isSVG];
+    MyImageI* newImg = [[MyImageI alloc] initWithImage:_img withBoolean:isSVG];
     return newImg;
+}
+
+-(void)drawSubimageWithInt:(jint)x withInt:(jint)y withInt:(jint)w withInt:(jint)h withOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g withInt:(jint)posX withInt:(jint)posY
+{
+    //CGContextDrawImage([(GGraphics2DI*)g context], CGRectMake(posX, posY, w, h), createImageWithSectionOfBitmapContext([(GGraphics2DI*)g context], x, y, w, h));
 }
 
 @end

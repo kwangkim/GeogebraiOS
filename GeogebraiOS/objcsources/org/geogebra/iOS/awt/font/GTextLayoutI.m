@@ -7,14 +7,15 @@
 //
 
 #import "GTextLayoutI.h"
+#import "GGraphics2DI.h"
 
 @implementation GTextLayoutI
-@synthesize str, font, frc;
+@synthesize str = _str, font = _font, frc = _frc;
 -(id)initWithString:(NSString*)string withGFont:(OrgGeogebraCommonAwtGFont*)f withFRC:(GFontRenderContextI*) fontrendercontext;
 {
-    self.font = f;
-    self.str = string;
-    self.frc = fontrendercontext;
+    _font = f;
+    _str = string;
+    _frc = fontrendercontext;
     containLowerCase = NO;
 //    if([str length] > 0){
 //        for(int i = 0 ; i < [str length]; i++){
@@ -26,14 +27,25 @@
 
 -(void)drawWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2 withInt:(jint)x withInt:(jint)y
 {
-    OrgGeogebraCommonAwtGFont* tmpFont = [g2 getFont];
-    [g2 setFontWithOrgGeogebraCommonAwtGFont:self.font];
-    [g2 drawStringWithNSString:self.str withInt:x withInt:y];
-    [g2 setFontWithOrgGeogebraCommonAwtGFont:tmpFont];
+    OrgGeogebraCommonAwtGFont* tmpFont = [(GGraphics2DI*)g2 getFont];
+    [(GGraphics2DI*)g2 setFontWithOrgGeogebraCommonAwtGFont:self.font];
+    [(GGraphics2DI*)g2 drawStringWithNSString:self.str withInt:x withInt:y];
+    [(GGraphics2DI*)g2 setFontWithOrgGeogebraCommonAwtGFont:tmpFont];
 }
 
 -(jfloat)getAdvance
 {
-    return 0;
+    CGSize stringBoundingBox = [_str sizeWithFont:[(GFontI*)_font impl]];
+    return stringBoundingBox.width;
+}
+
+-(jfloat)getAscent
+{
+    return [_font getSize] * 0.8;
+}
+
+-(jfloat)getDescent
+{
+    return [_font getSize] * 0.2;
 }
 @end

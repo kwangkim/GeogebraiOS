@@ -43,14 +43,15 @@ static Boolean isApplet;
     //@try {
     _fontManager = [[FontManagerI alloc] init];
             self.loc = [[LocalizationI alloc] initWithInt:2];
+    _imageManager = [[ImageManagerI alloc] init];
             OrgGeogebraCommonFactoriesFormatFactory_set_prototype_([[FormatFactoryI alloc]init]);
             OrgGeogebraCommonFactoriesAwtFactory_set_prototype_([[AwtFactoryI alloc]init]);
     OrgGeogebraCommonUtilStringUtil_set_prototype_([[OrgGeogebraCommonUtilStringUtil alloc] init]);
-            [self initKernel];
+        [self initKernel];
             settings_ = [companion_ newSettings];
             [self initEuclidianViews];
             initing_ = true;
-    _imageManager = [[ImageManagerI alloc] init];
+    
       //  }
       //  @catch (NSException *exception) {
       //      NSLog(@"%@",exception);
@@ -100,7 +101,7 @@ static Boolean isApplet;
     return (EuclidianViewI*) euclidianView_;
 }
 
--(OrgGeogebraCommonEuclidianEuclidianController *)newEuclidianControllerWithOrgGeogebraCommonKernelKernel:(OrgGeogebraCommonKernelKernel *)kernel1 OBJC_METHOD_FAMILY_NONE
+-(OrgGeogebraCommonEuclidianEuclidianController *)newEuclidianControllerWithOrgGeogebraCommonKernelKernel:(OrgGeogebraCommonKernelKernel *)kernel1
 {
     return [[EuclidianControllerI alloc] initWithOrgGeogebraCommonKernelKernel: kernel1];
 }
@@ -149,7 +150,7 @@ static Boolean isApplet;
         if(macros != nil){
             [[self getXMLio] processXMLStringWithNSString:macros withBoolean:true withBoolean:true];
         }
-        [self setCurrentFile:archiveContent];
+        //[self setCurrentFile:archiveContent];
         [[self getGuiManager] updateToolbar];
         return;
     }
@@ -177,11 +178,11 @@ static Boolean isApplet;
 
 -(void)setCurrentfile:(NSMutableDictionary *)currentFile;
 {
-    if(self.currentFile == currentFile) return;
-    self.currentFile = currentFile;
-    if(currentFile != nil){
-        [self addToFileListWithDictionary:currentFile];
-    }
+   // if(self.currentFile == currentFile) return;
+   // self.currentFile = currentFile;
+    //if(currentFile != nil){
+    //    [self addToFileListWithDictionary:currentFile];
+   // }
 }
 
 -(void)addToFileListWithDictionary:(NSMutableDictionary*)file
@@ -340,7 +341,7 @@ static Boolean isApplet;
 
 -(id<OrgGeogebraCommonAwtMyImage>)getExternalImageAdapterWithNSString:(NSString *)filename withInt:(jint)width withInt:(jint)height
 {
-    UIImage* originalImg = [[_imageManager getExternalImageWithName:filename] img];
+    CGImageRef originalImg = [[_imageManager getExternalImageWithName:filename] img];
     //UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, 0.0f);
     //draw
     //[originalImg drawInRect:CGRectMake(0.0f, 0.0f, width, height)];
@@ -353,6 +354,16 @@ static Boolean isApplet;
 -(ImageManagerI*)getImageManager
 {
     return _imageManager;
+}
+
+-(void)evalJavaScriptWithOrgGeogebraCommonMainApp:(OrgGeogebraCommonMainApp *)app withNSString:(NSString *)script withNSString:(NSString *)arg
+{
+    ;
+}
+
+-(OrgGeogebraCommonKernelAnimationManager *)newAnimationManagerWithOrgGeogebraCommonKernelKernel:(OrgGeogebraCommonKernelKernel *)kernel2
+{
+    return nil;
 }
 
 

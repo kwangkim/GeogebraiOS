@@ -24,4 +24,27 @@
 {
     return @"";
 }
+
+-(jboolean)isCommandNull
+{
+    return false;
+}
+
+-(void)initCommand
+{
+    ;
+}
+
+-(jboolean)isCommandChanged
+{
+    return false;
+}
+-(NSString *)getPlainWithNSString:(NSString *)key
+{
+    return @"";
+}
+-(NSString *)getErrorWithNSString:(NSString *)key
+{
+    return @"";
+}
 @end

@@ -22,7 +22,7 @@
 		<key>71CE493735B34208A4FA6BEDF7FE9456470AAB30</key>
 		<string>../..</string>
 		<key>82DF43EF5CA016D15C41E0AF1AF686E9973475B7</key>
-		<string>../../zipzap/</string>
+		<string>../../zipzap</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/jacky841102/GeogebraiOS.git</string>

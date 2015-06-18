@@ -8,6 +8,7 @@
 
 #import "FormatFactoryI.h"
 #import "NumberFormatiOS.h"
+#import "ScientificFormatiOS.h"
 
 @implementation FormatFactoryI
 -(id<OrgGeogebraCommonUtilNumberFormatAdapter>)getNumberFormatWithInt:(jint)digits
@@ -57,7 +58,7 @@
                                                                    withInt:(jint)maxWidth
                                                                 withBoolean:(jboolean)sciNote
 {
-    return [[NumberFormatiOS alloc] initWithString:@"0.###############" WithDigits:sigDigit];
+    return [[ScientificFormatiOS alloc] initWithInt:sigDigit withInt:maxWidth withBOOL:sciNote];
 }
 
 @end

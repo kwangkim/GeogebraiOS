@@ -37,15 +37,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     AppI* app = [[AppI alloc] init];
-    OrgGeogebraCommonKernelKernel* kernel = [app getKernel];
-    OrgGeogebraCommonKernelConstruction* cons = [[OrgGeogebraCommonKernelConstruction alloc] initWithOrgGeogebraCommonKernelKernel:kernel];
-    OrgGeogebraCommonKernelGeosGeoPoint* A = [[OrgGeogebraCommonKernelGeosGeoPoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withDouble:1 withDouble:1 withDouble:1];
-    OrgGeogebraCommonKernelGeosGeoPoint* B = [[OrgGeogebraCommonKernelGeosGeoPoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withDouble:3 withDouble:2 withDouble:1];
-    OrgGeogebraCommonKernelAlgosAlgoMidpoint* algo = [[OrgGeogebraCommonKernelAlgosAlgoMidpoint alloc] initWithOrgGeogebraCommonKernelConstruction:cons withOrgGeogebraCommonKernelGeosGeoPoint:A withOrgGeogebraCommonKernelGeosGeoPoint:B];
-    OrgGeogebraCommonKernelGeosGeoPoint* M = [algo getPoint];
-    NSLog(@"Midpoint is (%lf,%lf)", [M getInhomX], [M getInhomY]);
-    //JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/testFiles/Polygons.ggb"];
-    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/test3.ggb"];
+    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/testFiles/Angles.ggb"];
+    //JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/test3.ggb"];
     NSLog(@"%d",[testFile exists]);
     [app loadFileWithFile:testFile withBool:NO];
     //GGraphics2DI* g2p = [(EuclidianViewI*)[app getEuclidianView1] g2p];

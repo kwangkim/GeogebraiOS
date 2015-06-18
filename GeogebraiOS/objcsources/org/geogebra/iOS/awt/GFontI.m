@@ -16,68 +16,72 @@ static NSString* ITALIC_STR = @"italic";
 void setFontStyle(int style);
 
 @implementation GFontI
-@synthesize fontfamily, fontsize, fontstyle, fontweight, impl;
+@synthesize fontfamily = _fontfamily;
+@synthesize fontsize = _fontsize;
+@synthesize fontstyle = _fontstyle;
+@synthesize fontweight = _fontweight;
+@synthesize impl = _impl;
 -(id)initWithFontName:(NSString*)name withStyle:(int)style withSize:(float)size
 {
     if([name isEqualToString:@"Serif"]){
-        self.fontfamily = @"geogebra-serif, serif";
-        self.impl = [UIFont fontWithName:@"GeogebraSans-Regular" size:size];
-    }else if([name isEqualToString:@"ansSerif"]){
-        self.fontfamily = @"geogebra-sans-serif, sans-serif";
-        self.impl = [UIFont fontWithName:@"GeogebraSerif-Regular" size:size];
+        _fontfamily = @"geogebra-serif, serif";
+        _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Regular"), size, nil);
+    }else if([name isEqualToString:@"SansSerif"]){
+        _fontfamily = @"geogebra-sans-serif, sans-serif";
+        _impl = CTFontCreateWithName(CFSTR("GeogebraSerif-Regular"), size, nil);
     }else{
-        self.fontfamily = name;
-        self.impl = [UIFont fontWithName:name size:size];
+        _fontfamily = name;
+        _impl = CTFontCreateWithName((CFStringRef)name, size, nil);
     }
     [self setFontStyle:style];
-    self.fontsize = size;
+    _fontsize = size;
     return self;
 }
 
 -(id)initWithFontStyle:(NSString *)fontStyle
 {
-    self.fontstyle = fontstyle;
-    self.fontfamily =  @"geogebra-serif, serif";
-    self.fontsize = 12;
-    self.impl = [UIFont fontWithName:@"GeogebraSans-Regular" size:self.fontsize];
+    _fontstyle = fontStyle;
+    _fontfamily =  @"geogebra-serif, serif";
+    if([fontStyle isEqualToString:BOLD_STR]){
+        _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Bold"), _fontsize, nil);
+    }else if([fontStyle isEqualToString:ITALIC_STR]){
+         _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Italic"), _fontsize, nil);
+    }else{
+        _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Regular"), _fontsize, nil);
+    }
     return self;
 }
 
 -(OrgGeogebraCommonAwtGFont*)deriveFontWithInt:(jint)plain2 withFloat:(jfloat)fontSize
 {
-    return [self deriveFontWithInt:plain2 withInt:(int)fontsize];
+    return [self deriveFontWithInt:plain2 withInt:(int)fontSize];
 }
 
 -(OrgGeogebraCommonAwtGFont*)deriveFontWithInt:(jint)plain2 withInt:(jint)fontSize
 {
-    self.fontsize = fontSize;
-    GFontI* ret = [self initWithFontStyle:@"normal"];
-    [ret setFontStyle:plain2];
-    [ret setFontsize:fontSize];
-    return ret;
+    _fontsize = fontSize;
+    [self setFontStyle:plain2];
+    return [self initWithFontStyle:_fontstyle];
 }
 
 -(OrgGeogebraCommonAwtGFont*)deriveFontWithInt:(jint)i
 {
-    GFontI* ret = [self initWithFontStyle:@"normal"];
-    [ret setFontStyle:i];
-    ret.fontsize = self.fontsize;
-    return ret;
+    return [self deriveFontWithInt:i withInt:12];
 }
 
 -(NSString*)getFontName
 {
-    return self.fontfamily;
+    return _fontfamily;
 }
 
 -(BOOL)isItalic
 {
-    return [self.fontstyle isEqualToString:ITALIC_STR];
+    return [_fontstyle isEqualToString:ITALIC_STR];
 }
 
 -(BOOL)isBold
 {
-    return [self.fontstyle isEqualToString:BOLD_STR];
+    return [_fontstyle isEqualToString:BOLD_STR];
 }
 
 -(int)getStyle
@@ -90,29 +94,29 @@ void setFontStyle(int style);
     return -1;
 }
 
--(UIFont *)getUIFont
+-(CTFontRef)getUIFont
 {
-    return self.impl;
+    return _impl;
 }
 
 -(int)getSize
 {
-    return (int)self.fontsize;
+    return (int)_fontsize;
 }
 
 -(void)setFontStyle:(int)fontStyle
 {
     switch (fontStyle) {
         case BOLD:
-            self.fontstyle = NORMAL_STR;
+            _fontstyle = NORMAL_STR;
             break;
         case ITALIC:
-            self.fontstyle = ITALIC_STR;
+            _fontstyle = ITALIC_STR;
             break;
         case (BOLD + ITALIC):
-            self.fontstyle = ITALIC_STR;
+            _fontstyle = ITALIC_STR;
         default:
-            self.fontstyle = NORMAL_STR;
+            _fontstyle = NORMAL_STR;
             break;
     }
 }

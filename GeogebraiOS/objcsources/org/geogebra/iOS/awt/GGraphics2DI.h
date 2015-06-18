@@ -27,6 +27,7 @@
     Boolean nativeDashUsed;
     int devicePixelRatio;
     CGFloat alpha;
+    CGAffineTransform basicTransform;
 }
 @property IOSFloatArray* dash_array;
 @property CGContextRef context;

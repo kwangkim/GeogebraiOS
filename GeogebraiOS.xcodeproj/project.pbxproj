@@ -30,9 +30,18 @@
 		85A590A51B245C6600EDA785 /* GuiManagerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590A41B245C6600EDA785 /* GuiManagerI.m */; };
 		85A590AC1B25B9C300EDA785 /* DrawEquationI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590AB1B25B9C300EDA785 /* DrawEquationI.m */; };
 		85A591081B2FCEB300EDA785 /* MyImageIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591071B2FCEB300EDA785 /* MyImageIO.m */; };
-		85A591151B2FD3A000EDA785 /* libzipzap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A591121B2FD36600EDA785 /* libzipzap.a */; };
 		85A591171B2FD3E500EDA785 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A591161B2FD3E500EDA785 /* ImageIO.framework */; };
 		85A5911A1B2FF0B200EDA785 /* ImageManagerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591191B2FF0B200EDA785 /* ImageManagerI.m */; };
+		85A5911D1B3130DB00EDA785 /* GBufferedImageI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5911C1B3130DB00EDA785 /* GBufferedImageI.m */; };
+		85A591201B3139C400EDA785 /* GGradientPaintI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5911F1B3139C400EDA785 /* GGradientPaintI.m */; };
+		85A591231B3153F000EDA785 /* ScientificFormatiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591221B3153F000EDA785 /* ScientificFormatiOS.m */; };
+		85A591261B31C29800EDA785 /* GTexturePaintI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591251B31C29800EDA785 /* GTexturePaintI.m */; };
+		85A591281B31DF9800EDA785 /* UIImage-Extensions.h in Sources */ = {isa = PBXBuildFile; fileRef = 85A591271B31DF9800EDA785 /* UIImage-Extensions.h */; };
+		85A5912A1B31DFF200EDA785 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591291B31DFF200EDA785 /* UIImage-Extensions.m */; };
+		85A591371B331F2700EDA785 /* GeogebraSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85A591331B331F2700EDA785 /* GeogebraSans-Bold.ttf */; };
+		85A591381B331F2700EDA785 /* GeogebraSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85A591341B331F2700EDA785 /* GeogebraSans-Italic.ttf */; };
+		85A591391B331F2700EDA785 /* GeogebraSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85A591351B331F2700EDA785 /* GeogebraSerif-Bold.ttf */; };
+		85A5913A1B331F2700EDA785 /* GeogebraSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85A591361B331F2700EDA785 /* GeogebraSerif-Italic.ttf */; };
 		85A70BF71B16123000D8F94C /* MatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEEE1B16122300D8F94C /* MatchResult.m */; };
 		85A70BF81B16123000D8F94C /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF01B16122300D8F94C /* RegExp.m */; };
 		85A70BF91B16123000D8F94C /* SplitResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF21B16122300D8F94C /* SplitResult.m */; };
@@ -3655,27 +3664,6 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
-		85A5910F1B2FD36600EDA785 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 85A591091B2FD36600EDA785 /* zipzap.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D899CF82162C5EC100112F49;
-			remoteInfo = "zipzap (OS X)";
-		};
-		85A591111B2FD36600EDA785 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 85A591091B2FD36600EDA785 /* zipzap.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D899CFB0162C5EEB00112F49;
-			remoteInfo = "zipzap (iOS)";
-		};
-		85A591131B2FD36600EDA785 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 85A591091B2FD36600EDA785 /* zipzap.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D899CF96162C5EC100112F49;
-			remoteInfo = zipzapTests;
-		};
 		85D1C4851B0C815C007E3BC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 85D1C4631B0C815C007E3BC6 /* Project object */;
@@ -3727,10 +3715,23 @@
 		85A590AB1B25B9C300EDA785 /* DrawEquationI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawEquationI.m; sourceTree = "<group>"; };
 		85A591061B2FCEB300EDA785 /* MyImageIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageIO.h; sourceTree = "<group>"; };
 		85A591071B2FCEB300EDA785 /* MyImageIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImageIO.m; sourceTree = "<group>"; };
-		85A591091B2FD36600EDA785 /* zipzap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = zipzap.xcodeproj; path = zipzap/zipzap.xcodeproj; sourceTree = "<group>"; };
 		85A591161B2FD3E500EDA785 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		85A591181B2FF0B200EDA785 /* ImageManagerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManagerI.h; sourceTree = "<group>"; };
 		85A591191B2FF0B200EDA785 /* ImageManagerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManagerI.m; sourceTree = "<group>"; };
+		85A5911B1B3130DB00EDA785 /* GBufferedImageI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBufferedImageI.h; sourceTree = "<group>"; };
+		85A5911C1B3130DB00EDA785 /* GBufferedImageI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBufferedImageI.m; sourceTree = "<group>"; };
+		85A5911E1B3139C400EDA785 /* GGradientPaintI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGradientPaintI.h; sourceTree = "<group>"; };
+		85A5911F1B3139C400EDA785 /* GGradientPaintI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGradientPaintI.m; sourceTree = "<group>"; };
+		85A591211B3153F000EDA785 /* ScientificFormatiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScientificFormatiOS.h; sourceTree = "<group>"; };
+		85A591221B3153F000EDA785 /* ScientificFormatiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScientificFormatiOS.m; sourceTree = "<group>"; };
+		85A591241B31C29800EDA785 /* GTexturePaintI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTexturePaintI.h; sourceTree = "<group>"; };
+		85A591251B31C29800EDA785 /* GTexturePaintI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTexturePaintI.m; sourceTree = "<group>"; };
+		85A591271B31DF9800EDA785 /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-Extensions.h"; sourceTree = "<group>"; };
+		85A591291B31DFF200EDA785 /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Extensions.m"; sourceTree = "<group>"; };
+		85A591331B331F2700EDA785 /* GeogebraSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSans-Bold.ttf"; sourceTree = "<group>"; };
+		85A591341B331F2700EDA785 /* GeogebraSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSans-Italic.ttf"; sourceTree = "<group>"; };
+		85A591351B331F2700EDA785 /* GeogebraSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSerif-Bold.ttf"; sourceTree = "<group>"; };
+		85A591361B331F2700EDA785 /* GeogebraSerif-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSerif-Italic.ttf"; sourceTree = "<group>"; };
 		85A700001B16122800D8F94C /* CmdSlopeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdSlopeField.m; sourceTree = "<group>"; };
 		85A700011B16122800D8F94C /* CmdTaylorSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdTaylorSeries.h; sourceTree = "<group>"; };
 		85A700021B16122800D8F94C /* CmdTaylorSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdTaylorSeries.m; sourceTree = "<group>"; };
@@ -10947,7 +10948,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				85A591171B2FD3E500EDA785 /* ImageIO.framework in Frameworks */,
-				85A591151B2FD3A000EDA785 /* libzipzap.a in Frameworks */,
 				85D1EF7E1B0C82BE007E3BC6 /* Security.framework in Frameworks */,
 				85D1EF7C1B0C82B7007E3BC6 /* libz.1.2.5.dylib in Frameworks */,
 				85D1EF7A1B0C82AC007E3BC6 /* libicucore.dylib in Frameworks */,
@@ -10975,6 +10975,10 @@
 		858C71571B1CBD12007F12D8 /* font */ = {
 			isa = PBXGroup;
 			children = (
+				85A591331B331F2700EDA785 /* GeogebraSans-Bold.ttf */,
+				85A591341B331F2700EDA785 /* GeogebraSans-Italic.ttf */,
+				85A591351B331F2700EDA785 /* GeogebraSerif-Bold.ttf */,
+				85A591361B331F2700EDA785 /* GeogebraSerif-Italic.ttf */,
 				858C71581B1CBD12007F12D8 /* GeogebraSans-Regular.ttf */,
 				858C71591B1CBD12007F12D8 /* GeogebraSerif-Regular.ttf */,
 			);
@@ -11015,16 +11019,6 @@
 				85A590A41B245C6600EDA785 /* GuiManagerI.m */,
 			);
 			path = gui;
-			sourceTree = "<group>";
-		};
-		85A5910A1B2FD36600EDA785 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				85A591101B2FD36600EDA785 /* libzipzap.a */,
-				85A591121B2FD36600EDA785 /* libzipzap.a */,
-				85A591141B2FD36600EDA785 /* zipzapTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		85A700151B16122800D8F94C /* algos */ = {
@@ -14471,6 +14465,12 @@
 				858C715E1B1D5CE8007F12D8 /* GBasicStrokeI.m */,
 				85A5907F1B23FD0C00EDA785 /* GFontRenderContextI.h */,
 				85A590801B23FD0C00EDA785 /* GFontRenderContextI.m */,
+				85A5911B1B3130DB00EDA785 /* GBufferedImageI.h */,
+				85A5911C1B3130DB00EDA785 /* GBufferedImageI.m */,
+				85A5911E1B3139C400EDA785 /* GGradientPaintI.h */,
+				85A5911F1B3139C400EDA785 /* GGradientPaintI.m */,
+				85A591241B31C29800EDA785 /* GTexturePaintI.h */,
+				85A591251B31C29800EDA785 /* GTexturePaintI.m */,
 			);
 			path = awt;
 			sourceTree = "<group>";
@@ -14541,6 +14541,10 @@
 				85A741271B16325500D8F94C /* NumberFormatiOS.m */,
 				85A591181B2FF0B200EDA785 /* ImageManagerI.h */,
 				85A591191B2FF0B200EDA785 /* ImageManagerI.m */,
+				85A591211B3153F000EDA785 /* ScientificFormatiOS.h */,
+				85A591221B3153F000EDA785 /* ScientificFormatiOS.m */,
+				85A591271B31DF9800EDA785 /* UIImage-Extensions.h */,
+				85A591291B31DFF200EDA785 /* UIImage-Extensions.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -20513,7 +20517,6 @@
 			isa = PBXGroup;
 			children = (
 				85A591161B2FD3E500EDA785 /* ImageIO.framework */,
-				85A591091B2FD36600EDA785 /* zipzap.xcodeproj */,
 				858C71511B1C9DAB007F12D8 /* GeoGebra-Logo.png */,
 				85D1EF7D1B0C82BD007E3BC6 /* Security.framework */,
 				85D1EF7B1B0C82B7007E3BC6 /* libz.1.2.5.dylib */,
@@ -20645,12 +20648,6 @@
 			mainGroup = 85D1C4621B0C815C007E3BC6;
 			productRefGroup = 85D1C46C1B0C815C007E3BC6 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 85A5910A1B2FD36600EDA785 /* Products */;
-					ProjectRef = 85A591091B2FD36600EDA785 /* zipzap.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				85D1C46A1B0C815C007E3BC6 /* GeogebraiOS */,
@@ -20658,30 +20655,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		85A591101B2FD36600EDA785 /* libzipzap.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libzipzap.a;
-			remoteRef = 85A5910F1B2FD36600EDA785 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		85A591121B2FD36600EDA785 /* libzipzap.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libzipzap.a;
-			remoteRef = 85A591111B2FD36600EDA785 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		85A591141B2FD36600EDA785 /* zipzapTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = zipzapTests.xctest;
-			remoteRef = 85A591131B2FD36600EDA785 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		85D1C4691B0C815C007E3BC6 /* Resources */ = {
@@ -20692,8 +20665,12 @@
 				85D11A961B0CEB06007E3BC6 /* Main.storyboard in Resources */,
 				85D11A971B0CEB06007E3BC6 /* LaunchScreen.xib in Resources */,
 				858C71521B1C9DAB007F12D8 /* GeoGebra-Logo.png in Resources */,
+				85A5913A1B331F2700EDA785 /* GeogebraSerif-Italic.ttf in Resources */,
+				85A591391B331F2700EDA785 /* GeogebraSerif-Bold.ttf in Resources */,
 				858C715A1B1CBD12007F12D8 /* GeogebraSans-Regular.ttf in Resources */,
 				85D1C47C1B0C815C007E3BC6 /* Images.xcassets in Resources */,
+				85A591371B331F2700EDA785 /* GeogebraSans-Bold.ttf in Resources */,
+				85A591381B331F2700EDA785 /* GeogebraSans-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -20717,6 +20694,7 @@
 				85A716D81B16123300D8F94C /* Rotateable.m in Sources */,
 				85A715BC1B16123200D8F94C /* CmdSimplify.m in Sources */,
 				85A711871B16123100D8F94C /* ReadWriteFloatArrayBuffer.m in Sources */,
+				85A591261B31C29800EDA785 /* GTexturePaintI.m in Sources */,
 				85A715321B16123200D8F94C /* AlgoUnicodeToLetter.m in Sources */,
 				85A7113C1B16123100D8F94C /* DrawPointDecorations.m in Sources */,
 				85A70C821B16123100D8F94C /* Node.m in Sources */,
@@ -21011,6 +20989,7 @@
 				85A714F11B16123200D8F94C /* AlgoPolyLine.m in Sources */,
 				85A711841B16123100D8F94C /* ReadOnlyShortArrayBuffer.m in Sources */,
 				85A70E871B16123100D8F94C /* PredicatedSet.m in Sources */,
+				85A591281B31DF9800EDA785 /* UIImage-Extensions.h in Sources */,
 				85A70CE71B16123100D8F94C /* LineMerger.m in Sources */,
 				85A70D0E1B16123100D8F94C /* ConsistentAreaTester.m in Sources */,
 				85A7127A1B16123100D8F94C /* CmdIntersectPath3D.m in Sources */,
@@ -22161,6 +22140,7 @@
 				85A711911B16123100D8F94C /* TriangleOctree.m in Sources */,
 				85A712A21B16123200D8F94C /* Construction3D.m in Sources */,
 				85A712F21B16123200D8F94C /* InterpolateImageModel.m in Sources */,
+				85A5911D1B3130DB00EDA785 /* GBufferedImageI.m in Sources */,
 				85A7167F1B16123300D8F94C /* VHalfEdge3.m in Sources */,
 				85A718C41B16123400D8F94C /* CmdFrequencyPolygon.m in Sources */,
 				85A714C31B16123200D8F94C /* AlgoListMin.m in Sources */,
@@ -22700,6 +22680,7 @@
 				85A713521B16123200D8F94C /* StatTableModel.m in Sources */,
 				85A70E721B16123100D8F94C /* UnmodifiableMap.m in Sources */,
 				85A719101B16123400D8F94C /* CmdTTest2.m in Sources */,
+				85A591201B3139C400EDA785 /* GGradientPaintI.m in Sources */,
 				85A70D891B16123100D8F94C /* Forest.m in Sources */,
 				85A717961B16123300D8F94C /* RealRootFunctionVariable.m in Sources */,
 				85A717581B16123300D8F94C /* EquationLineBisector.m in Sources */,
@@ -23648,6 +23629,7 @@
 				85A7105B1B16123100D8F94C /* NumberTransformer.m in Sources */,
 				85A712621B16123100D8F94C /* CmdBottom.m in Sources */,
 				85A70F8C1B16123100D8F94C /* ExtendedFirstOrderDifferentialEquations.m in Sources */,
+				85A5912A1B31DFF200EDA785 /* UIImage-Extensions.m in Sources */,
 				85A711311B16123100D8F94C /* DrawIntersectionCurve3D.m in Sources */,
 				85A7112B1B16123100D8F94C /* DrawConicSection3D.m in Sources */,
 				85A70C8B1B16123100D8F94C /* IntervalRTreeNode.m in Sources */,
@@ -23696,6 +23678,7 @@
 				85A719571B16123400D8F94C /* Settings.m in Sources */,
 				85A70F3B1B16123100D8F94C /* Population.m in Sources */,
 				85A718441B16123300D8F94C /* AlgoHyperGeometricBarChart.m in Sources */,
+				85A591231B3153F000EDA785 /* ScientificFormatiOS.m in Sources */,
 				85A716031B16123300D8F94C /* CmdMod.m in Sources */,
 				85A7112E1B16123100D8F94C /* DrawCurve3D.m in Sources */,
 				85A70D981B16123100D8F94C /* UndirectedSparseGraph.m in Sources */,

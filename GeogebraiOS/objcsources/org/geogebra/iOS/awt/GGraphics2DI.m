@@ -26,6 +26,8 @@
 #import "GeneralPath.h"
 #import <CoreText/CoreText.h>
 #import "AwtFactory.h"
+#import "GGradientPaintI.h"
+#import <math.h>
 
 static int counter = 1;
 
@@ -39,6 +41,8 @@ static int counter = 1;
 @synthesize currentTransform = _currentTransform;
 @synthesize clipShape = _clipShape;
 @synthesize dash_array = _dash_array;
+
+//struct CGAffineTransform basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, [UIScreen mainScreen].bounds.size.height);
 
 -(id)initWithContext:(CGContextRef)c
 {
@@ -56,7 +60,11 @@ static int counter = 1;
     nativeDashUsed = false;
     _dash_array = nil;
     devicePixelRatio = [[UIScreen mainScreen] scale];
-    NSLog(@"devicePicexlRation = %d",devicePixelRatio);
+    //NSLog(@"devicePicexlRation = %d",devicePixelRatio);
+    basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height);
+    //CGContextSetStrokeColorWithColor(_context, ((GColorI*)_strokeColor).getCGColor);
+    //CGContextSetFillColorWithColor(_context, ((GColorI*)_fillColor).getCGColor);
+
     return self;
 }
 
@@ -68,8 +76,8 @@ static int counter = 1;
     [self setStroke];
     // _strokeColor = [[GColorI alloc] initWithIntRed:255 Green:0 Blue:0 Alpha:255];
     //_fillColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:255 Alpha:255];
-    CGContextSetStrokeColorWithColor(self.context, ((GColorI*)_strokeColor).getCGColor);
-    CGContextSetFillColorWithColor(self.context, ((GColorI*)_fillColor).getCGColor);
+    CGContextSetStrokeColorWithColor(_context, ((GColorI*)_strokeColor).getCGColor);
+    CGContextSetFillColorWithColor(_context, ((GColorI*)_fillColor).getCGColor);
     
     //CGContextSetStrokeColorWithColor(self.context, CGColor)
 }
@@ -96,10 +104,9 @@ static int counter = 1;
 -(void)drawStraightLineWithDouble:(jdouble)x1 withDouble:(jdouble)y1 withDouble:(jdouble)x2 withDouble:(jdouble)y2
 {
     [self configureStart];
+    CGContextBeginPath(_context);
     CGContextMoveToPoint(_context, x1, y1);
     CGContextAddLineToPoint(_context, x2, y2);
-    //NSLog(@"fill color:(%d %d %d)", [_fillColor getRed], [_fillColor getGreen], [_fillColor getBlue]);
-    //NSLog(@"stroke color:(%d %d %d)", [_strokeColor getRed], [_strokeColor getGreen], [_strokeColor getBlue]);
     CGContextStrokePath(_context);
     [self configureEnd];
 }
@@ -176,12 +183,11 @@ static int counter = 1;
 {
     [self configureStart];
     
-    CTFontRef sysUIFont = CTFontCreateUIFontForLanguage(kCTFontSystemFontType,
-                                                        12.0, NULL);
+    CTFontRef sysUIFont = [_currentFont impl];
     
     // create a naked string
     NSString *string = str;
-    
+
     // blue
     //CGColorRef color = [UIColor blackColor].CGColor;
     
@@ -197,13 +203,14 @@ static int counter = 1;
     // make the attributed string
     NSAttributedString *stringToDraw = [[NSAttributedString alloc] initWithString:string
                                                                        attributes:attributesDict];
+    //[stringToDraw addAttribute:(id)kCT value:(id)kCTFontItalicTrait range:NSMakeRange(0, [string length])];
+    
     CTLineRef line = CTLineCreateWithAttributedString((CFAttributedStringRef)stringToDraw);
     CGContextSetTextPosition(_context, x, y);
     CTLineDraw(line, _context);
     
     // clean up
     CFRelease(line);
-    CFRelease(sysUIFont);
     [stringToDraw release];
     [self configureEnd];
 }
@@ -216,8 +223,9 @@ static int counter = 1;
 -(void)drawImageWithOrgGeogebraCommonAwtMyImage:(id<OrgGeogebraCommonAwtMyImage>)img withOrgGeogebraCommonAwtGBufferedImageOp:(id<OrgGeogebraCommonAwtGBufferedImageOp>)op withInt:(jint)x withInt:(jint)y
 {
     [self configureStart];
+    //CGContextConcatCTM(_context, basicTransform);
     MyImageI* imgI = (MyImageI*)img;
-    CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img].CGImage);
+    CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img]);
     //[[imgI img] drawAtPoint:CGPointMake(x, y)];
     [self configureEnd];
 }
@@ -225,12 +233,9 @@ static int counter = 1;
 -(void)drawImageWithOrgGeogebraCommonAwtMyImage:(id<OrgGeogebraCommonAwtMyImage>)img withInt:(jint)x withInt:(jint)y
 {
     [self configureStart];
+    //CGContextConcatCTM(_context, basicTransform);
     MyImageI* imgI = (MyImageI*)img;
-    struct CGImage* ig = [imgI img].CGImage;
-    //CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
-    //CGContextConcatCTM(_context, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
-    CGRect r = CGRectMake(x, y, [imgI getWidth], [imgI getHeight]);
-    CGContextDrawImage(_context, r, ig);
+    CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img]);
     //[[imgI img] drawAtPoint:CGPointMake(x, y)];
     [self configureEnd];
 }
@@ -251,15 +256,22 @@ static int counter = 1;
 
 -(void)transformWithOrgGeogebraCommonAwtGAffineTransform:(id<OrgGeogebraCommonAwtGAffineTransform>)Tx
 {
-    
+    //CGContextSaveGState(_context);
     CGAffineTransform transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
+    //NSLog(@"\n%lf %lf \n%lf %lf \n%lf %lf\n",[Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
     CGContextConcatCTM(self.context, transform);
     [self.currentTransform concatenateWithOrgGeogebraCommonAwtGAffineTransform:Tx];
+    //CGContextRestoreGState(_context);
 }
 
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx
 {
     self.currentTransform = Tx;
+    CGAffineTransform tmp = CGAffineTransformInvert(CGContextGetCTM(_context));
+    CGContextConcatCTM(_context, tmp);
+    CGAffineTransform transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
+    CGContextConcatCTM(self.context, transform);
+    CGContextConcatCTM(_context, basicTransform);
 }
 
 -(id<OrgGeogebraCommonAwtGComposite>)getComposite
@@ -270,7 +282,7 @@ static int counter = 1;
 -(void)setCompositeWithOrgGeogebraCommonAwtGComposite:(id<OrgGeogebraCommonAwtGComposite>)comp
 {
     alpha = [((GAlphaCompositeI*)comp) getAlpha];
-    NSLog(@"alpha = %lf",alpha);
+    //NSLog(@"alpha = %lf",alpha);
     CGContextSetAlpha(self.context, alpha);
 }
 
@@ -335,20 +347,20 @@ static int counter = 1;
 
 -(GFontI*)getFont
 {
-    return self.currentFont;
+    return _currentFont;
 }
 
 -(void)setFontWithOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)font
 {
     if([font class] == [GFontI class]){
-        self.currentFont = (GFontI*) font;
+        _currentFont = (GFontI*) font;
     }
 }
 
 -(NSObject<OrgGeogebraCommonAwtGAffineTransform>*)getTransform
 {
     NSObject<OrgGeogebraCommonAwtGAffineTransform>* ret = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc] init];
-    [ret setTransformWithOrgGeogebraCommonAwtGAffineTransform:self.currentTransform];
+    [ret setTransformWithOrgGeogebraCommonAwtGAffineTransform:_currentTransform];
     return ret;
 }
 
@@ -359,10 +371,17 @@ static int counter = 1;
 
 -(void)restoreTransform
 {
-    if(!nil_chk(self.savedTransform)){
+    if(self.savedTransform != nil){
         [self setTransformWithGAffineTransform:self.savedTransform];
         self.savedTransform = nil;
     }
+}
+
+-(void)drawRectWithInt:(jint)i withInt:(jint)j withInt:(jint)k withInt:(jint)l
+{
+    [self configureStart];
+    CGContextStrokeRect(_context, CGRectMake(i, j, k, l));
+    [self configureEnd];
 }
 
 -(void)fillRectWithInt:(jint)i withInt:(jint)j withInt:(jint)k withInt:(jint)l
@@ -374,35 +393,107 @@ static int counter = 1;
 
 }
 
+-(void)drawRoundRectWithInt:(jint)x withInt:(jint)y withInt:(jint)width withInt:(jint)height withInt:(jint)arcWidth withInt:(jint)arcHeight
+{
+    [self configureStart];
+    CGRect rrect = CGRectMake(x, y, width, height);
+    CGFloat radius = arcHeight/2.0;
+    // NOTE: At this point you may want to verify that your radius is no more than half
+    // the width and height of your rectangle, as this technique degenerates for those cases.
+    
+    // In order to draw a rounded rectangle, we will take advantage of the fact that
+    // CGContextAddArcToPoint will draw straight lines past the start and end of the arc
+    // in order to create the path from the current position and the destination position.
+    
+    // In order to create the 4 arcs correctly, we need to know the min, mid and max positions
+    // on the x and y lengths of the given rectangle.
+    CGFloat minx = CGRectGetMinX(rrect), midx = CGRectGetMidX(rrect), maxx = CGRectGetMaxX(rrect);
+    CGFloat miny = CGRectGetMinY(rrect), midy = CGRectGetMidY(rrect), maxy = CGRectGetMaxY(rrect);
+    
+    // Next, we will go around the rectangle in the order given by the figure below.
+    //       minx    midx    maxx
+    // miny    2       3       4
+    // midy   1 9              5
+    // maxy    8       7       6
+    // Which gives us a coincident start and end point, which is incidental to this technique, but still doesn't
+    // form a closed path, so we still need to close the path to connect the ends correctly.
+    // Thus we start by moving to point 1, then adding arcs through each pair of points that follows.
+    // You could use a similar tecgnique to create any shape with rounded corners.
+    
+    // Start at 1
+    CGContextMoveToPoint(_context, minx, midy);
+    // Add an arc through 2 to 3
+    CGContextAddArcToPoint(_context, minx, miny, midx, miny, radius);
+    // Add an arc through 4 to 5
+    CGContextAddArcToPoint(_context, maxx, miny, maxx, midy, radius);
+    // Add an arc through 6 to 7
+    CGContextAddArcToPoint(_context, maxx, maxy, midx, maxy, radius);
+    // Add an arc through 8 to 9
+    CGContextAddArcToPoint(_context, minx, maxy, minx, midy, radius);
+    CGContextClosePath(_context);
+    CGContextStrokePath(_context);
+    [self configureEnd];
+}
+
+-(void)fillRoundRectWithInt:(jint)x withInt:(jint)y withInt:(jint)width withInt:(jint)height withInt:(jint)arcWidth withInt:(jint)arcHeight
+{
+    [self configureStart];
+    if([_currentPaint isKindOfClass:[GGradientPaintI class]]){
+        //UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, y, width, height) cornerRadius:(arcHeight-arcWidth)/2];
+        CGRect rrect = CGRectMake(x, y, width, height);
+        CGFloat radius = arcHeight/2.0;
+        // NOTE: At this point you may want to verify that your radius is no more than half
+        // the width and height of your rectangle, as this technique degenerates for those cases.
+        
+        // In order to draw a rounded rectangle, we will take advantage of the fact that
+        // CGContextAddArcToPoint will draw straight lines past the start and end of the arc
+        // in order to create the path from the current position and the destination position.
+        
+        // In order to create the 4 arcs correctly, we need to know the min, mid and max positions
+        // on the x and y lengths of the given rectangle.
+        CGFloat minx = CGRectGetMinX(rrect), midx = CGRectGetMidX(rrect), maxx = CGRectGetMaxX(rrect);
+        CGFloat miny = CGRectGetMinY(rrect), midy = CGRectGetMidY(rrect), maxy = CGRectGetMaxY(rrect);
+        
+        // Next, we will go around the rectangle in the order given by the figure below.
+        //       minx    midx    maxx
+        // miny    2       3       4
+        // midy   1 9              5
+        // maxy    8       7       6
+        // Which gives us a coincident start and end point, which is incidental to this technique, but still doesn't
+        // form a closed path, so we still need to close the path to connect the ends correctly.
+        // Thus we start by moving to point 1, then adding arcs through each pair of points that follows.
+        // You could use a similar tecgnique to create any shape with rounded corners.
+        
+        // Start at 1
+        CGContextMoveToPoint(_context, minx, midy);
+        // Add an arc through 2 to 3
+        CGContextAddArcToPoint(_context, minx, miny, midx, miny, radius);
+        // Add an arc through 4 to 5
+        CGContextAddArcToPoint(_context, maxx, miny, maxx, midy, radius);
+        // Add an arc through 6 to 7
+        CGContextAddArcToPoint(_context, maxx, maxy, midx, maxy, radius);
+        // Add an arc through 8 to 9 
+        CGContextAddArcToPoint(_context, minx, maxy, minx, midy, radius);
+        // Close the path 
+        CGContextClosePath(_context);
+        CGContextClip(_context);
+        CGContextDrawLinearGradient(_context, [(GGradientPaintI*)_currentPaint gradient], CGPointMake((minx+maxx)/2, miny), CGPointMake((minx+maxx)/2, maxy), 0);
+        
+    }
+    [self configureEnd];
+
+}
+
+-(void)drawLineWithInt:(jint)x1 withInt:(jint)y1 withInt:(jint)x2 withInt:(jint)y2
+{
+    [self drawStraightLineWithDouble:x1 withDouble:y1 withDouble:x2 withDouble:y2];
+}
+
 -(void)setLastCoordsWithX:(double)x withY:(double)y
 {
     pathLastX = x;
     pathLastY = y;
 }
-
-//-(void)updateImage:(Boolean)redraw withImg:(UIImage *)newImg
-//{
-//    //UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-//    self.context = UIGraphicsGetCurrentContext();
-//    if (redraw) {
-//        // erase the previous image
-//        self.image = nil;
-//        
-//        // I need to redraw all the lines
-//    } else {
-//        // set the draw point
-//        [self.image drawAtPoint:CGPointZero];
-//        [newImg drawAtPoint:CGPointZero];
-//    }
-//    // store the image
-//    self.image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    for(UIView *subview in [self subviews]) {
-//        [subview removeFromSuperview];
-//    }
-//    UIImageView* iv = [[UIImageView alloc] initWithImage:self.image];
-//    [self addSubview:iv];
-//}
 
 -(void)drawGraphicsWithG2D:(GGraphics2DI*)gother withInt:(int)x withInt:(int)y
 {
@@ -439,6 +530,9 @@ static int counter = 1;
     //if([paint class] == [OrgGeogebraCommonAwtGColor class]){
     if([paint isKindOfClass:[OrgGeogebraCommonAwtGColor class]]){
         [self setColorWithOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor*)paint];
+    }else if([paint isKindOfClass:[GGradientPaintI class]]){
+        //CGContextDrawLinearGradient(_context, [(GGradientPaintI*)paint gradient], [(GGradientPaintI*)paint startPoint], [(GGradientPaintI*)paint endPoint], 0);
+        _currentPaint = [[GGradientPaintI alloc] initWithGradient:(GGradientPaintI*)paint];
     }
 }
 
@@ -528,6 +622,16 @@ static int counter = 1;
     [self doDrawShapeWithShape:_clipShape withBoolean:false];
     CGContextClip(_context);
     CGContextRestoreGState(_context);
+}
+
+-(void)setAntialiasing
+{
+    ;
+}
+
+-(void)setTransparent
+{
+    ;
 }
 
 -(id)setInterpolationHintWithBoolean:(jboolean)needsInterpolationRenderingHint

@@ -4,6 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>GeogebraSans-Bold.ttf</string>
+		<string>GeogebraSans-Italic.ttf</string>
+		<string>GeogebraSerif-Bold.ttf</string>
+		<string>GeogebraSerif-Italic.ttf</string>
 		<string>GeogebraSerif-Regular.ttf</string>
 		<string>GeogebraSans-Regular.ttf</string>
 	</array>

@@ -36,6 +36,9 @@
 #import "GTextLayoutI.h"
 #import "GAlphaCompositeI.h"
 #import "MyImageI.h"
+#import "GGradientPaintI.h"
+#import "GBufferedImageI.h"
+#import "GTexturePaintI.h"
 
 @implementation AwtFactoryI
 -(id)init
@@ -193,6 +196,26 @@
 -(id<OrgGeogebraCommonAwtMyImage>)newMyImageWithInt:(jint)pixelWidth withInt:(jint)pixelHeight withInt:(jint)typeIntArgb
 {
     return nil;
+}
+
+-(id<OrgGeogebraCommonAwtGBufferedImage>)newBufferedImageWithInt:(jint)pixelWidth withInt:(jint)pixelHeight withInt:(jint)typeIntArgb
+{
+    return [[GBufferedImageI alloc] initWithWidth:pixelWidth withHeight:pixelHeight];
+}
+
+-(id<OrgGeogebraCommonAwtGGradientPaint>)newGradientPaintWithInt:(jint)x withInt:(jint)y withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)bg2 withInt:(jint)x2 withInt:(jint)i withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)bg
+{
+    return [[GGradientPaintI alloc] initWithFloat:x withFloat:y withFloat:x2 withFloat:i withGColor:bg2 withGColor:bg];
+}
+
+-(id<OrgGeogebraCommonAwtGPaint>)newTexturePaintWithOrgGeogebraCommonAwtGBufferedImage:(id<OrgGeogebraCommonAwtGBufferedImage>)subimage withOrgGeogebraCommonAwtGRectangle:(id<OrgGeogebraCommonAwtGRectangle>)rect
+{
+    return [[GTexturePaintI alloc] initWithGBufferedImage:subimage];
+}
+
+-(id<OrgGeogebraCommonAwtGPaint>)newTexturePaintWithOrgGeogebraCommonAwtMyImage:(id<OrgGeogebraCommonAwtMyImage>)subimage withOrgGeogebraCommonAwtGRectangle:(id<OrgGeogebraCommonAwtGRectangle>)rect
+{
+    return nil;//[[GTexturePaintI alloc] initWithGBufferedImage:[(MyImageI*)subimage img]]
 }
 
 

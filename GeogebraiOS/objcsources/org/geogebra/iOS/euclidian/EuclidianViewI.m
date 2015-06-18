@@ -42,8 +42,6 @@
     [self setShowAxisWithInt:1 withBoolean:[showAxes booleanAtIndex:1]withBoolean:false];
     showGrid__ =showGrid;
     [euclidianController_ setViewWithOrgGeogebraCommonEuclidianEuclidianView:self];
-    //[self attachView];
-    //[self initViewWithBoolean:false];
     OrgGeogebraCommonMainSettingsEuclidianSettings* es = nil;
     
     
