@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <zipzap/zipzap.h>
+#import "java/util/zip/ZipInputStream.h"
+#import <UIKit/UIKit.h>
 
 @interface MyImageIO : NSObject
-+(NSData*)read;
++(UIImage*)readWithZipInputStream:(JavaUtilZipZipInputStream*)zip;
 @end

@@ -32,6 +32,7 @@
 #include "org/geogebra/common/main/settings/Settings.h"
 #include "org/geogebra/iOS/io/MyXMLioI.h"
 #include "AppI.h"
+#include "MyImageIO.h"
 #include <UIKit/UIKit.h>
 
 
@@ -237,40 +238,12 @@ void MyXMLioI_readZipWithJavaUtilZipZipInputStream_withBoolean_(MyXMLioI *self, 
         //[self->kernel_ setLibraryJavaScriptWithNSString: MyXMLioI_loadIntoString_(zip)];
         //javaScriptFound = YES;
    }else if([[name lowercaseString] hasSuffix:@".svg"]){
-        ;
-        //IOSByteArray* imgByteArray = MyXMLioI_loadIntoMemoryWithJavaIoInputStream_(zip);
-//        unsigned c =[imgByteArray length];
-//        uint8_t *bytes = malloc(sizeof(*bytes) * c);
-//        unsigned i;
-//        for (i = 0; i < c; i++)
-//        {
-//            bytes[i] = [imgByteArray byteAtIndex:i];
-//        }
-//        NSData* imgData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
-//        UIImage* img = [UIImage imageWithData:imgData];
-//        [(AppI*)self->app_ addExternalImageWithFileName:name withImage:[[MyImageI alloc] initWithImage:img withBoolean:YES]];
+       UIImage* img = [MyImageIO readWithZipInputStream:zip];
+       [(AppI*)self->app_ addExternalImageWithFileName:name withImage:[[MyImageI alloc] initWithImage:img.CGImage withBoolean:YES]];
         }else{
-        IOSByteArray* imgByteArray = MyXMLioI_loadIntoMemoryWithJavaIoInputStream_(zip);
-        unsigned c =[imgByteArray length];
-        uint8_t *bytes = malloc(sizeof(*bytes) * c);
-        unsigned i;
-        for (i = 0; i < c; i++)
-        {
-            bytes[i] = [imgByteArray byteAtIndex:i];
+            UIImage* img = [MyImageIO readWithZipInputStream:zip];
+            [(AppI*)self->app_ addExternalImageWithFileName:name withImage:[[MyImageI alloc] initWithImage:img.CGImage withBoolean:NO]];
         }
-        NSData* data = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
-        UIImage* image = [UIImage imageWithData:data];
-        if(!CGSizeEqualToSize(image.size, CGSizeZero)){
-            UIGraphicsBeginImageContext(image.size);
-            CGContextRef ctx = UIGraphicsGetCurrentContext();
-            CGContextDrawImage(ctx,CGRectMake(0.,0., image.size.width, image.size.height),image.CGImage);
-            UIImage *convertedImg = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            [(AppI*)self->app_ addExternalImageWithFileName:name withImage:[[MyImageI alloc] initWithImage:convertedImg.CGImage withBoolean:NO]];
-        }
-    }
-      
-      
     [zip closeEntry];
   }
   [((JavaUtilZipZipInputStream *) nil_chk(zip)) close];

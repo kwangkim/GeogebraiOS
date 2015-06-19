@@ -24,7 +24,7 @@
         _cgContext = CGBitmapContextCreate(NULL,
                                            width, height,
                                            8, width * 4, colorSpace,
-                                           kCGImageAlphaPremultipliedFirst);
+                                        kCGImageAlphaPremultipliedFirst);
         _img = CGBitmapContextCreateImage(_cgContext);
         CGColorSpaceRelease(colorSpace);
     }

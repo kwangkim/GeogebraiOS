@@ -42,6 +42,9 @@
 		85A591381B331F2700EDA785 /* GeogebraSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85A591341B331F2700EDA785 /* GeogebraSans-Italic.ttf */; };
 		85A591391B331F2700EDA785 /* GeogebraSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85A591351B331F2700EDA785 /* GeogebraSerif-Bold.ttf */; };
 		85A5913A1B331F2700EDA785 /* GeogebraSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85A591361B331F2700EDA785 /* GeogebraSerif-Italic.ttf */; };
+		85A5913D1B34042100EDA785 /* LaTeXFactoryI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5913C1B34042100EDA785 /* LaTeXFactoryI.m */; };
+		85A591401B34057900EDA785 /* UtilFactoryI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5913F1B34057900EDA785 /* UtilFactoryI.m */; };
+		85A591431B3406AA00EDA785 /* EuclidianStaticI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591421B3406AA00EDA785 /* EuclidianStaticI.m */; };
 		85A70BF71B16123000D8F94C /* MatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEEE1B16122300D8F94C /* MatchResult.m */; };
 		85A70BF81B16123000D8F94C /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF01B16122300D8F94C /* RegExp.m */; };
 		85A70BF91B16123000D8F94C /* SplitResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF21B16122300D8F94C /* SplitResult.m */; };
@@ -3732,6 +3735,12 @@
 		85A591341B331F2700EDA785 /* GeogebraSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSans-Italic.ttf"; sourceTree = "<group>"; };
 		85A591351B331F2700EDA785 /* GeogebraSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSerif-Bold.ttf"; sourceTree = "<group>"; };
 		85A591361B331F2700EDA785 /* GeogebraSerif-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeogebraSerif-Italic.ttf"; sourceTree = "<group>"; };
+		85A5913B1B34042100EDA785 /* LaTeXFactoryI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaTeXFactoryI.h; sourceTree = "<group>"; };
+		85A5913C1B34042100EDA785 /* LaTeXFactoryI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaTeXFactoryI.m; sourceTree = "<group>"; };
+		85A5913E1B34057900EDA785 /* UtilFactoryI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilFactoryI.h; sourceTree = "<group>"; };
+		85A5913F1B34057900EDA785 /* UtilFactoryI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilFactoryI.m; sourceTree = "<group>"; };
+		85A591411B3406AA00EDA785 /* EuclidianStaticI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianStaticI.h; sourceTree = "<group>"; };
+		85A591421B3406AA00EDA785 /* EuclidianStaticI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EuclidianStaticI.m; sourceTree = "<group>"; };
 		85A700001B16122800D8F94C /* CmdSlopeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdSlopeField.m; sourceTree = "<group>"; };
 		85A700011B16122800D8F94C /* CmdTaylorSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdTaylorSeries.h; sourceTree = "<group>"; };
 		85A700021B16122800D8F94C /* CmdTaylorSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdTaylorSeries.m; sourceTree = "<group>"; };
@@ -14485,6 +14494,8 @@
 				85A5907B1B21F3C300EDA785 /* EuclidianPanelIAbstract.h */,
 				85A5907C1B21F77600EDA785 /* MyEuclidianViewPanel.h */,
 				85A5907D1B21F77600EDA785 /* MyEuclidianViewPanel.m */,
+				85A591411B3406AA00EDA785 /* EuclidianStaticI.h */,
+				85A591421B3406AA00EDA785 /* EuclidianStaticI.m */,
 			);
 			path = euclidian;
 			sourceTree = "<group>";
@@ -14496,6 +14507,10 @@
 				85A741171B16325500D8F94C /* AwtFactoryI.m */,
 				85A741181B16325500D8F94C /* FormatFactoryI.h */,
 				85A741191B16325500D8F94C /* FormatFactoryI.m */,
+				85A5913B1B34042100EDA785 /* LaTeXFactoryI.h */,
+				85A5913C1B34042100EDA785 /* LaTeXFactoryI.m */,
+				85A5913E1B34057900EDA785 /* UtilFactoryI.h */,
+				85A5913F1B34057900EDA785 /* UtilFactoryI.m */,
 			);
 			path = factories;
 			sourceTree = "<group>";
@@ -20732,6 +20747,7 @@
 				85A7190E1B16123400D8F94C /* CmdTriangular.m in Sources */,
 				85A711F21B16123100D8F94C /* AlgoIntersectPlanes.m in Sources */,
 				85A715F11B16123300D8F94C /* CmdIntersect.m in Sources */,
+				85A5913D1B34042100EDA785 /* LaTeXFactoryI.m in Sources */,
 				85A713131B16123200D8F94C /* OptionsDefaults.m in Sources */,
 				85A715C31B16123200D8F94C /* UsesCAS.m in Sources */,
 				85A717921B16123300D8F94C /* NameDescriptionComparator.m in Sources */,
@@ -21603,6 +21619,7 @@
 				85A7177D1B16123300D8F94C /* SymbolicVector.m in Sources */,
 				85A7151B1B16123200D8F94C /* AlgoSumRectangle.m in Sources */,
 				85A716C01B16123300D8F94C /* GeoPoint.m in Sources */,
+				85A591431B3406AA00EDA785 /* EuclidianStaticI.m in Sources */,
 				85A7145A1B16123200D8F94C /* AlgoCountIf.m in Sources */,
 				85A70FD71B16123100D8F94C /* LeastSquaresConverter.m in Sources */,
 				85A713611B16123200D8F94C /* PropertiesStyleBar.m in Sources */,
@@ -23215,6 +23232,7 @@
 				85A715021B16123200D8F94C /* AlgoRootNewton.m in Sources */,
 				85A711601B16123100D8F94C /* PlotterViewInFrontOf.m in Sources */,
 				85A711991B16123100D8F94C /* EuclidianControllerForPlaneCompanion.m in Sources */,
+				85A591401B34057900EDA785 /* UtilFactoryI.m in Sources */,
 				85A717A81B16123300D8F94C /* PathParameter.m in Sources */,
 				85A719481B16123400D8F94C /* RandomUtil.m in Sources */,
 				85A70FD21B16123100D8F94C /* GaussNewtonOptimizer.m in Sources */,

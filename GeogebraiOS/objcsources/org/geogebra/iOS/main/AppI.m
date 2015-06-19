@@ -23,13 +23,17 @@
 #import "GFont.h"
 #import "GFontI.h"
 #import "GuiManagerInterface.h"
-#import "MyXMLio.h"
+#import "MyXMLioI.h"
 #import "GuiManagerI.h"
 #import "java/io/FileInputStream.h"
 #import "java/io/InputStreamReader.h"
 #import "FontManager.h"
 #import "StringUtil.h"
 #import "ExpressionNodeConstants.h"
+#import "LaTeXFactoryI.h"
+#import "UtilFactoryI.h"
+#import "CopyPaste.h"
+#import "EuclidianStaticI.h"
 static Boolean isApplet;
 
 @implementation AppI
@@ -41,24 +45,30 @@ static Boolean isApplet;
 -(id)init
 {
     self = [super init];
-    //@try {
     _fontManager = [[FontManagerI alloc] init];
-            self.loc = [[LocalizationI alloc] initWithInt:2];
+    self.loc = [[LocalizationI alloc] initWithInt:2];
     _imageManager = [[ImageManagerI alloc] init];
-            OrgGeogebraCommonFactoriesFormatFactory_set_prototype_([[FormatFactoryI alloc]init]);
-            OrgGeogebraCommonFactoriesAwtFactory_set_prototype_([[AwtFactoryI alloc]init]);
-    OrgGeogebraCommonUtilStringUtil_set_prototype_([[OrgGeogebraCommonUtilStringUtil alloc] init]);
-        [self initKernel];
-            settings_ = [companion_ newSettings];
-            [self initEuclidianViews];
-            initing_ = true;
-    
-      //  }
-      //  @catch (NSException *exception) {
-      //      NSLog(@"%@",exception);
-      //  }
+    [self initFactories];
+    [self initKernel];
+    [kernel_ setPrintDecimalsWithInt:OrgGeogebraCommonKernelKernel_STANDARD_PRINT_DECIMALS];
+    settings_ = [companion_ newSettings];
+    [self initEuclidianViews];
+    initing_ = true;
+    myXMLio_ = [[MyXMLioI alloc] initWithOrgGeogebraCommonKernelKernel:kernel_ withOrgGeogebraCommonKernelConstruction:[kernel_ getConstruction]];
     
     return self;
+}
+
+-(void)initFactories
+{
+    OrgGeogebraCommonFactoriesFormatFactory_set_prototype_([[FormatFactoryI alloc]init]);
+    OrgGeogebraCommonFactoriesAwtFactory_set_prototype_([[AwtFactoryI alloc]init]);
+    OrgGeogebraCommonFactoriesLaTeXFactory_set_prototype_([[LaTeXFactoryI alloc] init]);
+    OrgGeogebraCommonFactoriesUtilFactory_set_prototype_([[UtilFactoryI alloc] init]);
+    OrgGeogebraCommonUtilStringUtil_set_prototype_([[OrgGeogebraCommonUtilStringUtil alloc] init]);
+    OrgGeogebraCommonEuclidianEuclidianStatic_set_prototype_([[EuclidianStaticI alloc] init]);
+    OrgGeogebraCommonUtilCopyPaste_set_INSTANCE_([[OrgGeogebraCommonUtilCopyPaste alloc] init]);
+    
 }
 
 -(jboolean)isApplet{
@@ -166,10 +176,10 @@ static Boolean isApplet;
 
 -(MyXMLioI*)getXMLio
 {
-    if(self.xmlio == nil){
-        self.xmlio = [self createXMLioWithCons:[kernel_ getConstruction]];
+    if(myXMLio_ == nil){
+        myXMLio_ = [self createXMLioWithCons:[kernel_ getConstruction]];
     }
-    return self.xmlio;
+    return (MyXMLioI*)myXMLio_;
 }
 
 -(MyXMLioI*)createXMLioWithCons:(OrgGeogebraCommonKernelConstruction*)cons

@@ -27,7 +27,7 @@
 @property(retain) NSObject<EuclidianPanelIAbstract>* euclidianViewPanel;
 @property(nonatomic, retain) JavaIoFile* currentFile;       //NSMutableDictionary* currentFile;
 @property(retain) NSMutableArray* fileList;
-@property(retain) MyXMLioI* xmlio;
+//@property(retain) MyXMLioI* xmlio;
 @property(retain) NSObject<GuiManagerInterfaceI>* guiManager;
 @property(retain) FontManagerI* fontManager;
 @property(retain) DrawEquationI* drawEquation;
@@ -46,6 +46,7 @@
 -(BOOL)loadXMLWithFile:(JavaIoFile*)file withBool:(BOOL)isMacroFile;
 -(BOOL)loadXMLWithInputStream:(JavaIoInputStream*)is withBool:(BOOL)isMacroFile;
 -(void)addExternalImageWithFileName:(NSString*)fileNamge withImage:(MyImageI*)image;
+-(void)initFactories;
 //-(void)initFactories{
     
 //}
