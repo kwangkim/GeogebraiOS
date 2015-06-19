@@ -25,6 +25,7 @@
                                            width, height,
                                            8, width * 4, colorSpace,
                                            kCGImageAlphaPremultipliedFirst);
+        _img = CGBitmapContextCreateImage(_cgContext);
         CGColorSpaceRelease(colorSpace);
     }
     return self;
@@ -46,6 +47,7 @@
                                        kCGImageAlphaPremultipliedFirst);
     CGColorSpaceRelease(colorSpace);
     CGContextDrawImage(_cgContext, CGRectMake(0, 0, width, height), cgImage);
+    _img = CGBitmapContextCreateImage(_cgContext);
     return self;
 }
 

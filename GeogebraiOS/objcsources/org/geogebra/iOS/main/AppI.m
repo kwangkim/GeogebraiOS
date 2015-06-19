@@ -29,6 +29,7 @@
 #import "java/io/InputStreamReader.h"
 #import "FontManager.h"
 #import "StringUtil.h"
+#import "ExpressionNodeConstants.h"
 static Boolean isApplet;
 
 @implementation AppI
@@ -366,6 +367,10 @@ static Boolean isApplet;
     return nil;
 }
 
+-(OrgGeogebraCommonKernelArithmeticExpressionNodeConstants_StringTypeEnum *)getPreferredFormulaRenderingType
+{
+    return OrgGeogebraCommonKernelArithmeticExpressionNodeConstants_StringTypeEnum_LATEX;
+}
 
 
 

@@ -27,6 +27,7 @@
 #import <CoreText/CoreText.h>
 #import "AwtFactory.h"
 #import "GGradientPaintI.h"
+#import "GTexturePaintI.h"
 #import <math.h>
 
 static int counter = 1;
@@ -77,7 +78,13 @@ static int counter = 1;
     // _strokeColor = [[GColorI alloc] initWithIntRed:255 Green:0 Blue:0 Alpha:255];
     //_fillColor = [[GColorI alloc] initWithIntRed:0 Green:0 Blue:255 Alpha:255];
     CGContextSetStrokeColorWithColor(_context, ((GColorI*)_strokeColor).getCGColor);
-    CGContextSetFillColorWithColor(_context, ((GColorI*)_fillColor).getCGColor);
+    if([_currentPaint isKindOfClass: [GTexturePaintI class]]){
+        GBufferedImageI* bi = [(GTexturePaintI*)_currentPaint getImg];
+        CGContextSetFillColorWithColor(_context, [UIColor colorWithPatternImage:[UIImage imageWithCGImage:[bi img]]].CGColor);
+    }
+    else {
+        CGContextSetFillColorWithColor(_context, ((GColorI*)_fillColor).getCGColor);
+    }
     
     //CGContextSetStrokeColorWithColor(self.context, CGColor)
 }
@@ -531,8 +538,10 @@ static int counter = 1;
     if([paint isKindOfClass:[OrgGeogebraCommonAwtGColor class]]){
         [self setColorWithOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor*)paint];
     }else if([paint isKindOfClass:[GGradientPaintI class]]){
-        //CGContextDrawLinearGradient(_context, [(GGradientPaintI*)paint gradient], [(GGradientPaintI*)paint startPoint], [(GGradientPaintI*)paint endPoint], 0);
         _currentPaint = [[GGradientPaintI alloc] initWithGradient:(GGradientPaintI*)paint];
+    }else if([paint isKindOfClass:[GTexturePaintI class]]){
+
+        _currentPaint = (GTexturePaintI*)paint;
     }
 }
 

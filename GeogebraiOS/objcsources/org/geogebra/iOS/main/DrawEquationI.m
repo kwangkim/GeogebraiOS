@@ -19,4 +19,10 @@
 {
     ;
 }
+
+-(OrgGeogebraCommonAwtGDimension *)drawEquationWithOrgGeogebraCommonMainApp:(OrgGeogebraCommonMainApp *)app withOrgGeogebraCommonKernelGeosGeoElement:(OrgGeogebraCommonKernelGeosGeoElement *)geo withOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2 withInt:(jint)x withInt:(jint)y withNSString:(NSString *)text withOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)font withBoolean:(jboolean)serif withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)fgColor withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)bgColor withBoolean:(jboolean)useCache withBoolean:(jboolean)updateAgain
+{
+    return nil;
+}
+
 @end

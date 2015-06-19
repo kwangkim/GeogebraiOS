@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     AppI* app = [[AppI alloc] init];
-    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/testFiles/text.ggb"];
+    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/testFiles/Lists_SumProduct.ggb"];
     //JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/test3.ggb"];
     NSLog(@"%d",[testFile exists]);
     [app loadFileWithFile:testFile withBool:NO];
