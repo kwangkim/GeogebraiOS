@@ -34,6 +34,34 @@
                ReferencedContainer = "container:GeogebraiOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "85B811B31B3679E50062010A"
+               BuildableName = "libJLatextMathiOS.a"
+               BlueprintName = "JLatextMathiOS"
+               ReferencedContainer = "container:../JLatextMathiOS/JLatextMathiOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "85B811BE1B3679E50062010A"
+               BuildableName = "JLatextMathiOSTests.xctest"
+               BlueprintName = "JLatextMathiOSTests"
+               ReferencedContainer = "container:../JLatextMathiOS/JLatextMathiOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

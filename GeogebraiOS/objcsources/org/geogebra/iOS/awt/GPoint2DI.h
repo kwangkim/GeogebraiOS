@@ -7,7 +7,7 @@
 //
 
 #import "GPoint2D.h"
-#import "Point2D.h"
+#import "org/geogebra/ggbjdk/java/awt/geom/Point2D.h"
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface GPoint2DI : OrgGeogebraCommonAwtGPoint2D

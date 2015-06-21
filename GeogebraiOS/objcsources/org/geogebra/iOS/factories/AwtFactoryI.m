@@ -24,7 +24,7 @@
 #import "Rectangle2D.h"
 #import "Rectangle.h"
 #import "GLine2D.h"
-#import "Line2D.h"
+#import "org/geogebra/ggbjdk/java/awt/geom/Line2D.h"
 #import "GEllipse2DDouble.h"
 #import "Ellipse2D.h"
 #import "GArc2D.h"
