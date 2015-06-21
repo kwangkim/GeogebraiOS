@@ -1,6 +1,0 @@
-framework module JLaTeXMathiOS {
-  umbrella header "JLaTeXMathiOS.h"
-
-  export *
-  module * { export * }
-}
