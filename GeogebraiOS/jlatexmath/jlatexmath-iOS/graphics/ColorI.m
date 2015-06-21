@@ -7,6 +7,7 @@
 //
 
 #import "ColorI.h"
+#import "GColorI.h"
 
 @implementation ColorI
 @synthesize impl = _impl;
@@ -14,6 +15,11 @@
 {
     CGFloat component[] = {r/255.0, g/255.0, b/255.0, 1};
     _impl = CGColorCreate(CGColorSpaceCreateDeviceRGB(), component);
+    return self;
+}
+-(id)initWithGColor:(OrgGeogebraCommonAwtGColor *)gcolor
+{
+    _impl = CGColorCreateCopy([(GColorI*)gcolor getCGColor]);
     return self;
 }
 @end

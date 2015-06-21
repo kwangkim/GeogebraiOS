@@ -237,6 +237,7 @@ static int counter = 1;
     [self configureEnd];
 }
 
+
 -(void)drawImageWithOrgGeogebraCommonAwtMyImage:(id<OrgGeogebraCommonAwtMyImage>)img withInt:(jint)x withInt:(jint)y
 {
     [self configureStart];

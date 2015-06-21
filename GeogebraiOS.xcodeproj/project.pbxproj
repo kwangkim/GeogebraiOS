@@ -28,7 +28,6 @@
 		85A590A11B245B1000EDA785 /* GuiManagerInterfaceI.h in Sources */ = {isa = PBXBuildFile; fileRef = 85A590A01B2459CE00EDA785 /* GuiManagerInterfaceI.h */; };
 		85A590A21B245B1000EDA785 /* GuiManagerInterface.h in Sources */ = {isa = PBXBuildFile; fileRef = 85A70A6F1B16123000D8F94C /* GuiManagerInterface.h */; };
 		85A590A51B245C6600EDA785 /* GuiManagerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590A41B245C6600EDA785 /* GuiManagerI.m */; };
-		85A590AC1B25B9C300EDA785 /* DrawEquationI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A590AB1B25B9C300EDA785 /* DrawEquationI.m */; };
 		85A591081B2FCEB300EDA785 /* MyImageIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591071B2FCEB300EDA785 /* MyImageIO.m */; };
 		85A591171B2FD3E500EDA785 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A591161B2FD3E500EDA785 /* ImageIO.framework */; };
 		85A5911A1B2FF0B200EDA785 /* ImageManagerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591191B2FF0B200EDA785 /* ImageManagerI.m */; };
@@ -3991,6 +3990,7 @@
 		85B8418D1B36B0060062010A /* XMLResourceParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B8402E1B36B0050062010A /* XMLResourceParseException.m */; };
 		85B8418E1B36B0060062010A /* TeXFormulaSettings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 85B8402F1B36B0050062010A /* TeXFormulaSettings.xml */; };
 		85B8418F1B36B0060062010A /* TeXSymbols.xml in Resources */ = {isa = PBXBuildFile; fileRef = 85B840301B36B0050062010A /* TeXSymbols.xml */; };
+		85B841921B36B68D0062010A /* DrawEquationI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B841911B36B68D0062010A /* DrawEquationI.m */; };
 		85D11A961B0CEB06007E3BC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85D1C4781B0C815C007E3BC6 /* Main.storyboard */; };
 		85D11A971B0CEB06007E3BC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D1C47D1B0C815C007E3BC6 /* LaunchScreen.xib */; };
 		85D11A981B0CEDDF007E3BC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D1C4701B0C815C007E3BC6 /* main.m */; };
@@ -4078,8 +4078,6 @@
 		85A590A01B2459CE00EDA785 /* GuiManagerInterfaceI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManagerInterfaceI.h; sourceTree = "<group>"; };
 		85A590A31B245C6600EDA785 /* GuiManagerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiManagerI.h; sourceTree = "<group>"; };
 		85A590A41B245C6600EDA785 /* GuiManagerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuiManagerI.m; sourceTree = "<group>"; };
-		85A590AA1B25B9C300EDA785 /* DrawEquationI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawEquationI.h; sourceTree = "<group>"; };
-		85A590AB1B25B9C300EDA785 /* DrawEquationI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawEquationI.m; sourceTree = "<group>"; };
 		85A591061B2FCEB300EDA785 /* MyImageIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageIO.h; sourceTree = "<group>"; };
 		85A591071B2FCEB300EDA785 /* MyImageIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImageIO.m; sourceTree = "<group>"; };
 		85A591161B2FD3E500EDA785 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -11876,6 +11874,8 @@
 		85B8402E1B36B0050062010A /* XMLResourceParseException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLResourceParseException.m; sourceTree = "<group>"; };
 		85B8402F1B36B0050062010A /* TeXFormulaSettings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TeXFormulaSettings.xml; sourceTree = "<group>"; };
 		85B840301B36B0050062010A /* TeXSymbols.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TeXSymbols.xml; sourceTree = "<group>"; };
+		85B841901B36B68D0062010A /* DrawEquationI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawEquationI.h; sourceTree = "<group>"; };
+		85B841911B36B68D0062010A /* DrawEquationI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawEquationI.m; sourceTree = "<group>"; };
 		85D1C46B1B0C815C007E3BC6 /* GeogebraiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeogebraiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D1C46F1B0C815C007E3BC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85D1C4701B0C815C007E3BC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -15439,6 +15439,8 @@
 				85A5907D1B21F77600EDA785 /* MyEuclidianViewPanel.m */,
 				85A591411B3406AA00EDA785 /* EuclidianStaticI.h */,
 				85A591421B3406AA00EDA785 /* EuclidianStaticI.m */,
+				85B841901B36B68D0062010A /* DrawEquationI.h */,
+				85B841911B36B68D0062010A /* DrawEquationI.m */,
 			);
 			path = euclidian;
 			sourceTree = "<group>";
@@ -15486,8 +15488,6 @@
 				858C71461B19A49D007F12D8 /* MyImageI.m */,
 				85A5909C1B24431800EDA785 /* FontManagerI.h */,
 				85A5909D1B24431800EDA785 /* FontManagerI.m */,
-				85A590AA1B25B9C300EDA785 /* DrawEquationI.h */,
-				85A590AB1B25B9C300EDA785 /* DrawEquationI.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -23228,6 +23228,7 @@
 				85A70C0E1B16123100D8F94C /* HausdorffSimilarityMeasure.m in Sources */,
 				85A710081B16123100D8F94C /* Well19937c.m in Sources */,
 				85A7139C1B16123200D8F94C /* AlgoCurvatureVector.m in Sources */,
+				85B841921B36B68D0062010A /* DrawEquationI.m in Sources */,
 				85A70CE41B16123100D8F94C /* LineMergeDirectedEdge.m in Sources */,
 				85A710911B16123100D8F94C /* CASgiac.m in Sources */,
 				85B840BC1B36B0050062010A /* ImageI.m in Sources */,
@@ -23615,7 +23616,6 @@
 				85A711AB1B16123100D8F94C /* AlgoAngularBisectorLines3D.m in Sources */,
 				85A718C61B16123400D8F94C /* CmdGamma.m in Sources */,
 				85A741321B16325500D8F94C /* LocalizationI.m in Sources */,
-				85A590AC1B25B9C300EDA785 /* DrawEquationI.m in Sources */,
 				85A7161C1B16123300D8F94C /* CmdRoot.m in Sources */,
 				85A714231B16123200D8F94C /* CmdUnion.m in Sources */,
 				85A716CA1B16123300D8F94C /* GeoTransferFunction.m in Sources */,
