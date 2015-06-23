@@ -16,9 +16,10 @@
 
 @interface EuclidianViewI : OrgGeogebraCommonEuclidianEuclidianView
 @property(retain) GGraphics2DI* g2p;
+@property(retain) GGraphics2DI* g2dtmp;
 @property(retain) NSObject<EuclidianPanelIAbstract>* EVPanel;
 @property(nonatomic, retain) OrgGeogebraCommonAwtGColor* bgroundColor;
-@property(retain) AppI* app;
+//@property(retain) AppI* app;
 
 -(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(IOSBooleanArray*)showAxes withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings withEVPanel:(NSObject<EuclidianPanelIAbstract>*) evPanel;
 -(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(IOSBooleanArray*)showAxes withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings;

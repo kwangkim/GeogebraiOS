@@ -21,12 +21,13 @@
 #import "MyEuclidianViewPanel.h"
 
 @implementation EuclidianViewI
-@synthesize g2p = _g2p, EVPanel,bgroundColor, app;
+@synthesize g2p = _g2p, EVPanel = _EVPanel ,bgroundColor = _bgroundColor;
+@synthesize g2dtmp = _g2dtmp;
 -(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(IOSBooleanArray*)showAxes  withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings withEVPanel:(NSObject<EuclidianPanelIAbstract>*) evPanel
 {
     self = [super initWithOrgGeogebraCommonEuclidianEuclidianController:ec withInt:viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:settings];
     self.bgroundColor = OrgGeogebraCommonAwtGColor_WHITE_;
-    self.app = (AppI*)[super getApplication];
+    app_ = (AppI*)[super getApplication];
     self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self];//= evPanel;
     CGContextRef context = [self.EVPanel getContext];
     evNo_ = viewNo;
@@ -66,7 +67,7 @@
 
 -(void)paintBackgroundWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2
 {
-    if([self isGridOrAxesShown]||[self hasBackgroundImages]||self->tracing_ ||[app showResetIcon]||[kernel_ needToShowAnimationButton]){
+    if([self isGridOrAxesShown]||[self hasBackgroundImages]||self->tracing_ ||[app_ showResetIcon]||[kernel_ needToShowAnimationButton]){
         [(GGraphics2DI*)g2 drawGraphicsWithG2D:(GGraphics2DI*) bgGraphics_ withInt:0 withInt:0];
     }else{
         [(GGraphics2DI*)g2 fillWith:self.bgroundColor];
@@ -125,8 +126,23 @@
 
 -(id<OrgGeogebraCommonAwtGGraphics2D>)getTempGraphics2DWithOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)fontForGraphics
 {
-    [_g2p setFontWithOrgGeogebraCommonAwtGFont:fontForGraphics];
-    return _g2p;
+    CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
+    CGSize size = CGSizeMake(sizeRect.size.width, sizeRect.size.height);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef cgcontext = CGBitmapContextCreate(NULL,
+                                           size.width, size.height,
+                                           8, size.width * 4, colorSpace,
+                                           kCGImageAlphaPremultipliedFirst);
+    CGColorSpaceRelease(colorSpace);
+    //CGContextTranslateCTM(cgcontext, 0, sizeRect.size.height);
+    //CGContextScaleCTM(cgcontext, 1, -1);
+    //CGContextSetTextMatrix(cgcontext, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
+
+    if(_g2dtmp==nil){
+        _g2dtmp = [[GGraphics2DI alloc] initWithContext:cgcontext];
+    }
+    [_g2dtmp setFontWithOrgGeogebraCommonAwtGFont:fontForGraphics];
+    return _g2dtmp;
 }
 //-(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(bool *)showAxes withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings
 @end

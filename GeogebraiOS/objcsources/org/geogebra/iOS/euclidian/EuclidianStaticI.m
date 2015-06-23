@@ -14,6 +14,7 @@
 #import "java/util/ArrayList.h"
 #import "DrawEquation.h"
 #import "AwtFactory.h"
+#import "GeoText.h"
 @implementation EuclidianStaticI
 -(id<OrgGeogebraCommonAwtGRectangle>)doDrawMultilineLaTeXWithOrgGeogebraCommonMainApp:(OrgGeogebraCommonMainApp *)app withOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)tempGraphics withOrgGeogebraCommonKernelGeosGeoElement:(OrgGeogebraCommonKernelGeosGeoElement *)geo withOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2 withOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)font withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)fgColor withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)bgColor withNSString:(NSString *)labelDesc withInt:(jint)xLabel withInt:(jint)yLabel withBoolean:(jboolean)serif
 {
@@ -29,7 +30,7 @@
     BOOL isLaTeX = ([elements count] ==1);
     for(int i = 0, currentLine = 0; i < [elements count]; i++){
         if(isLaTeX){
-            OrgGeogebraCommonAwtGDimension* dim = [[app getDrawEquation] drawEquationWithOrgGeogebraCommonMainApp:app withOrgGeogebraCommonKernelGeosGeoElement:geo withOrgGeogebraCommonAwtGGraphics2D:tempGraphics withInt:0 withInt:0 withNSString:(NSString*)elements[i] withOrgGeogebraCommonAwtGFont:font withBoolean:NO withOrgGeogebraCommonAwtGColor:fgColor withOrgGeogebraCommonAwtGColor:bgColor withBoolean:false withBoolean:false];
+            OrgGeogebraCommonAwtGDimension* dim = [[app getDrawEquation] drawEquationWithOrgGeogebraCommonMainApp:app withOrgGeogebraCommonKernelGeosGeoElement:geo withOrgGeogebraCommonAwtGGraphics2D:tempGraphics withInt:0 withInt:0 withNSString:(NSString*)elements[i] withOrgGeogebraCommonAwtGFont:font withBoolean: [(OrgGeogebraCommonKernelGeosGeoText*)geo isSerifFont] withOrgGeogebraCommonAwtGColor:fgColor withOrgGeogebraCommonAwtGColor:bgColor withBoolean:false withBoolean:false];
             int h = [dim getHeight];
             [elementHeights addWithId:[NSNumber numberWithInt:h]];
             if(h > ([[lineHeights getWithInt:currentLine] intValue])){
@@ -62,7 +63,7 @@
         if(isLaTeX){
             yOffset = ([[lineHeights getWithInt:currentLine] intValue] - [[elementHeights getWithInt:currentElement] intValue])/2;
             OrgGeogebraCommonEuclidianDrawEquation* de = [app getDrawEquation];
-            xOffset += [[de drawEquationWithOrgGeogebraCommonMainApp:app withOrgGeogebraCommonKernelGeosGeoElement:geo withOrgGeogebraCommonAwtGGraphics2D:g2 withInt:xLabel+xOffset withInt:(yLabel + height) + yOffset withNSString:(NSString*)elements[i] withOrgGeogebraCommonAwtGFont:font withBoolean:NO withOrgGeogebraCommonAwtGColor:fgColor withOrgGeogebraCommonAwtGColor:bgColor withBoolean:true withBoolean:false] getWidth];
+            xOffset += [[de drawEquationWithOrgGeogebraCommonMainApp:app withOrgGeogebraCommonKernelGeosGeoElement:geo withOrgGeogebraCommonAwtGGraphics2D:g2 withInt:xLabel+xOffset withInt:(yLabel + height) + yOffset withNSString:(NSString*)elements[i] withOrgGeogebraCommonAwtGFont:font withBoolean:[(OrgGeogebraCommonKernelGeosGeoText*)geo isSerifFont] withOrgGeogebraCommonAwtGColor:fgColor withOrgGeogebraCommonAwtGColor:bgColor withBoolean:true withBoolean:false] getWidth];
             currentElement++;
         }else{
             NSArray* lines = [(NSString*)elements[i] componentsSeparatedByString:@"\\n"];

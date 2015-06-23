@@ -25,6 +25,7 @@
 #import "TeXIcon.h"
 #import "Insets.h"
 #import "Graphics2DI.h"
+#import "App.h"
 
 
 @implementation DrawEquationI
@@ -50,35 +51,47 @@
         [OrgScilabForgeJlatexmathDefaultTeXFont enableMagnificationWithBoolean:NO];
     }
     
-    OrgScilabForgeJlatexmathTeXIcon* icon;
-    
-            OrgScilabForgeJlatexmathTeXFormula* formula1;
+    int style = 0;
+    if([font isBold]){
+        style = style | OrgScilabForgeJlatexmathTeXFormula_BOLD;
+    }
+    if([font isItalic]){
+        style = style | OrgScilabForgeJlatexmathTeXFormula_ITALIC;
+    }if(!serif){
+        style = style | OrgScilabForgeJlatexmathTeXFormula_SANSSERIF;
+    }
+    if([app isExporting] || !useCache){
+        OrgScilabForgeJlatexmathTeXFormula* formula1;
+        OrgScilabForgeJlatexmathTeXIcon* icon;
         formula1 = [[OrgScilabForgeJlatexmathTeXFormula alloc] initWithNSString:text];
-        icon = [formula1 createTeXIconWithInt:OrgScilabForgeJlatexmathTeXConstants_STYLE_DISPLAY withFloat:[font getSize]+3 withInt:0 withOrgScilabForgeJlatexmathPlatformGraphicsColor:[[ColorI alloc] initWithGColor:fgColor]];
+        icon = [formula1 createTeXIconWithInt:OrgScilabForgeJlatexmathTeXConstants_STYLE_DISPLAY withFloat:[font getSize]+3 withInt:style withOrgScilabForgeJlatexmathPlatformGraphicsColor:[[ColorI alloc] initWithGColor:fgColor]];
         [icon setInsetsWithOrgScilabForgeJlatexmathPlatformGraphicsInsets:[[OrgScilabForgeJlatexmathPlatformGraphicsInsets alloc] initWithInt:1 withInt:1 withInt:1 withInt:1]];
-        //[icon paintIconWithOrgScilabForgeJlatexmathPlatformGraphicsHasForegroundColor:nil withOrgScilabForgeJlatexmathPlatformGraphicsGraphics2DInterface:[[Graphics2DI alloc] initWithContext:[(GGraphics2DI*)g2 context]] withInt:x withInt:y];
-    if(!useCache){
+         [icon paintIconWithOrgScilabForgeJlatexmathPlatformGraphicsHasForegroundColor:nil withOrgScilabForgeJlatexmathPlatformGraphicsGraphics2DInterface:[[Graphics2DI alloc] initWithContext:[(GGraphics2DI*)g2 context]] withInt:x withInt:y];
+    
         return [[GDimensionI alloc] initWithWidth:[icon getIconWidth] withHight:[icon getIconHeight]];
     }
     
-    [icon paintIconWithOrgScilabForgeJlatexmathPlatformGraphicsHasForegroundColor:nil withOrgScilabForgeJlatexmathPlatformGraphicsGraphics2DInterface:[[Graphics2DI alloc] initWithContext:[(GGraphics2DI*)g2 context]] withInt:x withInt:y];
-    return [[GDimensionI alloc] initWithWidth:[icon getIconWidth] withHight:[icon getIconHeight]];
+//    [icon paintIconWithOrgScilabForgeJlatexmathPlatformGraphicsHasForegroundColor:nil withOrgScilabForgeJlatexmathPlatformGraphicsGraphics2DInterface:[[Graphics2DI alloc] initWithContext:[(GGraphics2DI*)g2 context]] withInt:x withInt:y];
+//    return [[GDimensionI alloc] initWithWidth:[icon getIconWidth] withHight:[icon getIconHeight]];
     
     
     
     NSObject* key;
     ImageI* im;
-    if(geo==nil){
-        key = [[geo getLaTeXCache] getCachedLaTeXKeyWithNSString:text withInt:[font getSize]+3 withInt:0 withOrgGeogebraCommonAwtGColor:fgColor];
-    }else{
-        key = [OrgScilabForgeJlatexmathCacheJLaTeXMathCache getCachedTeXFormulaDimensionsWithNSString:text withInt:OrgScilabForgeJlatexmathTeXConstants_STYLE_DISPLAY withInt:0 withInt:[font getSize] + 3 withInt:1 withOrgScilabForgeJlatexmathPlatformGraphicsColor:[[ColorI alloc] initWithGColor:fgColor]];
+    @try{
+        if(geo==nil){
+            key = [OrgScilabForgeJlatexmathCacheJLaTeXMathCache getCachedTeXFormulaDimensionsWithNSString:text withInt:OrgScilabForgeJlatexmathTeXConstants_STYLE_DISPLAY withInt:style withInt:[font getSize] + 3 withInt:1 withOrgScilabForgeJlatexmathPlatformGraphicsColor:[[ColorI alloc] initWithGColor:fgColor]];
+        }else{
+            key = [[geo getLaTeXCache] getCachedLaTeXKeyWithNSString:text withInt:[font getSize]+3 withInt:style withOrgGeogebraCommonAwtGColor:fgColor];
+        }
+        im = [OrgScilabForgeJlatexmathCacheJLaTeXMathCache getCachedTeXFormulaImageWithId:key];
+        IOSIntArray *ret = [OrgScilabForgeJlatexmathCacheJLaTeXMathCache getCachedTeXFormulaDimensionsWithId:key];
+        width = [ret intAtIndex:0];
+        height = [ret intAtIndex:1];
+    }@catch(NSException* e){
+        OrgScilabForgeJlatexmathTeXFormula* formula = OrgScilabForgeJlatexmathTeXFormula_getPartialTeXFormulaWithNSString_(text);
+        im = [formula createBufferedImageWithInt:OrgScilabForgeJlatexmathTeXConstants_STYLE_DISPLAY withFloat:[font getSize]+3 withOrgScilabForgeJlatexmathPlatformGraphicsColor:OrgScilabForgeJlatexmathColorUtil_BLACK_ withOrgScilabForgeJlatexmathPlatformGraphicsColor:OrgScilabForgeJlatexmathColorUtil_WHITE_];
     }
-    im = [OrgScilabForgeJlatexmathCacheJLaTeXMathCache getCachedTeXFormulaImageWithId:key];
-    IOSIntArray *ret = [OrgScilabForgeJlatexmathCacheJLaTeXMathCache getCachedTeXFormulaDimensionsWithId:key];
-    width = [ret intAtIndex:0];
-    height = [ret intAtIndex:1];
-    OrgScilabForgeJlatexmathTeXFormula* formula = OrgScilabForgeJlatexmathTeXFormula_getPartialTeXFormulaWithNSString_(text);
-    im = [formula createBufferedImageWithInt:OrgScilabForgeJlatexmathTeXConstants_STYLE_DISPLAY withFloat:[font getSize]+3 withOrgScilabForgeJlatexmathPlatformGraphicsColor:OrgScilabForgeJlatexmathColorUtil_BLACK_ withOrgScilabForgeJlatexmathPlatformGraphicsColor:OrgScilabForgeJlatexmathColorUtil_WHITE_];
     [g2 drawImageWithOrgGeogebraCommonAwtMyImage:[[MyImageI alloc] initWithImage:[im getImage] withBoolean:NO] withInt:x withInt:y];
     if(width == -1){
         width = [im getWidth];

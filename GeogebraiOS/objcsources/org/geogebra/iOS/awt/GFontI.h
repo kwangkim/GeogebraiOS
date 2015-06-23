@@ -11,11 +11,17 @@
 #import <CoreText/CoreText.h>
 
 @interface GFontI : OrgGeogebraCommonAwtGFont
+{
+    @public
+    BOOL isBold;
+    BOOL isItalic;
+}
 @property(retain)NSString *fontstyle, *fontfamily;
 @property float fontsize, fontweight;
 @property CTFontRef impl;
 -(id)initWithFontName:(NSString*)name withStyle:(int)style withSize:(float)size;
 -(CTFontRef)getUIFont;
--(void)setFontStyle:(int)fontStyle;
 -(id)initWithFontStyle:(NSString*)fontStyle;
 @end
+void setFontStyle(GFontI* fontI, int fontStyle);
+

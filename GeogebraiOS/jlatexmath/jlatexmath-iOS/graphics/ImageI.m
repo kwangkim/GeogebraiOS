@@ -19,8 +19,8 @@
     _mCGContext = CGBitmapContextCreate(nil, width, height, 8, width*4, colorSpace, kCGImageAlphaPremultipliedFirst);
     //_mCGImage = CGBitmapContextCreateImage(_mCGContext);
     CGColorSpaceRelease(colorSpace);
-    CGContextTranslateCTM(_mCGContext, 0, height);
-    CGContextScaleCTM(_mCGContext, 1, -1);
+    //CGContextTranslateCTM(_mCGContext, 0, height);
+    //CGContextScaleCTM(_mCGContext, 1, -1);
     CGContextSetTextMatrix(_mCGContext, CGAffineTransformMake(1, 0, 0, -1, 0, height));
     return self;
 }

@@ -7,7 +7,11 @@
 //
 
 #import "LaTeXFactoryI.h"
+#import "GeoLaTeXCache.h"
 
 @implementation LaTeXFactoryI
-
+-(id<OrgGeogebraCommonUtilLaTeXCache>)newLaTeXCache
+{
+    return [[GeoLaTeXCache alloc] init];
+}
 @end

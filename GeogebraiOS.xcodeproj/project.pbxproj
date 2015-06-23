@@ -3991,6 +3991,7 @@
 		85B8418E1B36B0060062010A /* TeXFormulaSettings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 85B8402F1B36B0050062010A /* TeXFormulaSettings.xml */; };
 		85B8418F1B36B0060062010A /* TeXSymbols.xml in Resources */ = {isa = PBXBuildFile; fileRef = 85B840301B36B0050062010A /* TeXSymbols.xml */; };
 		85B841921B36B68D0062010A /* DrawEquationI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B841911B36B68D0062010A /* DrawEquationI.m */; };
+		85B841951B381EBF0062010A /* GeoLaTeXCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B841941B381EBF0062010A /* GeoLaTeXCache.m */; };
 		85D11A961B0CEB06007E3BC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85D1C4781B0C815C007E3BC6 /* Main.storyboard */; };
 		85D11A971B0CEB06007E3BC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D1C47D1B0C815C007E3BC6 /* LaunchScreen.xib */; };
 		85D11A981B0CEDDF007E3BC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D1C4701B0C815C007E3BC6 /* main.m */; };
@@ -11876,6 +11877,8 @@
 		85B840301B36B0050062010A /* TeXSymbols.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TeXSymbols.xml; sourceTree = "<group>"; };
 		85B841901B36B68D0062010A /* DrawEquationI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawEquationI.h; sourceTree = "<group>"; };
 		85B841911B36B68D0062010A /* DrawEquationI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawEquationI.m; sourceTree = "<group>"; };
+		85B841931B381EBF0062010A /* GeoLaTeXCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoLaTeXCache.h; sourceTree = "<group>"; };
+		85B841941B381EBF0062010A /* GeoLaTeXCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoLaTeXCache.m; sourceTree = "<group>"; };
 		85D1C46B1B0C815C007E3BC6 /* GeogebraiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeogebraiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D1C46F1B0C815C007E3BC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85D1C4701B0C815C007E3BC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -15503,6 +15506,8 @@
 				85A591221B3153F000EDA785 /* ScientificFormatiOS.m */,
 				85A591271B31DF9800EDA785 /* UIImage-Extensions.h */,
 				85A591291B31DFF200EDA785 /* UIImage-Extensions.m */,
+				85B841931B381EBF0062010A /* GeoLaTeXCache.h */,
+				85B841941B381EBF0062010A /* GeoLaTeXCache.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -23379,6 +23384,7 @@
 				85A718B61B16123400D8F94C /* CmdFillColumn.m in Sources */,
 				85A715411B16123200D8F94C /* ConstructionElement.m in Sources */,
 				85A711A11B16123100D8F94C /* AlgoAngleLines3DOrientation.m in Sources */,
+				85B841951B381EBF0062010A /* GeoLaTeXCache.m in Sources */,
 				85A70E191B16123100D8F94C /* AbstractListIteratorDecorator.m in Sources */,
 				85A713541B16123200D8F94C /* TwoVarStatModel.m in Sources */,
 				85A715DA1B16123200D8F94C /* CmdCopyFreeObject.m in Sources */,

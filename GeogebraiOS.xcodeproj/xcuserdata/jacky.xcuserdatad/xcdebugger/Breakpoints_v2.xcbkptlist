@@ -50,11 +50,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "455602219.078525"
+            timestampString = "456674204.686163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "-initWithEuclidianView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -66,11 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456379241.019587"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-drawImageWithOrgGeogebraCommonAwtMyImage:withOrgGeogebraCommonAwtGBufferedImageOp:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -82,11 +82,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-drawImageWithOrgGeogebraCommonAwtMyImage:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -226,11 +226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456379241.019587"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "-drawStraightLineWithDouble:withDouble:withDouble:withDouble:"
             landmarkType = "5">
          </BreakpointContent>
@@ -290,11 +290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "-setCompositeWithOrgGeogebraCommonAwtGComposite:"
             landmarkType = "5">
          </BreakpointContent>
@@ -338,11 +338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "-setTransformWithGAffineTransform:"
             landmarkType = "5">
          </BreakpointContent>
@@ -354,11 +354,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-translateWithDouble:withDouble:"
             landmarkType = "5">
          </BreakpointContent>
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "-scale__WithDouble:withDouble:"
             landmarkType = "5">
          </BreakpointContent>
@@ -386,11 +386,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "-transformWithOrgGeogebraCommonAwtGAffineTransform:"
             landmarkType = "5">
          </BreakpointContent>
@@ -402,11 +402,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
             landmarkName = "-saveTransform"
             landmarkType = "5">
          </BreakpointContent>
@@ -418,11 +418,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "-restoreTransform"
             landmarkType = "5">
          </BreakpointContent>
@@ -450,11 +450,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
-            timestampString = "456379686.341428"
+            timestampString = "456672076.033622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "createImageWithSectionOfBitmapContext()"
             landmarkType = "7">
          </BreakpointContent>
@@ -466,11 +466,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "451"
-            endingLineNumber = "451"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
             landmarkName = "-fillRoundRectWithInt:withInt:withInt:withInt:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -482,11 +482,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
             landmarkName = "-drawRoundRectWithInt:withInt:withInt:withInt:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -498,11 +498,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
-            timestampString = "456379686.341428"
+            timestampString = "456672076.033622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "createImageWithSectionOfBitmapContext()"
             landmarkType = "7">
          </BreakpointContent>
@@ -546,11 +546,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "-drawRectWithInt:withInt:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -578,11 +578,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456576813.892772"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "-drawImageWithOrgGeogebraCommonAwtMyImage:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -594,11 +594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456379241.019587"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-drawImageWithOrgGeogebraCommonAwtMyImage:withOrgGeogebraCommonAwtGBufferedImageOp:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -690,11 +690,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456379241.019587"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "-drawStringWithNSString:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -706,11 +706,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
-            timestampString = "456335942.461492"
+            timestampString = "456734064.162521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "-initWithFontName:withStyle:withSize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -722,11 +722,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456379241.019587"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "-drawStringWithNSString:withInt:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -738,7 +738,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
-            timestampString = "456336684.153492"
+            timestampString = "456734064.162521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -754,11 +754,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
-            timestampString = "456336690.799271"
+            timestampString = "456734064.162521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-initWithFontName:withStyle:withSize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -769,28 +769,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
-            timestampString = "456336728.740117"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-setFontStyle:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456379259.751718"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "-configureStart"
             landmarkType = "5">
          </BreakpointContent>
@@ -802,11 +786,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
-            timestampString = "456379686.341428"
+            timestampString = "456672076.033622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-initWithCGImage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -850,11 +834,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456419396.321713"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-drawDashedLineToX:toY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -862,15 +846,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/DrawEquationI.m"
-            timestampString = "456581225.890477"
+            timestampString = "456662537.326953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-drawEquationWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withInt:withInt:withNSString:withOrgGeogebraCommonAwtGFont:withBoolean:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withBoolean:withBoolean:"
             landmarkType = "5">
          </BreakpointContent>
@@ -878,15 +862,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianStaticI.m"
-            timestampString = "456581344.653856"
+            timestampString = "456728055.684338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-doDrawMultilineLaTeXWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonAwtGGraphics2D:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withOrgGeogebraCommonAwtGFont:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withNSString:withInt:withInt:withBoolean:"
             landmarkType = "5">
          </BreakpointContent>
@@ -894,15 +878,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/Graphics2DI.m"
-            timestampString = "456581484.962786"
+            timestampString = "456674204.686163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-drawWithOrgScilabForgeJlatexmathPlatformGeomLine2D:"
             landmarkType = "5">
          </BreakpointContent>
@@ -914,12 +898,380 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "456581695.084069"
+            timestampString = "456729856.543103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-drawStraightLineWithDouble:withDouble:withDouble:withDouble:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianStaticI.m"
+            timestampString = "456728055.684338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-doDrawMultilineLaTeXWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonAwtGGraphics2D:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withOrgGeogebraCommonAwtGFont:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withNSString:withInt:withInt:withBoolean:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/DrawEquationI.m"
+            timestampString = "456729979.437059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-drawEquationWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withInt:withInt:withNSString:withOrgGeogebraCommonAwtGFont:withBoolean:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withBoolean:withBoolean:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/DrawEquationI.m"
+            timestampString = "456729979.437059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-drawEquationWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withInt:withInt:withNSString:withOrgGeogebraCommonAwtGFont:withBoolean:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withBoolean:withBoolean:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/Graphics2DI.m"
+            timestampString = "456727490.561624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-saveTransformation"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/ImageI.m"
+            timestampString = "456674204.686163"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-createGraphics2D"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/ImageI.m"
+            timestampString = "456671742.093292"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "-initWithWidth:withHeight:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/ImageI.m"
+            timestampString = "456674204.686163"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-getImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/DrawEquationI.m"
+            timestampString = "456729979.437059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-drawEquationWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withInt:withInt:withNSString:withOrgGeogebraCommonAwtGFont:withBoolean:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withBoolean:withBoolean:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/Graphics2DI.m"
+            timestampString = "456675563.262719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-drawStringWithString:withX:withY:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/Graphics2DI.m"
+            timestampString = "456675287.136143"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-drawCharsWithCharArray:withInt:withInt:withInt:withInt:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/font/FontI.m"
+            timestampString = "456727848.9794"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "-initWithName:withStyle:withSize:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/Graphics2DI.m"
+            timestampString = "456676925.725067"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-setFontWithOrgScilabForgeJlatexmathPlatformFontFont:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/kernel/geos/GeoText.m"
+            timestampString = "456730454.960666"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
+            landmarkName = "-setSerifFontWithBoolean:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/kernel/geos/GeoText.m"
+            timestampString = "456730726.261624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "-setVisualStyleWithOrgGeogebraCommonKernelGeosGeoElement:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/kernel/geos/GeoText.m"
+            timestampString = "456730743.623537"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
+            landmarkName = "-getXMLtagsWithJavaLangStringBuilder:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/kernel/geos/GeoText.m"
+            timestampString = "456730777.134831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
+            landmarkName = "-isSerifFont"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
+            timestampString = "456734064.162521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-initWithFontStyle:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
+            timestampString = "456734064.162521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-initWithFontStyle:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
+            timestampString = "456734064.162521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-deriveFontWithInt:withFloat:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GFontI.m"
+            timestampString = "456737226.590037"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-getStyle"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/DrawEquationI.m"
+            timestampString = "456732481.255868"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-drawEquationWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withInt:withInt:withNSString:withOrgGeogebraCommonAwtGFont:withBoolean:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withBoolean:withBoolean:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/DrawEquationI.m"
+            timestampString = "456732482.29804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-drawEquationWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withInt:withInt:withNSString:withOrgGeogebraCommonAwtGFont:withBoolean:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withBoolean:withBoolean:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/DrawEquationI.m"
+            timestampString = "456732483.099872"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-drawEquationWithOrgGeogebraCommonMainApp:withOrgGeogebraCommonKernelGeosGeoElement:withOrgGeogebraCommonAwtGGraphics2D:withInt:withInt:withNSString:withOrgGeogebraCommonAwtGFont:withBoolean:withOrgGeogebraCommonAwtGColor:withOrgGeogebraCommonAwtGColor:withBoolean:withBoolean:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

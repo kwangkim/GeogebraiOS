@@ -56,16 +56,12 @@ static int counter = 1;
     _currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
     _currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
     _bs = [[GBasicStrokeI alloc] init];
+    
     CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
-    CGContextSetTextMatrix(_context, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
     nativeDashUsed = false;
     _dash_array = nil;
     devicePixelRatio = [[UIScreen mainScreen] scale];
-    //NSLog(@"devicePicexlRation = %d",devicePixelRatio);
     basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height);
-    //CGContextSetStrokeColorWithColor(_context, ((GColorI*)_strokeColor).getCGColor);
-    //CGContextSetFillColorWithColor(_context, ((GColorI*)_fillColor).getCGColor);
-
     return self;
 }
 

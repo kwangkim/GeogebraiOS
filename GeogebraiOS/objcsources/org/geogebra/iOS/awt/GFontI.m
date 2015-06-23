@@ -13,7 +13,6 @@ static const int ITALIC = 2;
 static NSString* NORMAL_STR = @"normal";
 static NSString* BOLD_STR = @"bold";
 static NSString* ITALIC_STR = @"italic";
-void setFontStyle(int style);
 
 @implementation GFontI
 @synthesize fontfamily = _fontfamily;
@@ -23,7 +22,7 @@ void setFontStyle(int style);
 @synthesize impl = _impl;
 -(id)initWithFontName:(NSString*)name withStyle:(int)style withSize:(float)size
 {
-    [self setFontStyle:style];
+    setFontStyle(self, style);
     _fontsize = size;
     if([name isEqualToString:@"Serif"]){
         _fontfamily = @"geogebra-serif, serif";
@@ -52,6 +51,7 @@ void setFontStyle(int style);
 
 -(id)initWithFontStyle:(NSString *)fontStyle
 {
+    
     _fontstyle = fontStyle;
     _fontfamily =  @"geogebra-serif, serif";
     if([_fontstyle isEqualToString:BOLD_STR]){
@@ -71,9 +71,8 @@ void setFontStyle(int style);
 
 -(OrgGeogebraCommonAwtGFont*)deriveFontWithInt:(jint)plain2 withInt:(jint)fontSize
 {
-    _fontsize = fontSize;
-    [self setFontStyle:plain2];
-    return [self initWithFontStyle:_fontstyle];
+    GFontI* newFont = [[GFontI alloc] initWithFontName:@"Serif" withStyle:plain2 withSize:fontSize];
+    return newFont;
 }
 
 -(OrgGeogebraCommonAwtGFont*)deriveFontWithInt:(jint)i
@@ -88,17 +87,17 @@ void setFontStyle(int style);
 
 -(BOOL)isItalic
 {
-    return [_fontstyle isEqualToString:ITALIC_STR];
+    return isItalic;
 }
 
 -(BOOL)isBold
 {
-    return [_fontstyle isEqualToString:BOLD_STR];
+    return isBold;
 }
 
 -(int)getStyle
 {
-    return ([self isBold]? BOLD:0) + ([self isItalic]? ITALIC:0);
+    return (isBold? BOLD:0) + (isItalic? ITALIC:0);
 }
 
 -(int)canDisplayUpToWithNSString:(NSString *)textString
@@ -116,22 +115,27 @@ void setFontStyle(int style);
     return (int)_fontsize;
 }
 
--(void)setFontStyle:(int)fontStyle
+@end
+
+void setFontStyle(GFontI* fontI, int fontStyle)
 {
     switch (fontStyle) {
         case BOLD:
-            _fontstyle = BOLD_STR;
+            [fontI setFontstyle:BOLD_STR];
+            fontI->isBold = YES;
             break;
         case ITALIC:
-            _fontstyle = ITALIC_STR;
+            [fontI setFontstyle:ITALIC_STR];
+            fontI->isItalic = YES;
             break;
         case (BOLD + ITALIC):
-            _fontstyle = ITALIC_STR;
+            [fontI setFontstyle:ITALIC_STR];
+            fontI->isItalic = YES;
+            fontI->isBold = YES;
         default:
-            _fontstyle = NORMAL_STR;
+            [fontI setFontstyle:NORMAL_STR];
             break;
     }
 }
-@end
 
 

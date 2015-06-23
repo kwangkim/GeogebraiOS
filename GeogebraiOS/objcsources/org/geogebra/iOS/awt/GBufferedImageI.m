@@ -25,6 +25,8 @@
                                            width, height,
                                            8, width * 4, colorSpace,
                                         kCGImageAlphaPremultipliedFirst);
+        CGContextTranslateCTM(_cgContext, 0, h);
+        CGContextScaleCTM(_cgContext, 1, -1);
         _img = CGBitmapContextCreateImage(_cgContext);
         CGColorSpaceRelease(colorSpace);
     }
@@ -46,6 +48,8 @@
                                        8, width * 4, colorSpace,
                                        kCGImageAlphaPremultipliedFirst);
     CGColorSpaceRelease(colorSpace);
+    CGContextTranslateCTM(_cgContext, 0, height);
+    CGContextScaleCTM(_cgContext, 1, -1);
     CGContextDrawImage(_cgContext, CGRectMake(0, 0, width, height), cgImage);
     _img = CGBitmapContextCreateImage(_cgContext);
     return self;
