@@ -13,7 +13,7 @@
 @synthesize cgcontext = _cgcontext;
 -(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView *)ev
 {
-    [super init];
+    [super initWithFrame:[UIScreen mainScreen].applicationFrame];
     self.ev = ev;
     self.mySize = self.frame.size;
     
@@ -30,17 +30,27 @@
     CGContextTranslateCTM(_cgcontext, 0, sizeRect.size.height);
     CGContextScaleCTM(_cgcontext, 1, -1);
     CGContextSetTextMatrix(_cgcontext, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
-    
     CGColorSpaceRelease(colorSpace);
     
     return self;
 }
+
+-(void)drawRect:(CGRect)rect
+{
+    CGImageRef image = CGBitmapContextCreateImage(self.cgcontext);
+    UIImageView* imgView = [[UIImageView alloc] initWithImage:[[UIImage alloc] initWithCGImage:image]];
+    [self addSubview:imgView];
+}
+
 -(CGContextRef)getContext
 {
     return self.cgcontext;
 }
 -(UIView*)getEuclidianPanel
 {
+    CGImageRef image = CGBitmapContextCreateImage(self.cgcontext);
+    UIImageView* imgView = [[UIImageView alloc] initWithImage:[[UIImage alloc] initWithCGImage:image]];
+    [self addSubview:imgView];
     return self;
 }
 -(OrgGeogebraCommonEuclidianEuclidianView*)getEuclidianView

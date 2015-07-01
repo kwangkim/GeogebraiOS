@@ -28,7 +28,7 @@
     self = [super initWithOrgGeogebraCommonEuclidianEuclidianController:ec withInt:viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:settings];
     self.bgroundColor = OrgGeogebraCommonAwtGColor_WHITE_;
     app_ = (AppI*)[super getApplication];
-    self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self];//= evPanel;
+    self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self];
     CGContextRef context = [self.EVPanel getContext];
     evNo_ = viewNo;
     _g2p = [[GGraphics2DI alloc] initWithContext:context];
