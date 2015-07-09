@@ -11,10 +11,9 @@
 #import <CoreGraphics/CoreGraphics.h>
 @interface GColorI : OrgGeogebraCommonAwtGColor
 {
-    UIColor* adaptedColor;
     const CGFloat* components;
 }
-
+@property(retain) UIColor* adaptedColor;
 -(id)initWithFloatRed:(float)r Green:(float)g Blue:(float)b Alpha:(float)a;
 -(id)initWithIntRed:(int)r Green:(int)g Blue:(int)b Alpha:(int)a;
 -(id)initWithFloatRed:(float)r Green:(float)g Blue:(float)b;

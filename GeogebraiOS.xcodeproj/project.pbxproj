@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85123A281B4BD2F7005955A4 /* TouchGestureControllerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */; };
+		85123A2D1B4BD591005955A4 /* EnvironmentStyleI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85123A2C1B4BD591005955A4 /* EnvironmentStyleI.m */; };
 		858C71391B184939007F12D8 /* GCubicCurve2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71381B184939007F12D8 /* GCubicCurve2DI.m */; };
 		858C713F1B186AC3007F12D8 /* GGraphics2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C713E1B186AC3007F12D8 /* GGraphics2DI.m */; };
 		858C71441B189612007F12D8 /* GPathIteratorI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71431B189612007F12D8 /* GPathIteratorI.m */; };
@@ -44,6 +46,9 @@
 		85A5913D1B34042100EDA785 /* LaTeXFactoryI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5913C1B34042100EDA785 /* LaTeXFactoryI.m */; };
 		85A591401B34057900EDA785 /* UtilFactoryI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5913F1B34057900EDA785 /* UtilFactoryI.m */; };
 		85A591431B3406AA00EDA785 /* EuclidianStaticI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A591421B3406AA00EDA785 /* EuclidianStaticI.m */; };
+		85A6E4011B43C12200B7BED3 /* ActionEventI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6E4001B43C12200B7BED3 /* ActionEventI.m */; };
+		85A6E4041B43C57100B7BED3 /* ActionListenerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6E4031B43C57100B7BED3 /* ActionListenerI.m */; };
+		85A6E4071B44F23100B7BED3 /* PointerEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6E4061B44F23100B7BED3 /* PointerEvent.m */; };
 		85A70BF71B16123000D8F94C /* MatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEEE1B16122300D8F94C /* MatchResult.m */; };
 		85A70BF81B16123000D8F94C /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF01B16122300D8F94C /* RegExp.m */; };
 		85A70BF91B16123000D8F94C /* SplitResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7EEF21B16122300D8F94C /* SplitResult.m */; };
@@ -4042,6 +4047,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		85123A251B4BD130005955A4 /* PointerEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerEvent.h; sourceTree = "<group>"; };
+		85123A261B4BD2F7005955A4 /* TouchGestureControllerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchGestureControllerI.h; sourceTree = "<group>"; };
+		85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchGestureControllerI.m; sourceTree = "<group>"; };
+		85123A2B1B4BD591005955A4 /* EnvironmentStyleI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentStyleI.h; sourceTree = "<group>"; };
+		85123A2C1B4BD591005955A4 /* EnvironmentStyleI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentStyleI.m; sourceTree = "<group>"; };
 		858C71371B184939007F12D8 /* GCubicCurve2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCubicCurve2DI.h; sourceTree = "<group>"; };
 		858C71381B184939007F12D8 /* GCubicCurve2DI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCubicCurve2DI.m; sourceTree = "<group>"; };
 		858C713D1B186AC3007F12D8 /* GGraphics2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGraphics2DI.h; sourceTree = "<group>"; };
@@ -4104,6 +4114,11 @@
 		85A5913F1B34057900EDA785 /* UtilFactoryI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilFactoryI.m; sourceTree = "<group>"; };
 		85A591411B3406AA00EDA785 /* EuclidianStaticI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianStaticI.h; sourceTree = "<group>"; };
 		85A591421B3406AA00EDA785 /* EuclidianStaticI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EuclidianStaticI.m; sourceTree = "<group>"; };
+		85A6E3FF1B43C12200B7BED3 /* ActionEventI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionEventI.h; sourceTree = "<group>"; };
+		85A6E4001B43C12200B7BED3 /* ActionEventI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionEventI.m; sourceTree = "<group>"; };
+		85A6E4021B43C57100B7BED3 /* ActionListenerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionListenerI.h; sourceTree = "<group>"; };
+		85A6E4031B43C57100B7BED3 /* ActionListenerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionListenerI.m; sourceTree = "<group>"; };
+		85A6E4061B44F23100B7BED3 /* PointerEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerEvent.m; sourceTree = "<group>"; };
 		85A700001B16122800D8F94C /* CmdSlopeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdSlopeField.m; sourceTree = "<group>"; };
 		85A700011B16122800D8F94C /* CmdTaylorSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdTaylorSeries.h; sourceTree = "<group>"; };
 		85A700021B16122800D8F94C /* CmdTaylorSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdTaylorSeries.m; sourceTree = "<group>"; };
@@ -11976,6 +11991,19 @@
 			path = gui;
 			sourceTree = "<group>";
 		};
+		85A6E3FE1B43C0FE00B7BED3 /* event */ = {
+			isa = PBXGroup;
+			children = (
+				85A6E3FF1B43C12200B7BED3 /* ActionEventI.h */,
+				85A6E4001B43C12200B7BED3 /* ActionEventI.m */,
+				85A6E4021B43C57100B7BED3 /* ActionListenerI.h */,
+				85A6E4031B43C57100B7BED3 /* ActionListenerI.m */,
+				85123A251B4BD130005955A4 /* PointerEvent.h */,
+				85A6E4061B44F23100B7BED3 /* PointerEvent.m */,
+			);
+			path = event;
+			sourceTree = "<group>";
+		};
 		85A700151B16122800D8F94C /* algos */ = {
 			isa = PBXGroup;
 			children = (
@@ -15382,6 +15410,7 @@
 		85A741081B16325500D8F94C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				85A6E3FE1B43C0FE00B7BED3 /* event */,
 				85A5909F1B2458CE00EDA785 /* gui */,
 				85A5908F1B2419CD00EDA785 /* io */,
 				85A741091B16325500D8F94C /* awt */,
@@ -15433,6 +15462,8 @@
 		85A741101B16325500D8F94C /* euclidian */ = {
 			isa = PBXGroup;
 			children = (
+				85123A2B1B4BD591005955A4 /* EnvironmentStyleI.h */,
+				85123A2C1B4BD591005955A4 /* EnvironmentStyleI.m */,
 				85A741111B16325500D8F94C /* EuclidianControllerI.h */,
 				85A741121B16325500D8F94C /* EuclidianControllerI.m */,
 				85A741131B16325500D8F94C /* EuclidianViewI.h */,
@@ -15444,6 +15475,8 @@
 				85A591421B3406AA00EDA785 /* EuclidianStaticI.m */,
 				85B841901B36B68D0062010A /* DrawEquationI.h */,
 				85B841911B36B68D0062010A /* DrawEquationI.m */,
+				85123A261B4BD2F7005955A4 /* TouchGestureControllerI.h */,
+				85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */,
 			);
 			path = euclidian;
 			sourceTree = "<group>";
@@ -22533,6 +22566,7 @@
 				85A710971B16123100D8F94C /* CASTableCellController.m in Sources */,
 				85A7174A1B16123300D8F94C /* EquationGenericMidpointRestriction.m in Sources */,
 				85A718A81B16123400D8F94C /* CmdCell.m in Sources */,
+				85A6E4041B43C57100B7BED3 /* ActionListenerI.m in Sources */,
 				85A717FD1B16123300D8F94C /* CmdSlowPlot.m in Sources */,
 				85A70E6F1B16123100D8F94C /* TypedMap.m in Sources */,
 				85A70CFF1B16123100D8F94C /* RectangleIntersects.m in Sources */,
@@ -23448,6 +23482,7 @@
 				85A716381B16123300D8F94C /* CommandDispatcherAdvanced.m in Sources */,
 				85A716491B16123300D8F94C /* Vertex.m in Sources */,
 				85A715A71B16123200D8F94C /* AlgoSolveODE2.m in Sources */,
+				85A6E4011B43C12200B7BED3 /* ActionEventI.m in Sources */,
 				85A710A71B16123100D8F94C /* DrawConicSection.m in Sources */,
 				85B840BA1B36B0050062010A /* Graphics2DI.m in Sources */,
 				85A70DE21B16123100D8F94C /* TransformingComparator.m in Sources */,
@@ -23884,6 +23919,7 @@
 				85A712591B16123100D8F94C /* Manager3D.m in Sources */,
 				85A719861B16123400D8F94C /* NetworkOperation.m in Sources */,
 				85A719881B16123400D8F94C /* BaseView.m in Sources */,
+				85A6E4071B44F23100B7BED3 /* PointerEvent.m in Sources */,
 				85A716481B16123300D8F94C /* Graph.m in Sources */,
 				85A7117A1B16123100D8F94C /* IntBuffer.m in Sources */,
 				85A717991B16123300D8F94C /* ParserFunctions.m in Sources */,
@@ -24304,6 +24340,7 @@
 				85A7133F1B16123200D8F94C /* AssignmentStyleBar.m in Sources */,
 				85A715B91B16123200D8F94C /* CmdNextPreviousPrime.m in Sources */,
 				85A7129B1B16123200D8F94C /* CmdUnitVector3D.m in Sources */,
+				85123A2D1B4BD591005955A4 /* EnvironmentStyleI.m in Sources */,
 				85A712341B16123100D8F94C /* AlgoQuadricEndBottom.m in Sources */,
 				85A718331B16123300D8F94C /* AlgoFitLineX.m in Sources */,
 				85A70E8F1B16123100D8F94C /* UnmodifiableSet.m in Sources */,
@@ -24539,6 +24576,7 @@
 				85A7125F1B16123100D8F94C /* CmdArcSector3D.m in Sources */,
 				85A70D021B16123100D8F94C /* EdgeEndBundle.m in Sources */,
 				85A712821B16123100D8F94C /* CmdOrthogonalPlane.m in Sources */,
+				85123A281B4BD2F7005955A4 /* TouchGestureControllerI.m in Sources */,
 				85A7103F1B16123100D8F94C /* TestUtils.m in Sources */,
 				85A715981B16123200D8F94C /* AlgoLengthFunction.m in Sources */,
 				85A718151B16123300D8F94C /* AlgoCauchy.m in Sources */,
@@ -26451,7 +26489,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ljre_emul";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 			};
@@ -26489,7 +26527,7 @@
 				LIBRARY_SEARCH_PATHS = "~/j2objc-0.9.7/lib";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ljre_emul";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 				VALIDATE_PRODUCT = YES;
@@ -26506,10 +26544,12 @@
 					"$(PROJECT_DIR)/GeogebraiOS",
 				);
 				INFOPLIST_FILE = GeogebraiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "~/j2objc-0.9.7/lib";
 				OTHER_LDFLAGS = "-ljre_emul";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.1;
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}/GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 			};
 			name = Debug;
@@ -26524,10 +26564,12 @@
 					"$(PROJECT_DIR)/GeogebraiOS",
 				);
 				INFOPLIST_FILE = GeogebraiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "~/j2objc-0.9.7/lib";
 				OTHER_LDFLAGS = "-ljre_emul";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.1;
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}/GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 			};
 			name = Release;

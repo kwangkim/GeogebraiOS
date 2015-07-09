@@ -19,6 +19,7 @@
 #import "GDimension.h"
 #import "EuclidianViewCompanion.h"
 #import "MyEuclidianViewPanel.h"
+#import "EuclidianControllerI.h"
 
 @implementation EuclidianViewI
 @synthesize g2p = _g2p, EVPanel = _EVPanel ,bgroundColor = _bgroundColor;
@@ -144,5 +145,34 @@
     [_g2dtmp setFontWithOrgGeogebraCommonAwtGFont:fontForGraphics];
     return _g2dtmp;
 }
-//-(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(bool *)showAxes withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings
+
+-(OrgGeogebraCommonEuclidianEuclidianController*)getEuclidianController
+{
+    return (EuclidianControllerI*)euclidianController_;
+}
+
+-(jboolean)hitAnimationButtonWithInt:(jint)x withInt:(jint)y
+{
+    return [kernel_ needToShowAnimationButton] && (x<=20) && (y>=([self getHeight] - 20));
+}
+
+-(jboolean)requestFocusInWindow
+{
+    return YES;
+}
+
+-(void)setHitCursor
+{
+    ;
+}
+
+-(void)setDragCursor
+{
+    ;
+}
+
+-(void)setDefaultCursor
+{
+    ;
+}
 @end

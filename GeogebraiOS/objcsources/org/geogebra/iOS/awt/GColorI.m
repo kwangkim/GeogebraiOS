@@ -13,32 +13,32 @@
 #define FACTOR 0.7
 
 @implementation GColorI
-
+@synthesize adaptedColor = _adaptedColor;
 -(id)initWithFloatRed:(float)r Green:(float)g Blue:(float)b Alpha:(float)a
 {
-    adaptedColor = [UIColor colorWithRed:r green:g blue:b alpha:a];
-    components = CGColorGetComponents(adaptedColor.CGColor);
+    _adaptedColor = [[UIColor alloc] initWithRed:r green:g blue:b alpha:a];
+    components = CGColorGetComponents(_adaptedColor.CGColor);
     return self;
 }
 
 -(id)initWithIntRed:(int)r Green:(int)g Blue:(int)b Alpha:(int)a
 {
-    adaptedColor = [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a/255.0];
-    components = CGColorGetComponents(adaptedColor.CGColor);
+    _adaptedColor = [[UIColor alloc] initWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a/255.0];
+    components = CGColorGetComponents(_adaptedColor.CGColor);
     return self;
 }
 
 -(id)initWithFloatRed:(float)r Green:(float)g Blue:(float)b
 {
-    adaptedColor = [UIColor colorWithRed:r green:g blue:b alpha:1];
-    components = CGColorGetComponents(adaptedColor.CGColor);
+    _adaptedColor = [[UIColor alloc] initWithRed:r green:g blue:b alpha:1];
+    components = CGColorGetComponents(_adaptedColor.CGColor);
     return self;
 }
 
 -(id)initWithIntRed:(int)r Green:(int)g Blue:(int)b
 {
-    adaptedColor = [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1];
-    components = CGColorGetComponents(adaptedColor.CGColor);
+    _adaptedColor = [[UIColor alloc] initWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1];
+    components = CGColorGetComponents(_adaptedColor.CGColor);
     return self;
 }
 
@@ -90,13 +90,13 @@
     if([object class] != [GColorI class])   return NO;
     else{
         GColorI* other = (GColorI*)object;
-        return [self->adaptedColor isEqual:other->adaptedColor];
+        return [_adaptedColor isEqual:[other adaptedColor]];
     }
 }
 
 -(CGColorRef)getCGColor
 {
-    return adaptedColor.CGColor;
+    return _adaptedColor.CGColor;
 }
 
 @end

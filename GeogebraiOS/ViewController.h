@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MyEuclidianViewPanel.h"
+MyEuclidianViewPanel* testPanel;
 @interface ViewController : UIViewController
 
 

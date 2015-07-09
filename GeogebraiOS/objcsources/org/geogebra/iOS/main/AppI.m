@@ -34,6 +34,7 @@
 #import "UtilFactoryI.h"
 #import "CopyPaste.h"
 #import "EuclidianStaticI.h"
+#import "EuclidianControllerI.h"
 static Boolean isApplet;
 
 @implementation AppI
@@ -95,17 +96,6 @@ static Boolean isApplet;
 {
     return [[GeoElementGraphicsAdapteriOS alloc] initWithApp: self];
 }
-
-//-(id<GeogebraCommonMainGuiManagerInterface>)getGuiManager
-//{
-//    return
-//}
-//
-//-(void)initEuclidianViews
-//{
-//    euclidianController_ ;
-//}
-
 
 -(id<OrgGeogebraCommonEuclidianEuclidianViewInterfaceCommon>)getActiveEuclidianView
 {
@@ -380,6 +370,21 @@ static Boolean isApplet;
 -(OrgGeogebraCommonKernelArithmeticExpressionNodeConstants_StringTypeEnum *)getPreferredFormulaRenderingType
 {
     return OrgGeogebraCommonKernelArithmeticExpressionNodeConstants_StringTypeEnum_LATEX;
+}
+
+-(void)runScriptsWithOrgGeogebraCommonKernelGeosGeoElement:(OrgGeogebraCommonKernelGeosGeoElement *)geo1 withNSString:(NSString *)string
+{
+    ;
+}
+
+-(OrgGeogebraCommonMainDialogManager *)getDialogManager
+{
+    return nil;
+}
+
+-(jboolean)isSelectionRectangleAllowed
+{
+    return YES;
 }
 
 
