@@ -14,10 +14,13 @@
 #import "GeoConic.h"
 #import "GeoLine.h"
 #import "GeoPoint.h"
+#import "EuclidianViewI.h"
+#import "AbstractEvent.h"
 
 static double SELECTION_RECT_THRESHOLD_SQR = 200.0;
 static double FREEHAND_MODE_THRESHOLD_SQR = 200.0;
 static int MIN_MOVE = 5;
+static BOOL DRAGMODE_MUST_BE_SELECTED = NO;
 typedef enum{
     /**
      * scale x-axis (two TouchStartEvents on the x-axis)
@@ -67,6 +70,9 @@ typedef enum{
     BOOL moveAxesAllowed;
     int previousMode;
     double originalRadius;
+    int deltaSum;
+    int moveCounter;
+    BOOL ignoreEvent;
 }
 @property(retain) AppI* app;
 @property(retain) OrgGeogebraCommonEuclidianEuclidianController* ec;
@@ -80,13 +86,12 @@ typedef enum{
 @property(retain) NSMutableArray* touchPool;
 
 -(instancetype)initWithApp:(AppI*)app withEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController*)ec;
--(void)onTapGesture:(UITapGestureRecognizer*)tapGestureRecognizer;
-
 -(void)calculateEnvironment;
--(void)onPanGesture:(UIPanGestureRecognizer*)panGestureRecognizer;
-
-- (void)onTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)onTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)onTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)onTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void)onTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void)onTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void)onTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void)onTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void)moveIfWaiting;
+-(void)onTouchMoveNow:(PointerEvent*)event withTime:(long)time withBool:(BOOL)startCapture;
+-(void)onPointerEventStart:(OrgGeogebraCommonEuclidianEventAbstractEvent*)event;
 @end

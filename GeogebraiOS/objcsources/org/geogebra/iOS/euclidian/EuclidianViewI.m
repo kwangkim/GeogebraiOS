@@ -175,4 +175,9 @@
 {
     ;
 }
+
++(void)resetDelay
+{
+    EuclidianViewI_DELAY_UNTIL_MOVE_FINISH = 150;
+}
 @end

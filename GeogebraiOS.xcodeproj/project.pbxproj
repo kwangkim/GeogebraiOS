@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		85123A281B4BD2F7005955A4 /* TouchGestureControllerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */; };
 		85123A2D1B4BD591005955A4 /* EnvironmentStyleI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85123A2C1B4BD591005955A4 /* EnvironmentStyleI.m */; };
+		854CB9C51B4EFAE500BF8DF0 /* test3.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 854CB9C41B4EF90200BF8DF0 /* test3.ggb */; };
+		854CB9C81B4FB3BC00BF8DF0 /* ZeroOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */; };
+		854CB9CB1B4FB84A00BF8DF0 /* CancelEventTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */; };
 		858C71391B184939007F12D8 /* GCubicCurve2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71381B184939007F12D8 /* GCubicCurve2DI.m */; };
 		858C713F1B186AC3007F12D8 /* GGraphics2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C713E1B186AC3007F12D8 /* GGraphics2DI.m */; };
 		858C71441B189612007F12D8 /* GPathIteratorI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71431B189612007F12D8 /* GPathIteratorI.m */; };
@@ -4052,6 +4055,11 @@
 		85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchGestureControllerI.m; sourceTree = "<group>"; };
 		85123A2B1B4BD591005955A4 /* EnvironmentStyleI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentStyleI.h; sourceTree = "<group>"; };
 		85123A2C1B4BD591005955A4 /* EnvironmentStyleI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentStyleI.m; sourceTree = "<group>"; };
+		854CB9C41B4EF90200BF8DF0 /* test3.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.ggb; sourceTree = SOURCE_ROOT; };
+		854CB9C61B4FB3BC00BF8DF0 /* ZeroOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroOffset.h; sourceTree = "<group>"; };
+		854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroOffset.m; sourceTree = "<group>"; };
+		854CB9C91B4FB84A00BF8DF0 /* CancelEventTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelEventTimer.h; sourceTree = "<group>"; };
+		854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelEventTimer.m; sourceTree = "<group>"; };
 		858C71371B184939007F12D8 /* GCubicCurve2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCubicCurve2DI.h; sourceTree = "<group>"; };
 		858C71381B184939007F12D8 /* GCubicCurve2DI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCubicCurve2DI.m; sourceTree = "<group>"; };
 		858C713D1B186AC3007F12D8 /* GGraphics2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGraphics2DI.h; sourceTree = "<group>"; };
@@ -11937,6 +11945,7 @@
 		858C71561B1CBD12007F12D8 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				854CB9C41B4EF90200BF8DF0 /* test3.ggb */,
 				858C71571B1CBD12007F12D8 /* font */,
 			);
 			path = resources;
@@ -12000,6 +12009,8 @@
 				85A6E4031B43C57100B7BED3 /* ActionListenerI.m */,
 				85123A251B4BD130005955A4 /* PointerEvent.h */,
 				85A6E4061B44F23100B7BED3 /* PointerEvent.m */,
+				854CB9C61B4FB3BC00BF8DF0 /* ZeroOffset.h */,
+				854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -15541,6 +15552,8 @@
 				85A591291B31DFF200EDA785 /* UIImage-Extensions.m */,
 				85B841931B381EBF0062010A /* GeoLaTeXCache.h */,
 				85B841941B381EBF0062010A /* GeoLaTeXCache.m */,
+				854CB9C91B4FB84A00BF8DF0 /* CancelEventTimer.h */,
+				854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -22366,6 +22379,7 @@
 				TargetAttributes = {
 					85D1C46A1B0C815C007E3BC6 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = Z529LVAQ9U;
 					};
 					85D1C4831B0C815C007E3BC6 = {
 						CreatedOnToolsVersion = 6.2;
@@ -22397,6 +22411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854CB9C51B4EFAE500BF8DF0 /* test3.ggb in Resources */,
 				85B840671B36B0050062010A /* jlm_jlmsbi10.xml in Resources */,
 				85B8409C1B36B0050062010A /* jlm_fcsbpg.ttf in Resources */,
 				85B840811B36B0050062010A /* jlm_cmbsy10.xml in Resources */,
@@ -23262,6 +23277,7 @@
 				85A715261B16123200D8F94C /* AlgoText.m in Sources */,
 				85A715231B16123200D8F94C /* AlgoTangentLineND.m in Sources */,
 				85A7130F1B16123200D8F94C /* TraceModel.m in Sources */,
+				854CB9C81B4FB3BC00BF8DF0 /* ZeroOffset.m in Sources */,
 				85A711E41B16123100D8F94C /* AlgoIntersectCS1D1D.m in Sources */,
 				85A718471B16123300D8F94C /* AlgoInverseChiSquared.m in Sources */,
 				85A70C0E1B16123100D8F94C /* HausdorffSimilarityMeasure.m in Sources */,
@@ -25768,6 +25784,7 @@
 				85A715491B16123200D8F94C /* GetPointsAlgo.m in Sources */,
 				85A716841B16123300D8F94C /* VInternalNode.m in Sources */,
 				85A718021B16123300D8F94C /* CmdTextfield.m in Sources */,
+				854CB9CB1B4FB84A00BF8DF0 /* CancelEventTimer.m in Sources */,
 				85A70EBE1B16123100D8F94C /* BrentSolver.m in Sources */,
 				85A717C11B16123300D8F94C /* Term.m in Sources */,
 				85A7412A1B16325500D8F94C /* GPoint2DI.m in Sources */,
@@ -26539,6 +26556,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GeogebraiOS",
@@ -26549,6 +26569,7 @@
 				LIBRARY_SEARCH_PATHS = "~/j2objc-0.9.7/lib";
 				OTHER_LDFLAGS = "-ljre_emul";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.1;
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}/GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 			};
@@ -26559,6 +26580,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GeogebraiOS",
@@ -26569,6 +26593,7 @@
 				LIBRARY_SEARCH_PATHS = "~/j2objc-0.9.7/lib";
 				OTHER_LDFLAGS = "-ljre_emul";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.1;
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}/GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 			};

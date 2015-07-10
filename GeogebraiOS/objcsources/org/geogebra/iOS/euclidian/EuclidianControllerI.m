@@ -33,18 +33,7 @@
     return (AppI*)app_;
 }
 
--(void)onTapGesture:(UITapGestureRecognizer *)recognizer
-{
-    [_tgc onTapGesture:recognizer];
-    [testPanel setNeedsDisplay];
-}
 
--(void)onPanGesture:(UIPanGestureRecognizer *)recognizer
-{
-    [_tgc onPanGesture:recognizer];
-    NSLog(@"position : (%lf, %lf)",[recognizer locationInView:nil].x, [recognizer locationInView:nil].y);
-    [testPanel setNeedsDisplay];
-}
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

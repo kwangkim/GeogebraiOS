@@ -53,7 +53,9 @@ EuclidianControllerI* v;
     // Do any additional setup after loading the view, typically from a nib.
     AppI* app = [[AppI alloc] init];
     //JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/testFiles/LaTeX_GeoGebraWiki.ggb"];
-    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/test3.ggb"];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"test3" ofType:@"ggb"];
+    NSLog(path);
+    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:path];
     NSLog(@"%d",[testFile exists]);
     [app loadFileWithFile:testFile withBool:NO];
     testPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
