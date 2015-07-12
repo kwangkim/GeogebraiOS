@@ -11,6 +11,7 @@
 #import "AffineTransform.h"
 #import "GFontI.h"
 #import "GColorI.h"
+#import "IOSClass.h"
 #import "PathIterator.h"
 #import "MyImageI.h"
 #import "J2ObjC_common.h"
@@ -28,6 +29,7 @@
 #import "AwtFactory.h"
 #import "GGradientPaintI.h"
 #import "GTexturePaintI.h"
+#import "IOSPrimitiveArray.h"
 #import <math.h>
 
 static int counter = 1;
@@ -57,11 +59,11 @@ static int counter = 1;
     _currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
     _bs = [[GBasicStrokeI alloc] init];
     
-    CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
+    //CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
     nativeDashUsed = false;
     _dash_array = nil;
     devicePixelRatio = [[UIScreen mainScreen] scale];
-    basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height);
+    //basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height);
     return self;
 }
 
@@ -199,7 +201,7 @@ static int counter = 1;
     
     // pack it into attributes dictionary
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    (id)sysUIFont, (id)kCTFontAttributeName,
+                                    (__bridge id)sysUIFont, (id)kCTFontAttributeName,
                                     ((GColorI*)_strokeColor).getCGColor, (id)kCTForegroundColorAttributeName,
                                     nil];
     
@@ -214,7 +216,6 @@ static int counter = 1;
     
     // clean up
     CFRelease(line);
-    [stringToDraw release];
     [self configureEnd];
 }
 

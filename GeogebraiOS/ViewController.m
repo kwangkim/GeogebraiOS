@@ -59,8 +59,8 @@ EuclidianControllerI* v;
     NSLog(@"%d",[testFile exists]);
     [app loadFileWithFile:testFile withBool:NO];
     testPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
-    [testPanel setNeedsDisplay];
     [self.view addSubview:testPanel];
+    [testPanel setNeedsDisplay];
     v = (EuclidianControllerI*)[[app getEuclidianView1] getEuclidianController];
 //    for(UIView* view in self.view.subviews){
 //        UITapGestureRecognizer* tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:v action:@selector(onTapGesture:)];

@@ -57,7 +57,7 @@ static NSString* ITALIC_STR = @"italic";
     if([_fontstyle isEqualToString:BOLD_STR]){
         _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Bold"), _fontsize, nil);
     }else if([_fontstyle isEqualToString:ITALIC_STR]){
-         _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Italic"), _fontsize, nil);
+        _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Italic"), _fontsize, nil);
     }else{
         _impl = CTFontCreateWithName(CFSTR("GeogebraSans-Regular"), _fontsize, nil);
     }
@@ -137,5 +137,4 @@ void setFontStyle(GFontI* fontI, int fontStyle)
             break;
     }
 }
-
 

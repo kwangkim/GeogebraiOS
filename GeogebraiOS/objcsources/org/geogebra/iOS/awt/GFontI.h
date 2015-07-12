@@ -12,7 +12,7 @@
 
 @interface GFontI : OrgGeogebraCommonAwtGFont
 {
-    @public
+@public
     BOOL isBold;
     BOOL isItalic;
 }
@@ -24,4 +24,3 @@
 -(id)initWithFontStyle:(NSString*)fontStyle;
 @end
 void setFontStyle(GFontI* fontI, int fontStyle);
-

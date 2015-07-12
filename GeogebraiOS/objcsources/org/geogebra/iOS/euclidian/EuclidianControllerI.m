@@ -11,6 +11,7 @@
 #import "MyDouble.h"
 #import "AppI.h"
 #import "ViewController.h"
+#import "MyEuclidianViewPanel.h"
 
 @implementation EuclidianControllerI
 @synthesize tgc = _tgc;
@@ -38,20 +39,21 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [_tgc onTouchesBegan:touches withEvent:event];
-    [testPanel setNeedsDisplay];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [_tgc onTouchesMoved:touches withEvent:event];
-    [testPanel setNeedsDisplay];
+    [testPanel setNeedsDisplayInRect:tmprect];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [_tgc onTouchesEnded:touches withEvent:event];
-    [testPanel setNeedsDisplay];
+    [testPanel setNeedsDisplayInRect:tmprect];
 }
+
+
 
 
 

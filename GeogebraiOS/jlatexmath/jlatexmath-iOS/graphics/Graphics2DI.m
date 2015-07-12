@@ -129,7 +129,6 @@
     CGContextSetTextPosition(_mCGContext, x, y);
     CTLineDraw(line, _mCGContext);
     CFRelease(line);
-    [stringToDraw release];
     CGContextRestoreGState(_mCGContext);
 }
 -(void)drawArcWithInt:(jint)x withInt:(jint)y withInt:(jint)width withInt:(jint)height withInt:(jint)startAngle withInt:(jint)arcAngle

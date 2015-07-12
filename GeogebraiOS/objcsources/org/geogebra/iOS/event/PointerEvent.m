@@ -93,7 +93,7 @@
 
 -(OrgGeogebraCommonEuclidianEventPointerEventTypeEnum *)getType
 {
-    return OrgGeogebraCommonEuclidianEventPointerEventType_TOUCH;
+    return OrgGeogebraCommonEuclidianEventPointerEventTypeEnum_TOUCH;
 }
 
 -(jboolean)isAltDown

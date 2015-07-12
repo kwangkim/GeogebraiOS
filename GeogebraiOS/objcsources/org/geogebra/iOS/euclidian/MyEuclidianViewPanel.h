@@ -10,7 +10,7 @@
 #import "EuclidianPanelIAbstract.h"
 #import "EuclidianView.h"
 #import <CoreGraphics/CoreGraphics.h>
-
+CGRect tmprect;
 @interface MyEuclidianViewPanel : UIView <EuclidianPanelIAbstract>
 @property(retain) OrgGeogebraCommonEuclidianEuclidianView* ev;
 @property CGContextRef cgcontext;

@@ -20,6 +20,7 @@
 #import "EuclidianViewCompanion.h"
 #import "MyEuclidianViewPanel.h"
 #import "EuclidianControllerI.h"
+#import "IOSPrimitiveArray.h"
 
 @implementation EuclidianViewI
 @synthesize g2p = _g2p, EVPanel = _EVPanel ,bgroundColor = _bgroundColor;
@@ -179,5 +180,10 @@
 +(void)resetDelay
 {
     EuclidianViewI_DELAY_UNTIL_MOVE_FINISH = 150;
+}
+
+-(void)setToolTipTextWithNSString:(NSString *)plainTooltip
+{
+    ;
 }
 @end

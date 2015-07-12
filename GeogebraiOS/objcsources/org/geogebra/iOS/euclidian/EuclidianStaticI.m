@@ -15,6 +15,8 @@
 #import "DrawEquation.h"
 #import "AwtFactory.h"
 #import "GeoText.h"
+#import "GPoint.h"
+#import "EuclidianStatic.h"
 @implementation EuclidianStaticI
 -(id<OrgGeogebraCommonAwtGRectangle>)doDrawMultilineLaTeXWithOrgGeogebraCommonMainApp:(OrgGeogebraCommonMainApp *)app withOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)tempGraphics withOrgGeogebraCommonKernelGeosGeoElement:(OrgGeogebraCommonKernelGeosGeoElement *)geo withOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2 withOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)font withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)fgColor withOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)bgColor withNSString:(NSString *)labelDesc withInt:(jint)xLabel withInt:(jint)yLabel withBoolean:(jboolean)serif
 {
@@ -72,7 +74,7 @@
                 
                 yOffset = ([[lineHeights getWithInt:currentLine] intValue] - [[elementHeights getWithInt:currentElement] intValue])/2;
                 [g2 setFontWithOrgGeogebraCommonAwtGFont:font];
-                xOffset += [[EuclidianStaticI drawIndexedStringWithOrgGeogebraCommonMainApp:app withOrgGeogebraCommonAwtGGraphics2D:g2 withNSString:(NSString*)lines[j] withFloat:xLabel+xOffset withFloat:yLabel+height+yOffset+lineSpread withBoolean:serif withBoolean:YES] x];
+                xOffset += [EuclidianStaticI drawIndexedStringWithOrgGeogebraCommonMainApp:app withOrgGeogebraCommonAwtGGraphics2D:g2 withNSString:(NSString*)lines[j] withFloat:xLabel+xOffset withFloat:yLabel+height+yOffset+lineSpread withBoolean:serif withBoolean:YES]->x_;
                 if(j+1<[lines count]){
                     height+=([[lineHeights getWithInt:currentLine] intValue]);
                     if(xOffset > width){
