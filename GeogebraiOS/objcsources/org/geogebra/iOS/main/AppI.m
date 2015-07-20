@@ -43,6 +43,7 @@ static Boolean isApplet;
 @synthesize fontManager = _fontManager;
 @synthesize drawEquation = _drawEquation;
 @synthesize imageManager = _imageManager;
+@synthesize timers = _timers;
 -(id)init
 {
     self = [super init];
@@ -56,7 +57,7 @@ static Boolean isApplet;
     [self initEuclidianViews];
     initing_ = true;
     myXMLio_ = [[MyXMLioI alloc] initWithOrgGeogebraCommonKernelKernel:kernel_ withOrgGeogebraCommonKernelConstruction:[kernel_ getConstruction]];
-    
+    [self getTimerSystem];
     return self;
 }
 
@@ -385,6 +386,19 @@ static Boolean isApplet;
 -(jboolean)isSelectionRectangleAllowed
 {
     return YES;
+}
+
+-(TimerSystemI *)getTimerSystem
+{
+    if(_timers == nil){
+        _timers = [[TimerSystemI alloc] initWithApp:self];
+    }
+    return _timers;
+}
+
+-(void)ensureTimerRunning
+{
+    [[self getTimerSystem] ensureRunning];
 }
 
 

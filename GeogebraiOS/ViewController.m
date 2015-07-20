@@ -59,17 +59,11 @@ EuclidianControllerI* v;
     NSLog(@"%d",[testFile exists]);
     [app loadFileWithFile:testFile withBool:NO];
     testPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
+    [testPanel setNeedsDisplayInRect:tmprect];
     [self.view addSubview:testPanel];
-    [testPanel setNeedsDisplay];
+
+    [testPanel setMultipleTouchEnabled:YES];
     v = (EuclidianControllerI*)[[app getEuclidianView1] getEuclidianController];
-//    for(UIView* view in self.view.subviews){
-//        UITapGestureRecognizer* tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:v action:@selector(onTapGesture:)];
-//        tapGestureRecognizer.delegate = v;
-//        [view addGestureRecognizer:tapGestureRecognizer];
-//        UIPanGestureRecognizer* panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:v action:@selector(onPanGesture:)];
-//        panGestureRecognizer.delegate = v;
-//        [view addGestureRecognizer:panGestureRecognizer];
-//    }
     
 }
 
@@ -91,6 +85,11 @@ EuclidianControllerI* v;
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [v touchesEnded:touches withEvent:event];
+}
+
+-(void)touchesCancelled:(nullable NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+{
+    [v touchesCancelled:touches withEvent:event];
 }
 
 @end

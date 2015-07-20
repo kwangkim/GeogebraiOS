@@ -12,6 +12,8 @@
 		854CB9C51B4EFAE500BF8DF0 /* test3.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 854CB9C41B4EF90200BF8DF0 /* test3.ggb */; };
 		854CB9C81B4FB3BC00BF8DF0 /* ZeroOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */; };
 		854CB9CB1B4FB84A00BF8DF0 /* CancelEventTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */; };
+		856D3BA81B53723F009DC6A0 /* TimerSystemI.m in Sources */ = {isa = PBXBuildFile; fileRef = 856D3BA71B53723F009DC6A0 /* TimerSystemI.m */; };
+		856D3BAB1B556909009DC6A0 /* MyZoomerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 856D3BAA1B556909009DC6A0 /* MyZoomerI.m */; };
 		858C71391B184939007F12D8 /* GCubicCurve2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71381B184939007F12D8 /* GCubicCurve2DI.m */; };
 		858C713F1B186AC3007F12D8 /* GGraphics2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C713E1B186AC3007F12D8 /* GGraphics2DI.m */; };
 		858C71441B189612007F12D8 /* GPathIteratorI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71431B189612007F12D8 /* GPathIteratorI.m */; };
@@ -4060,6 +4062,10 @@
 		854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroOffset.m; sourceTree = "<group>"; };
 		854CB9C91B4FB84A00BF8DF0 /* CancelEventTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelEventTimer.h; sourceTree = "<group>"; };
 		854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelEventTimer.m; sourceTree = "<group>"; };
+		856D3BA61B53723F009DC6A0 /* TimerSystemI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerSystemI.h; sourceTree = "<group>"; };
+		856D3BA71B53723F009DC6A0 /* TimerSystemI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerSystemI.m; sourceTree = "<group>"; };
+		856D3BA91B556909009DC6A0 /* MyZoomerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyZoomerI.h; sourceTree = "<group>"; };
+		856D3BAA1B556909009DC6A0 /* MyZoomerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyZoomerI.m; sourceTree = "<group>"; };
 		858C71371B184939007F12D8 /* GCubicCurve2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCubicCurve2DI.h; sourceTree = "<group>"; };
 		858C71381B184939007F12D8 /* GCubicCurve2DI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCubicCurve2DI.m; sourceTree = "<group>"; };
 		858C713D1B186AC3007F12D8 /* GGraphics2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGraphics2DI.h; sourceTree = "<group>"; };
@@ -15488,6 +15494,8 @@
 				85B841911B36B68D0062010A /* DrawEquationI.m */,
 				85123A261B4BD2F7005955A4 /* TouchGestureControllerI.h */,
 				85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */,
+				856D3BA91B556909009DC6A0 /* MyZoomerI.h */,
+				856D3BAA1B556909009DC6A0 /* MyZoomerI.m */,
 			);
 			path = euclidian;
 			sourceTree = "<group>";
@@ -15535,6 +15543,8 @@
 				858C71461B19A49D007F12D8 /* MyImageI.m */,
 				85A5909C1B24431800EDA785 /* FontManagerI.h */,
 				85A5909D1B24431800EDA785 /* FontManagerI.m */,
+				856D3BA61B53723F009DC6A0 /* TimerSystemI.h */,
+				856D3BA71B53723F009DC6A0 /* TimerSystemI.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -24879,6 +24889,7 @@
 				85A710281B16123100D8F94C /* Max.m in Sources */,
 				85A710211B16123100D8F94C /* Skewness.m in Sources */,
 				85B841001B36B0050062010A /* FramedBox.m in Sources */,
+				856D3BAB1B556909009DC6A0 /* MyZoomerI.m in Sources */,
 				85A711071B16123100D8F94C /* FacetShapeCalculator.m in Sources */,
 				85A70CBC1B16123100D8F94C /* ScaledNoder.m in Sources */,
 				85A7171C1B16123300D8F94C /* AlgoEnvelope.m in Sources */,
@@ -24947,6 +24958,7 @@
 				85A716D21B16123300D8F94C /* LabelManager.m in Sources */,
 				85A7179A1B16123300D8F94C /* ParseException.m in Sources */,
 				85A716671B16123300D8F94C /* MyNode.m in Sources */,
+				856D3BA81B53723F009DC6A0 /* TimerSystemI.m in Sources */,
 				85A713861B16123200D8F94C /* GAbstractTableModel.m in Sources */,
 				85A719ED1B16123400D8F94C /* Curve.m in Sources */,
 				85A70BFC1B16123000D8F94C /* CentralEndpointIntersector.m in Sources */,

@@ -16,6 +16,9 @@
 #import "GeoPoint.h"
 #import "EuclidianViewI.h"
 #import "AbstractEvent.h"
+#import "GeoElement.h"
+
+
 
 static double SELECTION_RECT_THRESHOLD_SQR = 200.0;
 static double FREEHAND_MODE_THRESHOLD_SQR = 200.0;
@@ -58,11 +61,11 @@ typedef enum{
 }MultitouchMode;
 
 
-
+@class EuclidianControllerI;
 @interface TouchGestureControllerI : NSObject<HasOffsets>{
     long lastMoveEvent;
     double scale;
-    double* midPoint;
+    double midPoint[2];
     double* originalPointX;
     double* originalPointY;
     int oldCenterX, oldCenterY;
@@ -74,16 +77,18 @@ typedef enum{
     int moveCounter;
     BOOL ignoreEvent;
 }
+
 @property(retain) AppI* app;
-@property(retain) OrgGeogebraCommonEuclidianEuclidianController* ec;
+@property(retain) EuclidianControllerI* ec;
 @property(retain) PointerEvent* waitingTouchMove;
-@property(nonatomic, assign) MultitouchMode* multitouchMode;
+@property(nonatomic, assign) MultitouchMode multitouchMode;
 @property(retain) OrgGeogebraCommonKernelGeosGeoConic* scaleConic;
 @property(retain) OrgGeogebraCommonKernelGeosGeoLine* lineToMove;
 @property(retain) OrgGeogebraCommonKernelGeosGeoPoint* firstFingerTouch;
 @property(retain) OrgGeogebraCommonKernelGeosGeoPoint* secondFingerTouch;
 @property(retain) EnvironmentStyleI* style;
 @property(retain) NSMutableArray* touchPool;
+@property NSTimer* repaintTimer;
 
 -(instancetype)initWithApp:(AppI*)app withEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController*)ec;
 -(void)calculateEnvironment;
@@ -94,4 +99,12 @@ typedef enum{
 -(void)moveIfWaiting;
 -(void)onTouchMoveNow:(PointerEvent*)event withTime:(long)time withBool:(BOOL)startCapture;
 -(void)onPointerEventStart:(OrgGeogebraCommonEuclidianEventAbstractEvent*)event;
+-(void)twoTouchMove:(UITouch*)touch1 and:(UITouch*)touch2;
+-(void)twoTouchStart:(UITouch*)touch1 and:(UITouch*)touch2;
+-(void)twoTouchMoveWithX:(double)x1d withY:(double)y1d withX:(double)x2d withY:(double)y2d;
+-(void)twoTouchStartWithX:(double)x1d withY:(double)y1d withX:(double)x2d withY:(double)y2d;
+-(BOOL)setFirstTouchToStartPointWithGeoPoint:(OrgGeogebraCommonKernelGeosGeoPoint*)touch1 withGeoPoint:(OrgGeogebraCommonKernelGeosGeoPoint*)touch2;
+-(BOOL)onlyJitterWithDouble:(double)oldStartX withDouble:(double)oldStartY withDouble:(double)oldEndX withDouble:(double)oldEndY
+                 withDouble:(double)newStartX withDouble:(double)newStartY withDouble:(double)newEndX withDouble:(double)newEndY;
 @end
+BOOL isMovableWithTwoFingers(OrgGeogebraCommonKernelGeosGeoElement* geoElement);

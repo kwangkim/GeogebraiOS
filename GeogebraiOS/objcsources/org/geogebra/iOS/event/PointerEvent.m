@@ -91,7 +91,7 @@
     [[_off getTouchEventPool] addObject:self];
 }
 
--(OrgGeogebraCommonEuclidianEventPointerEventTypeEnum *)getType
+-(OrgGeogebraCommonEuclidianEventPointerEventTypeEnum*)getType
 {
     return OrgGeogebraCommonEuclidianEventPointerEventTypeEnum_TOUCH;
 }

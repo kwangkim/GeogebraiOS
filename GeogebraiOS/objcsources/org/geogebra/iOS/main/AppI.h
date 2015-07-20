@@ -21,6 +21,7 @@
 #import "DrawEquationI.h"
 #import "MyImageI.h"
 #import "ImageManagerI.h"
+#import "TimerSystemI.h"
 @interface AppI : OrgGeogebraCommonMainApp{
 }
 @property(retain) LocalizationI* loc;
@@ -32,6 +33,7 @@
 @property(retain) FontManagerI* fontManager;
 @property(retain) DrawEquationI* drawEquation;
 @property(retain) ImageManagerI* imageManager;
+@property TimerSystemI* timers;
 -(void)loadGgbFileWithNSDictionary:(NSMutableDictionary*)archiveContent;
 -(void)loadFileWithNSDictionary:(NSMutableDictionary*)archiveContent;
 -(MyXMLioI*)getXMLio;
@@ -47,6 +49,7 @@
 -(BOOL)loadXMLWithInputStream:(JavaIoInputStream*)is withBool:(BOOL)isMacroFile;
 -(void)addExternalImageWithFileName:(NSString*)fileNamge withImage:(MyImageI*)image;
 -(void)initFactories;
+-(TimerSystemI*)getTimerSystem;
 //-(void)initFactories{
     
 //}

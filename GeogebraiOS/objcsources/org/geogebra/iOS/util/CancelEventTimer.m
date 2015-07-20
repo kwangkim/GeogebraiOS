@@ -8,22 +8,23 @@
 
 #import "CancelEventTimer.h"
 #import <QuartzCore/QuartzCore.h>
+#import "java/lang/System.h"
 
 @implementation CancelEventTimer
 +(void)touchEventOccured
 {
-    CancelEventTimer_lastTouchEvent = CACurrentMediaTime();
+    CancelEventTimer_lastTouchEvent = JavaLangSystem_currentTimeMillis();
 }
 +(BOOL)cancelMouseEvent
 {
-    return CACurrentMediaTime() - CancelEventTimer_lastTouchEvent < CancelEventTimer_TIME_BETWEEN_TOUCH_AND_MOUSE;
+    return JavaLangSystem_currentTimeMillis() - CancelEventTimer_lastTouchEvent < CancelEventTimer_TIME_BETWEEN_TOUCH_AND_MOUSE;
 }
 +(void)keyboardSetVisible
 {
-    CancelEventTimer_lastKeyboardEvent = CACurrentMediaTime();
+    CancelEventTimer_lastKeyboardEvent = JavaLangSystem_currentTimeMillis();
 }
 +(BOOL)cancelKeyboardHide
 {
-    return CACurrentMediaTime() - CancelEventTimer_lastKeyboardEvent < CancelEventTimer_TIME_BEFORE_HIDING_KEYBOARD;
+    return JavaLangSystem_currentTimeMillis() - CancelEventTimer_lastKeyboardEvent < CancelEventTimer_TIME_BEFORE_HIDING_KEYBOARD;
 }
 @end

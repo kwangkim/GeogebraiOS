@@ -21,6 +21,10 @@
 #import "MyEuclidianViewPanel.h"
 #import "EuclidianControllerI.h"
 #import "IOSPrimitiveArray.h"
+#import "GeoGebraProfiler.h"
+#import "MyZoomerI.h"
+#import "java/lang/System.h"
+#import "ViewController.h"
 
 @implementation EuclidianViewI
 @synthesize g2p = _g2p, EVPanel = _EVPanel ,bgroundColor = _bgroundColor;
@@ -57,6 +61,7 @@
         [self settingsChangedWithOrgGeogebraCommonMainSettingsAbstractSettings:es];
         [es addListenerWithOrgGeogebraCommonMainSettingsSettingListener:self];
     }
+    waitForRepaint = TimerSystemI_SLEEPING_FLAG;
     return self;
 }
 
@@ -99,7 +104,64 @@
 
 -(void)repaint
 {
-    [companion_ paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];
+    if([self getViewID] == OrgGeogebraCommonMainApp_VIEW_TEXT_PREVIEW || [self getViewID] < 0){
+        [self doRepaint];
+        return;
+    }
+    if([euclidianController_ isCollectingRepaints]){
+        [euclidianController_ setCollectedRepaintsWithBoolean:YES];
+        return;
+    }
+    if(waitForRepaint == TimerSystemI_SLEEPING_FLAG){
+        [[self getApplication] ensureTimerRunning];
+        waitForRepaint = TimerSystemI_EUCLIDIAN_LOOPS;
+    }
+    
+    
+    //[companion_ paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];
+}
+
+-(void)doRepaint{
+    [self doRepaint2];
+}
+
+-(void)doRepaint2
+{
+    long time = JavaLangSystem_currentTimeMillis();
+    [self updateBackgroundIfNecessary];
+    [self paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];
+    [[self getEuclidianController] setCollectedRepaintsWithBoolean:NO];
+    lastRepaint = JavaLangSystem_currentTimeMillis() - time;
+    [OrgGeogebraCommonUtilDebugGeoGebraProfiler addRepaintWithLong:lastRepaint];
+}
+
+-(jboolean)suggestRepaint
+{
+    if(waitForRepaint == TimerSystemI_SLEEPING_FLAG){
+        return false;
+    }
+    
+    if(waitForRepaint == TimerSystemI_REPAINT_FLAG){
+        if([self isShowing]){
+            [self doRepaint];
+            [testPanel setNeedsDisplayInRect:tmprect];
+            waitForRepaint = TimerSystemI_SLEEPING_FLAG;
+        }
+        return true;
+    }
+    
+    waitForRepaint--;
+    return true;
+}
+
+-(jboolean)isShowing
+{
+    return _g2p != nil;
+}
+
+-(jlong)getLastRepaintTime
+{
+    return lastRepaint;
 }
 
 - (id<OrgGeogebraCommonEuclidianEuclidianStyleBar>)newEuclidianStyleBar {
@@ -185,5 +247,10 @@
 -(void)setToolTipTextWithNSString:(NSString *)plainTooltip
 {
     ;
+}
+
+-(OrgGeogebraCommonEuclidianMyZoomer *)newZoomer
+{
+    return [[MyZoomerI alloc] initWithEuclidianView:self];
 }
 @end

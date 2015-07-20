@@ -46,6 +46,9 @@
     CGImageRef img = CGBitmapContextCreateImage(_cgcontext);
     
     CGContextDrawImage(UIGraphicsGetCurrentContext(), tmprect, img);
+    //CGFloat ff[4] = {0.5, 0.5, 0.5, 0.5};
+    //CGContextSetFillColor(UIGraphicsGetCurrentContext(), ff);
+    //CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, 200, 200));
     //self.layer.contents = (__bridge id)img;
     CGImageRelease(img);
 }
