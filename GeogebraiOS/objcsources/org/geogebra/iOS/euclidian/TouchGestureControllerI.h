@@ -92,6 +92,10 @@ typedef enum{
 
 -(instancetype)initWithApp:(AppI*)app withEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController*)ec;
 -(void)calculateEnvironment;
+-(float)getEnvWidthScale;
+-(float)getEnvHeightScale;
+-(float)getEnvXoffset;
+-(float)getEnvYoffset;
 -(void)onTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void)onTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void)onTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;

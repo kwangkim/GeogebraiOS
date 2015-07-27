@@ -9,6 +9,7 @@
 #import "AbstractEvent.h"
 #import "GPoint.h"
 #import <UIKit/UIKit.h>
+#import "PointerEventType.h"
 @protocol HasOffsets <NSObject>
 -(NSMutableArray*)getTouchEventPool;
 -(int)touchEventX:(int)clientX;
@@ -25,13 +26,10 @@
 @property(retain) UIView* relativeView;
 @property(retain) OrgGeogebraCommonAwtGPoint* point;
 @property(retain) id<HasOffsets> off;
+@property OrgGeogebraCommonEuclidianEventPointerEventType type;
 -(id)initWithDouble:(double)x withDouble:(double)y withHasOffsets:(id<HasOffsets>)off;
 -(void)setEvID:(int)i;
 -(int)getEvID;
-+(PointerEvent*)wrapEventWithRecognizer:(UIGestureRecognizer*)touch withHasOffsets:(id<HasOffsets>)off;
-+(PointerEvent*)wrapEventWithRecognizer:(UIGestureRecognizer*)touch
-                  withHasOffsets:(id<HasOffsets>)off
-                        withView:(UIView*)relativeView;
 +(PointerEvent*)wrapEventWithTouch:(UITouch*)touch withHasOffsets:(id<HasOffsets>)off;
 +(PointerEvent*)wrapEventWithTouch:(UITouch*)touch
                     withHasOffsets:(id<HasOffsets>)off

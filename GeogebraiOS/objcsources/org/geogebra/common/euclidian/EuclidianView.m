@@ -1201,6 +1201,7 @@ withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:(OrgGeogebraCommonEuclid
   for (OrgGeogebraCommonKernelGeosGeoElement * __strong geo in nil_chk(hitFilling_)) {
     [hits_ addWithId:geo];
   }
+//hitThreshold = 10;
   if ([hits_ getImageCount] == 0) {
     if (IOSBooleanArray_Get(nil_chk(showAxes_), 0) && (JavaLangMath_absWithDouble_(OrgGeogebraCommonEuclidianEuclidianView_getYAxisCrossingPixel(self) - ((OrgGeogebraCommonAwtGPoint *) nil_chk(p))->y_) < hitThreshold)) {
       if (!IOSBooleanArray_Get(nil_chk(positiveAxes_), 0) || (OrgGeogebraCommonEuclidianEuclidianView_getXAxisCrossingPixel(self) < p->x_ - hitThreshold)) {

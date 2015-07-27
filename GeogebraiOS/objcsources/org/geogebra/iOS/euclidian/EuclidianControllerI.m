@@ -69,7 +69,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self setModeWithInt:OrgGeogebraCommonEuclidianEuclidianConstants_MODE_MOVE];
-    NSLog(@"began touches conut: %d",[touches count]);
+    //NSLog(@"began touches conut: %d",[touches count]);
     [_tgc onTouchesBegan:touches withEvent:event];
 }
 
@@ -87,7 +87,7 @@
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [_tgc onTouchesCancelled:touches withEvent:event];
-    NSLog(@"cancel touches conut: %d",[touches count]);
+    //NSLog(@"cancel touches conut: %d",[touches count]);
 }
 
 -(void)switchModeForMousePressedWithOrgGeogebraCommonEuclidianEventAbstractEvent:(OrgGeogebraCommonEuclidianEventAbstractEvent *)e

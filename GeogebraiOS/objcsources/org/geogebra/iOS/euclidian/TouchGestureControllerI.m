@@ -61,21 +61,26 @@
         return;
     }
     _style = [[EnvironmentStyleI alloc] init];
+//    [_style setWidthScaleWithFloat:[self getEnvWidthScale]];
+//    [_style setHeightScaleWithFloat:[self getEnvHeightScale]];
+//    [_style setxOffsetWithInt:[self getEnvXoffset]];
+//    [_style setyOffsetWithInt:[self getEnvYoffset]];
+//    [_style setScaleXWithFloat:1];
+//    [_style setScaleYWithFloat:1];
     
 }
-
 
 -(void)onTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch* touch = [touches anyObject];
-    if([touches count] == 1){
+    if([[event allTouches] count] == 1){
         PointerEvent* et = [PointerEvent wrapEventWithTouch:touch withHasOffsets:self];
         if([_ec getMode]== OrgGeogebraCommonEuclidianEuclidianConstants_MODE_MOVE){
             ;
         }
         [self onPointerEventStart:et];
-    }else if([touches count] == 2){
-        NSEnumerator* en = [touches objectEnumerator];
+    }else if([[event allTouches] count] == 2){
+        NSEnumerator* en = [[event allTouches] objectEnumerator];
         [self twoTouchStart:(UITouch*)[en nextObject] and:(UITouch*)[en nextObject]];
     }else{
         ;
@@ -151,13 +156,17 @@
     [self moveIfWaiting];
     [EuclidianViewI resetDelay];
     //longtouchmanager canceltimer;
-    NSLog(@"end touches count: %d",[touches count]);
-    if([touches count] == 1 && !ignoreEvent){
+    //NSLog(@"end touches count: %d",[touches count]);
+    //NSLog(@"event alltouches count: %d",[[event allTouches] count]);
+    if([[event allTouches] count] == 1 && !ignoreEvent){
         if(ZeroOffset_instance == nil){
             ZeroOffset_instance = [[ZeroOffset alloc] init];
         }
         [_ec wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:[[PointerEvent alloc] initWithDouble:_ec->mouseLoc_->x_ withDouble:_ec->mouseLoc_->y_ withHasOffsets:ZeroOffset_instance]];
-    }else{
+    }else if([[event allTouches] count] == 2 ){
+        //NSEnumerator* en = [touches objectEnumerator];
+        //[_ec wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:[PointerEvent wrapEventWithTouch:(UITouch*)[en nextObject] withHasOffsets:self]];
+        //[_ec wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:[PointerEvent wrapEventWithTouch:(UITouch*)[en nextObject] withHasOffsets:self]];
         ignoreEvent = YES;
     }
     [CancelEventTimer touchEventOccured];
@@ -166,7 +175,7 @@
 
 -(void)onTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    ignoreEvent = YES;
+    //ignoreEvent = YES;
 }
 
 -(int)getEvID
@@ -364,7 +373,7 @@
     return fabs(oldStartX - newStartX) < capThreshold
         && fabs(oldStartY - newStartY) < capThreshold
         && fabs(oldEndX - newStartY) < capThreshold
-        && fabs(oldEndY - newEndY <capThreshold);
+        && fabs(oldEndY - newEndY) < capThreshold;
 }
 
 -(void)twoTouchStartWithX:(double)x1d withY:(double)y1d withX:(double)x2d withY:(double)y2d
@@ -374,7 +383,7 @@
     int y1 = (int)y1d;
     int x2 = (int)x2d;
     int y2 = (int)y2d;
-    [_ec->view_ setHitsWithOrgGeogebraCommonAwtGPoint:[[OrgGeogebraCommonAwtGPoint alloc] initWithInt:x1 withInt:y1] withInt:OrgGeogebraCommonEuclidianEventPointerEventType_TOUCH];
+    [_ec->view_ setHitsWithOrgGeogebraCommonAwtGPoint:[[OrgGeogebraCommonAwtGPoint alloc] initWithInt:x1 withInt:y1] withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:OrgGeogebraCommonEuclidianEventPointerEventTypeEnum_TOUCH];
     OrgGeogebraCommonEuclidianHits* hits1 = [[OrgGeogebraCommonEuclidianHits alloc] init];
     OrgGeogebraCommonKernelGeosGeoElement* p;
     id<JavaUtilIterator> it = [[_ec->view_ getHits] iterator];
@@ -382,10 +391,10 @@
         p = (OrgGeogebraCommonKernelGeosGeoElement*)[it next];
         [hits1 addWithId:p];
     }
-    [_ec->view_ setHitsWithOrgGeogebraCommonAwtGPoint:[[OrgGeogebraCommonAwtGPoint alloc] initWithInt:x2 withInt:y2] withInt:OrgGeogebraCommonEuclidianEventPointerEventType_TOUCH];
+    [_ec->view_ setHitsWithOrgGeogebraCommonAwtGPoint:[[OrgGeogebraCommonAwtGPoint alloc] initWithInt:x2 withInt:y2] withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:OrgGeogebraCommonEuclidianEventPointerEventTypeEnum_TOUCH];
     OrgGeogebraCommonEuclidianHits* hits2 = [_ec->view_ getHits];
-    oldCenterX = (x1+y1)/2;
-    oldCenterY = (x2+y2)/2;
+    oldCenterX = (x1+x2)/2;
+    oldCenterY = (y1+y2)/2;
     if([hits1 hasYAxis] && [hits2 hasYAxis]){
         _multitouchMode  = zoomY;
         _ec->oldDistance_ = y1 - y2;
@@ -448,7 +457,7 @@
             _firstFingerTouch = touch2;
             _secondFingerTouch = touch1;
         }
-        [_ec twoTouchMoveCommonWithDouble:x1 withDouble:y1 withDouble:x2 withDouble:y2];
+        [_ec twoTouchStartCommonWithDouble:x1 withDouble:y1 withDouble:x2 withDouble:y2];
     }else{
         [_ec clearSelections];
         _multitouchMode = view;

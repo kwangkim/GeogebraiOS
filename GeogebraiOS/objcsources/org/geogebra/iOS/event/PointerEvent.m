@@ -13,6 +13,7 @@
 @synthesize point = _point;
 @synthesize off = _off;
 @synthesize relativeView = _relativeView;
+@synthesize type = _type;
 -(instancetype)init
 {
     clickCount = 1;
@@ -54,23 +55,6 @@
     evID = i;
 }
 
-+(PointerEvent*)wrapEventWithRecognizer:(UIGestureRecognizer*)touch withHasOffsets:(id<HasOffsets>)off
-{
-    //UITouch* touch = [event.allTouches anyObject];
-    CGPoint p = [touch locationInView:nil];
-    return wrapEvent(p.x, p.y, off, [off getTouchEventPool]);
-}
-
-+(PointerEvent*)wrapEventWithRecognizer:(UIGestureRecognizer*)touch
-                  withHasOffsets:(id<HasOffsets>)off
-                        withView:(UIView *)relativeView
-{
-    //UITouch* touch = [event.allTouches anyObject];
-    CGPoint p = [touch locationInView:relativeView];
-    PointerEvent* pointerEvent = wrapEvent(p.x, p.y, off, [off getTouchEventPool]);
-    [pointerEvent setRelativeView:relativeView];
-    return pointerEvent;
-}
 
 +(PointerEvent*)wrapEventWithTouch:(UITouch *)touch withHasOffsets:(id<HasOffsets>)off
 {
@@ -140,6 +124,7 @@ PointerEvent* wrapEvent(int x, int y, id<HasOffsets> h, NSMutableArray* pool)
     if([pool count] != 0){
         PointerEvent* wrap = (PointerEvent*)[pool lastObject];
         [wrap setPoint:[[OrgGeogebraCommonAwtGPoint alloc] initWithInt:x withInt:y]];
+        [wrap setType:OrgGeogebraCommonEuclidianEventPointerEventType_TOUCH];
         [wrap setEvID:[h getEvID]];
         [pool removeLastObject];
         return wrap;
