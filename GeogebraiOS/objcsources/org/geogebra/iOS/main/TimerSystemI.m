@@ -16,7 +16,7 @@
 {
     _app = app;
     idle = 0;
-    _repaintTimer = [NSTimer scheduledTimerWithTimeInterval:TimerSystemI_MAIN_LOOP_DELAY target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
+    _repaintTimer = [NSTimer scheduledTimerWithTimeInterval:TimerSystemI_MAIN_LOOP_DELAY*0.001 target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
     return self;
 }
 
@@ -40,7 +40,7 @@
 -(void)ensureRunning
 {
     if(_repaintTimer == nil){
-        _repaintTimer = [NSTimer scheduledTimerWithTimeInterval:TimerSystemI_MAIN_LOOP_DELAY target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
+        _repaintTimer = [NSTimer scheduledTimerWithTimeInterval:TimerSystemI_MAIN_LOOP_DELAY*0.001 target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
     }
 }
 

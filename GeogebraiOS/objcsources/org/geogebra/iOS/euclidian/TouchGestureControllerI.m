@@ -277,7 +277,7 @@
                 double newX = midPoint[0] + (originalPointX[i] - midPoint[0]) * scale;
                 double newY = midPoint[1] + (originalPointY[i] - midPoint[1]) * scale;
                 [p setCoordsWithDouble:newX withDouble:newY withDouble:1];
-                [p updateCoords];
+                [p updateCascade];
                 i++;
             }
             [_ec->kernel_ notifyRepaint];
@@ -290,7 +290,7 @@
             double newX = midPoint[0] + (originalPointX[1] - midPoint[0]) * scale;
             double newY = midPoint[1] + (originalPointY[1] - midPoint[1]) * scale;
             [p setCoordsWithDouble:newX withDouble:newY withDouble:1];
-            [p updateCoords];
+            [p updateCascade];
             [_ec->kernel_ notifyRepaint];
             break;
         }
@@ -337,8 +337,8 @@
             [[_lineToMove getStartPoint] setCoordsWithDouble:newStartX withDouble:newStartY withDouble:1];
             [[_lineToMove getEndPoint] setCoordsWithDouble:newEndX withDouble:newEndY withDouble:1];
             
-            [[_lineToMove getStartPoint] updateCoords];
-            [[_lineToMove getEndPoint] updateCoords];
+            [[_lineToMove getStartPoint] updateCascade];
+            [[_lineToMove getEndPoint] updateCascade];
             
             [_ec->kernel_ notifyUpdateWithOrgGeogebraCommonKernelGeosGeoElement:[_lineToMove getStartPoint]];
             [_ec->kernel_ notifyUpdateWithOrgGeogebraCommonKernelGeosGeoElement:[_lineToMove getEndPoint]];
@@ -395,6 +395,13 @@
     OrgGeogebraCommonEuclidianHits* hits2 = [_ec->view_ getHits];
     oldCenterX = (x1+x2)/2;
     oldCenterY = (y1+y2)/2;
+    if([hits1 size] > 0
+       && [hits2 size] > 0)
+    NSLog(@"%d %d %d %d %d",[hits1 size] > 0
+          , [hits2 size] > 0
+          , [hits1 getWithInt:0] == [hits2 getWithInt:0]
+          , [[hits1 getWithInt:0] isKindOfClass:[OrgGeogebraCommonKernelGeosGeoConic class]]
+          , [(OrgGeogebraCommonKernelGeosGeoConic*)[hits1 getWithInt:0] isClosedPath]);
     if([hits1 hasYAxis] && [hits2 hasYAxis]){
         _multitouchMode  = zoomY;
         _ec->oldDistance_ = y1 - y2;
@@ -405,10 +412,10 @@
         scale = [_ec->view_ getXscale];
     }else if([hits1 size] > 0
              && [hits2 size] > 0
-             && [hits1 getHitsWithInt:0] == [hits2 getHitsWithInt:0]
-             && [[hits1 getHitsWithInt:0] isKindOfClass:[OrgGeogebraCommonKernelGeosGeoConic class]]
+             && [hits1 getWithInt:0] == [hits2 getWithInt:0]
+             && [[hits1 getWithInt:0] isKindOfClass:[OrgGeogebraCommonKernelGeosGeoConic class]]
              && [(OrgGeogebraCommonKernelGeosGeoConic*)[hits1 getWithInt:0] isClosedPath]){
-        _scaleConic = (OrgGeogebraCommonKernelGeosGeoConic*)[hits1 getHitsWithInt:0];
+        _scaleConic = (OrgGeogebraCommonKernelGeosGeoConic*)[hits1 getWithInt:0];
         
         if([_scaleConic getFreeInputPointsWithOrgGeogebraCommonEuclidianEuclidianViewInterfaceSlim:_ec->view_] == nil
            && [_scaleConic isCircle]){
@@ -442,8 +449,8 @@
         }
     }else if([hits1 size] > 0
              && [hits2 size] > 0
-             && [hits1 getHitsWithInt:0] == [hits2 getHitsWithInt:0]
-             && [[hits1 getHitsWithInt:0] isKindOfClass:[OrgGeogebraCommonKernelGeosGeoLine class]]
+             && [hits1 getWithInt:0] == [hits2 getWithInt:0]
+             && [[hits1 getWithInt:0] isKindOfClass:[OrgGeogebraCommonKernelGeosGeoLine class]]
              && isMovableWithTwoFingers([hits1 getWithInt:0])){
         _multitouchMode = moveLine;
         _lineToMove = (OrgGeogebraCommonKernelGeosGeoLine*)[hits1 getWithInt:0];

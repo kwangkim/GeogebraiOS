@@ -130,6 +130,7 @@
     long time = JavaLangSystem_currentTimeMillis();
     [self updateBackgroundIfNecessary];
     [self paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];
+    [testPanel setNeedsDisplayInRect:tmprect];
     [[self getEuclidianController] setCollectedRepaintsWithBoolean:NO];
     lastRepaint = JavaLangSystem_currentTimeMillis() - time;
     [OrgGeogebraCommonUtilDebugGeoGebraProfiler addRepaintWithLong:lastRepaint];
@@ -144,7 +145,6 @@
     if(waitForRepaint == TimerSystemI_REPAINT_FLAG){
         if([self isShowing]){
             [self doRepaint];
-            [testPanel setNeedsDisplayInRect:tmprect];
             waitForRepaint = TimerSystemI_SLEEPING_FLAG;
         }
         return true;

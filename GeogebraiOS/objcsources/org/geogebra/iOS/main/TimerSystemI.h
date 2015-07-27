@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "App.h"
-static int TimerSystemI_MAIN_LOOP_DELAY = 0.016;
+static int TimerSystemI_MAIN_LOOP_DELAY = 16;
 
 static int TimerSystemI_EUCLIDIAN_LOOPS = 1;
 
