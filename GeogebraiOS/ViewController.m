@@ -87,9 +87,5 @@ EuclidianControllerI* v;
     [v touchesEnded:touches withEvent:event];
 }
 
--(void)touchesCancelled:(nullable NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
-{
-    [v touchesCancelled:touches withEvent:event];
-}
 
 @end

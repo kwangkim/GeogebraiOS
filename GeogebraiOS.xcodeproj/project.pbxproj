@@ -4012,6 +4012,7 @@
 		85D1EF7A1B0C82AC007E3BC6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D1EF791B0C82AC007E3BC6 /* libicucore.dylib */; };
 		85D1EF7C1B0C82B7007E3BC6 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D1EF7B1B0C82B7007E3BC6 /* libz.1.2.5.dylib */; };
 		85D1EF7E1B0C82BE007E3BC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D1EF7D1B0C82BD007E3BC6 /* Security.framework */; };
+		85E538901B6D24300001B537 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E5388F1B6D24300001B537 /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -11924,6 +11925,7 @@
 		85D1EF791B0C82AC007E3BC6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		85D1EF7B1B0C82B7007E3BC6 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		85D1EF7D1B0C82BD007E3BC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		85E5388F1B6D24300001B537 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -11931,6 +11933,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E538901B6D24300001B537 /* OpenGLES.framework in Frameworks */,
 				85A591171B2FD3E500EDA785 /* ImageIO.framework in Frameworks */,
 				85D1EF7E1B0C82BE007E3BC6 /* Security.framework in Frameworks */,
 				85D1EF7C1B0C82B7007E3BC6 /* libz.1.2.5.dylib in Frameworks */,
@@ -22273,6 +22276,7 @@
 		85D1C4621B0C815C007E3BC6 = {
 			isa = PBXGroup;
 			children = (
+				85E5388F1B6D24300001B537 /* OpenGLES.framework */,
 				85A591161B2FD3E500EDA785 /* ImageIO.framework */,
 				858C71511B1C9DAB007F12D8 /* GeoGebra-Logo.png */,
 				85D1EF7D1B0C82BD007E3BC6 /* Security.framework */,

@@ -20,7 +20,7 @@ static const int EuclidianViewI_DELAY_BETWEEN_MOVE_EVENTS = 30;
 
 @interface EuclidianViewI : OrgGeogebraCommonEuclidianEuclidianView{
     int waitForRepaint;
-    long lastRepaint;
+    long long lastRepaint;
 }
 @property(retain) GGraphics2DI* g2p;
 @property(retain) GGraphics2DI* g2dtmp;

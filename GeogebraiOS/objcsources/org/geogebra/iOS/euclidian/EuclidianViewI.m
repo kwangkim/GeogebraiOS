@@ -127,10 +127,12 @@
 
 -(void)doRepaint2
 {
-    long time = JavaLangSystem_currentTimeMillis();
+    long long time = JavaLangSystem_currentTimeMillis();
     [self updateBackgroundIfNecessary];
     [self paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];
-    [testPanel setNeedsDisplayInRect:tmprect];
+    //[testPanel setNeedsDisplayInRect:tmprect];
+    //[testPanel.layer setNeedsDisplayInRect:tmprect];
+    [testPanel updateUI];
     [[self getEuclidianController] setCollectedRepaintsWithBoolean:NO];
     lastRepaint = JavaLangSystem_currentTimeMillis() - time;
     [OrgGeogebraCommonUtilDebugGeoGebraProfiler addRepaintWithLong:lastRepaint];
@@ -248,6 +250,7 @@
 {
     ;
 }
+
 
 -(OrgGeogebraCommonEuclidianMyZoomer *)newZoomer
 {

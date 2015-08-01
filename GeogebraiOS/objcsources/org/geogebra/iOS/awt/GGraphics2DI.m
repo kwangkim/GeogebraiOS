@@ -63,6 +63,7 @@ static int counter = 1;
     nativeDashUsed = false;
     _dash_array = nil;
     devicePixelRatio = [[UIScreen mainScreen] scale];
+    NSLog(@"devicePixelRatio : %d",devicePixelRatio);
     //basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height);
     return self;
 }
@@ -651,5 +652,6 @@ static int counter = 1;
 {
     ;
 }
+
 
 @end

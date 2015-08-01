@@ -21,37 +21,95 @@
     
     CGSize size = CGSizeMake(sizeRect.size.width, sizeRect.size.height);
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    
+    int devicePixelRatio = [[UIScreen mainScreen] scale];
     _cgcontext = CGBitmapContextCreate(NULL,
-                                                 size.width, size.height,
-                                                 8, size.width * 4, colorSpace,
+                                                 size.width * devicePixelRatio, size.height * devicePixelRatio,
+                                                 8, 0, colorSpace,
                                                  kCGImageAlphaPremultipliedFirst);
     CGContextSetInterpolationQuality(_cgcontext, kCGInterpolationNone);
     
-    //CGContextTranslateCTM(_cgcontext, 0, sizeRect.size.height);
-    //CGContextScaleCTM(_cgcontext, 1, -1);
+    CGContextTranslateCTM(_cgcontext, 0, sizeRect.size.height*devicePixelRatio);
+    CGContextScaleCTM(_cgcontext, devicePixelRatio, -devicePixelRatio);
     CGContextSetTextMatrix(_cgcontext, CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height));
     CGColorSpaceRelease(colorSpace);
     self.layer.drawsAsynchronously = YES;
     self.layer.shouldRasterize = YES;
+    self.layer.contentsScale = devicePixelRatio;
     
     return self;
 }
 
--(void)drawRect:(CGRect)rect
+
+
+- (UIImage *)drawSomeImage
 {
-    //UIImage* img = [[UIImage alloc] ];
-    //UIGraphicsBeginImageContext([img size]);
-    //NSLog(@"rect: x:%lf y:%lf width:%lf height:%lf", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
     CGImageRef img = CGBitmapContextCreateImage(_cgcontext);
-    
-    CGContextDrawImage(UIGraphicsGetCurrentContext(), tmprect, img);
-    //CGFloat ff[4] = {0.5, 0.5, 0.5, 0.5};
-    //CGContextSetFillColor(UIGraphicsGetCurrentContext(), ff);
-    //CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, 200, 200));
-    //self.layer.contents = (__bridge id)img;
+    //[self setImage:[[UIImage alloc] initWithCGImage:img]];
+    UIImage* uiimg = [[UIImage alloc] initWithCGImage:img];
+    //self.image = [[UIImage alloc] initWithCGImage:img];
     CGImageRelease(img);
+    return uiimg;
+
 }
+
+- (void)updateUI
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // prepare image on background thread
+        
+        __imageBuffer = [self drawSomeImage];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // calling drawRect with prepared image
+            
+            [self setNeedsDisplayInRect:self.bounds];
+            
+        });
+    });
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    // draw image buffer on current context
+    
+    [__imageBuffer drawInRect:self.bounds];
+    //[self setImage:__imageBuffer];
+}
+
+
+//-(void)drawRect:(CGRect)rect
+//{
+    //UIGraphicsPopContext();
+    //UIGraphicsPushContext(_cgcontext);
+//    CGImageRef img = CGBitmapContextCreateImage(_cgcontext);
+    //[self setImage:[[UIImage alloc] initWithCGImage:img]];
+ //   CGContextDrawImage(UIGraphicsGetCurrentContext(), tmprect, img);
+    //self.image = [[UIImage alloc] initWithCGImage:img];
+ //   CGImageRelease(img);
+//}
+
+//-(void)testFunction
+//{
+//    CGImageRef img = CGBitmapContextCreateImage(_cgcontext);
+    //[self setImage:[[UIImage alloc] initWithCGImage:img]];
+    //CGContextDrawImage(UIGraphicsGetCurrentContext(), tmprect, img);
+//    self.image = [[UIImage alloc] initWithCGImage:img];
+//    CGImageRelease(img);
+//}
+
+//-(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
+//{
+    //CGImageRef img = CGBitmapContextCreateImage(_cgcontext);
+    //[self setImage:[[UIImage alloc] initWithCGImage:img]];
+    //CGContextDrawImage(ctx, tmprect, img);
+    //self.image = [[UIImage alloc] initWithCGImage:img];
+    //CGImageRelease(img);
+    //UIGraphicsPopContext();
+    //layer = self.layer;
+    //ctx = _cgcontext;
+
+//}
 
 -(CGContextRef)getContext
 {

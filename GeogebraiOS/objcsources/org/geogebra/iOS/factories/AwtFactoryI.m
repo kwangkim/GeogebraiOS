@@ -39,6 +39,8 @@
 #import "GGradientPaintI.h"
 #import "GBufferedImageI.h"
 #import "GTexturePaintI.h"
+#import "GCubicCurve2D.h"
+#import "GCubicCurve2DI.h"
 
 @implementation AwtFactoryI
 -(id)init
@@ -166,6 +168,11 @@
 -(id<OrgGeogebraCommonAwtGQuadCurve2D>)newQuadCurve2D
 {
     return [[OrgGeogebraGgbjdkJavaAwtGeomQuadCurve2D_Double alloc] init];
+}
+
+-(id<OrgGeogebraCommonAwtGCubicCurve2D>)newCubicCurve2D
+{
+    return [[GCubicCurve2DI alloc] init];
 }
 
 -(id<OrgGeogebraCommonAwtGArea>)newArea
