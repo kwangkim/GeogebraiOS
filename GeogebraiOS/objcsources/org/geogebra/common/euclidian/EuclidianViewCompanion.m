@@ -197,6 +197,7 @@
 
 - (void)paintWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2 {
   [((OrgGeogebraCommonEuclidianEuclidianView *) nil_chk(view_)) setDefRenderingHintsWithOrgGeogebraCommonAwtGGraphics2D:g2];
+
   [view_ paintTheBackgroundWithOrgGeogebraCommonAwtGGraphics2D:g2];
   if (view_->antiAliasing_) {
     [view_ setAntialiasingWithOrgGeogebraCommonAwtGGraphics2D:g2];
@@ -217,6 +218,7 @@
   if ([((OrgGeogebraCommonKernelKernel *) nil_chk(view_->kernel_)) needToShowAnimationButton]) {
     [view_ drawAnimationButtonsWithOrgGeogebraCommonAwtGGraphics2D:g2];
   }
+    
 }
 
 - (void)attachView {

@@ -118,6 +118,7 @@
 
 @interface OrgGeogebraCommonEuclidianEuclidianView () {
  @public
+    dispatch_queue_t backgroundRenderQueue;
   jdouble xZeroOld_, yZeroOld_;
   jint mode_;
   OrgGeogebraCommonAwtGColor *axesColor_, *gridColor_;
@@ -1999,7 +2000,7 @@ withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:(OrgGeogebraCommonEuclid
 }
 
 - (void)paintTheBackgroundWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2 {
-  if (bgImage_ == nil) {
+    if (bgImage_ == nil) {
     if (firstPaint_) {
       if (([self getWidth] > 1) && ([self getHeight] > 1) && (!reIniting_)) {
         [self updateSizeKeepDrawables];
@@ -2015,7 +2016,7 @@ withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:(OrgGeogebraCommonEuclid
     }
   }
   else {
-    [self paintBackgroundWithOrgGeogebraCommonAwtGGraphics2D:g2];
+        [self paintBackgroundWithOrgGeogebraCommonAwtGGraphics2D:g2];
   }
 }
 

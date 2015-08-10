@@ -7,16 +7,44 @@
 //
 
 #import "AppDelegate.h"
+#import "GGBFile.h"
+#import "GGBFileViewController.h"
+#import "AppI.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+{
+    NSMutableArray* _files;
+    //AppI* app;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _files = [NSMutableArray arrayWithCapacity:10];
+    [_files addObject:[[GGBFile alloc] initWithName:@"ConditionToShowObject"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"Conic_FilledCircles"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"Conic_Transformations"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"Conic5"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"ConicPart"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"3P_bug_material-176941"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"A=B"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"Angles"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"arpadListJoin"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"BoxPlot"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"Buttons"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"ciclos_rueda_noLocus"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"ClosestPoint"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"CompoundFunctions"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"test3"]];
+    UINavigationController *navigationController = (UINavigationController*) self.window.rootViewController;
+    GGBFileViewController* ggbFileViewController = [navigationController viewControllers][0];
+    ggbFileViewController.files = _files;
+    //app = [[AppI alloc] init];
+    
+    
     return YES;
 }
 

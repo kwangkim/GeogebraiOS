@@ -31,9 +31,12 @@
 #import "GTexturePaintI.h"
 #import "IOSPrimitiveArray.h"
 #import <math.h>
+#import "ViewController.h"
 
 static int counter = 1;
-
+double CurrentTime = 0;
+//UIImageView* testUIImageView;
+//UIImage* testUIImage;
 @implementation GGraphics2DI
 @synthesize strokeColor = _strokeColor;
 @synthesize fillColor = _fillColor;
@@ -44,8 +47,7 @@ static int counter = 1;
 @synthesize currentTransform = _currentTransform;
 @synthesize clipShape = _clipShape;
 @synthesize dash_array = _dash_array;
-
-//struct CGAffineTransform basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, [UIScreen mainScreen].bounds.size.height);
+@synthesize bgImage = _bgImage;
 
 -(id)initWithContext:(CGContextRef)c
 {
@@ -59,12 +61,11 @@ static int counter = 1;
     _currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
     _bs = [[GBasicStrokeI alloc] init];
     
-    //CGRect sizeRect = [UIScreen mainScreen].applicationFrame;
+    _canvas = [UIScreen mainScreen].applicationFrame;
     nativeDashUsed = false;
     _dash_array = nil;
     devicePixelRatio = [[UIScreen mainScreen] scale];
     NSLog(@"devicePixelRatio : %d",devicePixelRatio);
-    //basicTransform = CGAffineTransformMake(1, 0, 0, -1, 0, sizeRect.size.height);
     return self;
 }
 
@@ -110,16 +111,20 @@ static int counter = 1;
 -(void)drawStraightLineWithDouble:(jdouble)x1 withDouble:(jdouble)y1 withDouble:(jdouble)x2 withDouble:(jdouble)y2
 {
     [self configureStart];
+    
     CGContextBeginPath(_context);
     CGContextMoveToPoint(_context, x1, y1);
     CGContextAddLineToPoint(_context, x2, y2);
     CGContextStrokePath(_context);
+
     [self configureEnd];
 }
 
 -(void)drawWithOrgGeogebraCommonAwtGShape:(id<OrgGeogebraCommonAwtGShape>)s
 {
     [self configureStart];
+
+    
     CGContextBeginPath(self.context);
     if([s isKindOfClass:[OrgGeogebraCommonEuclidianGeneralPathClipped class]]){
         [self doDrawShapeWithShape: (NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)[(OrgGeogebraCommonEuclidianGeneralPathClipped*)s getGeneralPath] withBoolean:true];
@@ -127,6 +132,7 @@ static int counter = 1;
         [self doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)s withBoolean:true];
     }
     CGContextStrokePath(self.context);
+
     [self configureEnd];
 }
 
@@ -187,8 +193,8 @@ static int counter = 1;
 
 -(void)drawStringWithNSString:(NSString *)str withInt:(jint)x withInt:(jint)y
 {
-    [self configureStart];
-    
+    //[self configureStart];
+   
     CTFontRef sysUIFont = [_currentFont impl];
     
     // create a naked string
@@ -200,7 +206,7 @@ static int counter = 1;
     // single underline
     NSNumber *underline = [NSNumber numberWithInt:kCTNaturalTextAlignment];
     
-    // pack it into attributes dictionary
+
     NSDictionary *attributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                     (__bridge id)sysUIFont, (id)kCTFontAttributeName,
                                     ((GColorI*)_strokeColor).getCGColor, (id)kCTForegroundColorAttributeName,
@@ -209,15 +215,16 @@ static int counter = 1;
     // make the attributed string
     NSAttributedString *stringToDraw = [[NSAttributedString alloc] initWithString:string
                                                                        attributes:attributesDict];
-    //[stringToDraw addAttribute:(id)kCT value:(id)kCTFontItalicTrait range:NSMakeRange(0, [string length])];
+
     
     CTLineRef line = CTLineCreateWithAttributedString((CFAttributedStringRef)stringToDraw);
+
     CGContextSetTextPosition(_context, x, y);
     CTLineDraw(line, _context);
-    
-    // clean up
+
     CFRelease(line);
-    [self configureEnd];
+
+    //[self configureEnd];
 }
 
 -(void)drawStringWithNSString:(NSString *)str withFloat:(jfloat)x withFloat:(jfloat)y
@@ -393,8 +400,13 @@ static int counter = 1;
 -(void)fillRectWithInt:(jint)i withInt:(jint)j withInt:(jint)k withInt:(jint)l
 {
     [self configureStart];
-    CGContextSetFillColorWithColor(self.context, ((GColorI*)self.fillColor).getCGColor);
-    CGContextFillRect(self.context, CGRectMake(i, j, k, l));
+    double lasttime = CACurrentMediaTime() - CurrentTime;
+    NSLog(@"%lf",lasttime);
+    
+    CGContextFillRect(_context, CGRectMake(i, j, k, l));
+    //CGContextSetFillColorWithColor(self.context, ((GColorI*)self.fillColor).getCGColor);
+    CurrentTime = CACurrentMediaTime();
+    
     [self configureEnd];
 
 }
@@ -504,26 +516,49 @@ static int counter = 1;
 -(void)drawGraphicsWithG2D:(GGraphics2DI*)gother withInt:(int)x withInt:(int)y
 {
     if(gother){
-        [self configureStart];
-        [gother.image drawAtPoint:CGPointMake(x, y)];
-        [self configureEnd];
+        //[self configureStart];
+        CGImageRef img = CGBitmapContextCreateImage([gother context]);
+
+        CGContextDrawImage(_context, CGRectMake(x, y, [gother getWidth], [gother getHeight]), img);
+        CGImageRelease(img);
+        //CGContextDrawLayerAtPoint(_context, CGPointMake(x, y), layer);
+        //CGLayerRelease(layer);
+        
+        //[self configureEnd];
     }
+}
+
+-(void)drawLayerWithLayer:(CGLayerRef)layer withX:(int)x withInt:(int)y
+{
+    CGContextDrawLayerAtPoint(_context, CGPointMake(x, y), layer);
+    //CGContextFillRect(_context, tmprect);
 }
 
 -(void)fillWith:(OrgGeogebraCommonAwtGColor *)color
 {
     self.fillColor = (GColorI*)color;
-    [self fillRectWithInt:0 withInt:0 withInt:CGBitmapContextGetWidth(self.context) withInt:CGBitmapContextGetHeight(self.context)];
+    [self fillRectWithInt:0 withInt:0 withInt:tmprect.size.width withInt:tmprect.size.height];
 }
 
 -(double)getWidth
 {
+    return _canvas.size.width;
+    //UIImage* tmp = UIGraphicsGetImageFromCurrentImageContext();
+    //int w = tmp.size.width;
+    //if(w >= 0) return w;
     return CGBitmapContextGetWidth(self.context);
+    ////CGBitmapContextGetWidth(self.context);
 }
 
 -(double)getHeight
 {
+    return _canvas.size.height;
+
+    //UIImage* tmp = UIGraphicsGetImageFromCurrentImageContext();
+    //int w = tmp.size.height;
+    //if(w >= 0) return w;
     return CGBitmapContextGetHeight(self.context);
+    //return CGBitmapContextGetHeight(self.context);
 }
 
 -(OrgGeogebraCommonAwtGFontRenderContext*)getFontRenderContext
@@ -593,7 +628,9 @@ static int counter = 1;
         }
     }else{
         //CGContextDrawPath(self.context, kCGPathFillStroke);
+
         CGContextFillPath(self.context);
+
     }
     [self configureEnd];
 }

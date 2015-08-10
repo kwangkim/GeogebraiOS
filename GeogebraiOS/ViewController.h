@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "MyEuclidianViewPanel.h"
+#import "EuclidianControllerI.h"
+#import "java/io/File.h"
+#import "GGBFile.h"
+#import "AppI.h"
 MyEuclidianViewPanel* testPanel;
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController{
+    @public
+    EuclidianControllerI* v;
+    GGBFile* file;
+    AppI* app;
+}
 
 @end
 

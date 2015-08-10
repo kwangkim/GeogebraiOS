@@ -12,24 +12,28 @@
 @implementation GBufferedImageI
 @synthesize img = _img;
 @synthesize cgContext = _cgContext;
+@synthesize bufferdLayer = _bufferdLayer;
 -(id)initWithContext:(CGContextRef)context withWidth:(int)w withHeight:(int)h withBOOL:(BOOL)opa
 {
     width = w;
     height = h;
     opaque = opa;
-    if(context){
-        _cgContext = context;
-    }else{
+    //if(context){
+    //    _cgContext = context;
+    //}else{
+    int scale = [[UIScreen mainScreen] scale];
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        _cgContext = CGBitmapContextCreate(NULL,
-                                           width, height,
-                                           8, width * 4, colorSpace,
-                                        kCGImageAlphaPremultipliedFirst);
-        CGContextTranslateCTM(_cgContext, 0, h);
-        CGContextScaleCTM(_cgContext, 1, -1);
-        _img = CGBitmapContextCreateImage(_cgContext);
+    //_cgContext = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpace, kCGImageAlphaPremultipliedFirst);
+    _bufferdLayer = CGLayerCreateWithContext(context, CGSizeMake(width, height), nil) ;
+    
+    _cgContext = CGLayerGetContext(_bufferdLayer);
+    //CGContextSetInterpolationQuality(_cgContext, kCGInterpolationNone);
+        //CGContextScaleCTM(_cgContext, scale, scale);
+    //CGContextSetTextMatrix(_cgContext, CGAffineTransformMake(1, 0, 0, -1, 0, h));
+
         CGColorSpaceRelease(colorSpace);
-    }
+
+    //}
     return self;
 }
 
@@ -45,12 +49,12 @@
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     _cgContext = CGBitmapContextCreate(NULL,
                                        width, height,
-                                       8, width * 4, colorSpace,
+                                       8, 0, colorSpace,
                                        kCGImageAlphaPremultipliedFirst);
+    CGContextSetInterpolationQuality(_cgContext, kCGInterpolationNone);
     CGColorSpaceRelease(colorSpace);
     CGContextTranslateCTM(_cgContext, 0, height);
     CGContextScaleCTM(_cgContext, 1, -1);
-    CGContextDrawImage(_cgContext, CGRectMake(0, 0, width, height), cgImage);
     _img = CGBitmapContextCreateImage(_cgContext);
     return self;
 }
@@ -63,7 +67,7 @@
 
 -(id<OrgGeogebraCommonAwtGGraphics2D>)createGraphics
 {
-    return [[GGraphics2DI alloc] initWithContext:_cgContext];
+    return nil;//[[GGraphics2DI alloc] initWithContext:_cgContext withFrame:<#(CGRect)#>];
 }
 
 @end

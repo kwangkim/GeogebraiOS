@@ -115,7 +115,7 @@ static Boolean isApplet;
 
 -(OrgGeogebraCommonEuclidianEuclidianView*) newEuclidianViewWithBooleanArray:(IOSBooleanArray*)showAxes1 withBoolean:(jboolean)showGrid1
 {
-    return [[EuclidianViewI alloc] initWithOrgGeogebraCommonEuclidianEuclidianController:euclidianController_ withBooleanArray:showAxes1 withBoolean:showGrid1  withInt:1 withOrgGeogebraCommonMainSettingsEuclidianSettings:[[self getSettings] getEuclidianWithInt:1] withEVPanel:self.euclidianViewPanel];
+   return [[EuclidianViewI alloc] initWithOrgGeogebraCommonEuclidianEuclidianController:euclidianController_ withBooleanArray:showAxes1 withBoolean:showGrid1  withInt:1 withOrgGeogebraCommonMainSettingsEuclidianSettings:[[self getSettings] getEuclidianWithInt:1] withEVPanel:self.euclidianViewPanel];
 }
 
 -(OrgGeogebraCommonAwtGFont*)getPlainFontCommon

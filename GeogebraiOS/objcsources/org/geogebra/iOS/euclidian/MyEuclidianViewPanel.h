@@ -11,12 +11,14 @@
 #import "EuclidianView.h"
 #import <CoreGraphics/CoreGraphics.h>
 CGRect tmprect;
-@interface MyEuclidianViewPanel : UIView <EuclidianPanelIAbstract>{
+@interface MyEuclidianViewPanel : UIImageView <EuclidianPanelIAbstract>{
     __block UIImage *__imageBuffer;
 }
 @property(retain) OrgGeogebraCommonEuclidianEuclidianView* ev;
 @property CGContextRef cgcontext;
 @property CGSize mySize;
+@property CGLayerRef bgLayer;
+@property UIImage* testImg;
 -(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView*)ev;
 -(UIImage*)getImage;
 -(void)testFunction;

@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		85123A281B4BD2F7005955A4 /* TouchGestureControllerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */; };
 		85123A2D1B4BD591005955A4 /* EnvironmentStyleI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85123A2C1B4BD591005955A4 /* EnvironmentStyleI.m */; };
+		8514EF4B1B7332390048748B /* GGBFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8514EF4A1B7332390048748B /* GGBFileViewController.m */; };
+		8514EF4E1B73332B0048748B /* GGBFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8514EF4D1B73332B0048748B /* GGBFile.m */; };
+		8514EF541B7336F10048748B /* ConditionToShowObject.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF4F1B7336C00048748B /* ConditionToShowObject.ggb */; };
+		8514EF551B7336F10048748B /* Conic_FilledCircles.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF501B7336C00048748B /* Conic_FilledCircles.ggb */; };
+		8514EF561B7336F10048748B /* Conic_Transformations.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF511B7336C00048748B /* Conic_Transformations.ggb */; };
+		8514EF571B7336F10048748B /* Conic5.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF521B7336C00048748B /* Conic5.ggb */; };
+		8514EF581B7336F10048748B /* ConicPart.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF531B7336C00048748B /* ConicPart.ggb */; };
+		8514EF621B7388450048748B /* 3P_bug_material-176941.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF591B7388360048748B /* 3P_bug_material-176941.ggb */; };
+		8514EF631B7388450048748B /* A=B.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF5A1B7388360048748B /* A=B.ggb */; };
+		8514EF641B7388450048748B /* Angles.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF5B1B7388360048748B /* Angles.ggb */; };
+		8514EF651B7388450048748B /* arpadListJoin.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF5C1B7388360048748B /* arpadListJoin.ggb */; };
+		8514EF661B7388450048748B /* BoxPlot.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF5D1B7388360048748B /* BoxPlot.ggb */; };
+		8514EF671B7388450048748B /* Buttons.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF5E1B7388360048748B /* Buttons.ggb */; };
+		8514EF681B7388450048748B /* ciclos_rueda_noLocus.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF5F1B7388360048748B /* ciclos_rueda_noLocus.ggb */; };
+		8514EF691B7388450048748B /* ClosestPoint.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF601B7388360048748B /* ClosestPoint.ggb */; };
+		8514EF6A1B7388450048748B /* CompoundFunctions.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF611B7388360048748B /* CompoundFunctions.ggb */; };
 		854CB9C51B4EFAE500BF8DF0 /* test3.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 854CB9C41B4EF90200BF8DF0 /* test3.ggb */; };
 		854CB9C81B4FB3BC00BF8DF0 /* ZeroOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */; };
 		854CB9CB1B4FB84A00BF8DF0 /* CancelEventTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */; };
@@ -4012,7 +4028,6 @@
 		85D1EF7A1B0C82AC007E3BC6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D1EF791B0C82AC007E3BC6 /* libicucore.dylib */; };
 		85D1EF7C1B0C82B7007E3BC6 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D1EF7B1B0C82B7007E3BC6 /* libz.1.2.5.dylib */; };
 		85D1EF7E1B0C82BE007E3BC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D1EF7D1B0C82BD007E3BC6 /* Security.framework */; };
-		85E538901B6D24300001B537 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E5388F1B6D24300001B537 /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -4058,6 +4073,24 @@
 		85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchGestureControllerI.m; sourceTree = "<group>"; };
 		85123A2B1B4BD591005955A4 /* EnvironmentStyleI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentStyleI.h; sourceTree = "<group>"; };
 		85123A2C1B4BD591005955A4 /* EnvironmentStyleI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentStyleI.m; sourceTree = "<group>"; };
+		8514EF491B7332390048748B /* GGBFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBFileViewController.h; sourceTree = "<group>"; };
+		8514EF4A1B7332390048748B /* GGBFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBFileViewController.m; sourceTree = "<group>"; };
+		8514EF4C1B73332B0048748B /* GGBFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBFile.h; sourceTree = "<group>"; };
+		8514EF4D1B73332B0048748B /* GGBFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBFile.m; sourceTree = "<group>"; };
+		8514EF4F1B7336C00048748B /* ConditionToShowObject.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; name = ConditionToShowObject.ggb; path = ../jlatexmath/ConditionToShowObject.ggb; sourceTree = "<group>"; };
+		8514EF501B7336C00048748B /* Conic_FilledCircles.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; name = Conic_FilledCircles.ggb; path = ../jlatexmath/Conic_FilledCircles.ggb; sourceTree = "<group>"; };
+		8514EF511B7336C00048748B /* Conic_Transformations.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; name = Conic_Transformations.ggb; path = ../jlatexmath/Conic_Transformations.ggb; sourceTree = "<group>"; };
+		8514EF521B7336C00048748B /* Conic5.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; name = Conic5.ggb; path = ../jlatexmath/Conic5.ggb; sourceTree = "<group>"; };
+		8514EF531B7336C00048748B /* ConicPart.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; name = ConicPart.ggb; path = ../jlatexmath/ConicPart.ggb; sourceTree = "<group>"; };
+		8514EF591B7388360048748B /* 3P_bug_material-176941.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = "3P_bug_material-176941.ggb"; sourceTree = "<group>"; };
+		8514EF5A1B7388360048748B /* A=B.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A=B.ggb"; sourceTree = "<group>"; };
+		8514EF5B1B7388360048748B /* Angles.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = Angles.ggb; sourceTree = "<group>"; };
+		8514EF5C1B7388360048748B /* arpadListJoin.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = arpadListJoin.ggb; sourceTree = "<group>"; };
+		8514EF5D1B7388360048748B /* BoxPlot.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = BoxPlot.ggb; sourceTree = "<group>"; };
+		8514EF5E1B7388360048748B /* Buttons.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = Buttons.ggb; sourceTree = "<group>"; };
+		8514EF5F1B7388360048748B /* ciclos_rueda_noLocus.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = ciclos_rueda_noLocus.ggb; sourceTree = "<group>"; };
+		8514EF601B7388360048748B /* ClosestPoint.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = ClosestPoint.ggb; sourceTree = "<group>"; };
+		8514EF611B7388360048748B /* CompoundFunctions.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = CompoundFunctions.ggb; sourceTree = "<group>"; };
 		854CB9C41B4EF90200BF8DF0 /* test3.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.ggb; sourceTree = SOURCE_ROOT; };
 		854CB9C61B4FB3BC00BF8DF0 /* ZeroOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroOffset.h; sourceTree = "<group>"; };
 		854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroOffset.m; sourceTree = "<group>"; };
@@ -11925,7 +11958,6 @@
 		85D1EF791B0C82AC007E3BC6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		85D1EF7B1B0C82B7007E3BC6 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		85D1EF7D1B0C82BD007E3BC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		85E5388F1B6D24300001B537 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -11933,7 +11965,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E538901B6D24300001B537 /* OpenGLES.framework in Frameworks */,
 				85A591171B2FD3E500EDA785 /* ImageIO.framework in Frameworks */,
 				85D1EF7E1B0C82BE007E3BC6 /* Security.framework in Frameworks */,
 				85D1EF7C1B0C82B7007E3BC6 /* libz.1.2.5.dylib in Frameworks */,
@@ -11954,6 +11985,20 @@
 		858C71561B1CBD12007F12D8 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				8514EF591B7388360048748B /* 3P_bug_material-176941.ggb */,
+				8514EF5A1B7388360048748B /* A=B.ggb */,
+				8514EF5B1B7388360048748B /* Angles.ggb */,
+				8514EF5C1B7388360048748B /* arpadListJoin.ggb */,
+				8514EF5D1B7388360048748B /* BoxPlot.ggb */,
+				8514EF5E1B7388360048748B /* Buttons.ggb */,
+				8514EF5F1B7388360048748B /* ciclos_rueda_noLocus.ggb */,
+				8514EF601B7388360048748B /* ClosestPoint.ggb */,
+				8514EF611B7388360048748B /* CompoundFunctions.ggb */,
+				8514EF4F1B7336C00048748B /* ConditionToShowObject.ggb */,
+				8514EF501B7336C00048748B /* Conic_FilledCircles.ggb */,
+				8514EF511B7336C00048748B /* Conic_Transformations.ggb */,
+				8514EF521B7336C00048748B /* Conic5.ggb */,
+				8514EF531B7336C00048748B /* ConicPart.ggb */,
 				854CB9C41B4EF90200BF8DF0 /* test3.ggb */,
 				858C71571B1CBD12007F12D8 /* font */,
 			);
@@ -22276,7 +22321,6 @@
 		85D1C4621B0C815C007E3BC6 = {
 			isa = PBXGroup;
 			children = (
-				85E5388F1B6D24300001B537 /* OpenGLES.framework */,
 				85A591161B2FD3E500EDA785 /* ImageIO.framework */,
 				858C71511B1C9DAB007F12D8 /* GeoGebra-Logo.png */,
 				85D1EF7D1B0C82BD007E3BC6 /* Security.framework */,
@@ -22308,6 +22352,10 @@
 				85D1C4731B0C815C007E3BC6 /* AppDelegate.m */,
 				85D1C4751B0C815C007E3BC6 /* ViewController.h */,
 				85D1C4761B0C815C007E3BC6 /* ViewController.m */,
+				8514EF4C1B73332B0048748B /* GGBFile.h */,
+				8514EF4D1B73332B0048748B /* GGBFile.m */,
+				8514EF491B7332390048748B /* GGBFileViewController.h */,
+				8514EF4A1B7332390048748B /* GGBFileViewController.m */,
 				85D1C4781B0C815C007E3BC6 /* Main.storyboard */,
 				85D1C47B1B0C815C007E3BC6 /* Images.xcassets */,
 				85D1C47D1B0C815C007E3BC6 /* LaunchScreen.xib */,
@@ -22425,6 +22473,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8514EF621B7388450048748B /* 3P_bug_material-176941.ggb in Resources */,
+				8514EF631B7388450048748B /* A=B.ggb in Resources */,
+				8514EF641B7388450048748B /* Angles.ggb in Resources */,
+				8514EF651B7388450048748B /* arpadListJoin.ggb in Resources */,
+				8514EF661B7388450048748B /* BoxPlot.ggb in Resources */,
+				8514EF671B7388450048748B /* Buttons.ggb in Resources */,
+				8514EF681B7388450048748B /* ciclos_rueda_noLocus.ggb in Resources */,
+				8514EF691B7388450048748B /* ClosestPoint.ggb in Resources */,
+				8514EF6A1B7388450048748B /* CompoundFunctions.ggb in Resources */,
+				8514EF541B7336F10048748B /* ConditionToShowObject.ggb in Resources */,
+				8514EF551B7336F10048748B /* Conic_FilledCircles.ggb in Resources */,
+				8514EF561B7336F10048748B /* Conic_Transformations.ggb in Resources */,
+				8514EF571B7336F10048748B /* Conic5.ggb in Resources */,
+				8514EF581B7336F10048748B /* ConicPart.ggb in Resources */,
 				854CB9C51B4EFAE500BF8DF0 /* test3.ggb in Resources */,
 				85B840671B36B0050062010A /* jlm_jlmsbi10.xml in Resources */,
 				85B8409C1B36B0050062010A /* jlm_fcsbpg.ttf in Resources */,
@@ -23156,6 +23218,7 @@
 				85A7149B1B16123200D8F94C /* AlgoIntersectLineConicRegion.m in Sources */,
 				85A715341B16123200D8F94C /* AlgoUnitOrthoVectorLine.m in Sources */,
 				85A711D91B16123100D8F94C /* AlgoEllipseFociLength3D.m in Sources */,
+				8514EF4B1B7332390048748B /* GGBFileViewController.m in Sources */,
 				85A70BF71B16123000D8F94C /* MatchResult.m in Sources */,
 				85A710651B16123100D8F94C /* GArea.m in Sources */,
 				85A715F71B16123300D8F94C /* CmdLCM.m in Sources */,
@@ -25639,6 +25702,7 @@
 				85A70C5B1B16123100D8F94C /* PointExtracter.m in Sources */,
 				85A718F11B16123400D8F94C /* CmdRandomUniform.m in Sources */,
 				85A70E341B16123100D8F94C /* UnmodifiableListIterator.m in Sources */,
+				8514EF4E1B73332B0048748B /* GGBFile.m in Sources */,
 				85A718751B16123300D8F94C /* AlgoRandomPoisson.m in Sources */,
 				85A70D4E1B16123100D8F94C /* TriadicCensus.m in Sources */,
 				85A70DA21B16123100D8F94C /* TreeUtils.m in Sources */,

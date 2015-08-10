@@ -26,13 +26,15 @@ static const int EuclidianViewI_DELAY_BETWEEN_MOVE_EVENTS = 30;
 @property(retain) GGraphics2DI* g2dtmp;
 @property(retain) NSObject<EuclidianPanelIAbstract>* EVPanel;
 @property(nonatomic, retain) OrgGeogebraCommonAwtGColor* bgroundColor;
+@property NSTimer* repaintScheduler;
 //@property(retain) AppI* app;
 
 -(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(IOSBooleanArray*)showAxes withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings withEVPanel:(NSObject<EuclidianPanelIAbstract>*) evPanel;
 -(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(IOSBooleanArray*)showAxes withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings;
 +(void)resetDelay;
 -(void)doRepaint;
--(void)doRepaint2;
+-(void)doRepaint2:(NSTimer*)timer;
+-(void)createImage;
 //-(void)initBaseComponentsWithPanel:(EuclidianSimplePanelI*)euclidianViewPanel withEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController*)ec withInt:(int)evNo;
 //- (void)initViewWithBoolean:(jboolean)repaint;
 @end

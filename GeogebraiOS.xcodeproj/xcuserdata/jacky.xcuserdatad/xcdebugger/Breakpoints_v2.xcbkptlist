@@ -34,11 +34,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/ViewController.m"
-            timestampString = "458278681.056411"
+            timestampString = "460568366.545016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -50,11 +50,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/ViewController.m"
-            timestampString = "458625847.468907"
+            timestampString = "460568366.545016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -129,13 +129,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/ViewController.m"
-            timestampString = "458160623.988899"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
+            timestampString = "460540473.101494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-doRepaint2:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -146,27 +146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
-            timestampString = "459681646.33351"
+            timestampString = "460540473.101494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-doRepaint2"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
-            timestampString = "458632154.030817"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-repaint"
             landmarkType = "5">
          </BreakpointContent>
@@ -194,11 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
-            timestampString = "460115843.59424"
+            timestampString = "460540473.101494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-suggestRepaint"
             landmarkType = "5">
          </BreakpointContent>
@@ -258,11 +242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459447445.138257"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-moveIfWaiting"
             landmarkType = "5">
          </BreakpointContent>
@@ -274,11 +258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459418267.322008"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-onTouchesMoved:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -290,11 +274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459447445.138257"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "-onTouchMoveNow:withTime:withBool:"
             landmarkType = "5">
          </BreakpointContent>
@@ -306,11 +290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459418267.322008"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-twoTouchMove:and:"
             landmarkType = "5">
          </BreakpointContent>
@@ -354,11 +338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459418267.322008"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-twoTouchStart:and:"
             landmarkType = "5">
          </BreakpointContent>
@@ -450,11 +434,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/ViewController.m"
-            timestampString = "458627044.280875"
+            timestampString = "460568366.545016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -466,11 +450,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
-            timestampString = "460019203.520355"
+            timestampString = "460533892.731272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-drawWithOrgGeogebraCommonAwtGShape:"
             landmarkType = "5">
          </BreakpointContent>
@@ -498,11 +482,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459447445.138257"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "-twoTouchMoveWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -514,11 +498,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459447445.138257"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-twoTouchMoveWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -530,11 +514,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459447445.138257"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "-twoTouchStartWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -578,11 +562,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459447445.138257"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "-onTouchesEnded:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -594,11 +578,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459418267.322008"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-onTouchesEnded:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -642,11 +626,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459418267.322008"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-onTouchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -674,11 +658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677162.821283"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "-twoTouchStartWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -690,11 +674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/EuclidianView.m"
-            timestampString = "459672427.54748"
+            timestampString = "460371586.257457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1195"
-            endingLineNumber = "1195"
+            startingLineNumber = "1196"
+            endingLineNumber = "1196"
             landmarkName = "-setHitsWithOrgGeogebraCommonAwtGPoint:withInt:"
             landmarkType = "5">
             <Locations>
@@ -738,11 +722,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/EuclidianView.m"
-            timestampString = "459672626.340629"
+            timestampString = "460371586.257457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1177"
-            endingLineNumber = "1177"
+            startingLineNumber = "1178"
+            endingLineNumber = "1178"
             landmarkName = "-setHitsWithOrgGeogebraCommonAwtGPoint:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -754,11 +738,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/EuclidianView.m"
-            timestampString = "459673828.351326"
+            timestampString = "460371586.257457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1205"
-            endingLineNumber = "1205"
+            startingLineNumber = "1206"
+            endingLineNumber = "1206"
             landmarkName = "-setHitsWithOrgGeogebraCommonAwtGPoint:withInt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -770,7 +754,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/EuclidianView.m"
-            timestampString = "459675611.79245"
+            timestampString = "460371586.257457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1212"
+            endingLineNumber = "1212"
+            landmarkName = "-setHitsWithOrgGeogebraCommonAwtGPoint:withInt:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/EuclidianView.m"
+            timestampString = "460371586.257457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1211"
@@ -785,28 +785,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/EuclidianView.m"
-            timestampString = "459675611.79245"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1210"
-            endingLineNumber = "1210"
-            landmarkName = "-setHitsWithOrgGeogebraCommonAwtGPoint:withInt:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677162.821283"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-twoTouchStartWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -818,11 +802,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677162.821283"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "-twoTouchStartWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -834,23 +818,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677162.821283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
-            landmarkName = "-twoTouchStartWithX:withY:withX:withY:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677258.488401"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "401"
@@ -862,15 +830,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677704.135622"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "429"
-            endingLineNumber = "429"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
             landmarkName = "-twoTouchStartWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -882,28 +850,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677887.277877"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-twoTouchMoveWithX:withY:withX:withY:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459677917.619083"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "-twoTouchMoveWithX:withY:withX:withY:"
+            startingLineNumber = "430"
+            endingLineNumber = "430"
+            landmarkName = "-twoTouchStartWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -914,11 +866,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
-            timestampString = "459680093.733607"
+            timestampString = "460551019.051075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "-twoTouchMoveWithX:withY:withX:withY:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
+            timestampString = "460551019.051075"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "-twoTouchMoveWithX:withY:withX:withY:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
+            timestampString = "460551019.051075"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "-twoTouchMoveWithX:withY:withX:withY:"
             landmarkType = "5">
          </BreakpointContent>
@@ -930,107 +914,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "460129524.23305"
+            timestampString = "460541438.996544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "@implementation MyEuclidianViewPanel"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "460129524.23305"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "@implementation MyEuclidianViewPanel"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "460129524.23305"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "@implementation MyEuclidianViewPanel"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "460114396.370771"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-initWithEuclidianView:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "460129588.372901"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-drawRect:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "460129591.643982"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-updateUI"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
-            timestampString = "460129685.927441"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-updateUI"
             landmarkType = "5">
             <Locations>
@@ -1065,6 +953,438 @@
                   offsetFromSymbolStart = "30">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
+            timestampString = "460551019.051075"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-onTouchesMoved:withEvent:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
+            timestampString = "460551019.051075"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-onTouchesMoved:withEvent:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
+            timestampString = "460540473.101494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-doRepaint"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
+            timestampString = "460540473.101494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "-createImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
+            timestampString = "460258490.031945"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-initWithContext:withWidth:withHeight:withBOOL:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
+            timestampString = "460373421.084255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-getSubimageWithInt:withInt:withInt:withInt:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
+            timestampString = "460540473.101494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-paintBackgroundWithOrgGeogebraCommonAwtGGraphics2D:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/ImageI.m"
+            timestampString = "460259850.05095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-initWithWidth:withHeight:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
+            timestampString = "460373421.084255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-initWithContext:withWidth:withHeight:withBOOL:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
+            timestampString = "460373421.084255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-initWithCGImage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GBufferedImageI.m"
+            timestampString = "460373421.084255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "createImageWithSectionOfBitmapContext()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/jlatexmath/jlatexmath-iOS/graphics/ImageI.m"
+            timestampString = "460261714.29284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-getImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
+            timestampString = "460541438.996544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-drawSomeImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
+            timestampString = "460541438.996544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-getEuclidianPanel"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
+            timestampString = "460541438.996544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-getImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/kernel/Kernel.m"
+            timestampString = "460310095.722785"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2036"
+            endingLineNumber = "2036"
+            landmarkName = "-notifySuggestRepaint"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
+            timestampString = "460533892.731272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "-fillRectWithInt:withInt:withInt:withInt:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
+            timestampString = "460533892.731272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "-fillRectWithInt:withInt:withInt:withInt:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/awt/GGraphics2DI.m"
+            timestampString = "460533892.731272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "520"
+            endingLineNumber = "520"
+            landmarkName = "-drawGraphicsWithG2D:withInt:withInt:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/EuclidianViewCompanion.m"
+            timestampString = "460393330.246534"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-paintWithOrgGeogebraCommonAwtGGraphics2D:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/DrawableList.m"
+            timestampString = "460393458.169393"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-drawAllWithOrgGeogebraCommonAwtGGraphics2D:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/common/euclidian/draw/DrawPoint.m"
+            timestampString = "460393862.376727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
+            landmarkName = "OrgGeogebraCommonEuclidianDrawDrawPoint_update()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/AppDelegate.m"
+            timestampString = "460568366.545016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/ViewController.m"
+            timestampString = "460568366.545016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
+            timestampString = "460540473.101494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-doRepaint2:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/MyEuclidianViewPanel.m"
+            timestampString = "460541438.996544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-initWithEuclidianView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/TouchGestureControllerI.m"
+            timestampString = "460551074.971977"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-touchEventY:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

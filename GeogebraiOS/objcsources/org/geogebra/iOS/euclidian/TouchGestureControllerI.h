@@ -19,7 +19,7 @@
 #import "GeoElement.h"
 
 
-
+double topBarOffset;
 static double SELECTION_RECT_THRESHOLD_SQR = 200.0;
 static double FREEHAND_MODE_THRESHOLD_SQR = 200.0;
 static int MIN_MOVE = 5;

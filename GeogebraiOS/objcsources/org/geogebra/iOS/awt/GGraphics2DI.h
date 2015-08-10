@@ -39,7 +39,7 @@
 @property(retain) OrgGeogebraCommonAwtGColor* strokeColor;
 @property(retain) OrgGeogebraCommonAwtGColor* fillColor;
 @property(retain) GBasicStrokeI* bs;
-@property(retain) UIImage* image;
+@property(retain) UIImage* bgImage;
 @property CGRect canvas;
 @property NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>* clipShape;
 -(id)initWithContext:(CGContextRef)c;
@@ -56,6 +56,7 @@
 -(void)fillWith:(OrgGeogebraCommonAwtGColor*)color;
 -(double)getWidth;
 -(double)getHeight;
+-(void)drawLayerWithLayer:(CGLayerRef)layer withX:(int)x withInt:(int)y;
 //-(void)setColorWithColor:(OrgGeogebraCommonAwtGColor*)color;
 -(void)setCoordinateSpaceSizeWithInt:(int)width withInt:(int)height;
 @end

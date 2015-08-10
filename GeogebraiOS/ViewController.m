@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "AppI.h"
 #import "AlgebraProcessor.h"
 #import "Kernel.h"
 #import "Construction.h"
@@ -19,7 +18,6 @@
 #import "org/geogebra/ggbjdk/java/awt/geom/Polygon.h"
 #import "org/geogebra/ggbjdk/java/awt/geom/Rectangle.h"
 #import "GBasicStrokeI.h"
-#import "java/io/File.h"
 #import "MyEuclidianViewPanel.h"
 #import "EuclidianViewI.h"
 #import "StringUtil.h"
@@ -35,34 +33,28 @@
 #import "TeXConstants.h"
 #import "Insets.h"
 #import "ColorUtil.h"
-#import "EuclidianControllerI.h"
+#import "TouchGestureControllerI.h"
 
 @interface ViewController ()
 
 @end
 
-EuclidianControllerI* v;
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     OrgScilabForgeJlatexmathPlatformFactoryProvider_set_INSTANCE_([[FactoryProvideriOS alloc] init]);
     
     // Do any additional setup after loading the view, typically from a nib.
-    AppI* app = [[AppI alloc] init];
-    //JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:@"/Users/jacky/GSoC/GeogebraiOS/testFiles/LaTeX_GeoGebraWiki.ggb"];
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"test3" ofType:@"ggb"];
-    NSLog(path);
-    JavaIoFile* testFile = [[JavaIoFile alloc] initWithNSString:path];
-    NSLog(@"%d",[testFile exists]);
-    [app loadFileWithFile:testFile withBool:NO];
-    testPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
-    [testPanel setNeedsDisplayInRect:tmprect];
-    [self.view addSubview:testPanel];
-
-    [testPanel setMultipleTouchEnabled:YES];
+    topBarOffset = 80;
+    [app loadFileWithFile:file->javaFile withBool:NO];
+    MyEuclidianViewPanel* evPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
+    
+    [(EuclidianViewI*)[app getEuclidianView1] doRepaint];
+    [self.view addSubview:evPanel];
+    [self.view setMultipleTouchEnabled:YES];
+    [evPanel setMultipleTouchEnabled:YES];
     v = (EuclidianControllerI*)[[app getEuclidianView1] getEuclidianController];
     
 }

@@ -25,10 +25,13 @@
 #import "MyZoomerI.h"
 #import "java/lang/System.h"
 #import "ViewController.h"
+#import "GBufferedImageI.h"
+#import "MyEuclidianViewPanel.h"
 
 @implementation EuclidianViewI
 @synthesize g2p = _g2p, EVPanel = _EVPanel ,bgroundColor = _bgroundColor;
 @synthesize g2dtmp = _g2dtmp;
+@synthesize repaintScheduler = _repaintScheduler;
 -(id)initWithOrgGeogebraCommonEuclidianEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController *)ec withBooleanArray:(IOSBooleanArray*)showAxes  withBoolean:(bool)showGrid withInt:(jint)viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:(OrgGeogebraCommonMainSettingsEuclidianSettings *)settings withEVPanel:(NSObject<EuclidianPanelIAbstract>*) evPanel
 {
     self = [super initWithOrgGeogebraCommonEuclidianEuclidianController:ec withInt:viewNo withOrgGeogebraCommonMainSettingsEuclidianSettings:settings];
@@ -75,7 +78,9 @@
 -(void)paintBackgroundWithOrgGeogebraCommonAwtGGraphics2D:(id<OrgGeogebraCommonAwtGGraphics2D>)g2
 {
     if([self isGridOrAxesShown]||[self hasBackgroundImages]||self->tracing_ ||[app_ showResetIcon]||[kernel_ needToShowAnimationButton]){
-        [(GGraphics2DI*)g2 drawGraphicsWithG2D:(GGraphics2DI*) bgGraphics_ withInt:0 withInt:0];
+        [(GGraphics2DI*)g2 drawLayerWithLayer:[(GBufferedImageI*)bgImage_ bufferdLayer] withX:0 withInt:0];
+        //[(GGraphics2DI*)g2 drawGraphicsWithG2D:(GGraphics2DI*) bgGraphics_ withInt:0 withInt:0];
+
     }else{
         [(GGraphics2DI*)g2 fillWith:self.bgroundColor];
     }
@@ -122,20 +127,33 @@
 }
 
 -(void)doRepaint{
-    [self doRepaint2];
+    if(_repaintScheduler == nil){
+        _repaintScheduler = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(doRepaint2:) userInfo:nil repeats:NO];
+    }
+    //[self doRepaint2:nil];
 }
 
--(void)doRepaint2
-{
+-(void)doRepaint2:(NSTimer*)timer{
+    //dispatch_group_t d_group = dispatch_group_create();
+    ///dispatch_queue_t backgroundRenderQueue = dispatch_queue_create("backgroundRenderQueue",DISPATCH_QUEUE_SERIAL);
     long long time = JavaLangSystem_currentTimeMillis();
+    //dispatch_async(backgroundRenderQueue, ^{
+    UIGraphicsBeginImageContextWithOptions([_g2p canvas].size, NO, 0);
+    CGContextSetTextMatrix(UIGraphicsGetCurrentContext(), CGAffineTransformMake(1, 0, 0, -1, 0, [_g2p canvas].size.height));
+    [(GGraphics2DI*)_g2p setContext:UIGraphicsGetCurrentContext()];
     [self updateBackgroundIfNecessary];
     [self paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];
-    //[testPanel setNeedsDisplayInRect:tmprect];
-    //[testPanel.layer setNeedsDisplayInRect:tmprect];
-    [testPanel updateUI];
+
+    [(MyEuclidianViewPanel*)_EVPanel setTestImg:UIGraphicsGetImageFromCurrentImageContext()];
+    
+    UIGraphicsEndImageContext();
+    //});
+    [(MyEuclidianViewPanel*)_EVPanel updateUI];
     [[self getEuclidianController] setCollectedRepaintsWithBoolean:NO];
     lastRepaint = JavaLangSystem_currentTimeMillis() - time;
+    //NSLog(@"%d",lastRepaint);
     [OrgGeogebraCommonUtilDebugGeoGebraProfiler addRepaintWithLong:lastRepaint];
+    _repaintScheduler = nil;
 }
 
 -(jboolean)suggestRepaint
@@ -187,7 +205,18 @@
 
 -(void)updateSizeKeepDrawables
 {
-    ;
+    //if([self getWidth] <= 0 || [self getHeight] <= 0) return;
+    //[companion_ setXYMinMaxForUpdateSize];
+    //[self setRealWorldBounds];
+    //[self createImage];
+    //[self updateBackgroundImage];
+
+}
+
+-(void)createImage
+{
+    bgImage_ = [[GBufferedImageI alloc] initWithContext:[testPanel getContext] withWidth:[self getWidth] withHeight:[self getHeight] withBOOL:NO];
+    bgGraphics_ = [bgImage_ createGraphics];
 }
 
 -(id<OrgGeogebraCommonAwtGGraphics2D>)getTempGraphics2DWithOrgGeogebraCommonAwtGFont:(OrgGeogebraCommonAwtGFont *)fontForGraphics

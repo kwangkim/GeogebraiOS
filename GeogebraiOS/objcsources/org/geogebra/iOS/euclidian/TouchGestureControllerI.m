@@ -29,6 +29,7 @@
 #import "Coords.h"
 #import <math.h>
 #import "EuclidianControllerI.h"
+
 @implementation TouchGestureControllerI
 @synthesize app = _app;
 @synthesize ec = _ec;
@@ -195,7 +196,7 @@
 
 -(int)touchEventY:(int)clientY
 {
-    return clientY;
+    return clientY - topBarOffset;
 }
 
 -(void)moveIfWaiting

@@ -20,6 +20,7 @@
 -(id)initWithCGImage:(CGImageRef)cgImage;
 @property CGImageRef img;
 @property CGContextRef cgContext;
+@property CGLayerRef bufferdLayer;
 @end
 
 CGImageRef createImageWithSectionOfBitmapContext(CGContextRef bigContext,
