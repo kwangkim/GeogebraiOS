@@ -27,7 +27,6 @@
     Boolean nativeDashUsed;
     int devicePixelRatio;
     CGFloat alpha;
-    CGAffineTransform basicTransform;
 }
 @property IOSFloatArray* dash_array;
 @property CGContextRef context;
@@ -42,6 +41,7 @@
 @property(retain) UIImage* bgImage;
 @property CGRect canvas;
 @property NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>* clipShape;
+@property CGAffineTransform basicTransform;
 -(id)initWithContext:(CGContextRef)c;
 -(void)doDrawShapeWithShape:(NSObject<OrgGeogebraGgbjdkJavaAwtGeomShape>*)shape withBoolean:(Boolean)enableDashEmulation;
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx;
@@ -57,6 +57,7 @@
 -(double)getWidth;
 -(double)getHeight;
 -(void)drawLayerWithLayer:(CGLayerRef)layer withX:(int)x withInt:(int)y;
+-(CGAffineTransform)getCGAffineTransform;
 //-(void)setColorWithColor:(OrgGeogebraCommonAwtGColor*)color;
 -(void)setCoordinateSpaceSizeWithInt:(int)width withInt:(int)height;
 @end

@@ -48,7 +48,7 @@ double CurrentTime = 0;
 @synthesize clipShape = _clipShape;
 @synthesize dash_array = _dash_array;
 @synthesize bgImage = _bgImage;
-
+@synthesize basicTransform = _basicTransform;
 -(id)initWithContext:(CGContextRef)c
 {
     self = [super init];
@@ -60,11 +60,11 @@ double CurrentTime = 0;
     _currentPaint = [[GColorI alloc] initWithIntRed:255 Green:255 Blue:255 Alpha:255];
     _currentTransform = [[OrgGeogebraGgbjdkJavaAwtGeomAffineTransform alloc]init];
     _bs = [[GBasicStrokeI alloc] init];
-    
-    _canvas = [UIScreen mainScreen].applicationFrame;
+    devicePixelRatio = [[UIScreen mainScreen] scale];
+    _canvas = CGRectMake(0, 0, CGBitmapContextGetWidth(c)/devicePixelRatio, CGBitmapContextGetHeight(c)/devicePixelRatio);
     nativeDashUsed = false;
     _dash_array = nil;
-    devicePixelRatio = [[UIScreen mainScreen] scale];
+    
     NSLog(@"devicePixelRatio : %d",devicePixelRatio);
     return self;
 }
@@ -237,8 +237,10 @@ double CurrentTime = 0;
     [self configureStart];
     //CGContextConcatCTM(_context, basicTransform);
     MyImageI* imgI = (MyImageI*)img;
-    CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img]);
-    //[[imgI img] drawAtPoint:CGPointMake(x, y)];
+    //CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img].CGImage);
+    UIGraphicsPushContext(_context);
+    [[imgI img] drawAtPoint:CGPointMake(x, y)];
+    UIGraphicsPopContext();
     [self configureEnd];
 }
 
@@ -248,8 +250,10 @@ double CurrentTime = 0;
     [self configureStart];
     //CGContextConcatCTM(_context, basicTransform);
     MyImageI* imgI = (MyImageI*)img;
-    CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img]);
-    //[[imgI img] drawAtPoint:CGPointMake(x, y)];
+    //CGContextDrawImage(_context, CGRectMake(x, y, [imgI getWidth], [imgI getHeight]), [imgI img].CGImage);
+    UIGraphicsPushContext(_context);
+    [[imgI img] drawAtPoint:CGPointMake(x, y)];
+    UIGraphicsPopContext();
     [self configureEnd];
 }
 
@@ -271,7 +275,7 @@ double CurrentTime = 0;
 {
     //CGContextSaveGState(_context);
     CGAffineTransform transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
-    //NSLog(@"\n%lf %lf \n%lf %lf \n%lf %lf\n",[Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
+    //NSLog(@"transform \n%lf %lf \n%lf %lf \n%lf %lf\n",[Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
     CGContextConcatCTM(self.context, transform);
     [self.currentTransform concatenateWithOrgGeogebraCommonAwtGAffineTransform:Tx];
     //CGContextRestoreGState(_context);
@@ -279,12 +283,22 @@ double CurrentTime = 0;
 
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx
 {
-    self.currentTransform = Tx;
+    CGAffineTransform tt = CGContextGetCTM(_context);
+    NSLog(@"\n%lf %lf \n%lf %lf \n%lf %lf\n", tt.a,tt.b,tt.c,tt.d,tt.tx,tt.ty);
     CGAffineTransform tmp = CGAffineTransformInvert(CGContextGetCTM(_context));
     CGContextConcatCTM(_context, tmp);
-    CGAffineTransform transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
+    CGContextConcatCTM(_context, _basicTransform);
+    CGAffineTransform transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY],[Tx getShearX],[Tx getScaleY],[((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
+    //NSLog(@"set \n%lf %lf \n%lf %lf \n%lf %lf\n",[Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
     CGContextConcatCTM(self.context, transform);
-    CGContextConcatCTM(_context, basicTransform);
+    self.currentTransform = Tx;
+    //CGContextConcatCTM(_context, basicTransform);
+}
+
+-(CGAffineTransform)getCGAffineTransform
+{
+    return CGAffineTransformMake([_currentTransform getScaleX], [_currentTransform getShearY], [_currentTransform getShearX], [_currentTransform getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)_currentTransform) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)_currentTransform) getTranslateY]);
+
 }
 
 -(id<OrgGeogebraCommonAwtGComposite>)getComposite

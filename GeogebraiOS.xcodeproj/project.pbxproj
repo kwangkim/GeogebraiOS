@@ -30,6 +30,7 @@
 		854CB9CB1B4FB84A00BF8DF0 /* CancelEventTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */; };
 		856D3BA81B53723F009DC6A0 /* TimerSystemI.m in Sources */ = {isa = PBXBuildFile; fileRef = 856D3BA71B53723F009DC6A0 /* TimerSystemI.m */; };
 		856D3BAB1B556909009DC6A0 /* MyZoomerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 856D3BAA1B556909009DC6A0 /* MyZoomerI.m */; };
+		85794CAD1B7DC39A000DF3F4 /* Images.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 85794CAC1B7DC387000DF3F4 /* Images.ggb */; };
 		858C71391B184939007F12D8 /* GCubicCurve2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71381B184939007F12D8 /* GCubicCurve2DI.m */; };
 		858C713F1B186AC3007F12D8 /* GGraphics2DI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C713E1B186AC3007F12D8 /* GGraphics2DI.m */; };
 		858C71441B189612007F12D8 /* GPathIteratorI.m in Sources */ = {isa = PBXBuildFile; fileRef = 858C71431B189612007F12D8 /* GPathIteratorI.m */; };
@@ -4100,6 +4101,7 @@
 		856D3BA71B53723F009DC6A0 /* TimerSystemI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerSystemI.m; sourceTree = "<group>"; };
 		856D3BA91B556909009DC6A0 /* MyZoomerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyZoomerI.h; sourceTree = "<group>"; };
 		856D3BAA1B556909009DC6A0 /* MyZoomerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyZoomerI.m; sourceTree = "<group>"; };
+		85794CAC1B7DC387000DF3F4 /* Images.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = Images.ggb; sourceTree = "<group>"; };
 		858C71371B184939007F12D8 /* GCubicCurve2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCubicCurve2DI.h; sourceTree = "<group>"; };
 		858C71381B184939007F12D8 /* GCubicCurve2DI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCubicCurve2DI.m; sourceTree = "<group>"; };
 		858C713D1B186AC3007F12D8 /* GGraphics2DI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGraphics2DI.h; sourceTree = "<group>"; };
@@ -12000,6 +12002,7 @@
 				8514EF521B7336C00048748B /* Conic5.ggb */,
 				8514EF531B7336C00048748B /* ConicPart.ggb */,
 				854CB9C41B4EF90200BF8DF0 /* test3.ggb */,
+				85794CAC1B7DC387000DF3F4 /* Images.ggb */,
 				858C71571B1CBD12007F12D8 /* font */,
 			);
 			path = resources;
@@ -22473,6 +22476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85794CAD1B7DC39A000DF3F4 /* Images.ggb in Resources */,
 				8514EF621B7388450048748B /* 3P_bug_material-176941.ggb in Resources */,
 				8514EF631B7388450048748B /* A=B.ggb in Resources */,
 				8514EF641B7388450048748B /* Angles.ggb in Resources */,

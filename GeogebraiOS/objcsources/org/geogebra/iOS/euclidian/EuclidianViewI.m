@@ -68,6 +68,14 @@
     return self;
 }
 
+-(void)onOriententionChanged
+{
+    self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self withFrame:CGRectMake(0, 0, [UIScreen mainScreen].applicationFrame.size.height + 20, [UIScreen mainScreen].applicationFrame.size.width)];
+    CGContextRef context = [self.EVPanel getContext];
+    _g2p = [[GGraphics2DI alloc] initWithContext:context];
+    [_g2p setView:self];
+}
+
 -(void)setBackgroundWithOrgGeogebraCommonAwtGColor:(OrgGeogebraCommonAwtGColor *)bgColor
 {
     if(bgColor){
@@ -140,6 +148,7 @@
     //dispatch_async(backgroundRenderQueue, ^{
     UIGraphicsBeginImageContextWithOptions([_g2p canvas].size, NO, 0);
     CGContextSetTextMatrix(UIGraphicsGetCurrentContext(), CGAffineTransformMake(1, 0, 0, -1, 0, [_g2p canvas].size.height));
+    [(GGraphics2DI*)_g2p setBasicTransform:CGContextGetCTM(UIGraphicsGetCurrentContext())];
     [(GGraphics2DI*)_g2p setContext:UIGraphicsGetCurrentContext()];
     [self updateBackgroundIfNecessary];
     [self paintWithOrgGeogebraCommonAwtGGraphics2D:_g2p];

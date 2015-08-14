@@ -16,6 +16,6 @@
     float width, height;
     Boolean isSVG;
 }
-@property CGImageRef img;
--(id)initWithImage:(CGImageRef)i withBoolean:(Boolean)s;
+@property UIImage* img;
+-(id)initWithImage:(UIImage*)i withBoolean:(Boolean)s;
 @end

@@ -19,7 +19,6 @@
 @synthesize files = _files;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.app = [[AppI alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -58,7 +57,6 @@
     
     ViewController* viewController = [[ViewController alloc] init];
     viewController->file = (self.files)[indexPath.row];
-    viewController->app = self.app;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 /*

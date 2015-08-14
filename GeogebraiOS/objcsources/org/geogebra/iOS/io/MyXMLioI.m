@@ -19,6 +19,7 @@
 #include "java/lang/Exception.h"
 #include "java/util/zip/ZipEntry.h"
 #include "java/util/zip/ZipInputStream.h"
+#include "java/lang/StringBuilder.h"
 #include "org/geogebra/common/io/DocHandler.h"
 #include "org/geogebra/common/io/MyXMLHandler.h"
 #include "org/geogebra/common/io/MyXMLio.h"
@@ -30,6 +31,9 @@
 #include "org/geogebra/common/main/SpreadsheetTraceManager.h"
 #include "org/geogebra/common/main/settings/Settings.h"
 #include "org/geogebra/iOS/io/MyXMLioI.h"
+#include <UIKit/UIKit.h>
+#include "AppI.h"
+#include "UIImage-Extensions.h"
 
 @interface MyXMLioI () {
  @public
@@ -220,102 +224,159 @@ void MyXMLioI_readZipWithJavaUtilZipZipInputStream_withBoolean_(MyXMLioI *self, 
       macroXMLfound = YES;
       ggbHandler = YES;
       self->handler_ = MyXMLioI_getGGBHandler(self);
+    }else if([name isEqual:OrgGeogebraCommonIoMyXMLio_get_JAVASCRIPT_FILE_()]){
+        ;
+        //[self->kernel_ setLibraryJavaScriptWithNSString: MyXMLioI_loadIntoString_(zip)];
+        //javaScriptFound = YES;
+    }else if([[name lowercaseString] hasSuffix:@".svg"]){
+        ;
+        //IOSByteArray* imgByteArray = MyXMLioI_loadIntoMemoryWithJavaIoInputStream_(zip);
+        //        unsigned c =[imgByteArray length];
+        //        uint8_t *bytes = malloc(sizeof(*bytes) * c);
+        //        unsigned i;
+        //        for (i = 0; i < c; i++)
+        //        {
+        //            bytes[i] = [imgByteArray byteAtIndex:i];
+        //        }
+        //        NSData* imgData = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
+        //        UIImage* img = [UIImage imageWithData:imgData];
+        //        [(AppI*)self->app_ addExternalImageWithFileName:name withImage:[[MyImageI alloc] initWithImage:img withBoolean:YES]];
+    }else{
+        IOSByteArray* imgByteArray = MyXMLioI_loadIntoMemoryWithJavaIoInputStream_(zip);
+        unsigned c =[imgByteArray length];
+        uint8_t *bytes = malloc(sizeof(*bytes) * c);
+        unsigned i;
+        for (i = 0; i < c; i++)
+        {
+            bytes[i] = [imgByteArray byteAtIndex:i];
+        }
+        NSData* data = [NSData dataWithBytesNoCopy:bytes length:c freeWhenDone:YES];
+        UIImage* image = [UIImage imageWithData:data];
+        //image = [image imageRotatedByDegrees:90];
+        
+        
+        
+        if(!CGSizeEqualToSize(image.size, CGSizeZero)){
+//            UIGraphicsBeginImageContext(image.size);
+//            CGContextRef ctx = UIGraphicsGetCurrentContext();
+//            CGContextDrawImage(ctx,CGRectMake(0.,0., image.size.width, image.size.height),image.CGImage);
+//            UIImage *convertedImg = UIGraphicsGetImageFromCurrentImageContext();
+//            UIGraphicsEndImageContext();
+            [(AppI*)self->app_ addExternalImageWithFileName:name withImage:[[MyImageI alloc] initWithImage:image withBoolean:NO]];
+        }
     }
-    [zip closeEntry];
+      
+      
+      [zip closeEntry];
   }
-  [((JavaUtilZipZipInputStream *) nil_chk(zip)) close];
-  if (!isGGTfile) {
-    [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) removeAllMacros];
-  }
-  if (macroXmlFileBuffer != nil) {
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
-    MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, macroXmlFileBuffer, !isGGTfile, isGGTfile);
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
-  }
-  if (!isGGTfile && xmlFileBuffer != nil) {
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
-    [((OrgGeogebraCommonMainAppCompanion *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getCompanion])) resetEuclidianViewForPlaneIds];
-    MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, xmlFileBuffer, !macroXMLfound, isGGTfile);
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
-  }
-  if (defaults2dXmlFileBuffer != nil) {
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
-    MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, defaults2dXmlFileBuffer, NO, YES);
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
-  }
-  if (defaults3dXmlFileBuffer != nil) {
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
-    MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, defaults3dXmlFileBuffer, NO, YES);
-    [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
-  }
-  if (!javaScriptFound && !isGGTfile) [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) resetLibraryJavaScript];
-  if (!(macroXMLfound || xmlFound)) @throw new_JavaLangException_initWithNSString_(@"No XML data found in file.");
+    [((JavaUtilZipZipInputStream *) nil_chk(zip)) close];
+    if (!isGGTfile) {
+        [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) removeAllMacros];
+    }
+    if (macroXmlFileBuffer != nil) {
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
+        MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, macroXmlFileBuffer, !isGGTfile, isGGTfile);
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
+    }
+    if (!isGGTfile && xmlFileBuffer != nil) {
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
+        [((OrgGeogebraCommonMainAppCompanion *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getCompanion])) resetEuclidianViewForPlaneIds];
+        MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, xmlFileBuffer, !macroXMLfound, isGGTfile);
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
+    }
+    if (defaults2dXmlFileBuffer != nil) {
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
+        MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, defaults2dXmlFileBuffer, NO, YES);
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
+    }
+    if (defaults3dXmlFileBuffer != nil) {
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) getConstruction])) setFileLoadingWithBoolean:YES];
+        MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(self, defaults3dXmlFileBuffer, NO, YES);
+        [((OrgGeogebraCommonKernelConstruction *) nil_chk([self->kernel_ getConstruction])) setFileLoadingWithBoolean:NO];
+    }
+    //if (!javaScriptFound && !isGGTfile) [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) resetLibraryJavaScript];
+    if (!(macroXMLfound || xmlFound)) @throw new_JavaLangException_initWithNSString_(@"No XML data found in file.");
 }
 
 void MyXMLioI_processXMLBufferWithByteArray_withBoolean_withBoolean_(MyXMLioI *self, IOSByteArray *buffer, jboolean clearConstruction, jboolean isGGTOrDefaults) {
-  JavaIoByteArrayInputStream *bs = new_JavaIoByteArrayInputStream_initWithByteArray_(buffer);
-  JavaIoInputStreamReader *ir = new_JavaIoInputStreamReader_initWithJavaIoInputStream_withNSString_(bs, @"UTF8");
-  MyXMLioI_doParseXMLWithJavaIoReader_withBoolean_withBoolean_withBoolean_withBoolean_(self, ir, clearConstruction, isGGTOrDefaults, YES, YES);
-  [ir close];
-  [bs close];
+    JavaIoByteArrayInputStream *bs = [[JavaIoByteArrayInputStream alloc] initWithByteArray:buffer];
+    JavaIoInputStreamReader *ir = new_JavaIoInputStreamReader_initWithJavaIoInputStream_withNSString_(bs, @"UTF8");
+    MyXMLioI_doParseXMLWithJavaIoReader_withBoolean_withBoolean_withBoolean_withBoolean_(self, ir, clearConstruction, isGGTOrDefaults, YES, YES);
+    [ir close];
+    [bs close];
 }
 
 void MyXMLioI_doParseXMLWithJavaIoReader_withBoolean_withBoolean_withBoolean_withBoolean_(MyXMLioI *self, JavaIoReader *ir, jboolean clearConstruction, jboolean isGGTOrDefaults, jboolean mayZoom, jboolean settingsBatch) {
-  jboolean oldVal = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) isNotifyViewsActive];
-  jboolean oldVal2 = [self->kernel_ isUsingInternalCommandNames];
-  [self->kernel_ setUseInternalCommandNamesWithBoolean:YES];
-  if (!isGGTOrDefaults && mayZoom) {
-    [self->kernel_ setNotifyViewsActiveWithBoolean:NO];
-  }
-  if (clearConstruction) {
-    [self->kernel_ clearConstructionWithBoolean:NO];
-  }
-  @try {
-    OrgGeogebraCommonMainApp_debugWithNSString_(JreStrcat("$Z", @"MACRO", [self->kernel_ isMacroKernel]));
-    [self->kernel_ setLoadingModeWithBoolean:YES];
-    if (settingsBatch && !isGGTOrDefaults) {
-      [((OrgGeogebraCommonMainSettingsSettings *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getSettings])) beginBatch];
-      [((OrgGeogebraCommonIoQDParser *) nil_chk(self->xmlParser_)) parseWithOrgGeogebraCommonIoDocHandler:self->handler_ withJavaIoReader:ir];
-      [((OrgGeogebraCommonMainSettingsSettings *) nil_chk([self->app_ getSettings])) endBatch];
-    }
-    else [((OrgGeogebraCommonIoQDParser *) nil_chk(self->xmlParser_)) parseWithOrgGeogebraCommonIoDocHandler:self->handler_ withJavaIoReader:ir];
-    [((OrgGeogebraCommonIoQDParser *) nil_chk(self->xmlParser_)) reset];
-    [self->kernel_ setLoadingModeWithBoolean:NO];
-  }
-  @catch (JavaLangError *e) {
-    @throw e;
-  }
-  @catch (JavaLangException *e) {
-    @throw e;
-  }
-  @finally {
-    [self->kernel_ setUseInternalCommandNamesWithBoolean:oldVal2];
+    jboolean oldVal = [((OrgGeogebraCommonKernelKernel *) nil_chk(self->kernel_)) isNotifyViewsActive];
+    jboolean oldVal2 = [self->kernel_ isUsingInternalCommandNames];
+    [self->kernel_ setUseInternalCommandNamesWithBoolean:YES];
     if (!isGGTOrDefaults && mayZoom) {
-      [self->kernel_ updateConstruction];
-      [self->kernel_ setNotifyViewsActiveWithBoolean:oldVal];
+        //[self->kernel_ setNotifyViewsActiveWithBoolean:NO];
     }
-    if (!isGGTOrDefaults && [((OrgGeogebraCommonKernelConstruction *) nil_chk(self->cons_)) hasSpreadsheetTracingGeos]) {
-      [((OrgGeogebraCommonMainSpreadsheetTraceManager *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getTraceManager])) loadTraceGeoCollection];
+    if (clearConstruction) {
+        //[self->kernel_ clearConstructionWithBoolean:NO];
     }
-  }
-  [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getKernel])) getConstruction])) setStepWithInt:[((id<OrgGeogebraCommonIoDocHandler>) nil_chk(self->handler_)) getConsStep]];
+    @try {
+        OrgGeogebraCommonMainApp_debugWithNSString_(JreStrcat("$Z", @"MACRO", [self->kernel_ isMacroKernel]));
+        [self->kernel_ setLoadingModeWithBoolean:YES];
+        if (settingsBatch && !isGGTOrDefaults) {
+            [((OrgGeogebraCommonMainSettingsSettings *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getSettings])) beginBatch];
+            [((OrgGeogebraCommonIoQDParser *) nil_chk(self->xmlParser_)) parseWithOrgGeogebraCommonIoDocHandler:self->handler_ withJavaIoReader:ir];
+            [((OrgGeogebraCommonMainSettingsSettings *) nil_chk([self->app_ getSettings])) endBatch];
+        }
+        else [((OrgGeogebraCommonIoQDParser *) nil_chk(self->xmlParser_)) parseWithOrgGeogebraCommonIoDocHandler:self->handler_ withJavaIoReader:ir];
+        [((OrgGeogebraCommonIoQDParser *) nil_chk(self->xmlParser_)) reset];
+        [self->kernel_ setLoadingModeWithBoolean:NO];
+    }
+    @catch (JavaLangError *e) {
+        @throw e;
+    }
+    @catch (JavaLangException *e) {
+        @throw e;
+    }
+    @finally {
+        [self->kernel_ setUseInternalCommandNamesWithBoolean:oldVal2];
+        if (!isGGTOrDefaults && mayZoom) {
+            [self->kernel_ updateConstruction];
+            [self->kernel_ setNotifyViewsActiveWithBoolean:oldVal];
+        }
+        if (!isGGTOrDefaults && [((OrgGeogebraCommonKernelConstruction *) nil_chk(self->cons_)) hasSpreadsheetTracingGeos]) {
+            [((OrgGeogebraCommonMainSpreadsheetTraceManager *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getTraceManager])) loadTraceGeoCollection];
+        }
+    }
+    [((OrgGeogebraCommonKernelConstruction *) nil_chk([((OrgGeogebraCommonKernelKernel *) nil_chk([((OrgGeogebraCommonMainApp *) nil_chk(self->app_)) getKernel])) getConstruction])) setStepWithInt:[((id<OrgGeogebraCommonIoDocHandler>) nil_chk(self->handler_)) getConsStep]];
 }
 
 IOSByteArray *MyXMLioI_loadIntoMemoryWithJavaIoInputStream_(JavaIoInputStream *is) {
-  MyXMLioI_initialize();
-  JavaIoByteArrayOutputStream *bos = new_JavaIoByteArrayOutputStream_init();
-  MyXMLioI_copyStreamWithJavaIoInputStream_withJavaIoOutputStream_(is, bos);
-  [bos close];
-  return [bos toByteArray];
+    MyXMLioI_initialize();
+    JavaIoByteArrayOutputStream *bos = new_JavaIoByteArrayOutputStream_init();
+    MyXMLioI_copyStreamWithJavaIoInputStream_withJavaIoOutputStream_(is, bos);
+    [bos close];
+    return [bos toByteArray];
+}
+
+NSString *MyXMLioI_loadIntoString_(JavaIoInputStream *is){
+    MyXMLioI_initialize();
+    JavaIoBufferedReader *reader = new_JavaIoBufferedReader_initWithJavaIoReader_(new_JavaIoInputStreamReader_initWithJavaIoInputStream_withNSString_(is, @"UTF8"));
+    JavaLangStringBuilder *sb = [[JavaLangStringBuilder alloc] init];
+    NSString *line = nil;
+    @try{
+        while((line = [reader readLine]) != nil){
+            [sb appendWithNSString:[line stringByAppendingString:@"\n"]];
+        }
+    }@catch(NSException* e){
+        NSLog(@"%@",e);
+    }
+    return [sb substringWithInt:0];
 }
 
 void MyXMLioI_copyStreamWithJavaIoInputStream_withJavaIoOutputStream_(JavaIoInputStream *inArg, JavaIoOutputStream *outArg) {
-  MyXMLioI_initialize();
-  IOSByteArray *buf = [IOSByteArray newArrayWithLength:4096];
-  jint len;
-  while ((len = [((JavaIoInputStream *) nil_chk(inArg)) readWithByteArray:buf]) > -1) {
-    [((JavaIoOutputStream *) nil_chk(outArg)) writeWithByteArray:buf withInt:0 withInt:len];
-  }
+    MyXMLioI_initialize();
+    IOSByteArray *buf = [IOSByteArray arrayWithLength:4096];
+    jint len;
+    while ((len = [((JavaIoInputStream *) nil_chk(inArg)) readWithByteArray:buf]) > -1) {
+        [((JavaIoOutputStream *) nil_chk(outArg)) writeWithByteArray:buf withInt:0 withInt:len];
+    }
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(MyXMLioI)

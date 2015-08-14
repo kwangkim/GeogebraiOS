@@ -16,17 +16,22 @@
 -(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView *)ev
 {
     CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height);
+    return [self initWithEuclidianView:ev withFrame:frame];
+}
+
+-(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView *)ev withFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     self.ev = ev;
     CGSize size = frame.size;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     int devicePixelRatio = [[UIScreen mainScreen] scale];
     _cgcontext = CGBitmapContextCreate(nil,
-                                                 size.width * devicePixelRatio, size.height * devicePixelRatio,
-                                                 8, 0, colorSpace,
-                                                 (kCGImageAlphaPremultipliedFirst));
+                                       size.width * devicePixelRatio, size.height * devicePixelRatio,
+                                       8, 0, colorSpace,
+                                       (kCGImageAlphaPremultipliedFirst));
     
-   
+    
     
     CGContextSetInterpolationQuality(_cgcontext, kCGInterpolationNone);
     
@@ -34,8 +39,8 @@
     
     self.layer.drawsAsynchronously = YES;
     self.layer.shouldRasterize = YES;
+    //self.layer.contentsScale = 2;
     
-
     return self;
 }
 
@@ -56,6 +61,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             // calling drawRect with prepared image
             self.image = _testImg;
+            //CGImageRef img = CGBitmapContextCreateImage(_cgcontext);
+            //self.layer.contents = (__bridge id __nullable)([_testImg CGImage]);
+            //CGImageRelease(img);
             //[self setNeedsDisplayInRect:self.bounds];
             
         });

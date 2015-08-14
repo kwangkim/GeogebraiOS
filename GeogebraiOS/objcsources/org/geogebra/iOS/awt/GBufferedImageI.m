@@ -22,16 +22,16 @@
     //    _cgContext = context;
     //}else{
     int scale = [[UIScreen mainScreen] scale];
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    //_cgContext = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpace, kCGImageAlphaPremultipliedFirst);
-    _bufferdLayer = CGLayerCreateWithContext(context, CGSizeMake(width, height), nil) ;
-    
-    _cgContext = CGLayerGetContext(_bufferdLayer);
-    //CGContextSetInterpolationQuality(_cgContext, kCGInterpolationNone);
-        //CGContextScaleCTM(_cgContext, scale, scale);
-    //CGContextSetTextMatrix(_cgContext, CGAffineTransformMake(1, 0, 0, -1, 0, h));
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    _cgContext = CGBitmapContextCreate(NULL,
+                                       width, height,
+                                       8, 0, colorSpace,
+                                       kCGImageAlphaPremultipliedFirst);
+    CGContextSetInterpolationQuality(_cgContext, kCGInterpolationNone);
+    CGColorSpaceRelease(colorSpace);
+    //CGContextTranslateCTM(_cgContext, 0, height);
+    //CGContextScaleCTM(_cgContext, 1, -1);
 
-        CGColorSpaceRelease(colorSpace);
 
     //}
     return self;
@@ -46,16 +46,18 @@
 {
     width = CGImageGetWidth(cgImage);
     height = CGImageGetHeight(cgImage);
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    _cgContext = CGBitmapContextCreate(NULL,
-                                       width, height,
-                                       8, 0, colorSpace,
-                                       kCGImageAlphaPremultipliedFirst);
-    CGContextSetInterpolationQuality(_cgContext, kCGInterpolationNone);
-    CGColorSpaceRelease(colorSpace);
-    CGContextTranslateCTM(_cgContext, 0, height);
-    CGContextScaleCTM(_cgContext, 1, -1);
-    _img = CGBitmapContextCreateImage(_cgContext);
+    opaque = NO;
+//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    _cgContext = CGBitmapContextCreate(NULL,
+//                                       width, height,
+//                                       8, 0, colorSpace,
+//                                       kCGImageAlphaPremultipliedFirst);
+//    CGContextSetInterpolationQuality(_cgContext, kCGInterpolationNone);
+//    CGColorSpaceRelease(colorSpace);
+//    CGContextTranslateCTM(_cgContext, 0, height);
+//    CGContextScaleCTM(_cgContext, 1, -1);
+//    _img = CGBitmapContextCreateImage(_cgContext);
+    _img = cgImage;
     return self;
 }
 
@@ -67,7 +69,7 @@
 
 -(id<OrgGeogebraCommonAwtGGraphics2D>)createGraphics
 {
-    return nil;//[[GGraphics2DI alloc] initWithContext:_cgContext withFrame:<#(CGRect)#>];
+    return [[GGraphics2DI alloc] initWithContext:_cgContext];
 }
 
 @end
@@ -86,6 +88,9 @@ CGImageRef createImageWithSectionOfBitmapContext(CGContextRef bigContext,
                                                       CGBitmapContextGetColorSpace(bigContext),
                                                       CGBitmapContextGetBitmapInfo(bigContext));
     CGImageRef image = CGBitmapContextCreateImage(smallContext);
-    CGContextRelease(smallContext);
+    //CGContextRelease(smallContext);
+    //UIGraphicsPushContext(bigContext);
     return image;
+    //UIGraphicsPopContext();
+    
 }

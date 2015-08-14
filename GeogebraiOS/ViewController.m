@@ -47,7 +47,8 @@
     OrgScilabForgeJlatexmathPlatformFactoryProvider_set_INSTANCE_([[FactoryProvideriOS alloc] init]);
     
     // Do any additional setup after loading the view, typically from a nib.
-    topBarOffset = 80;
+    topBarOffset = 60;
+    app = [[AppI alloc] init];
     [app loadFileWithFile:file->javaFile withBool:NO];
     MyEuclidianViewPanel* evPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
     
@@ -56,6 +57,14 @@
     [self.view setMultipleTouchEnabled:YES];
     [evPanel setMultipleTouchEnabled:YES];
     v = (EuclidianControllerI*)[[app getEuclidianView1] getEuclidianController];
+    
+    UIDevice *device = [UIDevice currentDevice];					//Get the device object
+    [device beginGeneratingDeviceOrientationNotifications];			//Tell it to start monitoring the accelerometer for orientation
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];	//Get the notification centre for the app
+    [nc addObserver:self											//Add yourself as an observer
+           selector:@selector(orientationChanged:)
+               name:UIDeviceOrientationDidChangeNotification
+             object:device];
     
 }
 
@@ -77,6 +86,22 @@
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [v touchesEnded:touches withEvent:event];
+}
+
+- (void)orientationChanged:(NSNotification *)note
+{
+    for (UIView *subView in self.view.subviews)
+    {
+        [subView removeFromSuperview];
+    }
+    [(EuclidianViewI*)[app getEuclidianView1] onOriententionChanged];
+    [(EuclidianViewI*)[app getEuclidianView1] doRepaint];
+    MyEuclidianViewPanel* evPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
+    //NSLog(@"%lf %lf",[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    [self.view addSubview:evPanel];
+    [evPanel setMultipleTouchEnabled:YES];
+
+    NSLog(@"Orientation  has changed: %d", [[note object] orientation]);
 }
 
 

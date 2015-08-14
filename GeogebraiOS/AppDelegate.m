@@ -39,6 +39,7 @@
     [_files addObject:[[GGBFile alloc] initWithName:@"ClosestPoint"]];
     [_files addObject:[[GGBFile alloc] initWithName:@"CompoundFunctions"]];
     [_files addObject:[[GGBFile alloc] initWithName:@"test3"]];
+    [_files addObject:[[GGBFile alloc] initWithName:@"Images"]];
     UINavigationController *navigationController = (UINavigationController*) self.window.rootViewController;
     GGBFileViewController* ggbFileViewController = [navigationController viewControllers][0];
     ggbFileViewController.files = _files;

@@ -35,6 +35,7 @@ static const int EuclidianViewI_DELAY_BETWEEN_MOVE_EVENTS = 30;
 -(void)doRepaint;
 -(void)doRepaint2:(NSTimer*)timer;
 -(void)createImage;
+-(void)onOriententionChanged;
 //-(void)initBaseComponentsWithPanel:(EuclidianSimplePanelI*)euclidianViewPanel withEuclidianController:(OrgGeogebraCommonEuclidianEuclidianController*)ec withInt:(int)evNo;
 //- (void)initViewWithBoolean:(jboolean)repaint;
 @end

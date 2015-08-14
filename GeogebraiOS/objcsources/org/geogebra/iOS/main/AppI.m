@@ -343,7 +343,7 @@ static Boolean isApplet;
 
 -(id<OrgGeogebraCommonAwtMyImage>)getExternalImageAdapterWithNSString:(NSString *)filename withInt:(jint)width withInt:(jint)height
 {
-    CGImageRef originalImg = [[_imageManager getExternalImageWithName:filename] img];
+    UIImage* originalImg = [[_imageManager getExternalImageWithName:filename] img];
     //UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, 0.0f);
     //draw
     //[originalImg drawInRect:CGRectMake(0.0f, 0.0f, width, height)];

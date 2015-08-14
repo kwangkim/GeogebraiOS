@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="542" y="393"/>
         </scene>
-        <!--Root View Controller-->
+        <!--GGB Test File-->
         <scene sceneID="grU-DN-0VN">
             <objects>
                 <tableViewController id="8nT-8V-mMs" customClass="GGBFileViewController" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
                             <outlet property="delegate" destination="8nT-8V-mMs" id="I1X-yz-GZl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="37e-Ef-b2X"/>
+                    <navigationItem key="navigationItem" title="GGB Test File" id="37e-Ef-b2X"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="push" id="0gf-y4-IgT"/>
                     </connections>

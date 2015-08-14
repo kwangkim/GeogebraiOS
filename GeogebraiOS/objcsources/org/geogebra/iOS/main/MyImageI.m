@@ -13,12 +13,12 @@
 
 @implementation MyImageI
 @synthesize img = _img;
--(id)initWithImage:(CGImageRef)i withBoolean:(Boolean)s
+-(id)initWithImage:(UIImage*)i withBoolean:(Boolean)s
 {
     _img = i;
     isSVG = s;
-    width = CGImageGetWidth(_img);
-    height = CGImageGetHeight(_img);
+    width = _img.size.width;
+    height = _img.size.height;
     return self;
 }
 -(int)getWidth

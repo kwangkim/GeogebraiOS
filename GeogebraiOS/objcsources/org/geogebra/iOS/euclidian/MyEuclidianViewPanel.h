@@ -20,6 +20,7 @@ CGRect tmprect;
 @property CGLayerRef bgLayer;
 @property UIImage* testImg;
 -(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView*)ev;
+-(id)initWithEuclidianView:(OrgGeogebraCommonEuclidianEuclidianView *)ev withFrame:(CGRect)frame;
 -(UIImage*)getImage;
 -(void)testFunction;
 - (UIImage *)drawSomeImage;
