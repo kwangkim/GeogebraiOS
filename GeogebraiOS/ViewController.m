@@ -66,6 +66,12 @@
                name:UIDeviceOrientationDidChangeNotification
              object:device];
     
+    if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height){
+        applicationFrameSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    }else{
+        applicationFrameSize = CGSizeMake([UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

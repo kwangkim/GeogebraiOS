@@ -134,7 +134,7 @@
   id<OrgGeogebraCommonEuclidianPreviewable> previewDrawable_;
   OrgGeogebraCommonMainSettingsEuclidianSettings *settings_;
   OrgGeogebraCommonEuclidianHits *hits_;
-  jboolean updateBackgroundOnNextRepaint_;
+//  jboolean updateBackgroundOnNextRepaint_;
   jboolean updatingBounds_;
   jdouble invXscale_;
   jdouble invYscale_;

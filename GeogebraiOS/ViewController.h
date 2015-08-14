@@ -13,6 +13,7 @@
 #import "GGBFile.h"
 #import "AppI.h"
 MyEuclidianViewPanel* testPanel;
+CGSize applicationFrameSize;
 @interface ViewController : UIViewController{
     @public
     EuclidianControllerI* v;

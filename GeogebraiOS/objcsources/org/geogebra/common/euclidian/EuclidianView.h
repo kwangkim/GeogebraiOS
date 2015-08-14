@@ -93,6 +93,7 @@
   jboolean allowShowMouseCoords_;
   jboolean showAxesRatio_;
   jboolean highlightAnimationButtons_;
+  jboolean updateBackgroundOnNextRepaint_;
   jint pointCapturingMode_;
   IOSBooleanArray *showAxesNumbers_;
   IOSObjectArray *axesLabels_;

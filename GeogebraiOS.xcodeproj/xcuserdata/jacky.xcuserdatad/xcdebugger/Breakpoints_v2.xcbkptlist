@@ -226,11 +226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/objcsources/org/geogebra/iOS/euclidian/EuclidianViewI.m"
-            timestampString = "461254798.98421"
+            timestampString = "461261249.56479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-doRepaint2:"
             landmarkType = "5">
          </BreakpointContent>
@@ -386,11 +386,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeogebraiOS/ViewController.m"
-            timestampString = "461257097.151322"
+            timestampString = "461260538.46472"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "-orientationChanged:"
             landmarkType = "5">
          </BreakpointContent>

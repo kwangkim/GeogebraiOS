@@ -70,7 +70,14 @@
 
 -(void)onOriententionChanged
 {
-    self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self withFrame:CGRectMake(0, 0, [UIScreen mainScreen].applicationFrame.size.height + 20, [UIScreen mainScreen].applicationFrame.size.width)];
+    if([UIDevice currentDevice].orientation == UIDeviceOrientationFaceUp || [UIDevice currentDevice].orientation == UIDeviceOrientationFaceDown){
+        return;
+    }else if([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait || [UIDevice currentDevice].orientation == UIDeviceOrientationPortraitUpsideDown){
+        self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self withFrame:CGRectMake(0, 0, applicationFrameSize.height, applicationFrameSize.width)];
+    }else{
+         self.EVPanel = [[MyEuclidianViewPanel alloc] initWithEuclidianView:self withFrame:CGRectMake(0, 0, applicationFrameSize.width, applicationFrameSize.height)];
+    }
+    
     CGContextRef context = [self.EVPanel getContext];
     _g2p = [[GGraphics2DI alloc] initWithContext:context];
     [_g2p setView:self];
