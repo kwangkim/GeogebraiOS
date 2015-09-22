@@ -7,12 +7,19 @@
 //
 
 #import "GuiManagerI.h"
-
+const int MENU_ICONS_WIDTH = 200;
+const int UNDO_ICONS_WIDTH = 90;
 @implementation GuiManagerI
--(id)initWithApp:(AppI *)app
+-(id)initWithApp:(OrgGeogebraCommonMainApp*)app
 {
     app_ = app;
     kernel_ = [app getKernel];
     return self;
 }
+
+-(void)initialize__
+{
+    ;
+}
+
 @end

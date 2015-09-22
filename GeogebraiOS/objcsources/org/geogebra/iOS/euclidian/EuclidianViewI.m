@@ -27,6 +27,7 @@
 #import "ViewController.h"
 #import "GBufferedImageI.h"
 #import "MyEuclidianViewPanel.h"
+#import "EuclidianStyleBar.h"
 
 @implementation EuclidianViewI
 @synthesize g2p = _g2p, EVPanel = _EVPanel ,bgroundColor = _bgroundColor;
@@ -301,4 +302,17 @@
 {
     return [[MyZoomerI alloc] initWithEuclidianView:self];
 }
+
+-(void)initCursor
+{
+    ;
+}
+
+-(void)setStyleBarModeWithInt:(jint)mode
+{
+    if([self hasStyleBar]){
+        [[self getStyleBar] setModeWithInt:mode];
+    }
+}
+
 @end

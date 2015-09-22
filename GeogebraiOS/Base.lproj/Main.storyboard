@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8152.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Sla-Mm-eMn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Sla-Mm-eMn">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--viewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" title="viewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="g6d-EK-1sx"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="g6d-EK-1sx">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="R3J-Qd-8xg">
+                            <connections>
+                                <action selector="showToolbar:" destination="BYZ-38-t0r" id="sVc-Ge-yDs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="editButton" destination="R3J-Qd-8xg" id="ny8-WN-dSf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542" y="393"/>
+            <point key="canvasLocation" x="326.5" y="397.5"/>
         </scene>
-        <!--GGB Test File-->
+        <!--GGB File-->
         <scene sceneID="grU-DN-0VN">
             <objects>
                 <tableViewController id="8nT-8V-mMs" customClass="GGBFileViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="22" sectionFooterHeight="22" id="alk-j3-sbB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GGBFile" textLabel="nUp-Za-Ph3" rowHeight="34" style="IBUITableViewCellStyleDefault" id="54c-oc-Myx">
-                                <rect key="frame" x="0.0" y="86" width="600" height="34"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54c-oc-Myx" id="jtH-dY-kJD">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="33"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="33.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nUp-Za-Ph3">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="33"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="33.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,30 +69,36 @@
                             <outlet property="delegate" destination="8nT-8V-mMs" id="I1X-yz-GZl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="GGB Test File" id="37e-Ef-b2X"/>
+                    <navigationItem key="navigationItem" title="GGB File" id="37e-Ef-b2X"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="push" id="0gf-y4-IgT"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="viewController" id="0gf-y4-IgT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rY-Ys-PUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218" y="356"/>
+            <point key="canvasLocation" x="-198.5" y="392.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tuK-9y-AUQ">
             <objects>
                 <navigationController id="Sla-Mm-eMn" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgz-1C-UHd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Eek-y2-Tj2">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="8nT-8V-mMs" kind="relationship" relationship="rootViewController" id="Aft-UQ-u6T"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tf-F0-HLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-936" y="393"/>
+            <point key="canvasLocation" x="-612.5" y="392.5"/>
         </scene>
     </scenes>
 </document>

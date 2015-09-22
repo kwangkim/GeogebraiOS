@@ -34,12 +34,16 @@
 #import "Insets.h"
 #import "ColorUtil.h"
 #import "TouchGestureControllerI.h"
+#import "ModeToggleMenu.h"
+#import "ModeSetter.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+@synthesize editButton;
+@synthesize mtm = _mtm;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,7 +51,7 @@
     OrgScilabForgeJlatexmathPlatformFactoryProvider_set_INSTANCE_([[FactoryProvideriOS alloc] init]);
     
     // Do any additional setup after loading the view, typically from a nib.
-    topBarOffset = 60;
+    topBarOffset = 64;
     app = [[AppI alloc] init];
     [app loadFileWithFile:file->javaFile withBool:NO];
     MyEuclidianViewPanel* evPanel = (MyEuclidianViewPanel*)[(EuclidianViewI*)[app getEuclidianView1] EVPanel];
@@ -72,6 +76,10 @@
         applicationFrameSize = CGSizeMake([UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     }
     
+    //[self setToolbar];
+    _mtm = [[ModeToggleMenu alloc] initWithFrame:CGRectMake(60, 20, self.view.frame.size.width, 44) withApp:app];
+    [self.navigationController.view addSubview:_mtm];
+    [self.navigationController.view addSubview:_mtm.moreModeScrollView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,5 +118,30 @@
     NSLog(@"Orientation  has changed: %d", [[note object] orientation]);
 }
 
+-(IBAction)showToolbar:(id)sender{
+    [editButton setEnabled:NO];
+    [editButton setTintColor:[UIColor clearColor]];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(hideToolbar:)];
+    
+    self.navigationItem.leftItemsSupplementBackButton = NO;
+    
+    _mtm.hidden = NO;
+
+}
+
+-(void)hideToolbar:(id)sender{
+    _mtm.hidden = YES;
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = NO;
+    [editButton setEnabled:YES];
+    [editButton setTintColor:nil];
+    [app setModeWithInt:OrgGeogebraCommonEuclidianEuclidianConstants_MODE_MOVE withOrgGeogebraCommonKernelModeSetterEnum:OrgGeogebraCommonKernelModeSetterEnum_DOCK_PANEL];
+
+}
+
+
 
 @end
+
+

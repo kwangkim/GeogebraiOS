@@ -58,6 +58,7 @@ static Boolean isApplet;
     initing_ = true;
     myXMLio_ = [[MyXMLioI alloc] initWithOrgGeogebraCommonKernelKernel:kernel_ withOrgGeogebraCommonKernelConstruction:[kernel_ getConstruction]];
     [self getTimerSystem];
+    [self initGuiManager];
     return self;
 }
 
@@ -399,6 +400,18 @@ static Boolean isApplet;
 -(void)ensureTimerRunning
 {
     [[self getTimerSystem] ensureRunning];
+}
+
+
+-(void)updateStyleBars
+{
+    ;
+}
+
+
+-(void)showErrorWithNSString:(NSString *)s
+{
+    
 }
 
 

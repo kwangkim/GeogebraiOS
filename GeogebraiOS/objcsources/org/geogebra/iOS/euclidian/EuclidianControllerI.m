@@ -23,6 +23,7 @@
 #import <math.h>
 #import "MyDouble.h"
 #import "GeoPoint.h"
+#import "EuclidianViewForPlaneInterface.h"
 @implementation EuclidianControllerI
 @synthesize tgc = _tgc;
 @synthesize startPosition = _startPosition;
@@ -68,8 +69,20 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self setModeWithInt:OrgGeogebraCommonEuclidianEuclidianConstants_MODE_MOVE];
-    //NSLog(@"began touches conut: %d",[touches count]);
+
+    NSLog(@"%d %d %d", [app_ getGuiManager] != nil,  [self getEvNo] != OrgGeogebraCommonEuclidianEuclidianView_EVNO_GENERAL_
+    ,[view_ conformsToProtocol:@protocol(OrgGeogebraCommonEuclidianForPlaneEuclidianViewForPlaneInterface)]);
+
+    //if(([app_ getGuiManager] != nil) && ([self getEvNo] != OrgGeogebraCommonEuclidianEuclidianView_EVNO_GENERAL_
+    //                                     || [view_ conformsToProtocol:@protocol(OrgGeogebraCommonEuclidianForPlaneEuclidianViewForPlaneInterface)]))
+    
+    if([self getEvNo] != OrgGeogebraCommonEuclidianEuclidianView_EVNO_GENERAL_
+                                             || [view_ conformsToProtocol:@protocol(OrgGeogebraCommonEuclidianForPlaneEuclidianViewForPlaneInterface)]){
+        
+    }else{
+        [self setModeWithInt:OrgGeogebraCommonEuclidianEuclidianConstants_MODE_MOVE];
+    }
+
     [_tgc onTouchesBegan:touches withEvent:event];
 }
 

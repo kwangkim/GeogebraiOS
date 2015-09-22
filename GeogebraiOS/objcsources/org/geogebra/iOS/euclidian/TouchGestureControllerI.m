@@ -398,11 +398,7 @@
     oldCenterY = (y1+y2)/2;
     if([hits1 size] > 0
        && [hits2 size] > 0)
-    NSLog(@"%d %d %d %d %d",[hits1 size] > 0
-          , [hits2 size] > 0
-          , [hits1 getWithInt:0] == [hits2 getWithInt:0]
-          , [[hits1 getWithInt:0] isKindOfClass:[OrgGeogebraCommonKernelGeosGeoConic class]]
-          , [(OrgGeogebraCommonKernelGeosGeoConic*)[hits1 getWithInt:0] isClosedPath]);
+
     if([hits1 hasYAxis] && [hits2 hasYAxis]){
         _multitouchMode  = zoomY;
         _ec->oldDistance_ = y1 - y2;

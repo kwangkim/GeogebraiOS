@@ -7,18 +7,22 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>1A46B7F0-D309-43D4-8CAA-143814DACFE0</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>GeogebraiOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>71CE493735B34208A4FA6BEDF7FE9456470AAB30</key>
 		<string>https://github.com/jacky841102/GeogebraiOS.git</string>
+		<key>82DF43EF5CA016D15C41E0AF1AF686E9973475B7</key>
+		<string>https://github.com/pixelglow/zipzap.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>GeogebraiOS.xcodeproj/project.xcworkspace</string>
+	<string>GeogebraiOS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>71CE493735B34208A4FA6BEDF7FE9456470AAB30</key>
 		<string>../..</string>
+		<key>82DF43EF5CA016D15C41E0AF1AF686E9973475B7</key>
+		<string>../../zipzap</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/jacky841102/GeogebraiOS.git</string>
@@ -35,6 +39,14 @@
 			<string>71CE493735B34208A4FA6BEDF7FE9456470AAB30</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GeogebraiOS</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>82DF43EF5CA016D15C41E0AF1AF686E9973475B7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>zipzap</string>
 		</dict>
 	</array>
 </dict>

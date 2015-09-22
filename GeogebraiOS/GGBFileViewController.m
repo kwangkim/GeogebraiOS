@@ -54,8 +54,7 @@
 }
 
 -(void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    
-    ViewController* viewController = [[ViewController alloc] init];
+    ViewController* viewController = (ViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"viewController"];
     viewController->file = (self.files)[indexPath.row];
     [self.navigationController pushViewController:viewController animated:YES];
 }

@@ -8,8 +8,10 @@
 
 #import "GuiManager.h"
 #import "GuiManagerInterfaceI.h"
-#import "AppI.h"
+#import "App.h"
+
+
 
 @interface GuiManagerI : OrgGeogebraCommonGuiGuiManager <GuiManagerInterfaceI>
--(id)initWithApp:(AppI*)app;
+-(id)initWithApp:(OrgGeogebraCommonMainApp*)app;
 @end

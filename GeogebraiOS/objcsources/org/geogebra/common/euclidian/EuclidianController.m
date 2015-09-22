@@ -5228,7 +5228,7 @@ withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:(OrgGeogebraCommonEuclid
 }
 
 - (void)initNewModeWithInt:(jint)newMode {
-  if ([((OrgGeogebraCommonMainApp *) nil_chk(app_)) getGuiManager] == nil && newMode != OrgGeogebraCommonEuclidianEuclidianConstants_MODE_TRANSLATEVIEW && newMode != OrgGeogebraCommonEuclidianEuclidianConstants_MODE_MOVE) return;
+  //if ([((OrgGeogebraCommonMainApp *) nil_chk(app_)) getGuiManager] == nil && newMode != OrgGeogebraCommonEuclidianEuclidianConstants_MODE_TRANSLATEVIEW && newMode != OrgGeogebraCommonEuclidianEuclidianConstants_MODE_MOVE) return;
   self->mode_ = newMode;
   [self initShowMouseCoords];
   if (!temporaryMode_ && !(OrgGeogebraCommonEuclidianEuclidianView_usesSelectionRectangleAsInputWithInt_(newMode) && [((OrgGeogebraCommonEuclidianEuclidianView *) nil_chk(view_)) getSelectionRectangle] != nil)) {

@@ -64,8 +64,6 @@ double CurrentTime = 0;
     _canvas = CGRectMake(0, 0, CGBitmapContextGetWidth(c)/devicePixelRatio, CGBitmapContextGetHeight(c)/devicePixelRatio);
     nativeDashUsed = false;
     _dash_array = nil;
-    
-    NSLog(@"devicePixelRatio : %d",devicePixelRatio);
     return self;
 }
 
@@ -284,15 +282,12 @@ double CurrentTime = 0;
 -(void)setTransformWithGAffineTransform:(NSObject<OrgGeogebraCommonAwtGAffineTransform>*) Tx
 {
     CGAffineTransform tt = CGContextGetCTM(_context);
-    NSLog(@"\n%lf %lf \n%lf %lf \n%lf %lf\n", tt.a,tt.b,tt.c,tt.d,tt.tx,tt.ty);
     CGAffineTransform tmp = CGAffineTransformInvert(CGContextGetCTM(_context));
     CGContextConcatCTM(_context, tmp);
     CGContextConcatCTM(_context, _basicTransform);
     CGAffineTransform transform = CGAffineTransformMake([Tx getScaleX], [Tx getShearY],[Tx getShearX],[Tx getScaleY],[((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
-    //NSLog(@"set \n%lf %lf \n%lf %lf \n%lf %lf\n",[Tx getScaleX], [Tx getShearY], [Tx getShearX], [Tx getScaleY], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateX], [((OrgGeogebraGgbjdkJavaAwtGeomAffineTransform*)Tx) getTranslateY]);
     CGContextConcatCTM(self.context, transform);
     self.currentTransform = Tx;
-    //CGContextConcatCTM(_context, basicTransform);
 }
 
 -(CGAffineTransform)getCGAffineTransform
@@ -415,7 +410,6 @@ double CurrentTime = 0;
 {
     [self configureStart];
     double lasttime = CACurrentMediaTime() - CurrentTime;
-    NSLog(@"%lf",lasttime);
     
     CGContextFillRect(_context, CGRectMake(i, j, k, l));
     //CGContextSetFillColorWithColor(self.context, ((GColorI*)self.fillColor).getCGColor);

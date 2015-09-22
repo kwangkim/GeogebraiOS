@@ -25,6 +25,126 @@
 		8514EF681B7388450048748B /* ciclos_rueda_noLocus.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF5F1B7388360048748B /* ciclos_rueda_noLocus.ggb */; };
 		8514EF691B7388450048748B /* ClosestPoint.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF601B7388360048748B /* ClosestPoint.ggb */; };
 		8514EF6A1B7388450048748B /* CompoundFunctions.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 8514EF611B7388360048748B /* CompoundFunctions.ggb */; };
+		851F93B81BAF0CF60066F6D2 /* mode_angle.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93411BAF0CF60066F6D2 /* mode_angle.png */; settings = {ASSET_TAGS = (); }; };
+		851F93B91BAF0CF60066F6D2 /* mode_anglefixed.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93421BAF0CF60066F6D2 /* mode_anglefixed.png */; settings = {ASSET_TAGS = (); }; };
+		851F93BA1BAF0CF60066F6D2 /* mode_angularbisector.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93431BAF0CF60066F6D2 /* mode_angularbisector.png */; settings = {ASSET_TAGS = (); }; };
+		851F93BB1BAF0CF60066F6D2 /* mode_area.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93441BAF0CF60066F6D2 /* mode_area.png */; settings = {ASSET_TAGS = (); }; };
+		851F93BC1BAF0CF60066F6D2 /* mode_attachdetachpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93451BAF0CF60066F6D2 /* mode_attachdetachpoint.png */; settings = {ASSET_TAGS = (); }; };
+		851F93BD1BAF0CF60066F6D2 /* mode_buttonaction.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93461BAF0CF60066F6D2 /* mode_buttonaction.png */; settings = {ASSET_TAGS = (); }; };
+		851F93BE1BAF0CF60066F6D2 /* mode_circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93471BAF0CF60066F6D2 /* mode_circle2.png */; settings = {ASSET_TAGS = (); }; };
+		851F93BF1BAF0CF60066F6D2 /* mode_circle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93481BAF0CF60066F6D2 /* mode_circle3.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C01BAF0CF60066F6D2 /* mode_circlearc3.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93491BAF0CF60066F6D2 /* mode_circlearc3.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C11BAF0CF60066F6D2 /* mode_circleaxispoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F934A1BAF0CF60066F6D2 /* mode_circleaxispoint.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C21BAF0CF60066F6D2 /* mode_circlepointradius.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F934B1BAF0CF60066F6D2 /* mode_circlepointradius.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C31BAF0CF60066F6D2 /* mode_circlepointradiusdirection.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F934C1BAF0CF60066F6D2 /* mode_circlepointradiusdirection.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C41BAF0CF60066F6D2 /* mode_circlesector3.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F934D1BAF0CF60066F6D2 /* mode_circlesector3.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C51BAF0CF60066F6D2 /* mode_circumcirclearc3.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F934E1BAF0CF60066F6D2 /* mode_circumcirclearc3.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C61BAF0CF60066F6D2 /* mode_circumcirclesector3.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F934F1BAF0CF60066F6D2 /* mode_circumcirclesector3.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C71BAF0CF60066F6D2 /* mode_compasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93501BAF0CF60066F6D2 /* mode_compasses.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C81BAF0CF60066F6D2 /* mode_complexnumber.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93511BAF0CF60066F6D2 /* mode_complexnumber.png */; settings = {ASSET_TAGS = (); }; };
+		851F93C91BAF0CF60066F6D2 /* mode_cone.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93521BAF0CF60066F6D2 /* mode_cone.png */; settings = {ASSET_TAGS = (); }; };
+		851F93CA1BAF0CF60066F6D2 /* mode_conic5.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93531BAF0CF60066F6D2 /* mode_conic5.png */; settings = {ASSET_TAGS = (); }; };
+		851F93CB1BAF0CF60066F6D2 /* mode_conify.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93541BAF0CF60066F6D2 /* mode_conify.png */; settings = {ASSET_TAGS = (); }; };
+		851F93CC1BAF0CF60066F6D2 /* mode_copyvisualstyle.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93551BAF0CF60066F6D2 /* mode_copyvisualstyle.png */; settings = {ASSET_TAGS = (); }; };
+		851F93CD1BAF0CF60066F6D2 /* mode_countcells.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93561BAF0CF60066F6D2 /* mode_countcells.png */; settings = {ASSET_TAGS = (); }; };
+		851F93CE1BAF0CF60066F6D2 /* mode_createlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93571BAF0CF60066F6D2 /* mode_createlist.png */; settings = {ASSET_TAGS = (); }; };
+		851F93CF1BAF0CF60066F6D2 /* mode_createlistofpoints.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93581BAF0CF60066F6D2 /* mode_createlistofpoints.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D01BAF0CF60066F6D2 /* mode_creatematrix.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93591BAF0CF60066F6D2 /* mode_creatematrix.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D11BAF0CF60066F6D2 /* mode_createpolyline.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F935A1BAF0CF60066F6D2 /* mode_createpolyline.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D21BAF0CF60066F6D2 /* mode_createtable.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F935B1BAF0CF60066F6D2 /* mode_createtable.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D31BAF0CF60066F6D2 /* mode_cube.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F935C1BAF0CF60066F6D2 /* mode_cube.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D41BAF0CF60066F6D2 /* mode_cylinder.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F935D1BAF0CF60066F6D2 /* mode_cylinder.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D51BAF0CF60066F6D2 /* mode_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F935E1BAF0CF60066F6D2 /* mode_delete.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D61BAF0CF60066F6D2 /* mode_derivative.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F935F1BAF0CF60066F6D2 /* mode_derivative.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D71BAF0CF60066F6D2 /* mode_dilatefrompoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93601BAF0CF60066F6D2 /* mode_dilatefrompoint.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D81BAF0CF60066F6D2 /* mode_distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93611BAF0CF60066F6D2 /* mode_distance.png */; settings = {ASSET_TAGS = (); }; };
+		851F93D91BAF0CF60066F6D2 /* mode_ellipse3.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93621BAF0CF60066F6D2 /* mode_ellipse3.png */; settings = {ASSET_TAGS = (); }; };
+		851F93DA1BAF0CF60066F6D2 /* mode_evaluate.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93631BAF0CF60066F6D2 /* mode_evaluate.png */; settings = {ASSET_TAGS = (); }; };
+		851F93DB1BAF0CF60066F6D2 /* mode_expand.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93641BAF0CF60066F6D2 /* mode_expand.png */; settings = {ASSET_TAGS = (); }; };
+		851F93DC1BAF0CF60066F6D2 /* mode_extrusion.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93651BAF0CF60066F6D2 /* mode_extrusion.png */; settings = {ASSET_TAGS = (); }; };
+		851F93DD1BAF0CF60066F6D2 /* mode_factor.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93661BAF0CF60066F6D2 /* mode_factor.png */; settings = {ASSET_TAGS = (); }; };
+		851F93DE1BAF0CF60066F6D2 /* mode_fitline.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93671BAF0CF60066F6D2 /* mode_fitline.png */; settings = {ASSET_TAGS = (); }; };
+		851F93DF1BAF0CF60066F6D2 /* mode_freehandshape.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93681BAF0CF60066F6D2 /* mode_freehandshape.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E01BAF0CF60066F6D2 /* mode_functioninspector.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93691BAF0CF60066F6D2 /* mode_functioninspector.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E11BAF0CF60066F6D2 /* mode_hyperbola3.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F936A1BAF0CF60066F6D2 /* mode_hyperbola3.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E21BAF0CF60066F6D2 /* mode_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F936B1BAF0CF60066F6D2 /* mode_image.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E31BAF0CF60066F6D2 /* mode_integral.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F936C1BAF0CF60066F6D2 /* mode_integral.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E41BAF0CF60066F6D2 /* mode_intersect.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F936D1BAF0CF60066F6D2 /* mode_intersect.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E51BAF0CF60066F6D2 /* mode_intersectioncurve.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F936E1BAF0CF60066F6D2 /* mode_intersectioncurve.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E61BAF0CF60066F6D2 /* mode_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F936F1BAF0CF60066F6D2 /* mode_join.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E71BAF0CF60066F6D2 /* mode_keepinput.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93701BAF0CF60066F6D2 /* mode_keepinput.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E81BAF0CF60066F6D2 /* mode_linebisector.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93711BAF0CF60066F6D2 /* mode_linebisector.png */; settings = {ASSET_TAGS = (); }; };
+		851F93E91BAF0CF60066F6D2 /* mode_locus.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93721BAF0CF60066F6D2 /* mode_locus.png */; settings = {ASSET_TAGS = (); }; };
+		851F93EA1BAF0CF60066F6D2 /* mode_maxcells.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93731BAF0CF60066F6D2 /* mode_maxcells.png */; settings = {ASSET_TAGS = (); }; };
+		851F93EB1BAF0CF60066F6D2 /* mode_meancells.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93741BAF0CF60066F6D2 /* mode_meancells.png */; settings = {ASSET_TAGS = (); }; };
+		851F93EC1BAF0CF60066F6D2 /* mode_midpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93751BAF0CF60066F6D2 /* mode_midpoint.png */; settings = {ASSET_TAGS = (); }; };
+		851F93ED1BAF0CF60066F6D2 /* mode_mincells.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93761BAF0CF60066F6D2 /* mode_mincells.png */; settings = {ASSET_TAGS = (); }; };
+		851F93EE1BAF0CF60066F6D2 /* mode_mirroratcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93771BAF0CF60066F6D2 /* mode_mirroratcircle.png */; settings = {ASSET_TAGS = (); }; };
+		851F93EF1BAF0CF60066F6D2 /* mode_mirroratline.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93781BAF0CF60066F6D2 /* mode_mirroratline.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F01BAF0CF60066F6D2 /* mode_mirroratplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93791BAF0CF60066F6D2 /* mode_mirroratplane.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F11BAF0CF60066F6D2 /* mode_mirroratpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F937A1BAF0CF60066F6D2 /* mode_mirroratpoint.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F21BAF0CF60066F6D2 /* mode_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F937B1BAF0CF60066F6D2 /* mode_move.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F31BAF0CF60066F6D2 /* mode_moverotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F937C1BAF0CF60066F6D2 /* mode_moverotate.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F41BAF0CF60066F6D2 /* mode_multivarstats.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F937D1BAF0CF60066F6D2 /* mode_multivarstats.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F51BAF0CF60066F6D2 /* mode_net.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F937E1BAF0CF60066F6D2 /* mode_net.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F61BAF0CF60066F6D2 /* mode_nsolve.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F937F1BAF0CF60066F6D2 /* mode_nsolve.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F71BAF0CF60066F6D2 /* mode_numeric.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93801BAF0CF60066F6D2 /* mode_numeric.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F81BAF0CF60066F6D2 /* mode_onevarstats.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93811BAF0CF60066F6D2 /* mode_onevarstats.png */; settings = {ASSET_TAGS = (); }; };
+		851F93F91BAF0CF60066F6D2 /* mode_orthogonal.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93821BAF0CF60066F6D2 /* mode_orthogonal.png */; settings = {ASSET_TAGS = (); }; };
+		851F93FA1BAF0CF60066F6D2 /* mode_orthogonalplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93831BAF0CF60066F6D2 /* mode_orthogonalplane.png */; settings = {ASSET_TAGS = (); }; };
+		851F93FB1BAF0CF60066F6D2 /* mode_orthogonalthreed.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93841BAF0CF60066F6D2 /* mode_orthogonalthreed.png */; settings = {ASSET_TAGS = (); }; };
+		851F93FC1BAF0CF60066F6D2 /* mode_parabola.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93851BAF0CF60066F6D2 /* mode_parabola.png */; settings = {ASSET_TAGS = (); }; };
+		851F93FD1BAF0CF60066F6D2 /* mode_parallel.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93861BAF0CF60066F6D2 /* mode_parallel.png */; settings = {ASSET_TAGS = (); }; };
+		851F93FE1BAF0CF60066F6D2 /* mode_parallelplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93871BAF0CF60066F6D2 /* mode_parallelplane.png */; settings = {ASSET_TAGS = (); }; };
+		851F93FF1BAF0CF60066F6D2 /* mode_pen.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93881BAF0CF60066F6D2 /* mode_pen.png */; settings = {ASSET_TAGS = (); }; };
+		851F94001BAF0CF60066F6D2 /* mode_plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93891BAF0CF60066F6D2 /* mode_plane.png */; settings = {ASSET_TAGS = (); }; };
+		851F94011BAF0CF60066F6D2 /* mode_planethreepoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F938A1BAF0CF60066F6D2 /* mode_planethreepoint.png */; settings = {ASSET_TAGS = (); }; };
+		851F94021BAF0CF60066F6D2 /* mode_point.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F938B1BAF0CF60066F6D2 /* mode_point.png */; settings = {ASSET_TAGS = (); }; };
+		851F94031BAF0CF60066F6D2 /* mode_pointonobject.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F938C1BAF0CF60066F6D2 /* mode_pointonobject.png */; settings = {ASSET_TAGS = (); }; };
+		851F94041BAF0CF60066F6D2 /* mode_polardiameter.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F938D1BAF0CF60066F6D2 /* mode_polardiameter.png */; settings = {ASSET_TAGS = (); }; };
+		851F94051BAF0CF60066F6D2 /* mode_polygon.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F938E1BAF0CF60066F6D2 /* mode_polygon.png */; settings = {ASSET_TAGS = (); }; };
+		851F94061BAF0CF60066F6D2 /* mode_polyline.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F938F1BAF0CF60066F6D2 /* mode_polyline.png */; settings = {ASSET_TAGS = (); }; };
+		851F94071BAF0CF60066F6D2 /* mode_prism.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93901BAF0CF60066F6D2 /* mode_prism.png */; settings = {ASSET_TAGS = (); }; };
+		851F94081BAF0CF60066F6D2 /* mode_probabilitycalculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93911BAF0CF60066F6D2 /* mode_probabilitycalculator.png */; settings = {ASSET_TAGS = (); }; };
+		851F94091BAF0CF60066F6D2 /* mode_pyramid.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93921BAF0CF60066F6D2 /* mode_pyramid.png */; settings = {ASSET_TAGS = (); }; };
+		851F940A1BAF0CF60066F6D2 /* mode_ray.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93931BAF0CF60066F6D2 /* mode_ray.png */; settings = {ASSET_TAGS = (); }; };
+		851F940B1BAF0CF60066F6D2 /* mode_recordtospreadsheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93941BAF0CF60066F6D2 /* mode_recordtospreadsheet.png */; settings = {ASSET_TAGS = (); }; };
+		851F940C1BAF0CF60066F6D2 /* mode_regularpolygon.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93951BAF0CF60066F6D2 /* mode_regularpolygon.png */; settings = {ASSET_TAGS = (); }; };
+		851F940D1BAF0CF60066F6D2 /* mode_relation.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93961BAF0CF60066F6D2 /* mode_relation.png */; settings = {ASSET_TAGS = (); }; };
+		851F940E1BAF0CF60066F6D2 /* mode_rigidpolygon.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93971BAF0CF60066F6D2 /* mode_rigidpolygon.png */; settings = {ASSET_TAGS = (); }; };
+		851F940F1BAF0CF60066F6D2 /* mode_rotatearoundline.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93981BAF0CF60066F6D2 /* mode_rotatearoundline.png */; settings = {ASSET_TAGS = (); }; };
+		851F94101BAF0CF60066F6D2 /* mode_rotatebyangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93991BAF0CF60066F6D2 /* mode_rotatebyangle.png */; settings = {ASSET_TAGS = (); }; };
+		851F94111BAF0CF60066F6D2 /* mode_rotateview.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F939A1BAF0CF60066F6D2 /* mode_rotateview.png */; settings = {ASSET_TAGS = (); }; };
+		851F94121BAF0CF60066F6D2 /* mode_segment.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F939B1BAF0CF60066F6D2 /* mode_segment.png */; settings = {ASSET_TAGS = (); }; };
+		851F94131BAF0CF60066F6D2 /* mode_segmentfixed.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F939C1BAF0CF60066F6D2 /* mode_segmentfixed.png */; settings = {ASSET_TAGS = (); }; };
+		851F94141BAF0CF60066F6D2 /* mode_semicircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F939D1BAF0CF60066F6D2 /* mode_semicircle.png */; settings = {ASSET_TAGS = (); }; };
+		851F94151BAF0CF60066F6D2 /* mode_showcheckbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F939E1BAF0CF60066F6D2 /* mode_showcheckbox.png */; settings = {ASSET_TAGS = (); }; };
+		851F94161BAF0CF60066F6D2 /* mode_showhidelabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F939F1BAF0CF60066F6D2 /* mode_showhidelabel.png */; settings = {ASSET_TAGS = (); }; };
+		851F94171BAF0CF60066F6D2 /* mode_showhideobject.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A01BAF0CF60066F6D2 /* mode_showhideobject.png */; settings = {ASSET_TAGS = (); }; };
+		851F94181BAF0CF60066F6D2 /* mode_slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A11BAF0CF60066F6D2 /* mode_slider.png */; settings = {ASSET_TAGS = (); }; };
+		851F94191BAF0CF60066F6D2 /* mode_slope.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A21BAF0CF60066F6D2 /* mode_slope.png */; settings = {ASSET_TAGS = (); }; };
+		851F941A1BAF0CF60066F6D2 /* mode_solve.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A31BAF0CF60066F6D2 /* mode_solve.png */; settings = {ASSET_TAGS = (); }; };
+		851F941B1BAF0CF60066F6D2 /* mode_sphere2.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A41BAF0CF60066F6D2 /* mode_sphere2.png */; settings = {ASSET_TAGS = (); }; };
+		851F941C1BAF0CF60066F6D2 /* mode_spherepointradius.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A51BAF0CF60066F6D2 /* mode_spherepointradius.png */; settings = {ASSET_TAGS = (); }; };
+		851F941D1BAF0CF60066F6D2 /* mode_substitute.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A61BAF0CF60066F6D2 /* mode_substitute.png */; settings = {ASSET_TAGS = (); }; };
+		851F941E1BAF0CF60066F6D2 /* mode_sumcells.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A71BAF0CF60066F6D2 /* mode_sumcells.png */; settings = {ASSET_TAGS = (); }; };
+		851F941F1BAF0CF60066F6D2 /* mode_tangent.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A81BAF0CF60066F6D2 /* mode_tangent.png */; settings = {ASSET_TAGS = (); }; };
+		851F94201BAF0CF60066F6D2 /* mode_tetrahedron.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93A91BAF0CF60066F6D2 /* mode_tetrahedron.png */; settings = {ASSET_TAGS = (); }; };
+		851F94211BAF0CF60066F6D2 /* mode_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93AA1BAF0CF60066F6D2 /* mode_text.png */; settings = {ASSET_TAGS = (); }; };
+		851F94221BAF0CF60066F6D2 /* mode_textfieldaction.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93AB1BAF0CF60066F6D2 /* mode_textfieldaction.png */; settings = {ASSET_TAGS = (); }; };
+		851F94231BAF0CF60066F6D2 /* mode_tool.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93AC1BAF0CF60066F6D2 /* mode_tool.png */; settings = {ASSET_TAGS = (); }; };
+		851F94241BAF0CF60066F6D2 /* mode_translatebyvector.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93AD1BAF0CF60066F6D2 /* mode_translatebyvector.png */; settings = {ASSET_TAGS = (); }; };
+		851F94251BAF0CF60066F6D2 /* mode_translateview.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93AE1BAF0CF60066F6D2 /* mode_translateview.png */; settings = {ASSET_TAGS = (); }; };
+		851F94261BAF0CF60066F6D2 /* mode_twovarstats.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93AF1BAF0CF60066F6D2 /* mode_twovarstats.png */; settings = {ASSET_TAGS = (); }; };
+		851F94271BAF0CF60066F6D2 /* mode_vector.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B01BAF0CF60066F6D2 /* mode_vector.png */; settings = {ASSET_TAGS = (); }; };
+		851F94281BAF0CF60066F6D2 /* mode_vectorfrompoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B11BAF0CF60066F6D2 /* mode_vectorfrompoint.png */; settings = {ASSET_TAGS = (); }; };
+		851F94291BAF0CF60066F6D2 /* mode_vectorpolygon.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B21BAF0CF60066F6D2 /* mode_vectorpolygon.png */; settings = {ASSET_TAGS = (); }; };
+		851F942A1BAF0CF60066F6D2 /* mode_viewinfrontof.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B31BAF0CF60066F6D2 /* mode_viewinfrontof.png */; settings = {ASSET_TAGS = (); }; };
+		851F942B1BAF0CF60066F6D2 /* mode_volume.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B41BAF0CF60066F6D2 /* mode_volume.png */; settings = {ASSET_TAGS = (); }; };
+		851F942C1BAF0CF60066F6D2 /* mode_zoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B51BAF0CF60066F6D2 /* mode_zoom.png */; settings = {ASSET_TAGS = (); }; };
+		851F942D1BAF0CF60066F6D2 /* mode_zoomin.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B61BAF0CF60066F6D2 /* mode_zoomin.png */; settings = {ASSET_TAGS = (); }; };
+		851F942E1BAF0CF60066F6D2 /* mode_zoomout.png in Resources */ = {isa = PBXBuildFile; fileRef = 851F93B71BAF0CF60066F6D2 /* mode_zoomout.png */; settings = {ASSET_TAGS = (); }; };
+		851F94391BB0395B0066F6D2 /* ModeToggleMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F94381BB0395B0066F6D2 /* ModeToggleMenu.m */; settings = {ASSET_TAGS = (); }; };
 		854CB9C51B4EFAE500BF8DF0 /* test3.ggb in Resources */ = {isa = PBXBuildFile; fileRef = 854CB9C41B4EF90200BF8DF0 /* test3.ggb */; };
 		854CB9C81B4FB3BC00BF8DF0 /* ZeroOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */; };
 		854CB9CB1B4FB84A00BF8DF0 /* CancelEventTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 854CB9CA1B4FB84A00BF8DF0 /* CancelEventTimer.m */; };
@@ -4092,6 +4212,127 @@
 		8514EF5F1B7388360048748B /* ciclos_rueda_noLocus.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = ciclos_rueda_noLocus.ggb; sourceTree = "<group>"; };
 		8514EF601B7388360048748B /* ClosestPoint.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = ClosestPoint.ggb; sourceTree = "<group>"; };
 		8514EF611B7388360048748B /* CompoundFunctions.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = CompoundFunctions.ggb; sourceTree = "<group>"; };
+		851F93411BAF0CF60066F6D2 /* mode_angle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_angle.png; sourceTree = "<group>"; };
+		851F93421BAF0CF60066F6D2 /* mode_anglefixed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_anglefixed.png; sourceTree = "<group>"; };
+		851F93431BAF0CF60066F6D2 /* mode_angularbisector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_angularbisector.png; sourceTree = "<group>"; };
+		851F93441BAF0CF60066F6D2 /* mode_area.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_area.png; sourceTree = "<group>"; };
+		851F93451BAF0CF60066F6D2 /* mode_attachdetachpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_attachdetachpoint.png; sourceTree = "<group>"; };
+		851F93461BAF0CF60066F6D2 /* mode_buttonaction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_buttonaction.png; sourceTree = "<group>"; };
+		851F93471BAF0CF60066F6D2 /* mode_circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circle2.png; sourceTree = "<group>"; };
+		851F93481BAF0CF60066F6D2 /* mode_circle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circle3.png; sourceTree = "<group>"; };
+		851F93491BAF0CF60066F6D2 /* mode_circlearc3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circlearc3.png; sourceTree = "<group>"; };
+		851F934A1BAF0CF60066F6D2 /* mode_circleaxispoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circleaxispoint.png; sourceTree = "<group>"; };
+		851F934B1BAF0CF60066F6D2 /* mode_circlepointradius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circlepointradius.png; sourceTree = "<group>"; };
+		851F934C1BAF0CF60066F6D2 /* mode_circlepointradiusdirection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circlepointradiusdirection.png; sourceTree = "<group>"; };
+		851F934D1BAF0CF60066F6D2 /* mode_circlesector3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circlesector3.png; sourceTree = "<group>"; };
+		851F934E1BAF0CF60066F6D2 /* mode_circumcirclearc3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circumcirclearc3.png; sourceTree = "<group>"; };
+		851F934F1BAF0CF60066F6D2 /* mode_circumcirclesector3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_circumcirclesector3.png; sourceTree = "<group>"; };
+		851F93501BAF0CF60066F6D2 /* mode_compasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_compasses.png; sourceTree = "<group>"; };
+		851F93511BAF0CF60066F6D2 /* mode_complexnumber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_complexnumber.png; sourceTree = "<group>"; };
+		851F93521BAF0CF60066F6D2 /* mode_cone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_cone.png; sourceTree = "<group>"; };
+		851F93531BAF0CF60066F6D2 /* mode_conic5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_conic5.png; sourceTree = "<group>"; };
+		851F93541BAF0CF60066F6D2 /* mode_conify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_conify.png; sourceTree = "<group>"; };
+		851F93551BAF0CF60066F6D2 /* mode_copyvisualstyle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_copyvisualstyle.png; sourceTree = "<group>"; };
+		851F93561BAF0CF60066F6D2 /* mode_countcells.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_countcells.png; sourceTree = "<group>"; };
+		851F93571BAF0CF60066F6D2 /* mode_createlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_createlist.png; sourceTree = "<group>"; };
+		851F93581BAF0CF60066F6D2 /* mode_createlistofpoints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_createlistofpoints.png; sourceTree = "<group>"; };
+		851F93591BAF0CF60066F6D2 /* mode_creatematrix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_creatematrix.png; sourceTree = "<group>"; };
+		851F935A1BAF0CF60066F6D2 /* mode_createpolyline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_createpolyline.png; sourceTree = "<group>"; };
+		851F935B1BAF0CF60066F6D2 /* mode_createtable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_createtable.png; sourceTree = "<group>"; };
+		851F935C1BAF0CF60066F6D2 /* mode_cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_cube.png; sourceTree = "<group>"; };
+		851F935D1BAF0CF60066F6D2 /* mode_cylinder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_cylinder.png; sourceTree = "<group>"; };
+		851F935E1BAF0CF60066F6D2 /* mode_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_delete.png; sourceTree = "<group>"; };
+		851F935F1BAF0CF60066F6D2 /* mode_derivative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_derivative.png; sourceTree = "<group>"; };
+		851F93601BAF0CF60066F6D2 /* mode_dilatefrompoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_dilatefrompoint.png; sourceTree = "<group>"; };
+		851F93611BAF0CF60066F6D2 /* mode_distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_distance.png; sourceTree = "<group>"; };
+		851F93621BAF0CF60066F6D2 /* mode_ellipse3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_ellipse3.png; sourceTree = "<group>"; };
+		851F93631BAF0CF60066F6D2 /* mode_evaluate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_evaluate.png; sourceTree = "<group>"; };
+		851F93641BAF0CF60066F6D2 /* mode_expand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_expand.png; sourceTree = "<group>"; };
+		851F93651BAF0CF60066F6D2 /* mode_extrusion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_extrusion.png; sourceTree = "<group>"; };
+		851F93661BAF0CF60066F6D2 /* mode_factor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_factor.png; sourceTree = "<group>"; };
+		851F93671BAF0CF60066F6D2 /* mode_fitline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_fitline.png; sourceTree = "<group>"; };
+		851F93681BAF0CF60066F6D2 /* mode_freehandshape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_freehandshape.png; sourceTree = "<group>"; };
+		851F93691BAF0CF60066F6D2 /* mode_functioninspector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_functioninspector.png; sourceTree = "<group>"; };
+		851F936A1BAF0CF60066F6D2 /* mode_hyperbola3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_hyperbola3.png; sourceTree = "<group>"; };
+		851F936B1BAF0CF60066F6D2 /* mode_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_image.png; sourceTree = "<group>"; };
+		851F936C1BAF0CF60066F6D2 /* mode_integral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_integral.png; sourceTree = "<group>"; };
+		851F936D1BAF0CF60066F6D2 /* mode_intersect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_intersect.png; sourceTree = "<group>"; };
+		851F936E1BAF0CF60066F6D2 /* mode_intersectioncurve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_intersectioncurve.png; sourceTree = "<group>"; };
+		851F936F1BAF0CF60066F6D2 /* mode_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_join.png; sourceTree = "<group>"; };
+		851F93701BAF0CF60066F6D2 /* mode_keepinput.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_keepinput.png; sourceTree = "<group>"; };
+		851F93711BAF0CF60066F6D2 /* mode_linebisector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_linebisector.png; sourceTree = "<group>"; };
+		851F93721BAF0CF60066F6D2 /* mode_locus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_locus.png; sourceTree = "<group>"; };
+		851F93731BAF0CF60066F6D2 /* mode_maxcells.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_maxcells.png; sourceTree = "<group>"; };
+		851F93741BAF0CF60066F6D2 /* mode_meancells.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_meancells.png; sourceTree = "<group>"; };
+		851F93751BAF0CF60066F6D2 /* mode_midpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_midpoint.png; sourceTree = "<group>"; };
+		851F93761BAF0CF60066F6D2 /* mode_mincells.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_mincells.png; sourceTree = "<group>"; };
+		851F93771BAF0CF60066F6D2 /* mode_mirroratcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_mirroratcircle.png; sourceTree = "<group>"; };
+		851F93781BAF0CF60066F6D2 /* mode_mirroratline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_mirroratline.png; sourceTree = "<group>"; };
+		851F93791BAF0CF60066F6D2 /* mode_mirroratplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_mirroratplane.png; sourceTree = "<group>"; };
+		851F937A1BAF0CF60066F6D2 /* mode_mirroratpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_mirroratpoint.png; sourceTree = "<group>"; };
+		851F937B1BAF0CF60066F6D2 /* mode_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_move.png; sourceTree = "<group>"; };
+		851F937C1BAF0CF60066F6D2 /* mode_moverotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_moverotate.png; sourceTree = "<group>"; };
+		851F937D1BAF0CF60066F6D2 /* mode_multivarstats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_multivarstats.png; sourceTree = "<group>"; };
+		851F937E1BAF0CF60066F6D2 /* mode_net.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_net.png; sourceTree = "<group>"; };
+		851F937F1BAF0CF60066F6D2 /* mode_nsolve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_nsolve.png; sourceTree = "<group>"; };
+		851F93801BAF0CF60066F6D2 /* mode_numeric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_numeric.png; sourceTree = "<group>"; };
+		851F93811BAF0CF60066F6D2 /* mode_onevarstats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_onevarstats.png; sourceTree = "<group>"; };
+		851F93821BAF0CF60066F6D2 /* mode_orthogonal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_orthogonal.png; sourceTree = "<group>"; };
+		851F93831BAF0CF60066F6D2 /* mode_orthogonalplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_orthogonalplane.png; sourceTree = "<group>"; };
+		851F93841BAF0CF60066F6D2 /* mode_orthogonalthreed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_orthogonalthreed.png; sourceTree = "<group>"; };
+		851F93851BAF0CF60066F6D2 /* mode_parabola.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_parabola.png; sourceTree = "<group>"; };
+		851F93861BAF0CF60066F6D2 /* mode_parallel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_parallel.png; sourceTree = "<group>"; };
+		851F93871BAF0CF60066F6D2 /* mode_parallelplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_parallelplane.png; sourceTree = "<group>"; };
+		851F93881BAF0CF60066F6D2 /* mode_pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_pen.png; sourceTree = "<group>"; };
+		851F93891BAF0CF60066F6D2 /* mode_plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_plane.png; sourceTree = "<group>"; };
+		851F938A1BAF0CF60066F6D2 /* mode_planethreepoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_planethreepoint.png; sourceTree = "<group>"; };
+		851F938B1BAF0CF60066F6D2 /* mode_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_point.png; sourceTree = "<group>"; };
+		851F938C1BAF0CF60066F6D2 /* mode_pointonobject.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_pointonobject.png; sourceTree = "<group>"; };
+		851F938D1BAF0CF60066F6D2 /* mode_polardiameter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_polardiameter.png; sourceTree = "<group>"; };
+		851F938E1BAF0CF60066F6D2 /* mode_polygon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_polygon.png; sourceTree = "<group>"; };
+		851F938F1BAF0CF60066F6D2 /* mode_polyline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_polyline.png; sourceTree = "<group>"; };
+		851F93901BAF0CF60066F6D2 /* mode_prism.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_prism.png; sourceTree = "<group>"; };
+		851F93911BAF0CF60066F6D2 /* mode_probabilitycalculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_probabilitycalculator.png; sourceTree = "<group>"; };
+		851F93921BAF0CF60066F6D2 /* mode_pyramid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_pyramid.png; sourceTree = "<group>"; };
+		851F93931BAF0CF60066F6D2 /* mode_ray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_ray.png; sourceTree = "<group>"; };
+		851F93941BAF0CF60066F6D2 /* mode_recordtospreadsheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_recordtospreadsheet.png; sourceTree = "<group>"; };
+		851F93951BAF0CF60066F6D2 /* mode_regularpolygon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_regularpolygon.png; sourceTree = "<group>"; };
+		851F93961BAF0CF60066F6D2 /* mode_relation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_relation.png; sourceTree = "<group>"; };
+		851F93971BAF0CF60066F6D2 /* mode_rigidpolygon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_rigidpolygon.png; sourceTree = "<group>"; };
+		851F93981BAF0CF60066F6D2 /* mode_rotatearoundline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_rotatearoundline.png; sourceTree = "<group>"; };
+		851F93991BAF0CF60066F6D2 /* mode_rotatebyangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_rotatebyangle.png; sourceTree = "<group>"; };
+		851F939A1BAF0CF60066F6D2 /* mode_rotateview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_rotateview.png; sourceTree = "<group>"; };
+		851F939B1BAF0CF60066F6D2 /* mode_segment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_segment.png; sourceTree = "<group>"; };
+		851F939C1BAF0CF60066F6D2 /* mode_segmentfixed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_segmentfixed.png; sourceTree = "<group>"; };
+		851F939D1BAF0CF60066F6D2 /* mode_semicircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_semicircle.png; sourceTree = "<group>"; };
+		851F939E1BAF0CF60066F6D2 /* mode_showcheckbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_showcheckbox.png; sourceTree = "<group>"; };
+		851F939F1BAF0CF60066F6D2 /* mode_showhidelabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_showhidelabel.png; sourceTree = "<group>"; };
+		851F93A01BAF0CF60066F6D2 /* mode_showhideobject.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_showhideobject.png; sourceTree = "<group>"; };
+		851F93A11BAF0CF60066F6D2 /* mode_slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_slider.png; sourceTree = "<group>"; };
+		851F93A21BAF0CF60066F6D2 /* mode_slope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_slope.png; sourceTree = "<group>"; };
+		851F93A31BAF0CF60066F6D2 /* mode_solve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_solve.png; sourceTree = "<group>"; };
+		851F93A41BAF0CF60066F6D2 /* mode_sphere2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_sphere2.png; sourceTree = "<group>"; };
+		851F93A51BAF0CF60066F6D2 /* mode_spherepointradius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_spherepointradius.png; sourceTree = "<group>"; };
+		851F93A61BAF0CF60066F6D2 /* mode_substitute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_substitute.png; sourceTree = "<group>"; };
+		851F93A71BAF0CF60066F6D2 /* mode_sumcells.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_sumcells.png; sourceTree = "<group>"; };
+		851F93A81BAF0CF60066F6D2 /* mode_tangent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_tangent.png; sourceTree = "<group>"; };
+		851F93A91BAF0CF60066F6D2 /* mode_tetrahedron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_tetrahedron.png; sourceTree = "<group>"; };
+		851F93AA1BAF0CF60066F6D2 /* mode_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_text.png; sourceTree = "<group>"; };
+		851F93AB1BAF0CF60066F6D2 /* mode_textfieldaction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_textfieldaction.png; sourceTree = "<group>"; };
+		851F93AC1BAF0CF60066F6D2 /* mode_tool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_tool.png; sourceTree = "<group>"; };
+		851F93AD1BAF0CF60066F6D2 /* mode_translatebyvector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_translatebyvector.png; sourceTree = "<group>"; };
+		851F93AE1BAF0CF60066F6D2 /* mode_translateview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_translateview.png; sourceTree = "<group>"; };
+		851F93AF1BAF0CF60066F6D2 /* mode_twovarstats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_twovarstats.png; sourceTree = "<group>"; };
+		851F93B01BAF0CF60066F6D2 /* mode_vector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_vector.png; sourceTree = "<group>"; };
+		851F93B11BAF0CF60066F6D2 /* mode_vectorfrompoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_vectorfrompoint.png; sourceTree = "<group>"; };
+		851F93B21BAF0CF60066F6D2 /* mode_vectorpolygon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_vectorpolygon.png; sourceTree = "<group>"; };
+		851F93B31BAF0CF60066F6D2 /* mode_viewinfrontof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_viewinfrontof.png; sourceTree = "<group>"; };
+		851F93B41BAF0CF60066F6D2 /* mode_volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_volume.png; sourceTree = "<group>"; };
+		851F93B51BAF0CF60066F6D2 /* mode_zoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_zoom.png; sourceTree = "<group>"; };
+		851F93B61BAF0CF60066F6D2 /* mode_zoomin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_zoomin.png; sourceTree = "<group>"; };
+		851F93B71BAF0CF60066F6D2 /* mode_zoomout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_zoomout.png; sourceTree = "<group>"; };
+		851F94371BB0395B0066F6D2 /* ModeToggleMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeToggleMenu.h; sourceTree = "<group>"; };
+		851F94381BB0395B0066F6D2 /* ModeToggleMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeToggleMenu.m; sourceTree = "<group>"; };
 		854CB9C41B4EF90200BF8DF0 /* test3.ggb */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.ggb; sourceTree = SOURCE_ROOT; };
 		854CB9C61B4FB3BC00BF8DF0 /* ZeroOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroOffset.h; sourceTree = "<group>"; };
 		854CB9C71B4FB3BC00BF8DF0 /* ZeroOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroOffset.m; sourceTree = "<group>"; };
@@ -11984,7 +12225,149 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		858C71561B1CBD12007F12D8 /* resources */ = {
+		851F933E1BAF0CF60066F6D2 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				851F933F1BAF0CF60066F6D2 /* icon_64px */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		851F933F1BAF0CF60066F6D2 /* icon_64px */ = {
+			isa = PBXGroup;
+			children = (
+				851F93401BAF0CF60066F6D2 /* tools */,
+			);
+			path = icon_64px;
+			sourceTree = "<group>";
+		};
+		851F93401BAF0CF60066F6D2 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				851F93411BAF0CF60066F6D2 /* mode_angle.png */,
+				851F93421BAF0CF60066F6D2 /* mode_anglefixed.png */,
+				851F93431BAF0CF60066F6D2 /* mode_angularbisector.png */,
+				851F93441BAF0CF60066F6D2 /* mode_area.png */,
+				851F93451BAF0CF60066F6D2 /* mode_attachdetachpoint.png */,
+				851F93461BAF0CF60066F6D2 /* mode_buttonaction.png */,
+				851F93471BAF0CF60066F6D2 /* mode_circle2.png */,
+				851F93481BAF0CF60066F6D2 /* mode_circle3.png */,
+				851F93491BAF0CF60066F6D2 /* mode_circlearc3.png */,
+				851F934A1BAF0CF60066F6D2 /* mode_circleaxispoint.png */,
+				851F934B1BAF0CF60066F6D2 /* mode_circlepointradius.png */,
+				851F934C1BAF0CF60066F6D2 /* mode_circlepointradiusdirection.png */,
+				851F934D1BAF0CF60066F6D2 /* mode_circlesector3.png */,
+				851F934E1BAF0CF60066F6D2 /* mode_circumcirclearc3.png */,
+				851F934F1BAF0CF60066F6D2 /* mode_circumcirclesector3.png */,
+				851F93501BAF0CF60066F6D2 /* mode_compasses.png */,
+				851F93511BAF0CF60066F6D2 /* mode_complexnumber.png */,
+				851F93521BAF0CF60066F6D2 /* mode_cone.png */,
+				851F93531BAF0CF60066F6D2 /* mode_conic5.png */,
+				851F93541BAF0CF60066F6D2 /* mode_conify.png */,
+				851F93551BAF0CF60066F6D2 /* mode_copyvisualstyle.png */,
+				851F93561BAF0CF60066F6D2 /* mode_countcells.png */,
+				851F93571BAF0CF60066F6D2 /* mode_createlist.png */,
+				851F93581BAF0CF60066F6D2 /* mode_createlistofpoints.png */,
+				851F93591BAF0CF60066F6D2 /* mode_creatematrix.png */,
+				851F935A1BAF0CF60066F6D2 /* mode_createpolyline.png */,
+				851F935B1BAF0CF60066F6D2 /* mode_createtable.png */,
+				851F935C1BAF0CF60066F6D2 /* mode_cube.png */,
+				851F935D1BAF0CF60066F6D2 /* mode_cylinder.png */,
+				851F935E1BAF0CF60066F6D2 /* mode_delete.png */,
+				851F935F1BAF0CF60066F6D2 /* mode_derivative.png */,
+				851F93601BAF0CF60066F6D2 /* mode_dilatefrompoint.png */,
+				851F93611BAF0CF60066F6D2 /* mode_distance.png */,
+				851F93621BAF0CF60066F6D2 /* mode_ellipse3.png */,
+				851F93631BAF0CF60066F6D2 /* mode_evaluate.png */,
+				851F93641BAF0CF60066F6D2 /* mode_expand.png */,
+				851F93651BAF0CF60066F6D2 /* mode_extrusion.png */,
+				851F93661BAF0CF60066F6D2 /* mode_factor.png */,
+				851F93671BAF0CF60066F6D2 /* mode_fitline.png */,
+				851F93681BAF0CF60066F6D2 /* mode_freehandshape.png */,
+				851F93691BAF0CF60066F6D2 /* mode_functioninspector.png */,
+				851F936A1BAF0CF60066F6D2 /* mode_hyperbola3.png */,
+				851F936B1BAF0CF60066F6D2 /* mode_image.png */,
+				851F936C1BAF0CF60066F6D2 /* mode_integral.png */,
+				851F936D1BAF0CF60066F6D2 /* mode_intersect.png */,
+				851F936E1BAF0CF60066F6D2 /* mode_intersectioncurve.png */,
+				851F936F1BAF0CF60066F6D2 /* mode_join.png */,
+				851F93701BAF0CF60066F6D2 /* mode_keepinput.png */,
+				851F93711BAF0CF60066F6D2 /* mode_linebisector.png */,
+				851F93721BAF0CF60066F6D2 /* mode_locus.png */,
+				851F93731BAF0CF60066F6D2 /* mode_maxcells.png */,
+				851F93741BAF0CF60066F6D2 /* mode_meancells.png */,
+				851F93751BAF0CF60066F6D2 /* mode_midpoint.png */,
+				851F93761BAF0CF60066F6D2 /* mode_mincells.png */,
+				851F93771BAF0CF60066F6D2 /* mode_mirroratcircle.png */,
+				851F93781BAF0CF60066F6D2 /* mode_mirroratline.png */,
+				851F93791BAF0CF60066F6D2 /* mode_mirroratplane.png */,
+				851F937A1BAF0CF60066F6D2 /* mode_mirroratpoint.png */,
+				851F937B1BAF0CF60066F6D2 /* mode_move.png */,
+				851F937C1BAF0CF60066F6D2 /* mode_moverotate.png */,
+				851F937D1BAF0CF60066F6D2 /* mode_multivarstats.png */,
+				851F937E1BAF0CF60066F6D2 /* mode_net.png */,
+				851F937F1BAF0CF60066F6D2 /* mode_nsolve.png */,
+				851F93801BAF0CF60066F6D2 /* mode_numeric.png */,
+				851F93811BAF0CF60066F6D2 /* mode_onevarstats.png */,
+				851F93821BAF0CF60066F6D2 /* mode_orthogonal.png */,
+				851F93831BAF0CF60066F6D2 /* mode_orthogonalplane.png */,
+				851F93841BAF0CF60066F6D2 /* mode_orthogonalthreed.png */,
+				851F93851BAF0CF60066F6D2 /* mode_parabola.png */,
+				851F93861BAF0CF60066F6D2 /* mode_parallel.png */,
+				851F93871BAF0CF60066F6D2 /* mode_parallelplane.png */,
+				851F93881BAF0CF60066F6D2 /* mode_pen.png */,
+				851F93891BAF0CF60066F6D2 /* mode_plane.png */,
+				851F938A1BAF0CF60066F6D2 /* mode_planethreepoint.png */,
+				851F938B1BAF0CF60066F6D2 /* mode_point.png */,
+				851F938C1BAF0CF60066F6D2 /* mode_pointonobject.png */,
+				851F938D1BAF0CF60066F6D2 /* mode_polardiameter.png */,
+				851F938E1BAF0CF60066F6D2 /* mode_polygon.png */,
+				851F938F1BAF0CF60066F6D2 /* mode_polyline.png */,
+				851F93901BAF0CF60066F6D2 /* mode_prism.png */,
+				851F93911BAF0CF60066F6D2 /* mode_probabilitycalculator.png */,
+				851F93921BAF0CF60066F6D2 /* mode_pyramid.png */,
+				851F93931BAF0CF60066F6D2 /* mode_ray.png */,
+				851F93941BAF0CF60066F6D2 /* mode_recordtospreadsheet.png */,
+				851F93951BAF0CF60066F6D2 /* mode_regularpolygon.png */,
+				851F93961BAF0CF60066F6D2 /* mode_relation.png */,
+				851F93971BAF0CF60066F6D2 /* mode_rigidpolygon.png */,
+				851F93981BAF0CF60066F6D2 /* mode_rotatearoundline.png */,
+				851F93991BAF0CF60066F6D2 /* mode_rotatebyangle.png */,
+				851F939A1BAF0CF60066F6D2 /* mode_rotateview.png */,
+				851F939B1BAF0CF60066F6D2 /* mode_segment.png */,
+				851F939C1BAF0CF60066F6D2 /* mode_segmentfixed.png */,
+				851F939D1BAF0CF60066F6D2 /* mode_semicircle.png */,
+				851F939E1BAF0CF60066F6D2 /* mode_showcheckbox.png */,
+				851F939F1BAF0CF60066F6D2 /* mode_showhidelabel.png */,
+				851F93A01BAF0CF60066F6D2 /* mode_showhideobject.png */,
+				851F93A11BAF0CF60066F6D2 /* mode_slider.png */,
+				851F93A21BAF0CF60066F6D2 /* mode_slope.png */,
+				851F93A31BAF0CF60066F6D2 /* mode_solve.png */,
+				851F93A41BAF0CF60066F6D2 /* mode_sphere2.png */,
+				851F93A51BAF0CF60066F6D2 /* mode_spherepointradius.png */,
+				851F93A61BAF0CF60066F6D2 /* mode_substitute.png */,
+				851F93A71BAF0CF60066F6D2 /* mode_sumcells.png */,
+				851F93A81BAF0CF60066F6D2 /* mode_tangent.png */,
+				851F93A91BAF0CF60066F6D2 /* mode_tetrahedron.png */,
+				851F93AA1BAF0CF60066F6D2 /* mode_text.png */,
+				851F93AB1BAF0CF60066F6D2 /* mode_textfieldaction.png */,
+				851F93AC1BAF0CF60066F6D2 /* mode_tool.png */,
+				851F93AD1BAF0CF60066F6D2 /* mode_translatebyvector.png */,
+				851F93AE1BAF0CF60066F6D2 /* mode_translateview.png */,
+				851F93AF1BAF0CF60066F6D2 /* mode_twovarstats.png */,
+				851F93B01BAF0CF60066F6D2 /* mode_vector.png */,
+				851F93B11BAF0CF60066F6D2 /* mode_vectorfrompoint.png */,
+				851F93B21BAF0CF60066F6D2 /* mode_vectorpolygon.png */,
+				851F93B31BAF0CF60066F6D2 /* mode_viewinfrontof.png */,
+				851F93B41BAF0CF60066F6D2 /* mode_volume.png */,
+				851F93B51BAF0CF60066F6D2 /* mode_zoom.png */,
+				851F93B61BAF0CF60066F6D2 /* mode_zoomin.png */,
+				851F93B71BAF0CF60066F6D2 /* mode_zoomout.png */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		851F942F1BAF0D030066F6D2 /* testFiles */ = {
 			isa = PBXGroup;
 			children = (
 				8514EF591B7388360048748B /* 3P_bug_material-176941.ggb */,
@@ -12003,6 +12386,24 @@
 				8514EF531B7336C00048748B /* ConicPart.ggb */,
 				854CB9C41B4EF90200BF8DF0 /* test3.ggb */,
 				85794CAC1B7DC387000DF3F4 /* Images.ggb */,
+			);
+			name = testFiles;
+			sourceTree = "<group>";
+		};
+		851F94331BB039210066F6D2 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				851F94371BB0395B0066F6D2 /* ModeToggleMenu.h */,
+				851F94381BB0395B0066F6D2 /* ModeToggleMenu.m */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		858C71561B1CBD12007F12D8 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				851F942F1BAF0D030066F6D2 /* testFiles */,
+				851F933E1BAF0CF60066F6D2 /* common */,
 				858C71571B1CBD12007F12D8 /* font */,
 			);
 			path = resources;
@@ -12050,9 +12451,11 @@
 		85A5909F1B2458CE00EDA785 /* gui */ = {
 			isa = PBXGroup;
 			children = (
+				851F94331BB039210066F6D2 /* Toolbar */,
 				85A590A01B2459CE00EDA785 /* GuiManagerInterfaceI.h */,
 				85A590A31B245C6600EDA785 /* GuiManagerI.h */,
 				85A590A41B245C6600EDA785 /* GuiManagerI.m */,
+				85F6F89C1BA2D23600626235 /* app */,
 			);
 			path = gui;
 			sourceTree = "<group>";
@@ -22393,6 +22796,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		85F6F89C1BA2D23600626235 /* app */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -22476,104 +22886,187 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				851F94131BAF0CF60066F6D2 /* mode_segmentfixed.png in Resources */,
+				851F93C71BAF0CF60066F6D2 /* mode_compasses.png in Resources */,
+				851F93F81BAF0CF60066F6D2 /* mode_onevarstats.png in Resources */,
+				851F94101BAF0CF60066F6D2 /* mode_rotatebyangle.png in Resources */,
 				85794CAD1B7DC39A000DF3F4 /* Images.ggb in Resources */,
 				8514EF621B7388450048748B /* 3P_bug_material-176941.ggb in Resources */,
 				8514EF631B7388450048748B /* A=B.ggb in Resources */,
 				8514EF641B7388450048748B /* Angles.ggb in Resources */,
+				851F93C31BAF0CF60066F6D2 /* mode_circlepointradiusdirection.png in Resources */,
 				8514EF651B7388450048748B /* arpadListJoin.ggb in Resources */,
 				8514EF661B7388450048748B /* BoxPlot.ggb in Resources */,
+				851F93E21BAF0CF60066F6D2 /* mode_image.png in Resources */,
 				8514EF671B7388450048748B /* Buttons.ggb in Resources */,
 				8514EF681B7388450048748B /* ciclos_rueda_noLocus.ggb in Resources */,
 				8514EF691B7388450048748B /* ClosestPoint.ggb in Resources */,
 				8514EF6A1B7388450048748B /* CompoundFunctions.ggb in Resources */,
 				8514EF541B7336F10048748B /* ConditionToShowObject.ggb in Resources */,
+				851F93C11BAF0CF60066F6D2 /* mode_circleaxispoint.png in Resources */,
 				8514EF551B7336F10048748B /* Conic_FilledCircles.ggb in Resources */,
+				851F93CA1BAF0CF60066F6D2 /* mode_conic5.png in Resources */,
 				8514EF561B7336F10048748B /* Conic_Transformations.ggb in Resources */,
+				851F94091BAF0CF60066F6D2 /* mode_pyramid.png in Resources */,
 				8514EF571B7336F10048748B /* Conic5.ggb in Resources */,
 				8514EF581B7336F10048748B /* ConicPart.ggb in Resources */,
 				854CB9C51B4EFAE500BF8DF0 /* test3.ggb in Resources */,
+				851F93E51BAF0CF60066F6D2 /* mode_intersectioncurve.png in Resources */,
 				85B840671B36B0050062010A /* jlm_jlmsbi10.xml in Resources */,
+				851F93F31BAF0CF60066F6D2 /* mode_moverotate.png in Resources */,
 				85B8409C1B36B0050062010A /* jlm_fcsbpg.ttf in Resources */,
+				851F93DE1BAF0CF60066F6D2 /* mode_fitline.png in Resources */,
 				85B840811B36B0050062010A /* jlm_cmbsy10.xml in Resources */,
 				858C715C1B1CBF72007F12D8 /* GeogebraSerif-Regular.ttf in Resources */,
+				851F94271BAF0CF60066F6D2 /* mode_vector.png in Resources */,
+				851F93F21BAF0CF60066F6D2 /* mode_move.png in Resources */,
+				851F93C21BAF0CF60066F6D2 /* mode_circlepointradius.png in Resources */,
+				851F93E71BAF0CF60066F6D2 /* mode_keepinput.png in Resources */,
+				851F93D71BAF0CF60066F6D2 /* mode_dilatefrompoint.png in Resources */,
+				851F93BA1BAF0CF60066F6D2 /* mode_angularbisector.png in Resources */,
+				851F93C91BAF0CF60066F6D2 /* mode_cone.png in Resources */,
 				85B840631B36B0050062010A /* jlm_jlmr10_unchanged.xml in Resources */,
+				851F93D41BAF0CF60066F6D2 /* mode_cylinder.png in Resources */,
+				851F94141BAF0CF60066F6D2 /* mode_semicircle.png in Resources */,
 				85B840721B36B0050062010A /* jlm_cmss10.ttf in Resources */,
+				851F940E1BAF0CF60066F6D2 /* mode_rigidpolygon.png in Resources */,
 				85B840681B36B0050062010A /* jlm_jlmsi10.ttf in Resources */,
+				851F94121BAF0CF60066F6D2 /* mode_segment.png in Resources */,
+				851F93DF1BAF0CF60066F6D2 /* mode_freehandshape.png in Resources */,
 				85B840931B36B0050062010A /* COPYING in Resources */,
+				851F94051BAF0CF60066F6D2 /* mode_polygon.png in Resources */,
+				851F93D51BAF0CF60066F6D2 /* mode_delete.png in Resources */,
 				85B840831B36B0050062010A /* jlm_cmsy10.xml in Resources */,
 				85B840571B36B0050062010A /* jlm_eufm10.ttf in Resources */,
 				85B840351B36B0050062010A /* jlm_wnbxti10.ttf in Resources */,
 				85B840561B36B0050062010A /* jlm_eufb10.xml in Resources */,
 				85B8409A1B36B0050062010A /* jlm_fcmrpg.ttf in Resources */,
+				851F93E31BAF0CF60066F6D2 /* mode_integral.png in Resources */,
 				85B840961B36B0050062010A /* jlm_fcmbpg.ttf in Resources */,
+				851F93F91BAF0CF60066F6D2 /* mode_orthogonal.png in Resources */,
 				85B840A51B36B0050062010A /* language_greek.xml in Resources */,
 				85B8406E1B36B0050062010A /* jlm_cmbx10.ttf in Resources */,
 				85D11A961B0CEB06007E3BC6 /* Main.storyboard in Resources */,
 				85B8405C1B36B0050062010A /* jlm_jlmbi10.xml in Resources */,
 				85B8418F1B36B0060062010A /* TeXSymbols.xml in Resources */,
 				85B8407A1B36B0050062010A /* jlm_cmti10_unchanged.xml in Resources */,
+				851F93EE1BAF0CF60066F6D2 /* mode_mirroratcircle.png in Resources */,
 				85B8403D1B36B0050062010A /* jlm_wnssi10.ttf in Resources */,
+				851F93DA1BAF0CF60066F6D2 /* mode_evaluate.png in Resources */,
+				851F93D81BAF0CF60066F6D2 /* mode_distance.png in Resources */,
 				85B840731B36B0050062010A /* jlm_cmss10.xml in Resources */,
+				851F93CC1BAF0CF60066F6D2 /* mode_copyvisualstyle.png in Resources */,
 				85B840761B36B0050062010A /* jlm_cmssi10.ttf in Resources */,
 				85B840921B36B0050062010A /* GlueSettings.xml in Resources */,
 				85B8407B1B36B0050062010A /* jlm_cmtt10.ttf in Resources */,
 				85B8408E1B36B0050062010A /* jlm_stmary10.xml in Resources */,
+				851F94041BAF0CF60066F6D2 /* mode_polardiameter.png in Resources */,
+				851F93D31BAF0CF60066F6D2 /* mode_cube.png in Resources */,
+				851F94151BAF0CF60066F6D2 /* mode_showcheckbox.png in Resources */,
 				85B840851B36B0050062010A /* jlm_msam10.xml in Resources */,
 				85B840781B36B0050062010A /* jlm_cmti10.ttf in Resources */,
+				851F942B1BAF0CF60066F6D2 /* mode_volume.png in Resources */,
 				85B840711B36B0050062010A /* jlm_cmbxti10.xml in Resources */,
+				851F94111BAF0CF60066F6D2 /* mode_rotateview.png in Resources */,
+				851F94081BAF0CF60066F6D2 /* mode_probabilitycalculator.png in Resources */,
+				851F93E81BAF0CF60066F6D2 /* mode_linebisector.png in Resources */,
 				85B8403F1B36B0050062010A /* jlm_wnti10.ttf in Resources */,
 				85B840971B36B0050062010A /* jlm_fcmbpg.xml in Resources */,
+				851F940D1BAF0CF60066F6D2 /* mode_relation.png in Resources */,
+				851F93C61BAF0CF60066F6D2 /* mode_circumcirclesector3.png in Resources */,
 				85D11A971B0CEB06007E3BC6 /* LaunchScreen.xib in Resources */,
+				851F940A1BAF0CF60066F6D2 /* mode_ray.png in Resources */,
 				85B8408B1B36B0050062010A /* jlm_special.ttf in Resources */,
+				851F94251BAF0CF60066F6D2 /* mode_translateview.png in Resources */,
+				851F93F71BAF0CF60066F6D2 /* mode_numeric.png in Resources */,
+				851F93E01BAF0CF60066F6D2 /* mode_functioninspector.png in Resources */,
+				851F93CE1BAF0CF60066F6D2 /* mode_createlist.png in Resources */,
+				851F94021BAF0CF60066F6D2 /* mode_point.png in Resources */,
 				85B8405F1B36B0050062010A /* jlm_jlmi10.ttf in Resources */,
+				851F941A1BAF0CF60066F6D2 /* mode_solve.png in Resources */,
 				85B840951B36B0050062010A /* jlm_fcmbipg.xml in Resources */,
 				85B8408F1B36B0050062010A /* jlm_stmaryrd.map.xml in Resources */,
+				851F93D61BAF0CF60066F6D2 /* mode_derivative.png in Resources */,
 				85B840841B36B0050062010A /* jlm_msam10.ttf in Resources */,
+				851F93EC1BAF0CF60066F6D2 /* mode_midpoint.png in Resources */,
+				851F94261BAF0CF60066F6D2 /* mode_twovarstats.png in Resources */,
 				85B840511B36B0050062010A /* jlm_cmmib10.ttf in Resources */,
 				85B8409B1B36B0050062010A /* jlm_fcmrpg.xml in Resources */,
 				85B840431B36B0050062010A /* language_cyrillic.xml in Resources */,
 				85B840741B36B0050062010A /* jlm_cmssbx10.ttf in Resources */,
+				851F94061BAF0CF60066F6D2 /* mode_polyline.png in Resources */,
 				85B840391B36B0050062010A /* jlm_wnss10.ttf in Resources */,
 				85B8406D1B36B0050062010A /* jlm_jlmtt10.xml in Resources */,
 				85B840791B36B0050062010A /* jlm_cmti10.xml in Resources */,
 				85B8404A1B36B0050062010A /* jlm_amssymb.map.xml in Resources */,
+				851F942D1BAF0CF60066F6D2 /* mode_zoomin.png in Resources */,
+				851F93D21BAF0CF60066F6D2 /* mode_createtable.png in Resources */,
+				851F93D11BAF0CF60066F6D2 /* mode_createpolyline.png in Resources */,
+				851F94071BAF0CF60066F6D2 /* mode_prism.png in Resources */,
 				85B840481B36B0050062010A /* DefaultTeXFont.xml in Resources */,
+				851F93D91BAF0CF60066F6D2 /* mode_ellipse3.png in Resources */,
 				85B840661B36B0050062010A /* jlm_jlmsbi10.ttf in Resources */,
+				851F93D01BAF0CF60066F6D2 /* mode_creatematrix.png in Resources */,
 				85B840551B36B0050062010A /* jlm_eufb10.ttf in Resources */,
+				851F94231BAF0CF60066F6D2 /* mode_tool.png in Resources */,
 				85B840881B36B0050062010A /* jlm_rsfs10.ttf in Resources */,
+				851F93E61BAF0CF60066F6D2 /* mode_join.png in Resources */,
+				851F93ED1BAF0CF60066F6D2 /* mode_mincells.png in Resources */,
+				851F93CB1BAF0CF60066F6D2 /* mode_conify.png in Resources */,
 				85B840541B36B0050062010A /* jlm_moustache.xml in Resources */,
 				85B8404F1B36B0050062010A /* jlm_cmmi10.xml in Resources */,
 				858C71521B1C9DAB007F12D8 /* GeoGebra-Logo.png in Resources */,
 				85B8404D1B36B0050062010A /* jlm_cmex10.xml in Resources */,
+				851F93FA1BAF0CF60066F6D2 /* mode_orthogonalplane.png in Resources */,
 				85A5913A1B331F2700EDA785 /* GeogebraSerif-Italic.ttf in Resources */,
 				85B8408D1B36B0050062010A /* jlm_stmary10.ttf in Resources */,
+				851F942C1BAF0CF60066F6D2 /* mode_zoom.png in Resources */,
 				85B840A81B36B0050062010A /* LICENSE in Resources */,
 				85B8407C1B36B0050062010A /* jlm_cmtt10.xml in Resources */,
+				851F93F51BAF0CF60066F6D2 /* mode_net.png in Resources */,
 				85B840471B36B0050062010A /* MANIFEST.MF in Resources */,
 				85B8418E1B36B0060062010A /* TeXFormulaSettings.xml in Resources */,
+				851F941B1BAF0CF60066F6D2 /* mode_sphere2.png in Resources */,
+				851F93F01BAF0CF60066F6D2 /* mode_mirroratplane.png in Resources */,
+				851F94001BAF0CF60066F6D2 /* mode_plane.png in Resources */,
+				851F93E41BAF0CF60066F6D2 /* mode_intersect.png in Resources */,
+				851F93FE1BAF0CF60066F6D2 /* mode_parallelplane.png in Resources */,
+				851F941C1BAF0CF60066F6D2 /* mode_spherepointradius.png in Resources */,
 				85B840901B36B0050062010A /* jlm_dsrom10.ttf in Resources */,
+				851F94281BAF0CF60066F6D2 /* mode_vectorfrompoint.png in Resources */,
 				85B840461B36B0050062010A /* LICENSE in Resources */,
 				85B840871B36B0050062010A /* jlm_msbm10.xml in Resources */,
+				851F93F61BAF0CF60066F6D2 /* mode_nsolve.png in Resources */,
 				85B8405E1B36B0050062010A /* jlm_jlmbx10.xml in Resources */,
 				85B8403B1B36B0050062010A /* jlm_wnssbx10.ttf in Resources */,
 				85B840621B36B0050062010A /* jlm_jlmr10.xml in Resources */,
 				85B840491B36B0050062010A /* jlm_amsfonts.map.xml in Resources */,
+				851F940C1BAF0CF60066F6D2 /* mode_regularpolygon.png in Resources */,
+				851F93DD1BAF0CF60066F6D2 /* mode_factor.png in Resources */,
 				85B8409D1B36B0050062010A /* jlm_fcsbpg.xml in Resources */,
 				85A591391B331F2700EDA785 /* GeogebraSerif-Bold.ttf in Resources */,
+				851F94201BAF0CF60066F6D2 /* mode_tetrahedron.png in Resources */,
 				85B840451B36B0050062010A /* symbols_cyrillic.xml in Resources */,
 				858C715A1B1CBD12007F12D8 /* GeogebraSans-Regular.ttf in Resources */,
 				85B840611B36B0050062010A /* jlm_jlmr10.ttf in Resources */,
 				85B840441B36B0050062010A /* mappings_cyrillic.xml in Resources */,
+				851F93EA1BAF0CF60066F6D2 /* mode_maxcells.png in Resources */,
 				85B840401B36B0050062010A /* jlm_wnti10.xml in Resources */,
 				85B840311B36B0050062010A /* COPYING in Resources */,
 				85B840411B36B0050062010A /* jlm_wntt10.ttf in Resources */,
 				85B840321B36B0050062010A /* jlm_cyrillic.map.xml in Resources */,
 				85B8406B1B36B0050062010A /* jlm_jlmss10.xml in Resources */,
 				85B840581B36B0050062010A /* jlm_eufm10.xml in Resources */,
+				851F93FC1BAF0CF60066F6D2 /* mode_parabola.png in Resources */,
 				85B840A11B36B0050062010A /* jlm_fcsrpg.xml in Resources */,
+				851F93EF1BAF0CF60066F6D2 /* mode_mirroratline.png in Resources */,
+				851F94241BAF0CF60066F6D2 /* mode_translatebyvector.png in Resources */,
 				85B840801B36B0050062010A /* jlm_cmbsy10.ttf in Resources */,
+				851F93C41BAF0CF60066F6D2 /* mode_circlesector3.png in Resources */,
 				85B840A01B36B0050062010A /* jlm_fcsrpg.ttf in Resources */,
 				85B840A31B36B0050062010A /* jlm_fctrpg.xml in Resources */,
+				851F93BE1BAF0CF60066F6D2 /* mode_circle2.png in Resources */,
+				851F93DC1BAF0CF60066F6D2 /* mode_extrusion.png in Resources */,
 				85B8407F1B36B0050062010A /* OFL.txt in Resources */,
 				85B840911B36B0050062010A /* jlm_dsrom10.xml in Resources */,
 				85B8406F1B36B0050062010A /* jlm_cmbx10.xml in Resources */,
@@ -22581,9 +23074,11 @@
 				85B8409F1B36B0050062010A /* jlm_fcsropg.xml in Resources */,
 				85B8405B1B36B0050062010A /* jlm_jlmbi10.ttf in Resources */,
 				85B8407E1B36B0050062010A /* License_for_dsrom.txt in Resources */,
+				851F93DB1BAF0CF60066F6D2 /* mode_expand.png in Resources */,
 				85B840A41B36B0050062010A /* jlm_greek.map.xml in Resources */,
 				85B8403E1B36B0050062010A /* jlm_wnssi10.xml in Resources */,
 				85B840821B36B0050062010A /* jlm_cmsy10.ttf in Resources */,
+				851F93E11BAF0CF60066F6D2 /* mode_hyperbola3.png in Resources */,
 				85B840941B36B0050062010A /* jlm_fcmbipg.ttf in Resources */,
 				85B8406A1B36B0050062010A /* jlm_jlmss10.ttf in Resources */,
 				85B840371B36B0050062010A /* jlm_wnr10.ttf in Resources */,
@@ -22593,37 +23088,71 @@
 				85B8404E1B36B0050062010A /* jlm_cmmi10.ttf in Resources */,
 				85D1C47C1B0C815C007E3BC6 /* Images.xcassets in Resources */,
 				85B840751B36B0050062010A /* jlm_cmssbx10.xml in Resources */,
+				851F93CF1BAF0CF60066F6D2 /* mode_createlistofpoints.png in Resources */,
 				85B8407D1B36B0050062010A /* Knuth_License.txt in Resources */,
 				85B8405D1B36B0050062010A /* jlm_jlmbx10.ttf in Resources */,
 				85B8408C1B36B0050062010A /* jlm_special.xml in Resources */,
 				85B840331B36B0050062010A /* jlm_wnbx10.ttf in Resources */,
 				85B8406C1B36B0050062010A /* jlm_jlmtt10.ttf in Resources */,
 				85B840341B36B0050062010A /* jlm_wnbx10.xml in Resources */,
+				851F940F1BAF0CF60066F6D2 /* mode_rotatearoundline.png in Resources */,
 				85B840501B36B0050062010A /* jlm_cmmi10_unchanged.xml in Resources */,
 				85B8409E1B36B0050062010A /* jlm_fcsropg.ttf in Resources */,
+				851F93B91BAF0CF60066F6D2 /* mode_anglefixed.png in Resources */,
+				851F94011BAF0CF60066F6D2 /* mode_planethreepoint.png in Resources */,
 				85B840421B36B0050062010A /* jlm_wntt10.xml in Resources */,
 				85B840651B36B0050062010A /* jlm_jlmsb10.xml in Resources */,
 				85B840991B36B0050062010A /* jlm_fcmripg.xml in Resources */,
+				851F93CD1BAF0CF60066F6D2 /* mode_countcells.png in Resources */,
 				85B840601B36B0050062010A /* jlm_jlmi10.xml in Resources */,
 				85B8405A1B36B0050062010A /* jlm_cmr10.xml in Resources */,
+				851F93E91BAF0CF60066F6D2 /* mode_locus.png in Resources */,
+				851F94031BAF0CF60066F6D2 /* mode_pointonobject.png in Resources */,
+				851F93FB1BAF0CF60066F6D2 /* mode_orthogonalthreed.png in Resources */,
+				851F94221BAF0CF60066F6D2 /* mode_textfieldaction.png in Resources */,
+				851F93C01BAF0CF60066F6D2 /* mode_circlearc3.png in Resources */,
+				851F93C81BAF0CF60066F6D2 /* mode_complexnumber.png in Resources */,
+				851F93BB1BAF0CF60066F6D2 /* mode_area.png in Resources */,
+				851F941D1BAF0CF60066F6D2 /* mode_substitute.png in Resources */,
+				851F94171BAF0CF60066F6D2 /* mode_showhideobject.png in Resources */,
 				85B840771B36B0050062010A /* jlm_cmssi10.xml in Resources */,
 				85B8403A1B36B0050062010A /* jlm_wnss10.xml in Resources */,
+				851F941E1BAF0CF60066F6D2 /* mode_sumcells.png in Resources */,
+				851F940B1BAF0CF60066F6D2 /* mode_recordtospreadsheet.png in Resources */,
+				851F94161BAF0CF60066F6D2 /* mode_showhidelabel.png in Resources */,
+				851F94191BAF0CF60066F6D2 /* mode_slope.png in Resources */,
+				851F94291BAF0CF60066F6D2 /* mode_vectorpolygon.png in Resources */,
+				851F942E1BAF0CF60066F6D2 /* mode_zoomout.png in Resources */,
+				851F93BC1BAF0CF60066F6D2 /* mode_attachdetachpoint.png in Resources */,
+				851F93F41BAF0CF60066F6D2 /* mode_multivarstats.png in Resources */,
+				851F93BD1BAF0CF60066F6D2 /* mode_buttonaction.png in Resources */,
+				851F93C51BAF0CF60066F6D2 /* mode_circumcirclearc3.png in Resources */,
 				85B840701B36B0050062010A /* jlm_cmbxti10.ttf in Resources */,
 				85B840891B36B0050062010A /* jlm_rsfs10.xml in Resources */,
+				851F94211BAF0CF60066F6D2 /* mode_text.png in Resources */,
 				85B8404B1B36B0050062010A /* jlm_base.map.xml in Resources */,
 				85B8404C1B36B0050062010A /* jlm_cmex10.ttf in Resources */,
 				85A591371B331F2700EDA785 /* GeogebraSans-Bold.ttf in Resources */,
+				851F93BF1BAF0CF60066F6D2 /* mode_circle3.png in Resources */,
 				85B840361B36B0050062010A /* jlm_wnbxti10.xml in Resources */,
 				85B840641B36B0050062010A /* jlm_jlmsb10.ttf in Resources */,
+				851F93FF1BAF0CF60066F6D2 /* mode_pen.png in Resources */,
 				85B840381B36B0050062010A /* jlm_wnr10.xml in Resources */,
+				851F93EB1BAF0CF60066F6D2 /* mode_meancells.png in Resources */,
 				85B840A71B36B0050062010A /* symbols_greek.xml in Resources */,
 				85B840531B36B0050062010A /* jlm_cmmib10_unchanged.xml in Resources */,
 				85B840691B36B0050062010A /* jlm_jlmsi10.xml in Resources */,
+				851F93FD1BAF0CF60066F6D2 /* mode_parallel.png in Resources */,
 				85B840A21B36B0050062010A /* jlm_fctrpg.ttf in Resources */,
 				85B840861B36B0050062010A /* jlm_msbm10.ttf in Resources */,
 				85A591381B331F2700EDA785 /* GeogebraSans-Italic.ttf in Resources */,
+				851F93F11BAF0CF60066F6D2 /* mode_mirroratpoint.png in Resources */,
 				85B840591B36B0050062010A /* jlm_cmr10.ttf in Resources */,
 				85B8403C1B36B0050062010A /* jlm_wnssbx10.xml in Resources */,
+				851F941F1BAF0CF60066F6D2 /* mode_tangent.png in Resources */,
+				851F94181BAF0CF60066F6D2 /* mode_slider.png in Resources */,
+				851F942A1BAF0CF60066F6D2 /* mode_viewinfrontof.png in Resources */,
+				851F93B81BAF0CF60066F6D2 /* mode_angle.png in Resources */,
 				85B840981B36B0050062010A /* jlm_fcmripg.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -25726,6 +26255,7 @@
 				85A70F6A1B16123100D8F94C /* NonSquareMatrixException.m in Sources */,
 				85B841691B36B0060062010A /* SymbolAtom.m in Sources */,
 				85A7105E1B16123100D8F94C /* ResizableDoubleArray.m in Sources */,
+				851F94391BB0395B0066F6D2 /* ModeToggleMenu.m in Sources */,
 				85A70FA81B16123100D8F94C /* GraggBulirschStoerIntegrator.m in Sources */,
 				85A7150A1B16123200D8F94C /* AlgoSemicircle.m in Sources */,
 				85A70F481B16123100D8F94C /* AbstractRealMatrix.m in Sources */,
@@ -26656,6 +27186,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}/GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 			};
 			name = Debug;
@@ -26681,6 +27212,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "~/j2objc-0.9.7/include ${PROJECT_DIR}/GeogebraiOS/objcsources/** /Users/jacky/GSoC/GeogebraiOS/GeogebraiOS/jlatexmath/**";
 			};
 			name = Release;
