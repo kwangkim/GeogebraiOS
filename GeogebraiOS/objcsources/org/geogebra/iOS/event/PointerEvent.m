@@ -82,12 +82,12 @@
 
 -(jboolean)isAltDown
 {
-    return alt;
+    return NO;
 }
 
 -(jboolean)isControlDown
 {
-    return control;
+    return NO;
 }
 
 -(jboolean)isMetaDown

@@ -3786,6 +3786,7 @@
 		85A741331B16325500D8F94C /* NumberFormatiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A741271B16325500D8F94C /* NumberFormatiOS.m */; };
 		85A7413B1B16DA1C00D8F94C /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7413A1B16DA1C00D8F94C /* Parser.m */; };
 		85A7414E1B1748DD00D8F94C /* GPointI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7414D1B1748DD00D8F94C /* GPointI.m */; };
+		85AB92431BB8E5EA0009F759 /* EuclidianPenFreehand.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB92421BB8E5EA0009F759 /* EuclidianPenFreehand.m */; };
 		85B840311B36B0050062010A /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 85B83DDC1B36B0030062010A /* COPYING */; };
 		85B840321B36B0050062010A /* jlm_cyrillic.map.xml in Resources */ = {isa = PBXBuildFile; fileRef = 85B83DDE1B36B0030062010A /* jlm_cyrillic.map.xml */; };
 		85B840331B36B0050062010A /* jlm_wnbx10.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85B83DDF1B36B0030062010A /* jlm_wnbx10.ttf */; };
@@ -11602,6 +11603,8 @@
 		85A7FFFD1B16122800D8F94C /* CmdSelectedIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdSelectedIndex.h; sourceTree = "<group>"; };
 		85A7FFFE1B16122800D8F94C /* CmdSelectedIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdSelectedIndex.m; sourceTree = "<group>"; };
 		85A7FFFF1B16122800D8F94C /* CmdSlopeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdSlopeField.h; sourceTree = "<group>"; };
+		85AB92411BB8E5EA0009F759 /* EuclidianPenFreehand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianPenFreehand.h; sourceTree = "<group>"; };
+		85AB92421BB8E5EA0009F759 /* EuclidianPenFreehand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EuclidianPenFreehand.m; sourceTree = "<group>"; };
 		85B83DDC1B36B0030062010A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		85B83DDE1B36B0030062010A /* jlm_cyrillic.map.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jlm_cyrillic.map.xml; sourceTree = "<group>"; };
 		85B83DDF1B36B0030062010A /* jlm_wnbx10.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = jlm_wnbx10.ttf; sourceTree = "<group>"; };
@@ -15950,6 +15953,8 @@
 				85123A271B4BD2F7005955A4 /* TouchGestureControllerI.m */,
 				856D3BA91B556909009DC6A0 /* MyZoomerI.h */,
 				856D3BAA1B556909009DC6A0 /* MyZoomerI.m */,
+				85AB92411BB8E5EA0009F759 /* EuclidianPenFreehand.h */,
+				85AB92421BB8E5EA0009F759 /* EuclidianPenFreehand.m */,
 			);
 			path = euclidian;
 			sourceTree = "<group>";
@@ -24256,6 +24261,7 @@
 				85B840AB1B36B0050062010A /* FactoryProvideriOS.m in Sources */,
 				85A70DC01B16123100D8F94C /* BoundedCollection.m in Sources */,
 				85B841101B36B0050062010A /* HlineAtom.m in Sources */,
+				85AB92431BB8E5EA0009F759 /* EuclidianPenFreehand.m in Sources */,
 				85A70DA91B16123100D8F94C /* PredicatedSortedBag.m in Sources */,
 				85A70EE21B16123100D8F94C /* CauchyDistributionImpl.m in Sources */,
 				85A713391B16123200D8F94C /* SelectionTable.m in Sources */,

@@ -24,6 +24,7 @@
 #import "MyDouble.h"
 #import "GeoPoint.h"
 #import "EuclidianViewForPlaneInterface.h"
+#import "EuclidianPenFreehand.h"
 @implementation EuclidianControllerI
 @synthesize tgc = _tgc;
 @synthesize startPosition = _startPosition;
@@ -70,8 +71,8 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 
-    NSLog(@"%d %d %d", [app_ getGuiManager] != nil,  [self getEvNo] != OrgGeogebraCommonEuclidianEuclidianView_EVNO_GENERAL_
-    ,[view_ conformsToProtocol:@protocol(OrgGeogebraCommonEuclidianForPlaneEuclidianViewForPlaneInterface)]);
+    //NSLog(@"%d %d %d", [app_ getGuiManager] != nil,  [self getEvNo] != OrgGeogebraCommonEuclidianEuclidianView_EVNO_GENERAL_
+    //,[view_ conformsToProtocol:@protocol(OrgGeogebraCommonEuclidianForPlaneEuclidianViewForPlaneInterface)]);
 
     //if(([app_ getGuiManager] != nil) && ([self getEvNo] != OrgGeogebraCommonEuclidianEuclidianView_EVNO_GENERAL_
     //                                     || [view_ conformsToProtocol:@protocol(OrgGeogebraCommonEuclidianForPlaneEuclidianViewForPlaneInterface)]))
@@ -154,14 +155,14 @@
           || mode_ == OrgGeogebraCommonEuclidianEuclidianConstants_MODE_SEMICIRCLE
           || mode_ == OrgGeogebraCommonEuclidianEuclidianConstants_MODE_REGULAR_POLYGON)){
            [self handleMovedElementWithOrgGeogebraCommonKernelGeosGeoElement:point
-                                                                 withBoolean:NO withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:OrgGeogebraCommonEuclidianEventPointerEventType_MOUSE];
+                                                                 withBoolean:NO withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:OrgGeogebraCommonEuclidianEventPointerEventTypeEnum_MOUSE];
        }
        return newPointCreated;
 }
 
 -(void)wrapMouseDraggedWithOrgGeogebraCommonEuclidianEventAbstractEvent:(OrgGeogebraCommonEuclidianEventAbstractEvent *)event withBoolean:(jboolean)startCapture
 {
-    if(pen_ != nil && !penDragged_ && FREEHAND_MODE_THRESHOLD_SQR){
+    if(pen_ != nil && !penDragged_ && freeHandModePrepared){
         [[self getPen] handleMouseDraggedForPenModeWithOrgGeogebraCommonEuclidianEventAbstractEvent:event];
     }
     
@@ -184,7 +185,7 @@
         }
         [super wrapMouseDraggedWithOrgGeogebraCommonEuclidianEventAbstractEvent:event withBoolean:startCapture];
     }
-    
+
     if(movedGeoPoint_ != nil
        &&(mode_ == OrgGeogebraCommonEuclidianEuclidianConstants_MODE_JOIN
           || mode_ == OrgGeogebraCommonEuclidianEuclidianConstants_MODE_SEGMENT
@@ -230,7 +231,7 @@
         if(getDistance(_startPosition, [[OrgGeogebraCommonAwtGPoint alloc] initWithInt:[event getX] withInt:[event getY]]) < [app_ getCapturingThresholdWithOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:[event getType]]){
             [view_ setHitsWithOrgGeogebraCommonAwtGPoint:[[OrgGeogebraCommonAwtGPoint alloc] initWithInt:[event getX] withInt:[event getY]] withOrgGeogebraCommonEuclidianEventPointerEventTypeEnum:[event getType]];
 
-            if([self selPoints] == 1 && [[view_ getHits]containsWithId:p]){
+            if([self selPoints] == 1 && ![[view_ getHits] containsWithId:p]){
                 [super wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:event];
             }
             return;
@@ -257,7 +258,8 @@
 }
 
 -(BOOL)shouldSetToFreehandMode{
-    return ([self isDraggingBeyondThreshold] && pen_ != nil && [OrgGeogebraCommonEuclidianEuclidianController penModeWithInt:mode_] && freeHandModePrepared);
+    
+    return ([self isDraggingBeyondThreshold] && pen_ != nil && ![OrgGeogebraCommonEuclidianEuclidianController penModeWithInt:mode_] && freeHandModePrepared);
 }
 
 -(void)setModeToFreehand{
@@ -267,26 +269,48 @@
     freehandModeSet = YES;
 }
 
-//-(void)prepareModeForFreehand
-//{
-//    if([selectedPoints_ size] != 0){
-//        return;
-//    }
-//    OrgGeogebraCommonAwtGPoint* point = (OrgGeogebraCommonAwtGPoint*) [[view_ getHits] getFirstHitWithOrgGeogebraCommonKernelGeosTestEnum:OrgGeogebraCommonKernelGeosTestEnum_GEOPOINT];
-//    if(point != nil && [movedGeoPoint_ isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPoint class]]){
-//        point = (OrgGeogebraCommonKernelGeosGeoPoint*) movedGeoPoint_;
-//    }
-//    
-//    switch (mode_) {
-//        case OrgGeogebraCommonEuclidianEuclidianConstants_MODE_CIRCLE_THREE_POINTS:
-//            pen_
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//    
-//}
+-(void)prepareModeForFreehand
+{
+    if([selectedPoints_ size] != 0){
+        return;
+    }
+    OrgGeogebraCommonKernelGeosGeoPoint* point = (OrgGeogebraCommonKernelGeosGeoPoint*) [[view_ getHits] getFirstHitWithOrgGeogebraCommonKernelGeosTestEnum:OrgGeogebraCommonKernelGeosTestEnum_GEOPOINT];
+    if(point == nil && [movedGeoPoint_ isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPoint class]]){
+        point = (OrgGeogebraCommonKernelGeosGeoPoint*) movedGeoPoint_;
+    }
+    
+    switch (mode_) {
+        case OrgGeogebraCommonEuclidianEuclidianConstants_MODE_CIRCLE_THREE_POINTS:
+            pen_ = [[EuclidianPenFreehand alloc] initWithOrgGeogebraCommonMainApp:app_ withOrgGeogebraCommonEuclidianEuclidianView:view_];
+            [(EuclidianPenFreehand*)pen_ setExpected:circleThreePoints];
+            
+            point = (pointCreated_ != nil) && [movedGeoPoint_ class] == [OrgGeogebraCommonKernelGeosGeoPoint class] ? (OrgGeogebraCommonKernelGeosGeoPoint*)movedGeoPoint_ : nil;
+            
+            break;
+        case OrgGeogebraCommonEuclidianEuclidianConstants_MODE_POLYGON:
+            pen_ = [[EuclidianPenFreehand alloc] initWithOrgGeogebraCommonMainApp:app_ withOrgGeogebraCommonEuclidianEuclidianView:view_];
+            [(EuclidianPenFreehand*)pen_ setExpected:polygon];
+            break;
+        case OrgGeogebraCommonEuclidianEuclidianConstants_MODE_RIGID_POLYGON:
+            pen_ = [[EuclidianPenFreehand alloc] initWithOrgGeogebraCommonMainApp:app_ withOrgGeogebraCommonEuclidianEuclidianView:view_];
+            [(EuclidianPenFreehand*)pen_ setExpected:rigidPolygon];
+            break;
+        case OrgGeogebraCommonEuclidianEuclidianConstants_MODE_VECTOR_POLYGON:
+            pen_ = [[EuclidianPenFreehand alloc] initWithOrgGeogebraCommonMainApp:app_ withOrgGeogebraCommonEuclidianEuclidianView:view_];
+            [(EuclidianPenFreehand*)pen_ setExpected:vectorPolygon];
+            break;
+        case OrgGeogebraCommonEuclidianEuclidianConstants_MODE_FREEHAND_CIRCLE:
+            pen_ = [[EuclidianPenFreehand alloc] initWithOrgGeogebraCommonMainApp:app_ withOrgGeogebraCommonEuclidianEuclidianView:view_];
+            [(EuclidianPenFreehand*)pen_ setExpected:circle];
+            point = nil;
+            break;
+        default:
+            return;
+    }
+    freeHandModePrepared = true;
+    [(EuclidianPenFreehand*)pen_ setInitialPointWithOrgGeogebraCommonKernelGeosGeoPoint:point withBoolean:point!=nil && [point isEqual:pointCreated_]];
+    
+}
 
 -(jboolean)processZoomRectangle
 {
@@ -314,6 +338,24 @@
     int dy = mouseLoc_->y_ - selectionStartPoint_->y_;
     double distSqr = (dx * dx) + (dy * dy);
     return distSqr > SELECTION_RECT_THRESHOLD_SQR;
+}
+
+-(void)resetModeAfterFreehand
+{
+    if(freeHandModePrepared){
+        freeHandModePrepared = NO;
+        pen_ = nil;
+    }
+    if(freehandModeSet){
+        freehandModeSet = NO;
+        mode_ = previousMode;
+        moveMode__ = OrgGeogebraCommonEuclidianEuclidianController_MOVE_NONE;
+        [view_ setPreviewWithOrgGeogebraCommonEuclidianPreviewable:
+         [self switchPreviewableForInitNewModeWithInt:mode_]];
+        pen_ = nil;
+        previousMode = -1;
+        [view_ repaint];
+    }
 }
 
 

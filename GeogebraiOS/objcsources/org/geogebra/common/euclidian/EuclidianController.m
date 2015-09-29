@@ -4841,6 +4841,7 @@ withOrgGeogebraCommonEuclidianEventAbstractEvent:(OrgGeogebraCommonEuclidianEven
 }
 
 - (void)wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:(OrgGeogebraCommonEuclidianEventAbstractEvent *)event {
+
   jint x = [((OrgGeogebraCommonEuclidianEventAbstractEvent *) nil_chk(event)) getX];
   jint y = [event getY];
   jboolean right = [((OrgGeogebraCommonMainApp *) nil_chk(app_)) isRightClickWithOrgGeogebraCommonEuclidianEventAbstractEvent:event];

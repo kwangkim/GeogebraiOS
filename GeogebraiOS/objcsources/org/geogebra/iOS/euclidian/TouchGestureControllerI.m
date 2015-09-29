@@ -29,6 +29,8 @@
 #import "Coords.h"
 #import <math.h>
 #import "EuclidianControllerI.h"
+#import "DrawPolyLine.h"
+#import "DrawPolygon.h"
 
 @implementation TouchGestureControllerI
 @synthesize app = _app;
@@ -86,6 +88,7 @@
     }else{
         ;
     }
+    
     [CancelEventTimer touchEventOccured];
     [_ec prepareModeForFreehand];
     moveCounter = 0;
@@ -99,6 +102,17 @@
     //NSLog(@"moving touches count: %d",[touches count]);
     
     if([touches count] == 1 && !ignoreEvent){
+        UITouch* touch = [touches anyObject];
+        PointerEvent* et = [PointerEvent wrapEventWithTouch:touch withHasOffsets:self];
+        //if([_ec shouldSetToFreehandMode]){
+        //    [_ec setModeToFreehand];
+        //}
+        
+        //[_ec wrapMouseDraggedWithOrgGeogebraCommonEuclidianEventAbstractEvent:et withBoolean:YES];
+        //if([EuclidianControllerI penModeWithInt:_ec->mode_]){
+        //    [_ec->view_ repaint];
+        //}
+        
         if(time < lastMoveEvent + EuclidianViewI_DELAY_BETWEEN_MOVE_EVENTS){
             UITouch* touch = [touches anyObject];
             PointerEvent* et = [PointerEvent wrapEventWithTouch:touch withHasOffsets:self];
@@ -110,13 +124,13 @@
             }
             return;
         }
-        UITouch* touch = [touches anyObject];
-        PointerEvent* et = [PointerEvent wrapEventWithTouch:touch withHasOffsets:self];
-        if(!_ec->draggingBeyondThreshold_){
-            ;
-        }else{
-            ;
-        }
+//        UITouch* touch = [touches anyObject];
+//        PointerEvent* et = [PointerEvent wrapEventWithTouch:touch withHasOffsets:self];
+//        if(!_ec->draggingBeyondThreshold_){
+//            ;
+//        }else{
+//            ;
+//        }
         [self onTouchMoveNow:et withTime:time withBool:YES];
     }else if([touches count] == 2 && [_app isShiftDragZoomEnabled]){
         NSEnumerator* en = [touches objectEnumerator];
@@ -127,6 +141,7 @@
     
     [CancelEventTimer touchEventOccured];
 }
+
 
 -(void)twoTouchStart:(UITouch *)touch1 and:(UITouch *)touch2
 {
@@ -151,27 +166,34 @@
 {
     UITouch* touch = [touches anyObject];
     DRAGMODE_MUST_BE_SELECTED = NO;
-    if(moveCounter < 2){
-        [_ec resetModeAfterFreehand];
-    }
+    //if(moveCounter < 2){
+    //    [_ec resetModeAfterFreehand];
+    //}
     [self moveIfWaiting];
     [EuclidianViewI resetDelay];
-    //longtouchmanager canceltimer;
-    //NSLog(@"end touches count: %d",[touches count]);
-    //NSLog(@"event alltouches count: %d",[[event allTouches] count]);
+
     if([[event allTouches] count] == 1 && !ignoreEvent){
         if(ZeroOffset_instance == nil){
             ZeroOffset_instance = [[ZeroOffset alloc] init];
         }
         [_ec wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:[[PointerEvent alloc] initWithDouble:_ec->mouseLoc_->x_ withDouble:_ec->mouseLoc_->y_ withHasOffsets:ZeroOffset_instance]];
-    }else if([[event allTouches] count] == 2 ){
-        //NSEnumerator* en = [touches objectEnumerator];
-        //[_ec wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:[PointerEvent wrapEventWithTouch:(UITouch*)[en nextObject] withHasOffsets:self]];
-        //[_ec wrapMouseReleasedWithOrgGeogebraCommonEuclidianEventAbstractEvent:[PointerEvent wrapEventWithTouch:(UITouch*)[en nextObject] withHasOffsets:self]];
+        
+        [CancelEventTimer touchEventOccured];
+        [_ec resetModeAfterFreehand];
+        if([EuclidianControllerI penModeWithInt:_ec->mode_]){
+            [_ec->app_ refreshViews];
+        }
+        if([[_ec->view_ getPreviewDrawable] class] != [OrgGeogebraCommonEuclidianDrawDrawPolygon class] &&
+           [[_ec->view_ getPreviewDrawable] class] != [OrgGeogebraCommonEuclidianDrawDrawPolyLine class]){
+            [_ec->view_ setPreviewWithOrgGeogebraCommonEuclidianPreviewable:nil];
+        }
+
+    }else{// if([[event allTouches] count] == 2 ){
+
         ignoreEvent = YES;
+        [CancelEventTimer touchEventOccured];
+        [_ec resetModeAfterFreehand];
     }
-    [CancelEventTimer touchEventOccured];
-    [_ec resetModeAfterFreehand];
 }
 
 -(void)onTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -233,6 +255,15 @@
     if(![_ec isTextfieldHasFocus]){
         DRAGMODE_MUST_BE_SELECTED = YES;
     }
+    
+    [_ec->view_ setPreviewWithOrgGeogebraCommonEuclidianPreviewable:[_ec switchPreviewableForInitNewModeWithInt:_ec->mode_]];
+    
+    if([_ec->view_ getPreviewDrawable]!=nil){
+        [_ec->view_ setPreviewWithOrgGeogebraCommonEuclidianPreviewable:
+         [_ec switchPreviewableForInitNewModeWithInt:_ec->mode_]];
+        [_ec->view_ updatePreviewableForProcessMode];
+    }
+    
     [_ec wrapMousePressedWithOrgGeogebraCommonEuclidianEventAbstractEvent:event];
     if([[_ec->view_ getHits] isEmpty] && [_ec->view_ hasStyleBar]){
         [[_ec->view_ getStyleBar] hidePopups];
@@ -396,9 +427,6 @@
     OrgGeogebraCommonEuclidianHits* hits2 = [_ec->view_ getHits];
     oldCenterX = (x1+x2)/2;
     oldCenterY = (y1+y2)/2;
-    if([hits1 size] > 0
-       && [hits2 size] > 0)
-
     if([hits1 hasYAxis] && [hits2 hasYAxis]){
         _multitouchMode  = zoomY;
         _ec->oldDistance_ = y1 - y2;

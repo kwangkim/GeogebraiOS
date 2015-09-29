@@ -282,6 +282,11 @@
     ;
 }
 
+-(void)setTransparentCursor
+{
+    ;
+}
+
 -(void)setDefaultCursor
 {
     ;
@@ -313,6 +318,11 @@
     if([self hasStyleBar]){
         [[self getStyleBar] setModeWithInt:mode];
     }
+}
+
+-(id<OrgGeogebraCommonAwtGGraphics2D>)getGraphicsForPen
+{
+    return _g2p;
 }
 
 @end
