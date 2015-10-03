@@ -44,6 +44,7 @@ static Boolean isApplet;
 @synthesize drawEquation = _drawEquation;
 @synthesize imageManager = _imageManager;
 @synthesize timers = _timers;
+@synthesize dialogManager = _dialogManager;
 -(id)init
 {
     self = [super init];
@@ -381,7 +382,10 @@ static Boolean isApplet;
 
 -(OrgGeogebraCommonMainDialogManager *)getDialogManager
 {
-    return nil;
+    if(_dialogManager == nil){
+        _dialogManager = [[DialogManagerI alloc] initWithOrgGeogebraCommonMainApp:self];
+    }
+    return _dialogManager;
 }
 
 -(jboolean)isSelectionRectangleAllowed

@@ -47,4 +47,10 @@
 {
     return @"";
 }
+
+-(NSString *)getMenuWithNSString:(NSString *)key
+{
+    return @"";
+}
+
 @end

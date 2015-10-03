@@ -22,6 +22,7 @@
 #import "MyImageI.h"
 #import "ImageManagerI.h"
 #import "TimerSystemI.h"
+#import "DialogManagerI.h"
 @interface AppI : OrgGeogebraCommonMainApp{
 }
 @property(retain) LocalizationI* loc;
@@ -33,6 +34,7 @@
 @property(retain) FontManagerI* fontManager;
 @property(retain) DrawEquationI* drawEquation;
 @property(retain) ImageManagerI* imageManager;
+@property(retain) DialogManagerI* dialogManager;
 @property TimerSystemI* timers;
 -(void)loadGgbFileWithNSDictionary:(NSMutableDictionary*)archiveContent;
 -(void)loadFileWithNSDictionary:(NSMutableDictionary*)archiveContent;

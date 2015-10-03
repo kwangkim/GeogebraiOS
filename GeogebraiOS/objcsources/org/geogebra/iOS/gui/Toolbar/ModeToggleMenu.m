@@ -297,7 +297,7 @@
             UIButton *button_rigidpolygon = [[UIButton alloc] initWithFrame:CGRectMake(x, 6, 32, 32)];
             [button_rigidpolygon setImage:[UIImage imageNamed:@"mode_rigidpolygon.png"] forState:UIControlStateNormal];
             [_moreModeArray addObject:button_rigidpolygon];
-            button_regularpolygon.tag = mode_rigidpolygon;
+            button_rigidpolygon.tag = mode_rigidpolygon;
             x += 40;
             
             UIButton *button_vectorpolygon = [[UIButton alloc] initWithFrame:CGRectMake(x, 6, 32, 32)];

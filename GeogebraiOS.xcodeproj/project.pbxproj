@@ -3787,6 +3787,8 @@
 		85A7413B1B16DA1C00D8F94C /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7413A1B16DA1C00D8F94C /* Parser.m */; };
 		85A7414E1B1748DD00D8F94C /* GPointI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7414D1B1748DD00D8F94C /* GPointI.m */; };
 		85AB92431BB8E5EA0009F759 /* EuclidianPenFreehand.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB92421BB8E5EA0009F759 /* EuclidianPenFreehand.m */; };
+		85AB924A1BBF9AAE0009F759 /* RegularPolygonDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB92491BBF9AAE0009F759 /* RegularPolygonDialog.m */; };
+		85AB924D1BBFA3D80009F759 /* DialogManagerI.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB924C1BBFA3D80009F759 /* DialogManagerI.m */; };
 		85B840311B36B0050062010A /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 85B83DDC1B36B0030062010A /* COPYING */; };
 		85B840321B36B0050062010A /* jlm_cyrillic.map.xml in Resources */ = {isa = PBXBuildFile; fileRef = 85B83DDE1B36B0030062010A /* jlm_cyrillic.map.xml */; };
 		85B840331B36B0050062010A /* jlm_wnbx10.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85B83DDF1B36B0030062010A /* jlm_wnbx10.ttf */; };
@@ -11605,6 +11607,10 @@
 		85A7FFFF1B16122800D8F94C /* CmdSlopeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdSlopeField.h; sourceTree = "<group>"; };
 		85AB92411BB8E5EA0009F759 /* EuclidianPenFreehand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianPenFreehand.h; sourceTree = "<group>"; };
 		85AB92421BB8E5EA0009F759 /* EuclidianPenFreehand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EuclidianPenFreehand.m; sourceTree = "<group>"; };
+		85AB92481BBF9AAE0009F759 /* RegularPolygonDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularPolygonDialog.h; sourceTree = "<group>"; };
+		85AB92491BBF9AAE0009F759 /* RegularPolygonDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularPolygonDialog.m; sourceTree = "<group>"; };
+		85AB924B1BBFA3D80009F759 /* DialogManagerI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogManagerI.h; sourceTree = "<group>"; };
+		85AB924C1BBFA3D80009F759 /* DialogManagerI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogManagerI.m; sourceTree = "<group>"; };
 		85B83DDC1B36B0030062010A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		85B83DDE1B36B0030062010A /* jlm_cyrillic.map.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jlm_cyrillic.map.xml; sourceTree = "<group>"; };
 		85B83DDF1B36B0030062010A /* jlm_wnbx10.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = jlm_wnbx10.ttf; sourceTree = "<group>"; };
@@ -12454,6 +12460,7 @@
 		85A5909F1B2458CE00EDA785 /* gui */ = {
 			isa = PBXGroup;
 			children = (
+				85AB92471BBF9AAE0009F759 /* Dialog */,
 				851F94331BB039210066F6D2 /* Toolbar */,
 				85A590A01B2459CE00EDA785 /* GuiManagerInterfaceI.h */,
 				85A590A31B245C6600EDA785 /* GuiManagerI.h */,
@@ -16004,6 +16011,8 @@
 				85A5909D1B24431800EDA785 /* FontManagerI.m */,
 				856D3BA61B53723F009DC6A0 /* TimerSystemI.h */,
 				856D3BA71B53723F009DC6A0 /* TimerSystemI.m */,
+				85AB924B1BBFA3D80009F759 /* DialogManagerI.h */,
+				85AB924C1BBFA3D80009F759 /* DialogManagerI.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -21991,6 +22000,15 @@
 			path = advanced;
 			sourceTree = "<group>";
 		};
+		85AB92471BBF9AAE0009F759 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				85AB92481BBF9AAE0009F759 /* RegularPolygonDialog.h */,
+				85AB92491BBF9AAE0009F759 /* RegularPolygonDialog.m */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		85B83DDA1B36B0030062010A /* jlatexmath */ = {
 			isa = PBXGroup;
 			children = (
@@ -24679,6 +24697,7 @@
 				85A70E711B16123100D8F94C /* UnmodifiableEntrySet.m in Sources */,
 				85A70D871B16123100D8F94C /* GraphEvent.m in Sources */,
 				85A716451B16123300D8F94C /* ConstructionDefaults.m in Sources */,
+				85AB924D1BBFA3D80009F759 /* DialogManagerI.m in Sources */,
 				85A714F61B16123200D8F94C /* AlgoQ1.m in Sources */,
 				85A7114B1B16123100D8F94C /* EuclidianStyleBarStatic3D.m in Sources */,
 				85A717C31B16123300D8F94C /* TokenMgrError.m in Sources */,
@@ -26306,6 +26325,7 @@
 				85A7167C1B16123300D8F94C /* VHalfEdge2.m in Sources */,
 				85A712B41B16123200D8F94C /* GeoPolygon3D.m in Sources */,
 				85A715F21B16123300D8F94C /* CmdIsInteger.m in Sources */,
+				85AB924A1BBF9AAE0009F759 /* RegularPolygonDialog.m in Sources */,
 				85A70FB71B16123100D8F94C /* NordsieckStepInterpolator.m in Sources */,
 				85A718191B16123300D8F94C /* AlgoChiSquared.m in Sources */,
 				85A712391B16123100D8F94C /* AlgoQuadricLimitedConicHeightConeForExtrusion.m in Sources */,
