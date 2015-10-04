@@ -96,7 +96,7 @@
     switch (expected) {
         case circleThreePoints:
         case circle:
-            if([lastCreated class] == [OrgGeogebraCommonKernelGeosGeoConic class] &&
+            if([lastCreated isKindOfClass:[OrgGeogebraCommonKernelGeosGeoConic class]]&&
                [(OrgGeogebraCommonKernelGeosGeoConic*)lastCreated isCircle]){
                 if(initialPoint_ != nil){
                     [initialPoint_ remove];
@@ -131,7 +131,7 @@
                     }
                     @finally {
                         for(NSObject<OrgGeogebraCommonKernelKernelNDGeoPointND>* p in list){
-                            if([p class] == [OrgGeogebraCommonKernelGeosGeoElement class]){
+                            if([p isKindOfClass:[OrgGeogebraCommonKernelGeosGeoElement class]]){
                                 [(OrgGeogebraCommonKernelGeosGeoElement*)p remove];
                             }
                         }
@@ -142,16 +142,16 @@
             break;
             
         case polygon:
-            if([lastCreated class] == [OrgGeogebraCommonKernelGeosGeoPolygon class]){
+            if([lastCreated isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPolygon class]]){
                 return;
             }
             break;
         case rigidPolygon:
-            if([lastCreated class] == [OrgGeogebraCommonKernelGeosGeoPolygon class]){
+            if([lastCreated isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPolygon class]]){
                 JavaUtilArrayList* list = [[JavaUtilArrayList alloc] init];
                 for(NSObject<OrgGeogebraCommonKernelKernelNDGeoPointND>* point in
                     [(OrgGeogebraCommonKernelGeosGeoPolygon*)lastCreated getPoints]){
-                    if([point class] == [OrgGeogebraCommonKernelGeosGeoPoint class]){
+                    if([point isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPoint class]]){
                         [list addWithId:(OrgGeogebraCommonKernelGeosGeoPoint*)point];
                     }
                 }
@@ -166,11 +166,11 @@
             }
             break;
         case vectorPolygon:
-            if([lastCreated class] == [OrgGeogebraCommonKernelGeosGeoPolygon class]){
+            if([lastCreated isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPolygon class]]){
                 JavaUtilArrayList* list = [[JavaUtilArrayList alloc] init];
                 for(NSObject<OrgGeogebraCommonKernelKernelNDGeoPointND>* point in
                     [(OrgGeogebraCommonKernelGeosGeoPolygon*)lastCreated getPoints]){
-                    if([point class] == [OrgGeogebraCommonKernelGeosGeoPoint class]){
+                    if([point isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPoint class]]){
                         [list addWithId:(OrgGeogebraCommonKernelGeosGeoPoint*)point];
                     }
                 }

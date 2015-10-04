@@ -927,6 +927,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgGeogebraCommonKernelCommandsAlgebraProcessor_$2)
   id<OrgGeogebraCommonKernelKernelNDGeoPointND> p = nil;
   IOSObjectArray *temp = nil;
   @try {
+      NSLog(@"%@",str);
     OrgGeogebraCommonKernelArithmeticValidExpression *ve = [((id<OrgGeogebraCommonKernelParserParserInterface>) nil_chk(parser_)) parseGeoGebraExpressionWithNSString:str];
     if ([ve isKindOfClass:[OrgGeogebraCommonKernelArithmeticExpressionNode class]]) {
       OrgGeogebraCommonKernelArithmeticExpressionNode *en = (OrgGeogebraCommonKernelArithmeticExpressionNode *) check_class_cast(ve, [OrgGeogebraCommonKernelArithmeticExpressionNode class]);

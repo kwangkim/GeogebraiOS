@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "org/geogebra/common/util/NumberFormatAdapter.h"
+#import "java/text/DecimalFormat.h"
+#import "java/text/DecimalFormatSymbols.h"
+#import "java/util/Locale.h"
 
-@interface NumberFormatiOS : NSNumberFormatter <OrgGeogebraCommonUtilNumberFormatAdapter>
-{
-    int maximumFractionDigits;
-}
+@interface NumberFormatiOS : JavaTextDecimalFormat <OrgGeogebraCommonUtilNumberFormatAdapter>
 
+@property(retain) NSNumberFormatter* formatter;
+-(id)initWithInt:(int)sigDigit withInt:(int)maxWidth withBOOL:(BOOL)sciNote;
+-(instancetype)initWithNSString:(NSString *)pattern withInt:(int)i;
 -(id)initWithString:(NSString*)string WithDigits:(int)digits;
 
 @end

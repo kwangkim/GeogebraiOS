@@ -9,36 +9,54 @@
 #import "NumberFormatiOS.h"
 
 @implementation NumberFormatiOS
--(id)init
+
+-(instancetype)init
 {
     self = [super init];
-    if(self){
-        [self setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    }
+    [self setDecimalFormatSymbolsWithJavaTextDecimalFormatSymbols:[[JavaTextDecimalFormatSymbols alloc] initWithJavaUtilLocale:JavaUtilLocale_US_]];
     return self;
 }
 
--(id)initWithString:(NSString*)string WithDigits:(int)digits
+-(instancetype)initWithString:(NSString*)pattern WithDigits:(int)i
 {
-    self = [super init];
-    if(self){
-        [self setMaximumFractionDigits:digits];
-        [self setPositiveFormat:string];
-        [self setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    }
+    self = [super initWithNSString:pattern];
+    [self setMaximumFractionDigitsWithInt:i];
+    [self setDecimalFormatSymbolsWithJavaTextDecimalFormatSymbols:[[JavaTextDecimalFormatSymbols alloc] initWithJavaUtilLocale:JavaUtilLocale_US_]];
     return self;
 }
 
--(int)getMaximumFractionDigits
-{
-    return maximumFractionDigits;
-}
 
--(NSString*)formatWithDouble:(double)x
-{
-    return [self stringFromNumber:[NSNumber numberWithDouble:x]];
-}
 
+//-(id)init
+//{
+//    self = [super init];
+//    if(self){
+//        [self setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+//    }
+//    return self;
+//}
+//
+//-(id)initWithString:(NSString*)string WithDigits:(int)digits
+//{
+//    self = [super init];
+//    if(self){
+//        [self setMaximumFractionDigits:digits];
+//        [self setPositiveFormat:string];
+//        [self setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+//    }
+//    return self;
+//}
+//
+//-(int)getMaximumFractionDigits
+//{
+//    return maximumFractionDigits;
+//}
+//
+//-(NSString*)formatWithDouble:(double)x
+//{
+//    return [self stringFromNumber:[NSNumber numberWithDouble:x]];
+//}
+//
 
 
 

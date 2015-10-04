@@ -415,7 +415,12 @@ static Boolean isApplet;
 
 -(void)showErrorWithNSString:(NSString *)s
 {
-    NSLog(@"AppI Error: s");
+    NSLog(@"AppI Error: %@", s);
+}
+
+-(void)showErrorWithNSString:(NSString *)string withNSString:(NSString *)str
+{
+    NSLog(@"%@ %@",string, str);
 }
 
 -(jboolean)isRightClickEnabled

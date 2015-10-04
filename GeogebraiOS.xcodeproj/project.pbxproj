@@ -4164,7 +4164,7 @@
 				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.m",
 				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.h",
 			);
-			script = "~/j2objc-0.9.7/j2objc --prefixes ~/j2objc-0.9.7/prefixes.properties \\\n-d ${DERIVED_FILES_DIR} \\\n-sourcepath ${PROJECT_DIR}/GeogebraiOS/javasources \\\n${INPUT_FILE_PATH};";
+			script = "~/j2objc-0.9.7/j2objc -use-arc --prefixes ~/j2objc-0.9.7/prefixes.properties \\\n-d ${DERIVED_FILES_DIR} \\\n-sourcepath ${PROJECT_DIR}/GeogebraiOS/javasources \\\n${INPUT_FILE_PATH};";
 		};
 /* End PBXBuildRule section */
 

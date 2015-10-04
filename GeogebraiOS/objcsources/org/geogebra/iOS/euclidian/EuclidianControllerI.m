@@ -275,8 +275,8 @@
         return;
     }
     OrgGeogebraCommonKernelGeosGeoPoint* point = (OrgGeogebraCommonKernelGeosGeoPoint*) [[view_ getHits] getFirstHitWithOrgGeogebraCommonKernelGeosTestEnum:OrgGeogebraCommonKernelGeosTestEnum_GEOPOINT];
-    if(point == nil && [movedGeoPoint_ isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPoint class]]){
-        point = (OrgGeogebraCommonKernelGeosGeoPoint*) movedGeoPoint_;
+    if(point == nil && [pointCreated_ isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPoint class]]){
+        point = (OrgGeogebraCommonKernelGeosGeoPoint*) pointCreated_;
     }
     
     switch (mode_) {
@@ -284,7 +284,7 @@
             pen_ = [[EuclidianPenFreehand alloc] initWithOrgGeogebraCommonMainApp:app_ withOrgGeogebraCommonEuclidianEuclidianView:view_];
             [(EuclidianPenFreehand*)pen_ setExpected:circleThreePoints];
             
-            point = (pointCreated_ != nil) && [movedGeoPoint_ class] == [OrgGeogebraCommonKernelGeosGeoPoint class] ? (OrgGeogebraCommonKernelGeosGeoPoint*)movedGeoPoint_ : nil;
+            point = (pointCreated_ != nil) && [pointCreated_ isKindOfClass:[OrgGeogebraCommonKernelGeosGeoPoint class]] ? (OrgGeogebraCommonKernelGeosGeoPoint*)pointCreated_ : nil;
             
             break;
         case OrgGeogebraCommonEuclidianEuclidianConstants_MODE_POLYGON:

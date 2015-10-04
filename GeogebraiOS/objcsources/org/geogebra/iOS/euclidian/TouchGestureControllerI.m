@@ -183,12 +183,12 @@
         if([EuclidianControllerI penModeWithInt:_ec->mode_]){
             [_ec->app_ refreshViews];
         }
-        if([[_ec->view_ getPreviewDrawable] class] != [OrgGeogebraCommonEuclidianDrawDrawPolygon class] &&
-           [[_ec->view_ getPreviewDrawable] class] != [OrgGeogebraCommonEuclidianDrawDrawPolyLine class]){
+        if(![[_ec->view_ getPreviewDrawable] isKindOfClass:[OrgGeogebraCommonEuclidianDrawDrawPolygon class]] &&
+           ![[_ec->view_ getPreviewDrawable] isKindOfClass: [OrgGeogebraCommonEuclidianDrawDrawPolyLine class] ]){
             [_ec->view_ setPreviewWithOrgGeogebraCommonEuclidianPreviewable:nil];
         }
 
-    }else{// if([[event allTouches] count] == 2 ){
+    }else{
 
         ignoreEvent = YES;
         [CancelEventTimer touchEventOccured];
